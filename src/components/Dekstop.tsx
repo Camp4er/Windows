@@ -9,6 +9,7 @@ import ExperienceWindow from "./ExperienceWindow";
 import SkillsWindow from "./SkillsWindow";
 import ContactWindow from "./ContactWindow";
 import ProjectsWindow from "./ProjectsWindow";
+import Terminal from "./Terminal";
 
 type WindowInfo = {
   name: string;
@@ -112,6 +113,10 @@ export default function Desktop() {
                 height="100%"
                 className="border rounded-md"
                 ></iframe>
+            )
+            }
+            {window.name === "Terminal" && (
+                <Terminal key={window.name}/>
             )
             }
           </Window>

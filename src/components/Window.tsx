@@ -32,7 +32,7 @@ export default function Window({ title, iconSrc, onClose, onMinimize, children }
           className={`window bg-gray-800 border border-gray-600 rounded-lg shadow-lg transition-all duration-300 ${
             isMaximized
               ? 'fixed top-0 left-0 right-0 m-0' // full screen without margins
-              : 'absolute w-80 h-auto'
+              : 'relative w-auto h-auto'
           }`}
           style={{
             height: isMaximized ? 'calc(100vh - 54px)' : 'auto', // Adjusts for taskbar height (54px)

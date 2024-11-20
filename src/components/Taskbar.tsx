@@ -83,7 +83,7 @@ const Taskbar = ({ openWindows, toggleWindow, openWindow }: TaskbarProps) => {
       id: 8,
       src: "icons/bash.png",
       size: { width: 32, height: 32 },
-      action: () => console.log("Open Terminal"),
+      action: () => openWindow("Terminal", "icons/bash.png"),
       alt: "Terminal",
     },
     {
@@ -112,46 +112,48 @@ const Taskbar = ({ openWindows, toggleWindow, openWindow }: TaskbarProps) => {
       </button>
 
       {/* Taskbar Buttons */}
-      <div className="flex items-center gap-2">
-        {taskbarButtons.map((button) => (
-          <button
-            key={button.id}
-            onClick={button.action}
-            className="flex items-center hover:bg-gray-600 p-2 rounded"
-            aria-label={button.alt}
-          >
-            <img
-              src={button.src}
-              alt={button.alt}
-              width={button.size.width}
-              height={button.size.height}
-            />
-          </button>
-        ))}
-      </div>
+      <div className="flex items-center">
+        <div className="flex items-center gap-1 pr-1">
+          {taskbarButtons.map((button) => (
+            <button
+              key={button.id}
+              onClick={button.action}
+              className="flex items-center hover:bg-gray-600 p-2 rounded"
+              aria-label={button.alt}
+            >
+              <img
+                src={button.src}
+                alt={button.alt}
+                width={button.size.width}
+                height={button.size.height}
+              />
+            </button>
+          ))}
+        </div>
 
-      {/* Open Window Icons */}
-      <div className="flex items-center gap-2">
-        {openWindows.map((window) => (
-          <button
-            key={window.name}
-            onClick={() => toggleWindow(window.name)}
-            className={`flex items-center p-2 rounded ${
-              window.minimized ? "bg-gray-600" : "bg-gray-700"
-            }`}
-            aria-label={window.name}
-          >
-            <img src={window.icon} alt={window.name} width={28} height={28} />
-          </button>
-        ))}
+        {/* Open Window Icons */}
+        <div className="flex items-center gap-1">
+          {openWindows.map((window) => (
+            <button
+              key={window.name}
+              onClick={() => toggleWindow(window.name)}
+              className={`flex items-center p-2 rounded ${
+                window.minimized ? "bg-gray-600" : "bg-gray-700"
+              }`}
+              aria-label={window.name}
+            >
+              <img src={window.icon} alt={window.name} width={32} height={32} />
+            </button>
+          ))}
+        </div>
       </div>
 
       {/* System Tray */}
-      <div className="flex items-center gap-3">
+      <div className="flex items-center hover:bg-gray-600 gap-1 m-0 py-2 rounded">
         {systemTrayIcons.map((icon) => (
           <button
             key={icon.id}
-            className="hover:bg-gray-600 p-2 rounded"
+            className="p-1 rounded"
             aria-label={icon.alt}
           >
             <img src={icon.src} alt={icon.alt} width={20} height={20} />
