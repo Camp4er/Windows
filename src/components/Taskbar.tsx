@@ -149,7 +149,24 @@ const Taskbar = ({ openWindows, toggleWindow, openWindow }: TaskbarProps) => {
       </div>
 
       {/* System Tray */}
-      <div className="flex items-center hover:bg-gray-600 gap-1 m-0 py-2 rounded">
+      <div className="flex items-center">
+        <div className="flex items-center hover:bg-gray-600 gap-1 m-0 py-2 px-1 rounded">
+          <button className="p-1 rounded">
+            <img src="/icons/arrowup-lightmode.png" alt="arrow-up" width={15} height={15} />
+          </button>
+        </div>
+        <div className="flex items-center hover:bg-gray-600 gap-1 m-0 py-2 px-2 rounded">
+          <button className="p-1 rounded">
+            <img src="/icons/onedrive.png" alt="arrow-up" width={18} height={18} />
+          </button>
+        </div>
+        <div className="flex items-center hover:bg-gray-600 gap-1 m-0 py-2 px-2 rounded">
+          <p className="text-center text-white text-xs">ENG
+            <br/>
+            IN
+          </p>
+        </div>
+        <div className="flex items-center hover:bg-gray-600 gap-1 m-0 py-2 rounded">
         {systemTrayIcons.map((icon) => (
           <button
             key={icon.id}
@@ -159,6 +176,7 @@ const Taskbar = ({ openWindows, toggleWindow, openWindow }: TaskbarProps) => {
             <img src={icon.src} alt={icon.alt} width={20} height={20} />
           </button>
         ))}
+        </div>
       </div>
     </div>
   );
