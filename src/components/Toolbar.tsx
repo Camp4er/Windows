@@ -1,5 +1,5 @@
-import React from 'react';
-import Breadcrumb from './Breadcrumb';
+import React from "react";
+import Breadcrumb from "./Breadcrumb";
 
 const Toolbar = () => {
   return (
@@ -9,24 +9,68 @@ const Toolbar = () => {
         {/* Navigation Buttons */}
         <div className="flex space-x-2 mr-4">
           <button className="p-2 rounded hover:bg-gray-700">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              viewBox="0 0 16 16"
+            >
               <path d="M15 8a.5.5 0 0 0-.5-.5H2.707l4.147-4.146a.5.5 0 0 0-.708-.708l-5 5a.5.5 0 0 0 0 .708l5 5a.5.5 0 0 0 .708-.708L2.707 8.5H14.5a.5.5 0 0 0 .5-.5z" />
             </svg>
           </button>
           <button className="p-2 rounded hover:bg-gray-700">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              viewBox="0 0 16 16"
+            >
               <path d="M1 8a.5.5 0 0 0 .5.5h11.793l-4.147 4.146a.5.5 0 0 0 .708.708l5-5a.5.5 0 0 0 0-.708l-5-5a.5.5 0 0 0-.708.708L13.293 7.5H1.5A.5.5 0 0 0 1 8z" />
             </svg>
           </button>
           <button className="p-2 rounded hover:bg-gray-700">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-              <path d="M3.5 0A2.5 2.5 0 0 0 1 2.5v11A2.5 2.5 0 0 0 3.5 16h9A2.5 2.5 0 0 0 15 13.5v-11A2.5 2.5 0 0 0 12.5 0h-9zM2 4a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 .5.5v.5H2V4zm12 1.5V13a1.5 1.5 0 0 1-1.5 1.5H3.5A1.5 1.5 0 0 1 2 13V5.5h12z" />
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              viewBox="0 0 16 16"
+            >
+              <path d="M15 8a.5.5 0 0 0-.5-.5H2.707l4.147-4.146a.5.5 0 0 0-.708-.708l-5 5a.5.5 0 0 0 0 .708l5 5a.5.5 0 0 0 .708-.708L2.707 8.5H14.5a.5.5 0 0 0 .5-.5z" />
+            </svg>
+          </button>
+          <button className="p-2 rounded hover:bg-gray-700">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              viewBox="0 0 16 16"
+            >
+              <path d="M15 8a.5.5 0 0 0-.5-.5H2.707l4.147-4.146a.5.5 0 0 0-.708-.708l-5 5a.5.5 0 0 0 0 .708l5 5a.5.5 0 0 0 .708-.708L2.707 8.5H14.5a.5.5 0 0 0 .5-.5z" />
             </svg>
           </button>
         </div>
 
         {/* Breadcrumbs */}
-        
+        <div className="flex items-center space-x-2 text-gray-300">
+            <div className="w-full px-2 py-1 bg-gray-900 border border-gray-700 rounded text-gray-300 focus:outline-none focus:ring focus:ring-gray-600">
+          <span className="cursor-pointer hover:text-white">Home</span>
+          <span>{">"}</span>
+          <span className="cursor-pointer hover:text-white">Documents</span>
+        </div>
+        </div>
+
+        {/* Search Bar */}
+        <div className="flex-1 ml-4 flex items-center">
+          <input
+            type="text"
+            placeholder="Search Home"
+            className="w-full px-2 py-1 bg-gray-900 border border-gray-700 rounded text-gray-300 placeholder-gray-500 focus:outline-none focus:ring focus:ring-gray-600"
+          />
+        </div>
       </div>
 
       {/* Header 2 */}
