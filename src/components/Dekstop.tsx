@@ -10,6 +10,7 @@ import SkillsWindow from "./SkillsWindow";
 import ContactWindow from "./ContactWindow";
 import ProjectsWindow from "./ProjectsWindow";
 import Terminal from "./Terminal";
+import FileExplorer from "./FileExplorer";
 
 type WindowInfo = {
   name: string;
@@ -72,6 +73,11 @@ export default function Desktop() {
           icon="/icons/phone-book.png"
           onClick={() => openWindow("Contact", "/icons/phone-book.png")}
         />
+        <DesktopIcon
+        title="FileExplorer"
+        icon="/icons/app.png"
+        onClick={() => openWindow("FileExplorer", "/icons/app.png")}
+        />
       </div>
 
       {/* Render open windows */}
@@ -117,6 +123,10 @@ export default function Desktop() {
             }
             {window.name === "Terminal" && (
                 <Terminal key={window.name}/>
+            )
+            }
+            {window.name === "FileExplorer" && (
+              <FileExplorer/>
             )
             }
           </Window>

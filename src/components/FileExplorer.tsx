@@ -52,6 +52,31 @@ const FileExplorer = () => {
   };
 
   return (
+    <div>
+        <div className="header1 bg-gray-700 flex">
+            <div className="arrows flex items-start hover:bg-gray-600 p-2">
+            <div className="flex items-center">
+                <img src="/icons/whiteleftarrow.svg" alt="arrow" />
+            </div>
+            <div className="flex items-center">
+                <img src="/icons/whiterightarrow.svg" alt="arrow" />
+            </div>
+            <div className="flex items-center">
+                <img src="/icons/whiteuparrow.svg" alt="arrow" />
+            </div>
+            <div className="flex items-center">
+                <img src="/icons/whitereload.png" alt="reload" className='w-6 h-3' />
+            </div>
+            </div>
+            <div className="breadcrumbs">
+            <Breadcrumb path={path} onNavigate={navigateTo} />
+            </div>
+            <div className="searchbar">
+                <input type="text" placeholder='Search' />
+                    <img src="" alt="search icon" />
+            </div>
+        </div>
+        <div className="header2 flex"></div>
     <div className="flex h-full bg-white border border-gray-300 rounded-md overflow-hidden">
       {/* Sidebar */}
       <Sidebar onNavigate={navigateTo} />
@@ -70,6 +95,7 @@ const FileExplorer = () => {
           <FileContents folderContents={folderContents} onOpen={openItem} />
         </div>
       </div>
+    </div>
     </div>
   );
 };
