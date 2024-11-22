@@ -43,15 +43,12 @@ const Toolbar = () => {
             </svg>
           </button>
           <button className="p-2 rounded hover:bg-gray-700">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              fill="currentColor"
-              viewBox="0 0 16 16"
-            >
-              <path d="M15 8a.5.5 0 0 0-.5-.5H2.707l4.147-4.146a.5.5 0 0 0-.708-.708l-5 5a.5.5 0 0 0 0 .708l5 5a.5.5 0 0 0 .708-.708L2.707 8.5H14.5a.5.5 0 0 0 .5-.5z" />
-            </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="24px" height="24px">
+  <path d="M0 0h24v24H0z" fill="none" />
+  <path d="M12 4V1L8 5l4 4V6c3.31 0 6 2.69 6 6 0 .95-.22 1.84-.6 2.63l1.46 1.46C19.44 14.8 20 13.46 20 12c0-4.42-3.58-8-8-8zm6.36 9.87L17 12c-.38.88-.94 1.67-1.6 2.32l1.36 1.36C18.52 14.45 19.74 13 19.74 12c0-1.48-1.12-2.67-2.63-3.13zm-12.96-.2C4.64 12.78 4 13.33 4 14c0 1.48 1.12 2.67 2.63 3.13C7.38 17 8.06 17 8 16c-1.04-.51-1.88-1.48-1.99-2.85l1.36-1.36zM12 20v3l4-4-4-4v3c-3.31 0-6-2.69-6-6 0-.95.22-1.84.6-2.63l-1.46-1.46C4.56 9.2 4 10.54 4 12c0 4.42 3.58 8 8 8z" />
+</svg>
+
+
           </button>
         </div>
 
@@ -143,8 +140,13 @@ const Toolbar = () => {
         {/* Action Buttons */}
         <div className="flex space-x-4">
           <button className="hover:bg-gray-700 p-2 rounded flex flex-row items-center justify-center gap-1">
-            <Image src="/icons/sort.png" alt="sort icon"  width={18} height={18} />
-           <span className="text-white">Sort</span>
+            <Image
+              src="/icons/sort.png"
+              alt="sort icon"
+              width={18}
+              height={18}
+            />
+            <span className="text-white">Sort</span>
           </button>
           <button className="hover:bg-gray-700 p-2 rounded flex flex-row items-center justify-center gap-1">
             <Image
@@ -164,7 +166,14 @@ const Toolbar = () => {
             />
             <span className="text-white">Filter</span>
           </button>
-          <button className="hover:bg-gray-700 p-2 rounded">...</button>
+          <button className="hover:bg-gray-700 p-2 rounded">
+            <Image
+              src="/icons/more.png"
+              alt="more icon"
+              width={18}
+              height={18}
+            />
+          </button>
           <button className="hover:bg-gray-700 p-2 rounded flex flex-row items-center justify-center gap-1">
             <Image
               src="/icons/schedule.png"
