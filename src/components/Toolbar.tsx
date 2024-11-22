@@ -1,5 +1,6 @@
 import React from "react";
 import Breadcrumb from "./Breadcrumb";
+import Image from "next/image";
 
 const Toolbar = () => {
   return (
@@ -56,11 +57,11 @@ const Toolbar = () => {
 
         {/* Breadcrumbs */}
         <div className="flex items-center space-x-2 text-gray-300">
-            <div className="w-full px-2 py-1 bg-gray-900 border border-gray-700 rounded text-gray-300 focus:outline-none focus:ring focus:ring-gray-600">
-          <span className="cursor-pointer hover:text-white">Home</span>
-          <span>{">"}</span>
-          <span className="cursor-pointer hover:text-white">Documents</span>
-        </div>
+          <div className="w-full px-2 py-1 bg-gray-900 border border-gray-700 rounded text-gray-300 focus:outline-none focus:ring focus:ring-gray-600">
+            <span className="cursor-pointer hover:text-white">Home</span>
+            <span>{">"}</span>
+            <span className="cursor-pointer hover:text-white">Documents</span>
+          </div>
         </div>
 
         {/* Search Bar */}
@@ -77,27 +78,62 @@ const Toolbar = () => {
       <div className="flex items-center px-4 py-2 bg-gray-900 text-gray-300">
         {/* Toolbar Options */}
         <div className="flex space-x-4">
-          <button className="hover:bg-gray-700">
-            <img src="/icons/plus.png" alt="plus icon" />
+          <button className="hover:bg-gray-700 p-2 rounded flex flex-row items-center justify-center gap-1">
+            <Image
+              src="/icons/plus.png"
+              alt="plus icon"
+              width={18}
+              height={18}
+            />
             <span className="text-white">New</span>
           </button>
-          <button className="hover:bg-gray-700">
-            <img src="/icons/scissors.png" alt="scissors icon" />
+          <button className="hover:bg-gray-700 p-2 rounded">
+            <Image
+              src="/icons/scissors.png"
+              alt="scissors icon"
+              width={18}
+              height={18}
+            />
           </button>
-          <button className="hover:bg-gray-700">
-            <img src="/icons/duplicate.png" alt="duplicate icon" />
+          <button className="hover:bg-gray-700 p-2 rounded">
+            <Image
+              src="/icons/duplicate.png"
+              alt="duplicate icon"
+              width={18}
+              height={18}
+            />
           </button>
-          <button className="hover:bg-gray-700">
-            <img src="/icons/paste.png" alt="paste icon" />
+          <button className="hover:bg-gray-700 p-2 rounded">
+            <Image
+              src="/icons/paste.png"
+              alt="paste icon"
+              width={18}
+              height={18}
+            />
           </button>
-          <button className="hover:bg-gray-700">
-            <img src="/icons/rename.png" alt="rename icon" />
+          <button className="hover:bg-gray-700 p-2 rounded">
+            <Image
+              src="/icons/rename.png"
+              alt="rename icon"
+              width={18}
+              height={18}
+            />
           </button>
-          <button className="hover:bg-gray-700">
-            <img src="/icons/share.png" alt="share icon" />
+          <button className="hover:bg-gray-700 p-2 rounded">
+            <Image
+              src="/icons/share.png"
+              alt="share icon"
+              width={18}
+              height={18}
+            />
           </button>
-          <button className="hover:bg-gray-700">
-            <img src="/icons/delete.png" alt="delete icon" />
+          <button className="hover:bg-gray-700 p-2 rounded">
+            <Image
+              src="/icons/delete.png"
+              alt="delete icon"
+              width={18}
+              height={18}
+            />
           </button>
         </div>
 
@@ -106,21 +142,36 @@ const Toolbar = () => {
 
         {/* Action Buttons */}
         <div className="flex space-x-4">
-        <button className="hover:bg-gray-700">
-            <img src="/icons/sort.png" alt="sort icon" />
-            <span className="text-white">Sort</span>
+          <button className="hover:bg-gray-700 p-2 rounded flex flex-row items-center justify-center gap-1">
+            <Image src="/icons/sort.png" alt="sort icon"  width={18} height={18} />
+           <span className="text-white">Sort</span>
           </button>
-          <button className="hover:bg-gray-700">
-            <img src="/icons/analysis.png" alt="analysis icon" />
+          <button className="hover:bg-gray-700 p-2 rounded flex flex-row items-center justify-center gap-1">
+            <Image
+              src="/icons/analysis.png"
+              alt="analysis icon"
+              width={18}
+              height={18}
+            />
             <span className="text-white">View</span>
           </button>
-          <button className="hover:bg-gray-700">
-            <img src="/icons/filter.png" alt="filter icon" />
+          <button className="hover:bg-gray-700 p-2 rounded flex flex-row items-center justify-center gap-1">
+            <Image
+              src="/icons/filter.png"
+              alt="filter icon"
+              width={18}
+              height={18}
+            />
             <span className="text-white">Filter</span>
           </button>
-          <button className="hover:bg-gray-700">...</button>
-          <button className="hover:bg-gray-700">
-            <img src="/icons/schedule.png" alt="schedule icon" />
+          <button className="hover:bg-gray-700 p-2 rounded">...</button>
+          <button className="hover:bg-gray-700 p-2 rounded flex flex-row items-center justify-center gap-1">
+            <Image
+              src="/icons/schedule.png"
+              alt="schedule icon"
+              width={18}
+              height={18}
+            />
             <span className="text-white">Details</span>
           </button>
         </div>
