@@ -77,11 +77,28 @@ const Toolbar = () => {
       <div className="flex items-center px-4 py-2 bg-gray-900 text-gray-300">
         {/* Toolbar Options */}
         <div className="flex space-x-4">
-          <button className="hover:text-white">New</button>
-          <button className="hover:text-white">Cut</button>
-          <button className="hover:text-white">Copy</button>
-          <button className="hover:text-white">Paste</button>
-          <button className="hover:text-white">Delete</button>
+          <button className="hover:bg-gray-700">
+            <img src="/icons/plus.png" alt="plus icon" />
+            <span className="text-white">New</span>
+          </button>
+          <button className="hover:bg-gray-700">
+            <img src="/icons/scissors.png" alt="scissors icon" />
+          </button>
+          <button className="hover:bg-gray-700">
+            <img src="/icons/duplicate.png" alt="duplicate icon" />
+          </button>
+          <button className="hover:bg-gray-700">
+            <img src="/icons/paste.png" alt="paste icon" />
+          </button>
+          <button className="hover:bg-gray-700">
+            <img src="/icons/rename.png" alt="rename icon" />
+          </button>
+          <button className="hover:bg-gray-700">
+            <img src="/icons/share.png" alt="share icon" />
+          </button>
+          <button className="hover:bg-gray-700">
+            <img src="/icons/delete.png" alt="delete icon" />
+          </button>
         </div>
 
         {/* Spacer */}
@@ -89,10 +106,23 @@ const Toolbar = () => {
 
         {/* Action Buttons */}
         <div className="flex space-x-4">
-          <button className="hover:text-white">Sort</button>
-          <button className="hover:text-white">View</button>
-          <button className="hover:text-white">Filter</button>
-          <button className="hover:text-white">...</button>
+        <button className="hover:bg-gray-700">
+            <img src="/icons/sort.png" alt="sort icon" />
+            <span className="text-white">Sort</span>
+          </button>
+          <button className="hover:bg-gray-700">
+            <img src="/icons/analysis.png" alt="analysis icon" />
+            <span className="text-white">View</span>
+          </button>
+          <button className="hover:bg-gray-700">
+            <img src="/icons/filter.png" alt="filter icon" />
+            <span className="text-white">Filter</span>
+          </button>
+          <button className="hover:bg-gray-700">...</button>
+          <button className="hover:bg-gray-700">
+            <img src="/icons/schedule.png" alt="schedule icon" />
+            <span className="text-white">Details</span>
+          </button>
         </div>
       </div>
     </div>
