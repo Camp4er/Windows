@@ -31,7 +31,7 @@ export default function Window({ title, iconSrc, onClose, onMinimize, children }
         <div
           className={`window bg-gray-800 border border-gray-600 rounded-lg shadow-lg transition-all duration-300 ${
             isMaximized
-              ? 'fixed top-0 left-0 right-0 m-0' // full screen without margins
+              ? 'fixed top-0 left-0 right-0 m-0 ' // full screen without margins
               : 'relative w-auto h-auto'
           }`}
           style={{
