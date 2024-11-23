@@ -4,11 +4,11 @@ import Image from "next/image";
 
 const Toolbar = () => {
   return (
-    <div className="">
+    <div className="h-full">
       {/* Header 1 */}
       <div className="flex items-center px-4 py-2 bg-gray-800 text-white border-b border-gray-700">
         {/* Navigation Buttons */}
-        <div className="flex space-x-2 mr-4">
+        <div className="flex space-x-2 mr-4 gap-2">
           <button className="p-2 rounded hover:bg-gray-700">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -43,17 +43,21 @@ const Toolbar = () => {
             </svg>
           </button>
           <button className="p-2 rounded hover:bg-gray-700">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="white" width="16px" height="16px">
-  <path d="M0 0h24v24H0z" fill="none" />
-  <path d="M12 4V1L8 5l4 4V6c3.31 0 6 2.69 6 6 0 .95-.22 1.84-.6 2.63l1.46 1.46C19.44 14.8 20 13.46 20 12c0-4.42-3.58-8-8-8zm6.36 9.87L17 12c-.38.88-.94 1.67-1.6 2.32l1.36 1.36C18.52 14.45 19.74 13 19.74 12c0-1.48-1.12-2.67-2.63-3.13zm-12.96-.2C4.64 12.78 4 13.33 4 14c0 1.48 1.12 2.67 2.63 3.13C7.38 17 8.06 17 8 16c-1.04-.51-1.88-1.48-1.99-2.85l1.36-1.36zM12 20v3l4-4-4-4v3c-3.31 0-6-2.69-6-6 0-.95.22-1.84.6-2.63l-1.46-1.46C4.56 9.2 4 10.54 4 12c0 4.42 3.58 8 8 8z" />
-</svg>
-
-
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+              fill="white"
+              width="16px"
+              height="16px"
+            >
+              <path d="M0 0h24v24H0z" fill="none" />
+              <path d="M12 4V1L8 5l4 4V6c3.31 0 6 2.69 6 6 0 .95-.22 1.84-.6 2.63l1.46 1.46C19.44 14.8 20 13.46 20 12c0-4.42-3.58-8-8-8zm6.36 9.87L17 12c-.38.88-.94 1.67-1.6 2.32l1.36 1.36C18.52 14.45 19.74 13 19.74 12c0-1.48-1.12-2.67-2.63-3.13zm-12.96-.2C4.64 12.78 4 13.33 4 14c0 1.48 1.12 2.67 2.63 3.13C7.38 17 8.06 17 8 16c-1.04-.51-1.88-1.48-1.99-2.85l1.36-1.36zM12 20v3l4-4-4-4v3c-3.31 0-6-2.69-6-6 0-.95.22-1.84.6-2.63l-1.46-1.46C4.56 9.2 4 10.54 4 12c0 4.42 3.58 8 8 8z" />
+            </svg>
           </button>
         </div>
 
         {/* Breadcrumbs */}
-        <div className="flex items-center space-x-2 text-gray-300">
+        <div className="flex flex-grow items-center space-x-2 text-gray-300">
           <div className="w-full px-2 py-1 bg-gray-900 border border-gray-700 rounded text-gray-300 focus:outline-none focus:ring focus:ring-gray-600">
             <span className="cursor-pointer hover:text-white">Home</span>
             <span>{">"}</span>
@@ -63,23 +67,23 @@ const Toolbar = () => {
 
         {/* Search Bar */}
         <div className="flex-1 ml-4 flex items-center relative">
-  <input
-    type="text"
-    placeholder="Search Home"
-    className="w-full pl-2 pr-8 py-1 bg-gray-900 border border-gray-700 rounded text-gray-300 placeholder-gray-500 focus:outline-none focus:ring focus:ring-gray-600"
-  />
-  <Image
-    src="/icons/search-dark.svg"
-    alt="search icon"
-    width={18}
-    height={18}
-    className="absolute right-2 top-1/2 transform -translate-y-1/2"
-  />
-</div>
+          <input
+            type="text"
+            placeholder="Search Home"
+            className="w-full pl-2 pr-8 py-1 bg-gray-900 border border-gray-700 rounded text-gray-300 placeholder-gray-500 focus:outline-none focus:ring focus:ring-gray-600"
+          />
+          <Image
+            src="/icons/search-dark.svg"
+            alt="search icon"
+            width={18}
+            height={18}
+            className="absolute right-2 top-1/2 transform -translate-y-1/2"
+          />
+        </div>
       </div>
 
       {/* Header 2 */}
-      <div className="flex items-center px-4 py-2 bg-gray-900 text-gray-300">
+      <div className="flex items-center px-4 py-2 bg-gray-900 border-gray-500 text-gray-300">
         {/* Toolbar Options */}
         <div className="flex space-x-4">
           <button className="hover:bg-gray-700 p-2 rounded flex flex-row items-center justify-center gap-1">

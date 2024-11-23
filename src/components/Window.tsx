@@ -29,7 +29,7 @@ export default function Window({ title, iconSrc, onClose, onMinimize, children }
     <>
       {isVisible && (
         <div
-          className={`window bg-gray-800 border border-gray-600 rounded-lg shadow-lg transition-all duration-300 ${
+          className={`window bg-gray-900 border border-gray-600 rounded-lg shadow-lg transition-all duration-300 ${
             isMaximized
               ? 'fixed top-0 left-0 right-0 m-0 ' // full screen without margins
               : 'relative w-auto h-auto'
@@ -62,7 +62,7 @@ export default function Window({ title, iconSrc, onClose, onMinimize, children }
           </div>
           
           {/* Window content */}
-          <div className="overflow-auto h-full bg-white rounded-b-lg">{children}</div>
+          <div className="rounded-b-lg">{children}</div>
         </div>
       )}
     </>
