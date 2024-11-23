@@ -53,7 +53,7 @@ const FileExplorer = () => {
   };
 
   return (
-    <div className='h-screen p-0 m-0 flex flex-col'>
+    <div className='p-0 m-0 flex flex-col'>
         <Toolbar/>
         {/* <div className="header1 bg-gray-700 flex">
             <div className="arrows flex items-start gap-1">
@@ -78,17 +78,17 @@ const FileExplorer = () => {
                     <img src="/icons/search-light.svg" alt="search icon" />
             </div>
         </div>
-        <div className="header2 flex"></div> */}
+        <div className="header2 flex"></div> 
     <div className="flex h-full bg-white border border-gray-300 rounded-md overflow-hidden">
-      {/* Sidebar */}
+      
       <Sidebar onNavigate={navigateTo} />
 
-      {/* Main Explorer Area */}
+      
       <div className="flex-1 flex flex-col">
-        {/* Breadcrumb */}
+        
         <Breadcrumb path={path} onNavigate={navigateTo} />
 
-        {/* Folder Contents with Sliding Animation */}
+        
         <div
           className={`flex-1 transform transition-transform duration-500 ease-in-out ${
             slideDirection === 'right' ? 'translate-x-0' : '-translate-x-full'
@@ -97,7 +97,7 @@ const FileExplorer = () => {
           <FileContents folderContents={folderContents} onOpen={openItem} />
         </div>
       </div>
-    </div>
+    </div>*/}
     </div>
   );
 };
