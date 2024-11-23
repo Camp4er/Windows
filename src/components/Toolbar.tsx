@@ -62,13 +62,20 @@ const Toolbar = () => {
         </div>
 
         {/* Search Bar */}
-        <div className="flex-1 ml-4 flex items-center">
-          <input
-            type="text"
-            placeholder="Search Home"
-            className="w-full px-2 py-1 bg-gray-900 border border-gray-700 rounded text-gray-300 placeholder-gray-500 focus:outline-none focus:ring focus:ring-gray-600"
-          />
-        </div>
+        <div className="flex-1 ml-4 flex items-center relative">
+  <input
+    type="text"
+    placeholder="Search Home"
+    className="w-full pl-2 pr-8 py-1 bg-gray-900 border border-gray-700 rounded text-gray-300 placeholder-gray-500 focus:outline-none focus:ring focus:ring-gray-600"
+  />
+  <Image
+    src="/icons/search-dark.svg"
+    alt="search icon"
+    width={18}
+    height={18}
+    className="absolute right-2 top-1/2 transform -translate-y-1/2"
+  />
+</div>
       </div>
 
       {/* Header 2 */}
