@@ -40,29 +40,29 @@ export default function Window({ title, iconSrc, onClose, onMinimize, children }
           }}
         >
           {/* Window header */}
-          <div className="flex justify-between items-center bg-gray-700 p-2 rounded-t-lg">
+          <div className="flex justify-between items-center bg-gray-900 p-1 rounded-t-lg">
             <div className="flex items-center">
               <img src={iconSrc} alt={title} className="w-6 h-6 mr-2" />
               <span className="text-white font-bold">{title}</span>
             </div>
-            <div className="flex items-center">
+            <div className="flex items-center gap-2">
               {/* Minimize button */}
-              <button onClick={handleMinimize} className="text-gray-400 hover:text-white mr-2">
+              <button onClick={handleMinimize} className="text-gray-400 text-2xl rounded hover:bg-gray-700 px-2 py-1">
                 &#x2013;
               </button>
               {/* Resize button */}
-              <button onClick={handleResize} className="text-gray-400 hover:text-white mr-2">
+              <button onClick={handleResize} className="text-gray-400 text-xl rounded hover:bg-gray-700 px-2 py-1">
                 {isMaximized ? '🗗' : '🗖'}
               </button>
               {/* Close button */}
-              <button onClick={onClose} className="text-gray-400 hover:text-white">
+              <button onClick={onClose} className="text-gray-400 text-2xl rounded hover:bg-gray-700 px-2 py-1">
                 &times;
               </button>
             </div>
           </div>
           
           {/* Window content */}
-          <div className="p-4 overflow-auto h-full bg-white rounded-b-lg">{children}</div>
+          <div className="overflow-auto h-full bg-white rounded-b-lg">{children}</div>
         </div>
       )}
     </>
