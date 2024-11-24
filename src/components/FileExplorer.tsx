@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Breadcrumb from './Breadcrumb';
 import Sidebar from './Sidebar';
 import FileContents from './FileContents';
 import Toolbar from './Toolbar';
