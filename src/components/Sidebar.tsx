@@ -22,7 +22,7 @@ const Sidebar: React.FC<SidebarProps> = ({ onNavigate }) => {
       {/* First  section */}
       <ul className="space-y-2">
         {general.map((item, index) => (
-          <li key={index} className="flex pl-8 hover:bg-gray-700 rounded">
+          <li key={index} className="flex pl-8 hover:bg-gray-700 cursor-pointer rounded">
             <button
               className="w-full flex items-center justify-start gap-1 text-center text-sm text-white rounded py-1 pl-1"
               onClick={() => onNavigate(["This PC", item])}
@@ -39,7 +39,7 @@ const Sidebar: React.FC<SidebarProps> = ({ onNavigate }) => {
       {/* Second section */}
       <ul className="space-y-2">
         {folders.map((folder, index) => (
-          <li key={index} className="flex pl-8 hover:bg-gray-700 rounded">
+          <li key={index} className="flex pl-8 hover:bg-gray-700 cursor-pointer rounded">
             <button
               className="w-full flex items-center justify-start gap-1 text-center text-sm text-white rounded py-1 pl-1"
               onClick={() => onNavigate(["This PC", folder])}
@@ -56,7 +56,7 @@ const Sidebar: React.FC<SidebarProps> = ({ onNavigate }) => {
       {/* Third section */}
       <ul className="space-y-2">
         {mainFolders.map((folder, index) => (
-          <li key={index} className="flex pl-8 hover:bg-gray-700 rounded">
+          <li key={index} className="flex pl-8 hover:bg-gray-700 cursor-pointer rounded">
             <button
               className="w-full flex items-center justify-start gap-1 text-sm text-white rounded py-1 pl-1"
               onClick={() => onNavigate([folder])}

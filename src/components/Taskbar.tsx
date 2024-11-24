@@ -96,7 +96,7 @@ const Taskbar = ({ openWindows, toggleWindow, openWindow }: TaskbarProps) => {
   ];
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 bg-[rgba(3,_21,_41,0.35)] backdrop-filter backdrop-blur-md text-white flex items-center justify-between px-4 h-[54px]">
+    <div className="fixed bottom-0 left-0 right-0 bg-zinc-800 text-white flex items-center justify-between px-4 h-[54px]">
       {/* Shortcut Button */}
       <button
         className="flex items-center gap-2 hover:bg-gray-600 p-2 rounded"
