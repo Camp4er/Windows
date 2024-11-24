@@ -55,7 +55,7 @@ export default function Window({ title, iconSrc, onClose, onMinimize, children }
                 {isMaximized ? '🗗' : '🗖'}
               </button>
               {/* Close button */}
-              <button onClick={onClose} className="text-gray-400 text-2xl rounded hover:bg-gray-700 px-2 py-1">
+              <button onClick={onClose} className="text-gray-400 text-2xl rounded hover:bg-red-600 hover:text-white px-2 py-1">
                 &times;
               </button>
             </div>

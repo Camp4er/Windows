@@ -6,7 +6,7 @@ const Toolbar = () => {
   return (
     <div className="h-full">
       {/* Header 1 */}
-      <div className="flex items-center px-4 py-2 bg-gray-800 text-white border-b border-gray-700">
+      <div className="flex items-center px-4 py-2 bg-gray-800 text-white border-b border-gray-500">
         {/* Navigation Buttons */}
         <div className="flex space-x-2 mr-4 gap-2">
           <button className="p-2 rounded hover:bg-gray-700">
@@ -60,7 +60,7 @@ const Toolbar = () => {
         <div className="flex flex-grow items-center space-x-2 text-gray-300">
           <div className="w-full px-2 py-1 bg-gray-900 border border-gray-700 rounded text-gray-300 focus:outline-none focus:ring focus:ring-gray-600">
             <span className="cursor-pointer hover:text-white">Home</span>
-            <span>{">"}</span>
+            <span>{" > "}</span>
             <span className="cursor-pointer hover:text-white">Documents</span>
           </div>
         </div>
@@ -83,7 +83,7 @@ const Toolbar = () => {
       </div>
 
       {/* Header 2 */}
-      <div className="flex items-center px-4 py-2 bg-gray-900 border-gray-500 text-gray-300">
+      <div className="flex items-center px-4 py-2 bg-gray-900 border-b border-gray-500 text-gray-300">
         {/* Toolbar Options */}
         <div className="flex space-x-4">
           <button className="hover:bg-gray-700 p-2 rounded flex flex-row items-center justify-center gap-1">

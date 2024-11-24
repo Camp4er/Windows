@@ -55,32 +55,7 @@ const FileExplorer = () => {
   return (
     <div className='p-0 flex flex-col '>
         <Toolbar/>
-        {/* <div className="header1 bg-gray-700 flex">
-            <div className="arrows flex items-start gap-1">
-            <div className="flex items-center hover:bg-gray-600 p-2">
-                <img src="/icons/word.png" alt="arrow" />
-            </div>
-            <div className="flex items-center hover:bg-gray-600 p-2">
-                <img src="/icons/whiterightarrow.svg" alt="arrow" />
-            </div>
-            <div className="flex items-center hover:bg-gray-600 p-2">
-                <img src="/icons/whiterightarrow.svg" alt="arrow" />
-            </div>
-            <div className="flex items-center hover:bg-gray-600 p-2">
-                <img src="/icons/whiterightarrow.svg" alt="reload" className='w-6 h-3' />
-            </div>
-            </div>
-            <div className="breadcrumbs">
-            <Breadcrumb path={path} onNavigate={navigateTo} />
-            </div>
-            <div className="searchbar">
-                <input type="text" placeholder='Search' />
-                    <img src="/icons/search-light.svg" alt="search icon" />
-            </div>
-        </div>
-        <div className="header2 flex"></div> 
-    <div className="flex h-full bg-white border border-gray-300 rounded-md overflow-hidden">
-      
+        {/*       
       <Sidebar onNavigate={navigateTo} />
 
       
@@ -98,6 +73,9 @@ const FileExplorer = () => {
         </div>
       </div>
     </div>*/}
+
+    <Sidebar onNavigate={navigateTo} />
+    
     </div>
   );
 };
