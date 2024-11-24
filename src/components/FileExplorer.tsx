@@ -54,7 +54,7 @@ const FileExplorer = () => {
 
   return (
     <div className='p-0 flex flex-col '>
-        <Toolbar/>
+        <Toolbar path={path} onNavigate={navigateTo} />
         {/*       
       <Sidebar onNavigate={navigateTo} />
 
@@ -75,7 +75,7 @@ const FileExplorer = () => {
     </div>*/}
 
     <Sidebar onNavigate={navigateTo} />
-    
+
     </div>
   );
 };

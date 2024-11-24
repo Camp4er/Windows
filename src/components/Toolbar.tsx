@@ -1,8 +1,7 @@
 import React from "react";
-import Breadcrumb from "./Breadcrumb";
 import Image from "next/image";
 
-const Toolbar = () => {
+const Toolbar = ({ path, onNavigate }: BreadcrumbProps) => {
   return (
     <div className="h-full">
       {/* Header 1 */}
@@ -58,10 +57,20 @@ const Toolbar = () => {
 
         {/* Breadcrumbs */}
         <div className="flex flex-grow items-center space-x-2 text-gray-300">
-          <div className="w-full px-2 py-1 bg-gray-900 border border-gray-700 rounded text-gray-300 focus:outline-none focus:ring focus:ring-gray-600">
-            <span className="cursor-pointer hover:text-white">Home</span>
-            <span>{" > "}</span>
-            <span className="cursor-pointer hover:text-white">Documents</span>
+          <div className="flex items-center justify-start flex-row  w-full pl-5 pr-2 py-1 bg-gray-900  rounded text-gray-300 focus:outline-none focus:ring focus:ring-gray-600">
+            {path.map((segment, index) => (
+              <React.Fragment key={index}>
+                <button
+                  className={`cursor-pointer hover:text-gray-100 text-gray-300}`}
+                  onClick={() => onNavigate(path.slice(0, index + 1))}
+                >
+                  {segment}
+                </button>
+                {index < path.length - 1 && (
+                  <p className="mx-1 text-gray-500 px-2">{">"}</p>
+                )}
+              </React.Fragment>
+            ))}
           </div>
         </div>
 
@@ -69,8 +78,8 @@ const Toolbar = () => {
         <div className="flex-1 ml-4 flex items-center relative">
           <input
             type="text"
-            placeholder="Search Home"
-            className="w-full pl-2 pr-8 py-1 bg-gray-900 border border-gray-700 rounded text-gray-300 placeholder-gray-500 focus:outline-none focus:ring focus:ring-gray-600"
+            placeholder="Search here..."
+            className="w-full pl-2 pr-8 py-1 bg-gray-900  rounded text-gray-300 placeholder-gray-500 focus:outline-none focus:ring focus:ring-gray-600"
           />
           <Image
             src="/icons/search-dark.svg"
