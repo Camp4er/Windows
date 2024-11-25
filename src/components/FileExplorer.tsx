@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Sidebar from './Sidebar';
 import FileContents from './FileContents';
 import Toolbar from './Toolbar';
+import ContentArea from './ContentArea';
 
 type FolderContent = { name: string; type: 'file' | 'folder' };
 type FolderData = {
@@ -52,11 +53,15 @@ const FileExplorer = () => {
   };
 
   return (
-    <div className='p-0 flex flex-col '>
+    <div className='p-0'>
         <Toolbar path={path} onNavigate={navigateTo} />
+        <div className="p-0 m-0 flex flex-row gap-10">
+          <Sidebar onNavigate={navigateTo} />
+    <ContentArea path={path} />
 
-    <Sidebar onNavigate={navigateTo} />
+        </div>
 
+    
     </div>
   );
 };
