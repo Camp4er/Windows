@@ -10,10 +10,10 @@ const Sidebar: React.FC<SidebarProps> = ({ onNavigate }) => {
   const folders = [
     "Desktop",
     "Documents",
-    "Downloads",
-    "Music",
-    "Videos",
-    "Screenshots",
+    "Projects",
+    "Skills",
+    "Experience",
+    "Contact",
   ];
   const mainFolders = ["OneDrive", "This PC", "Network", "Linux"];
 

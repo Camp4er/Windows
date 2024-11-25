@@ -54,24 +54,6 @@ const FileExplorer = () => {
   return (
     <div className='p-0 flex flex-col '>
         <Toolbar path={path} onNavigate={navigateTo} />
-        {/*       
-      <Sidebar onNavigate={navigateTo} />
-
-      
-      <div className="flex-1 flex flex-col">
-        
-        <Breadcrumb path={path} onNavigate={navigateTo} />
-
-        
-        <div
-          className={`flex-1 transform transition-transform duration-500 ease-in-out ${
-            slideDirection === 'right' ? 'translate-x-0' : '-translate-x-full'
-          }`}
-        >
-          <FileContents folderContents={folderContents} onOpen={openItem} />
-        </div>
-      </div>
-    </div>*/}
 
     <Sidebar onNavigate={navigateTo} />
 
