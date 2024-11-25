@@ -1,5 +1,6 @@
 import Image from "next/image";
 import React from "react";
+import { ContentAreaProps } from "./constants";
 
 const ContentArea = ({ path }: ContentAreaProps) => {
   const currentFolder = path[path.length - 1];
