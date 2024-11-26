@@ -31,7 +31,7 @@ const Skills = () => {
                 <td className="p-2 border border-gray-600">{skill.name}</td>
                 <td className="p-2 border border-gray-600">{skill.type}</td>
                 <td className="p-2 border border-gray-600">{skill.size}</td>
-                <td className="p-2 border border-gray-600">{skill.added}</td>
+                <td className="p-2 border border-gray-600">{skill.datemodified}</td>
               </tr>
             ))}
           </tbody>
