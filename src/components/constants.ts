@@ -7,6 +7,12 @@ export interface ContentAreaProps {
   path: string[];
 }
 
+export const skillsCard = [
+    {name: "Languages & Frameworks", type: "Folder", size: "1.5 MB", datemodified: "01/2023", icon: "/icons/word.png"},
+    {name: "Tools & Software", type: "Folder", size: "1.5 MB", datemodified: "01/2023", icon: "/icons/word.png"},
+    {name: "Soft Skills", type: "Folder", size: "1.5 MB", datemodified: "01/2023", icon: "/icons/word.png"},
+]
+
 export const skills = [
   { name: "HTML", type: "Language", size: "1.5 MB", datemodified: "01/2023", icon: "/icons/word.png" },
   { name: "CSS", type: "Language", size: "1.2 MB", datemodified: "01/2023", icon: "/icons/word.png"  },
