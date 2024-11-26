@@ -1,6 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import { ContentAreaProps } from "./constants";
+import Skills from "./FileExplorer/Skills";
 
 const ContentArea = ({ path }: ContentAreaProps) => {
   const currentFolder = path[path.length - 1];
@@ -52,7 +53,7 @@ const ContentArea = ({ path }: ContentAreaProps) => {
       case "Skills":
         return (
           <div>
-            <h2>Skills</h2>
+            <Skills/>
             {/* Render skill folders */}
           </div>
         );
