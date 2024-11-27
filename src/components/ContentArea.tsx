@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import { ContentAreaProps } from "./constants";
-import Skills from "./FileExplorer/Skills";
+import Skills from "./FileExplorer/Skills/Skills";
 
 const ContentArea = ({ path }: ContentAreaProps) => {
   const currentFolder = path[path.length - 1];
