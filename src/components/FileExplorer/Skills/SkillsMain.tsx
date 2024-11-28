@@ -9,10 +9,10 @@ const SkillsMain = () => {
         {/* Table Header */}
         <thead className="text-white text-sm font-semibold">
           <tr>
-            <th className="p-3 m-2 text-left border-r border-gray-300 ">Name</th>
-            <th className="p-3 m-2 text-left border-r border-gray-300 ">Date Modified</th>
-            <th className="p-3 m-2 text-left border-r border-gray-300 ">Type</th>
-            <th className="p-3 m-2 text-left border-r border-gray-300 ">Size</th>
+            <th className="px-5 text-left border-r border-gray-300 pb-1">Name</th>
+            <th className="px-5 text-left border-r border-gray-300 pb-1">Date Modified</th>
+            <th className="px-5 text-left border-r border-gray-300 pb-1">Type</th>
+            <th className="px-5 text-left border-r border-gray-300 pb-1">Size</th>
           </tr>
         </thead>
 
@@ -23,15 +23,15 @@ const SkillsMain = () => {
               key={skill.name}
               className="hover:bg-gray-700 cursor-pointer rounded-md"
             >
-              <td className="p-3">
+              <td className="px-5 py-1">
                 <div className="flex items-center gap-2">
                   <Image src={skill.icon} alt="icon" width={20} height={20} />
                   <span>{skill.name}</span>
                 </div>
               </td>
-              <td className="p-3">{skill.datemodified}</td>
-              <td className="p-3">{skill.type}</td>
-              <td className="p-3">{skill.size}</td>
+              <td className="px-5 py-1">{skill.datemodified}</td>
+              <td className="px-5 py-1">{skill.type}</td>
+              <td className="px-5 py-1">{skill.size}</td>
             </tr>
           ))}
         </tbody>

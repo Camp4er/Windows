@@ -1,4 +1,3 @@
-import Taskbar from '@/components/Taskbar';
 import './globals.css';
 
 export const metadata = {
