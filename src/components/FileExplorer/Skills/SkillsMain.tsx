@@ -17,7 +17,7 @@ const SkillsMain = () => {
         </thead>
 
         {/* Table Body */}
-        <tbody>
+        <tbody className='text-white text-sm font-semibold'>
           {skillsCard.map((skill) => (
             <tr
               key={skill.name}

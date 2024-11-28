@@ -55,7 +55,7 @@ const FileExplorer = () => {
   return (
     <div className='p-0'>
         <Toolbar path={path} onNavigate={navigateTo} />
-        <div className="p-0 m-0 flex flex-row gap-10">
+        <div className="p-0 m-0 flex flex-row gap-5">
           <Sidebar onNavigate={navigateTo} />
     <ContentArea path={path} />
 
