@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import { BreadcrumbProps } from "./constants";
 
 const Toolbar = ({ path, onNavigate }: BreadcrumbProps) => {
   return (
