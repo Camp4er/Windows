@@ -7,12 +7,12 @@ const SkillsMain = () => {
     <div className="p-4">
       <table className="w-full rounded-md shadow-sm">
         {/* Table Header */}
-        <thead className="border border-gray-300  text-white text-sm font-semibold">
+        <thead className="text-white text-sm font-semibold">
           <tr>
-            <th className="p-3 text-left">Name</th>
-            <th className="p-3 text-left">Date Modified</th>
-            <th className="p-3 text-left">Type</th>
-            <th className="p-3 text-left">Size</th>
+            <th className="p-3 m-2 text-left border-r border-gray-300 ">Name</th>
+            <th className="p-3 m-2 text-left border-r border-gray-300 ">Date Modified</th>
+            <th className="p-3 m-2 text-left border-r border-gray-300 ">Type</th>
+            <th className="p-3 m-2 text-left border-r border-gray-300 ">Size</th>
           </tr>
         </thead>
 
@@ -21,7 +21,7 @@ const SkillsMain = () => {
           {skillsCard.map((skill) => (
             <tr
               key={skill.name}
-              className="border-t hover:bg-gray-100 transition"
+              className="hover:bg-gray-700 cursor-pointer rounded-md"
             >
               <td className="p-3">
                 <div className="flex items-center gap-2">
