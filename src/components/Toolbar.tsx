@@ -62,7 +62,8 @@ const Toolbar = ({ path, onNavigate }: BreadcrumbProps) => {
             {path.map((segment, index) => (
               <React.Fragment key={index}>
                 <button
-                  className={`cursor-pointer hover:text-gray-100 text-gray-300}`}
+                  className="cursor-pointer hover:text-gray-100 text-gray-300"
+
                   onClick={() => onNavigate(path.slice(0, index + 1))}
                 >
                   {segment}
