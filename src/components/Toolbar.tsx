@@ -2,7 +2,9 @@ import React from "react";
 import Image from "next/image";
 import { BreadcrumbProps } from "../constants/constants";
 
-const Toolbar = ({ path, onNavigate }: BreadcrumbProps) => {
+const Toolbar = ({ path, onNavigate, folderIcons }: BreadcrumbProps) => {
+  const currentFolder = path[path.length - 1]; // To get the last item in the path array
+
   return (
     <div className="h-full">
       {/* Header 1 */}
@@ -59,7 +61,28 @@ const Toolbar = ({ path, onNavigate }: BreadcrumbProps) => {
         {/* Breadcrumbs */}
         <div className="flex flex-grow items-center space-x-2 text-gray-300">
           <div className="flex items-center justify-start flex-row  w-full pl-5 pr-2 py-1 bg-gray-900  rounded text-gray-300 focus:outline-none focus:ring focus:ring-gray-600">
-            {path.map((segment, index) => (
+            <div className="flex items-center gap-2 p-4 bg-gray-800 text-white text-sm font-semibold">
+              {/* Display the folder icon */}
+              <Image
+                src={folderIcons[currentFolder] || "/icons/app.png"}
+                alt={currentFolder}
+                width={20}
+                height={20}
+              />
+              {/* Display the breadcrumb */}
+              {path.map((folder, index) => (
+                <span key={index} className="flex items-center">
+                  {index > 0 && <span className="mx-2">/</span>}
+                  <button
+                    onClick={() => onNavigate(path.slice(0, index + 1))}
+                    className="hover:underline"
+                  >
+                    {folder}
+                  </button>
+                </span>
+              ))}
+            </div>
+            {/* {path.map((segment, index) => (
               <React.Fragment key={index}>
                 <button
                   className="cursor-pointer hover:text-gray-100 text-gray-300"
@@ -72,7 +95,7 @@ const Toolbar = ({ path, onNavigate }: BreadcrumbProps) => {
                   <p className="mx-1 text-gray-500 px-2">{">"}</p>
                 )}
               </React.Fragment>
-            ))}
+            ))} */}
           </div>
         </div>
 

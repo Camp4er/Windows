@@ -1,6 +1,7 @@
 export interface BreadcrumbProps {
   path: string[]; //current path
   onNavigate: (newPath: string[]) => void; //function to handle navigation
+  folderIcons: {[key:string]: string}; //mapping of folder names to icon URLs
 }
 
 export interface ContentAreaProps {
