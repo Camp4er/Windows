@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React from "react";
-import { ContentAreaProps } from "./constants";
+import { ContentAreaProps } from "../constants/constants";
 import Skills from "./FileExplorer/Skills/Skills";
 import SkillsMain from "./FileExplorer/Skills/SkillsMain";
 

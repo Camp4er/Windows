@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { skills } from "../../constants";
+import { skills } from "../../../constants/constants";
 
 const Skills = () => {
   const [viewMode, setViewMode] = useState("details"); // "details", "icons", "tiles"

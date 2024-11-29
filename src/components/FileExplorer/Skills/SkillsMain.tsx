@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { skillsCard } from '@/components/constants';
+import { skillsCard } from '@/constants/constants';
 import Image from 'next/image';
 
 const SkillsMain = () => {
