@@ -2,21 +2,31 @@ import { useState } from 'react';
 import { skillsCard } from '@/constants/constants';
 import Image from 'next/image';
 
-const SkillsMain = () => {
-  const [currentFolder, setCurrentFolder] = useState('Skills'); // Default folder
-  const [breadcrumb, setBreadcrumb] = useState(['Home', 'Skills']); // Initial breadcrumb
+interface SkillsMainProps {
+  currentFolder: string; // Current folder name
+  folderContents: { [key: string]: { name: string; type: "file" | "folder"; icon?: string }[] }; // Contents of the folder
+  onNavigate: (folderName: string) => void; // Navigation handler
+}
 
-  const handleRowClick = (folderName: string) => {
-    // Update folder view
-    setCurrentFolder(folderName);
+const SkillsMain = ({ currentFolder, folderContents, onNavigate }: SkillsMainProps) => {
 
-    // Update breadcrumbs
-    setBreadcrumb((prev) => [...prev, folderName]);
-  };
+  const contents = folderContents[currentFolder] || []; // Get the contents of the current folder
+
+
+  // const [currentFolder, setCurrentFolder] = useState('Skills'); // Default folder
+  // const [breadcrumb, setBreadcrumb] = useState(['Home', 'Skills']); // Initial breadcrumb
+
+  // const handleRowClick = (folderName: string) => {
+  //   // Update folder view
+  //   setCurrentFolder(folderName);
+
+  //   // Update breadcrumbs
+  //   setBreadcrumb((prev) => [...prev, folderName]);
+  // };
 
   return (
     <div className="p-4">
-      {/* Breadcrumb */}
+      {/* Breadcrumb
       <div className="flex gap-2 items-center text-white text-sm font-semibold mb-4">
         {breadcrumb.map((crumb, index) => (
           <span key={index} className="flex items-center">
@@ -33,7 +43,7 @@ const SkillsMain = () => {
             </button>
           </span>
         ))}
-      </div>
+      </div> */}
 
       {currentFolder === 'Skills' ? (
         <table className="w-full rounded-md shadow-sm border-separate border-spacing-y-2">
@@ -53,7 +63,8 @@ const SkillsMain = () => {
               <tr
                 key={skill.name}
                 className="hover:bg-gray-700 cursor-pointer rounded-md"
-                onClick={() => handleRowClick(skill.name)} // Navigate to folder
+                // onClick={() => handleRowClick(skill.name)} // Navigate to folder
+                onClick={() => skill.type === "folder" && onNavigate(skill.name)} // Navigate to subfolder
               >
                 <td className="px-5 py-1">
                   <div className="flex items-center gap-2">

@@ -6,6 +6,8 @@ export interface BreadcrumbProps {
 
 export interface ContentAreaProps {
   path: string[];
+  folderContents: { [key: string]: { name: string; type: 'file' | 'folder' }[] };
+  onNavigate: (subfolder: string) => void; // Add navigation handler for subfolders
 }
 
 export const skillsCard = [
@@ -28,3 +30,8 @@ export const skills = [
   { name: "MongoDB", type: "Database", size: "5.6 MB", datemodified: "10/2023", icon: "/icons/word.png"  },
   { name: "Next.js", type: "Framework", size: "2.9 MB", datemodified: "11/2023", icon: "/icons/word.png"  },
 ];
+
+export const mainFolders = ["OneDrive", "This PC", "Network", "Linux"];
+
+
+// Main file

@@ -60,8 +60,7 @@ const Toolbar = ({ path, onNavigate, folderIcons }: BreadcrumbProps) => {
 
         {/* Breadcrumbs */}
         <div className="flex flex-grow items-center space-x-2 text-gray-300">
-          <div className="flex items-center justify-start flex-row  w-full pl-5 pr-2 py-1 bg-gray-900  rounded text-gray-300 focus:outline-none focus:ring focus:ring-gray-600">
-            <div className="flex items-center gap-2 p-4 bg-gray-800 text-white text-sm font-semibold">
+          <div className="flex items-center justify-start flex-row  w-full pl-5 pr-2 py-1 bg-gray-900  rounded text-gray-300 focus:outline-none focus:ring focus:ring-gray-600 gap-2">
               {/* Display the folder icon */}
               <Image
                 src={folderIcons[currentFolder] || "/icons/app.png"}
@@ -81,7 +80,7 @@ const Toolbar = ({ path, onNavigate, folderIcons }: BreadcrumbProps) => {
                   </button>
                 </span>
               ))}
-            </div>
+            
             {/* {path.map((segment, index) => (
               <React.Fragment key={index}>
                 <button
