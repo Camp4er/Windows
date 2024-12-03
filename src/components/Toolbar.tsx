@@ -3,7 +3,7 @@ import Image from "next/image";
 import { BreadcrumbProps } from "../constants/constants";
 
 const Toolbar = ({ path, onNavigate, folderIcons }: BreadcrumbProps) => {
-  const currentFolder = path[path.length - 1]; // To get the last item in the path array
+  const currentFolder = path[path.length - 1]; // Name of the last item in the path array
 
   return (
     <div className="h-full">
@@ -71,30 +71,15 @@ const Toolbar = ({ path, onNavigate, folderIcons }: BreadcrumbProps) => {
               {/* Display the breadcrumb */}
               {path.map((folder, index) => (
                 <span key={index} className="flex items-center">
-                  {index > 0 && <span className="mx-2">/</span>}
+                  {index > 0 && <span className="mx-2">{">"}</span>}
                   <button
                     onClick={() => onNavigate(path.slice(0, index + 1))}
-                    className="hover:underline"
+                    className="hover:text-gray-100"
                   >
                     {folder}
                   </button>
                 </span>
               ))}
-            
-            {/* {path.map((segment, index) => (
-              <React.Fragment key={index}>
-                <button
-                  className="cursor-pointer hover:text-gray-100 text-gray-300"
-
-                  onClick={() => onNavigate(path.slice(0, index + 1))}
-                >
-                  {segment}
-                </button>
-                {index < path.length - 1 && (
-                  <p className="mx-1 text-gray-500 px-2">{">"}</p>
-                )}
-              </React.Fragment>
-            ))} */}
           </div>
         </div>
 
