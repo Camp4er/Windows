@@ -23,7 +23,10 @@ export default function Desktop() {
 
   const openWindow = (appName: string, icon: string) => {
     if (!openWindows.some((window) => window.name === appName)) {
-      setOpenWindows([...openWindows, { name: appName, icon, minimized: false }]);
+      setOpenWindows([
+        ...openWindows,
+        { name: appName, icon, minimized: false },
+      ]);
     }
   };
 
@@ -34,7 +37,9 @@ export default function Desktop() {
   const toggleMinimizeWindow = (appName: string) => {
     setOpenWindows((prevWindows) =>
       prevWindows.map((window) =>
-        window.name === appName ? { ...window, minimized: !window.minimized } : window
+        window.name === appName
+          ? { ...window, minimized: !window.minimized }
+          : window
       )
     );
   };
@@ -74,64 +79,59 @@ export default function Desktop() {
           onClick={() => openWindow("Contact", "/icons/phone-book.png")}
         />
         <DesktopIcon
-        title="FileExplorer"
-        icon="/icons/app.png"
-        onClick={() => openWindow("FileExplorer", "/icons/app.png")}
+          title="FileExplorer"
+          icon="/icons/app.png"
+          onClick={() => openWindow("FileExplorer", "/icons/app.png")}
         />
       </div>
 
       {/* Render open windows */}
-      {openWindows.map((window) =>
-        !window.minimized ? (
-          <Window
-            key={window.name}
-            title={window.name}
-            iconSrc={window.icon}
-            onClose={() => closeWindow(window.name)}
-            onMinimize={() => toggleMinimizeWindow(window.name)}
-          >
-            {/* Content for each window */}
-            {window.name === "About Me" && <AboutWindow />}
-            {window.name === "Projects" && <ProjectsWindow />}
-            {window.name === "Portfolio" && (
-              <iframe
-                src="@/public/pdf/PoorvaSaxenaResume6.pdf"
-                width="100%"
-                height="400px"
-                className="border rounded-md"
-              ></iframe>
-            )}
-            {window.name === "Experience" && <ExperienceWindow />}
-            {window.name === "Skills" && <SkillsWindow />}
-            {window.name === "Contact" && <ContactWindow />}
-            {window.name === "Google Search" && (
-              <iframe
-                src="https://www.google.com/webhp?igu=1"
-                width="100%"
-                height="100%"
-                className="border rounded-md"
-              ></iframe>
-            )}
-            {window.name === "Microsoft Edge" && (
+      <div className="w-screen h-screen relative overflow-y-scroll">
+        {openWindows.map((window) =>
+          !window.minimized ? (
+            <Window
+              key={window.name}
+              title={window.name}
+              iconSrc={window.icon}
+              onClose={() => closeWindow(window.name)}
+              onMinimize={() => toggleMinimizeWindow(window.name)}
+            >
+              {/* Content for each window */}
+              {window.name === "About Me" && <AboutWindow />}
+              {window.name === "Projects" && <ProjectsWindow />}
+              {window.name === "Portfolio" && (
                 <iframe
-                src="https://microsoftedge.microsoft.com/"
-                width="100%"
-                height="100%"
-                className="border rounded-md"
+                  src="@/public/pdf/PoorvaSaxenaResume6.pdf"
+                  width="100%"
+                  height="400px"
+                  className="border rounded-md"
                 ></iframe>
-            )
-            }
-            {window.name === "Terminal" && (
-                <Terminal key={window.name}/>
-            )
-            }
-            {window.name === "FileExplorer" && (
-              <FileExplorer/>
-            )
-            }
-          </Window>
-        ) : null
-      )}
+              )}
+              {window.name === "Experience" && <ExperienceWindow />}
+              {window.name === "Skills" && <SkillsWindow />}
+              {window.name === "Contact" && <ContactWindow />}
+              {window.name === "Google Search" && (
+                <iframe
+                  src="https://www.google.com/webhp?igu=1"
+                  width="100%"
+                  height="100%"
+                  className="border rounded-md"
+                ></iframe>
+              )}
+              {window.name === "Microsoft Edge" && (
+                <iframe
+                  src="https://microsoftedge.microsoft.com/"
+                  width="100%"
+                  height="100%"
+                  className="border rounded-md"
+                ></iframe>
+              )}
+              {window.name === "Terminal" && <Terminal key={window.name} />}
+              {window.name === "FileExplorer" && <FileExplorer />}
+            </Window>
+          ) : null
+        )}
+      </div>
 
       {/* Taskbar component */}
       <Taskbar

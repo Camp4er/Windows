@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 interface WindowProps {
   title: string;
@@ -8,7 +8,13 @@ interface WindowProps {
   children: React.ReactNode;
 }
 
-export default function Window({ title, iconSrc, onClose, onMinimize, children }: WindowProps) {
+export default function Window({
+  title,
+  iconSrc,
+  onClose,
+  onMinimize,
+  children,
+}: WindowProps) {
   const [isMaximized, setIsMaximized] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
 
@@ -31,12 +37,17 @@ export default function Window({ title, iconSrc, onClose, onMinimize, children }
         <div
           className={`window bg-gray-900 border border-gray-600 shadow-lg transition-all duration-300 ${
             isMaximized
-              ? 'fixed top-0 left-0 right-0 m-0 ' // full screen without margins
-              : 'relative w-auto h-auto'
+              ? "fixed top-0 left-0 right-0 m-0 " // full screen without margins
+              : ""
           }`}
           style={{
-            height: isMaximized ? 'calc(100vh - 54px)' : 'auto', // Adjusts for taskbar height (54px)
-            bottom: isMaximized ? '54px' : 'auto', // Prevents overlap with taskbar when maximized
+            height: isMaximized ? "calc(100vh - 54px)" : "auto", // Adjusts for taskbar height (54px)
+            bottom: isMaximized ? "54px" : undefined, // Prevents overlap with taskbar when maximized
+            top: !isMaximized ? "50%" : undefined, // Center vertically when not maximized
+            left: !isMaximized ? "50%" : undefined, // Center horizontally when not maximized
+            transform: !isMaximized ? "translate(-50%, -50%)" : undefined, // Center offset
+            position: isMaximized ? "fixed" : "absolute", // Absolute for non-maximized, fixed for full-screen
+            zIndex: 10, // Ensure window is always on top
           }}
         >
           {/* Window header */}
@@ -47,20 +58,29 @@ export default function Window({ title, iconSrc, onClose, onMinimize, children }
             </div>
             <div className="flex items-center gap-2">
               {/* Minimize button */}
-              <button onClick={handleMinimize} className="text-gray-400 text-2xl rounded hover:bg-gray-700 px-2 py-1">
+              <button
+                onClick={handleMinimize}
+                className="text-gray-400 text-2xl rounded hover:bg-gray-700 px-2 py-1"
+              >
                 &#x2013;
               </button>
               {/* Resize button */}
-              <button onClick={handleResize} className="text-gray-400 text-xl rounded hover:bg-gray-700 px-2 py-1">
-                {isMaximized ? '🗗' : '🗖'}
+              <button
+                onClick={handleResize}
+                className="text-gray-400 text-xl rounded hover:bg-gray-700 px-2 py-1"
+              >
+                {isMaximized ? "🗗" : "🗖"}
               </button>
               {/* Close button */}
-              <button onClick={onClose} className="text-gray-400 text-2xl rounded hover:bg-red-600 hover:text-white px-2 py-1">
+              <button
+                onClick={onClose}
+                className="text-gray-400 text-2xl rounded hover:bg-red-600 hover:text-white px-2 py-1"
+              >
                 &times;
               </button>
             </div>
           </div>
-          
+
           {/* Window content */}
           <div className="rounded-b-lg">{children}</div>
         </div>
