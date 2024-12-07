@@ -88,10 +88,10 @@ const Taskbar = ({ openWindows, toggleWindow, openWindow }: TaskbarProps) => {
     },
     {
       id: 9,
-      src: "/icons/day.png",
+      src: "/icons/vscode.svg",
       size: { width: 33, height: 33 },
-      action: () => console.log("Toggle theme"),
-      alt: "Toggle theme",
+      action: () => openWindow("VS Code", "/icons/vscode.svg"),
+      alt: "VS Code",
     },
   ];
 

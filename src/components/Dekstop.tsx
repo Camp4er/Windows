@@ -47,7 +47,8 @@ export default function Desktop() {
   return (
     <>
       {/* Desktop icons */}
-      <div className="flex-grow flex flex-col gap-3 justify-start items-start p-4 flex-wrap">
+      <div className="flex flex-row">
+      <div className="flex flex-col gap-3 justify-start items-start p-4 flex-wrap">
         <DesktopIcon
           title="About Me"
           icon="/icons/user-folder.png"
@@ -84,6 +85,13 @@ export default function Desktop() {
           onClick={() => openWindow("FileExplorer", "/icons/app.png")}
         />
       </div>
+      <div className="flex flex-col gap-3 justify-start items-start p-4 flex-wrap">
+        <DesktopIcon
+        title="VS Code"
+        icon="/icons/vscode.svg"
+        onClick={() => console.log("VS Code opened")}
+        />
+      </div></div>
 
       {/* Render open windows */}
         {openWindows.map((window) =>
@@ -121,6 +129,14 @@ export default function Desktop() {
                   width="100%"
                   height="100%"
                 ></iframe>
+              )}
+              {window.name === "VS Code" && (
+                <iframe
+                src="https://github1s.com/Camp4er/Windows"
+                width="100%"
+                height="100%"
+                >
+                </iframe>
               )}
               {window.name === "Terminal" && <Terminal key={window.name} />}
               {window.name === "FileExplorer" && <FileExplorer />}
