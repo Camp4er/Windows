@@ -86,7 +86,6 @@ export default function Desktop() {
       </div>
 
       {/* Render open windows */}
-      <div className="w-screen h-screen relative overflow-y-scroll">
         {openWindows.map((window) =>
           !window.minimized ? (
             <Window
@@ -131,7 +130,6 @@ export default function Desktop() {
             </Window>
           ) : null
         )}
-      </div>
 
       {/* Taskbar component */}
       <Taskbar
