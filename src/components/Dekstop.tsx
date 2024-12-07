@@ -103,7 +103,6 @@ export default function Desktop() {
                   src="@/public/pdf/PoorvaSaxenaResume6.pdf"
                   width="100%"
                   height="400px"
-                  className="border rounded-md"
                 ></iframe>
               )}
               {window.name === "Experience" && <ExperienceWindow />}
