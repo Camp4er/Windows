@@ -114,7 +114,6 @@ export default function Desktop() {
                   src="https://www.google.com/webhp?igu=1"
                   width="100%"
                   height="100%"
-                  className="border rounded-md"
                 ></iframe>
               )}
               {window.name === "Microsoft Edge" && (
@@ -122,7 +121,6 @@ export default function Desktop() {
                   src="https://microsoftedge.microsoft.com/"
                   width="100%"
                   height="100%"
-                  className="border rounded-md"
                 ></iframe>
               )}
               {window.name === "Terminal" && <Terminal key={window.name} />}
