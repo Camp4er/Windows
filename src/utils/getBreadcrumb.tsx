@@ -5,11 +5,12 @@ interface getBreadcrumbProps {
     icon: string; //URL for the icon image
 }
 
-const getBreadcrumb = ({path, icon} : getBreadcrumbProps) => {
+const getBreadcrumb = ({path} : getBreadcrumbProps) => {
   return (
-    <div className='breadcrumb'>
-      <img src={icon} alt="folder icon" className='breadcrumb-icon' />
-      {path.join(' > ')}
+    <div>
+      {path.map((segment, index) => (
+        <span key={index}>{segment}</span>
+      ))}
     </div>
   )
 }
