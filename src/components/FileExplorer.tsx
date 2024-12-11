@@ -28,7 +28,7 @@ import { folderData } from '@/constants/folderData';
 const FileExplorer = () => {
 
   const [currentPath, setCurrentPath] = useState<string[]>(['Main Folders']);
-  const [currentIcon, setCurrentIcon] = useState('/icons/day.png');
+  //const [currentIcon, setCurrentIcon] = useState('/icons/day.png');
 
   const navigateToFolder = (folderName: string) => {
     const newPath = [...currentPath, folderName];
