@@ -1,13 +1,14 @@
 export interface BreadcrumbProps {
   path: string[]; //current path
   onNavigate: (newPath: string[]) => void; //function to handle navigation
-  folderIcons: {[key:string]: string}; //mapping of folder names to icon URLs
+  onBack: () => void; 
 }
 
 export interface ContentAreaProps {
   path: string[];
-  folderContents: { [key: string]: { name: string; type: 'file' | 'folder' }[] };
-  onNavigate: (subfolder: string) => void; // Add navigation handler for subfolders
+  // folderContents: { [key: string]: { name: string; type: 'file' | 'folder' }[] };
+  folderContents: any;
+  onNavigate: (folderName: string) => void; // Add navigation handler for subfolders
 }
 
 export const skillsCard = [

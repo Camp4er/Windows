@@ -2,8 +2,8 @@ import React from "react";
 import Image from "next/image";
 import { BreadcrumbProps } from "../constants/constants";
 
-const Toolbar = ({ path, onNavigate, folderIcons }: BreadcrumbProps) => {
-  const currentFolder = path[path.length - 1]; // Name of the last item in the path array
+const Toolbar = ({ path, onNavigate, onBack }: BreadcrumbProps) => {
+  //const currentFolder = path[path.length - 1]; // Name of the last item in the path array
 
   return (
     <div className="h-full">
@@ -11,7 +11,7 @@ const Toolbar = ({ path, onNavigate, folderIcons }: BreadcrumbProps) => {
       <div className="flex items-center px-4 py-2 bg-gray-800 text-white border-b border-gray-500">
         {/* Navigation Buttons */}
         <div className="flex space-x-2 mr-4 gap-2">
-          <button className="p-2 rounded hover:bg-gray-700">
+          <button onClick={onBack} className="p-2 rounded hover:bg-gray-700">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"
@@ -62,12 +62,12 @@ const Toolbar = ({ path, onNavigate, folderIcons }: BreadcrumbProps) => {
         <div className="flex flex-grow items-center space-x-2 text-gray-300">
           <div className="flex items-center justify-start flex-row  w-full pl-5 pr-2 py-1 bg-gray-900  rounded text-gray-300 focus:outline-none focus:ring focus:ring-gray-600 gap-2">
               {/* Display the folder icon */}
-              <Image
+              {/* <Image
                 src={folderIcons[currentFolder] || "/icons/app.png"}
                 alt={currentFolder}
                 width={20}
                 height={20}
-              />
+              /> */}
               {/* Display the breadcrumb */}
               {path.map((folder, index) => (
                 <span key={index} className="flex items-center">
