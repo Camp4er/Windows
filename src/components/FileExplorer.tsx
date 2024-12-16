@@ -16,6 +16,21 @@ const FileExplorer = () => {
   // Go forward (for later implementation)
   const handleForward = () => {};
 
+  type FileType = 'folder' | 'file';
+
+type FileItem = {
+  id: number;
+  name: string;
+  type: FileType;
+  children?: FileItem[]; // For nested folders
+  onClick?: () => void; // Optional click handler for files
+};
+
+type FileExplorerProps = {
+  initialData: FileItem[];
+};
+
+
   return (
     <div className="p-0">
       <Toolbar 
