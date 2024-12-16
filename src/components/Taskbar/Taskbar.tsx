@@ -1,5 +1,6 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
+import TaskbarRightSection from "./TaskbarRightSection";
 
 // Define the type for taskbar buttons
 interface TaskbarProps {
@@ -29,6 +30,7 @@ const systemTrayIcons: ISystemTrayIcon[] = [
 ];
 
 const Taskbar = ({ openWindows, toggleWindow, openWindow }: TaskbarProps) => {
+
   const taskbarButtons: ITaskbarButton[] = [
     {
       id: 1,
@@ -96,19 +98,19 @@ const Taskbar = ({ openWindows, toggleWindow, openWindow }: TaskbarProps) => {
   ];
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 bg-zinc-800 text-white flex items-center justify-between px-4 h-[54px]">
+    <div className="fixed bottom-0 left-0 right-0 bg-zinc-900 text-white flex items-center justify-between px-4 h-[54px]">
       {/* Shortcut Button */}
       <button
-        className="flex items-center gap-2 hover:bg-gray-600 p-2 rounded"
-        aria-label="Shortcuts"
+        className="flex items-center gap-2 hover:bg-zinc-800 p-2 rounded"
+        aria-label="Contact Me"
       >
         <img
           src="/icons/shortcut.png"
-          alt="Shortcut icon"
+          alt="Contact Me icon"
           width={28}
           height={28}
         />
-        <span>Shortcuts</span>
+        <span>Contact Me</span>
       </button>
 
       {/* Taskbar Buttons */}
@@ -118,7 +120,7 @@ const Taskbar = ({ openWindows, toggleWindow, openWindow }: TaskbarProps) => {
             <button
               key={button.id}
               onClick={button.action}
-              className="flex items-center hover:bg-gray-600 p-2 rounded"
+              className="flex items-center hover:bg-zinc-800 p-2 rounded"
               aria-label={button.alt}
             >
               <img
@@ -150,32 +152,42 @@ const Taskbar = ({ openWindows, toggleWindow, openWindow }: TaskbarProps) => {
 
       {/* System Tray */}
       <div className="flex items-center">
-        <div className="flex items-center hover:bg-gray-600 gap-1 m-0 py-2 px-1 rounded">
+        <div className="flex items-center hover:bg-zinc-800 gap-1 m-0 py-2 px-1 rounded">
           <button className="p-1 rounded">
-            <img src="/icons/arrowup-lightmode.png" alt="arrow-up" width={15} height={15} />
+            <img
+              src="/icons/arrowup-lightmode.png"
+              alt="arrow-up"
+              width={15}
+              height={15}
+            />
           </button>
         </div>
-        <div className="flex items-center hover:bg-gray-600 gap-1 m-0 py-2 px-2 rounded">
+        <div className="flex items-center hover:bg-zinc-800 gap-1 m-0 py-2 px-2 rounded">
           <button className="p-1 rounded">
-            <img src="/icons/onedrive.png" alt="arrow-up" width={18} height={18} />
+            <img
+              src="/icons/onedrive.png"
+              alt="arrow-up"
+              width={18}
+              height={18}
+            />
           </button>
         </div>
-        <div className="flex items-center hover:bg-gray-600 gap-1 m-0 py-2 px-2 rounded">
-          <p className="text-center text-white text-xs">ENG
-            <br/>
+        <div className="flex items-center hover:bg-zinc-800 gap-1 m-0 py-2 px-2 rounded">
+          <p className="text-center text-white text-xs">
+            ENG
+            <br />
             IN
           </p>
         </div>
-        <div className="flex items-center hover:bg-gray-600 gap-1 m-0 py-2 rounded">
-        {systemTrayIcons.map((icon) => (
-          <button
-            key={icon.id}
-            className="p-1 rounded"
-            aria-label={icon.alt}
-          >
-            <img src={icon.src} alt={icon.alt} width={20} height={20} />
-          </button>
-        ))}
+        <div className="flex items-center hover:bg-zinc-800 gap-1 m-0 py-2 rounded">
+          {systemTrayIcons.map((icon) => (
+            <button key={icon.id} className="p-1 rounded" aria-label={icon.alt}>
+              <img src={icon.src} alt={icon.alt} width={20} height={20} />
+            </button>
+          ))}
+        </div>
+        <div className="flex items-center hover:bg-zinc-800 gap-1 m-0 rounded">
+          <TaskbarRightSection/>
         </div>
       </div>
     </div>

@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import DesktopIcon from "./DesktopIcon";
 import Window from "./Window";
-import Taskbar from "./Taskbar";
+import Taskbar from "./Taskbar/Taskbar";
 import AboutWindow from "./AboutWindow";
 import ExperienceWindow from "./ExperienceWindow";
 import SkillsWindow from "./SkillsWindow";
@@ -78,7 +78,7 @@ export default function Desktop() {
             onClick={() => openWindow("Skills", "/icons/skills.png")}
           />
           <DesktopIcon
-            title="Contact Me"
+            title="Contact"
             icon="/icons/phone-book.png"
             onClick={() => openWindow("Contact", "/icons/phone-book.png")}
           />
@@ -148,7 +148,7 @@ export default function Desktop() {
             )}
             {window.name === "Snakeats" && <Snakegame />}
             {window.name === "Terminal" && <Terminal key={window.name} />}
-            {window.name === "FileExplorer" && <FileExplorer />}
+            {/* {window.name === "FileExplorer" && <FileExplorer initialSidebarId="sidebar1" />} */}
           </Window>
         ) : null
       )}

@@ -154,7 +154,8 @@ export const folderIcons: { [key: string]: string } = {
 
 export const sectionOne = {
   Home: {
-    type: "sidebar",
+    name: "Home",
+    type: "sidebar1",
     icons: "/icons/share.png",
     id: "1",
     children: [
@@ -164,7 +165,8 @@ export const sectionOne = {
     ],
   },
   Gallery: {
-    type: "sidebar",
+    name: "Gallery",
+    type: "sidebar2",
     icons: "/icons/share.png",
     id: "1",
     children: "self",
@@ -173,13 +175,15 @@ export const sectionOne = {
 
 export const sectionTwo = {
   Dekstop: {
-    type: "sidebar",
+    name: "Dekstop",
+    type: "sidebar3",
     icons: "/icons/share.png",
     id: "1",
     children: {},
   },
   Documents: {
-    type: "sidebar",
+    name: "Documents",
+    type: "sidebar4",
     icons: "/icons/share.png",
     id: "1",
     children: {
@@ -201,7 +205,8 @@ export const sectionTwo = {
     },
   },
   Projects: {
-    type: "sidebar",
+    name: "Projects",
+    type: "sidebar5",
     icons: "/icons/share.png",
     id: "1",
     children: {
@@ -340,7 +345,8 @@ export const sectionTwo = {
     },
   },
   Skills: {
-    type: "sidebar",
+    name: "Skills",
+    type: "sidebar6",
     icons: "/icons/share.png",
     id: "1",
     children: {
@@ -563,13 +569,15 @@ export const sectionTwo = {
     },
   },
   Experience: {
-    type: "sidebar",
+    name: "Experience",
+    type: "sidebar7",
     icons: "/icons/share.png",
     id: "1",
     children: "self",
   },
   Contact: {
-    type: "sidebar",
+    name: "Contact",
+    type: "sidebar8",
     icons: "/icons/share.png",
     id: "1",
     children: {
@@ -626,7 +634,8 @@ export const sectionTwo = {
 
 export const sectionThree = {
   OneDrive: {
-    type: "sidebar",
+    name: "OneDrive",
+    type: "sidebar9",
     icons: "/icons/share.png",
     id: "1",
     children: {
@@ -669,7 +678,8 @@ export const sectionThree = {
     },
   },
   "This PC": {
-    type: "sidebar",
+    name: "This PC",
+    type: "sidebar10",
     icons: "icons/share.png",
     id: "1",
     children: {
@@ -869,7 +879,8 @@ export const sectionThree = {
     },
   },
   "Network": {
-    type: "sidebar",
+    name: "Network",
+    type: "sidebar11",
     icons: "/icons/share.png",
     id: "1",
     children: "self",

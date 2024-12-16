@@ -1,5 +1,5 @@
 import Dekstop from '@/components/Dekstop'
-import Taskbar from '@/components/Taskbar'
+import Taskbar from '@/components/Taskbar/Taskbar'
 import React from 'react'
 
 const page = () => {

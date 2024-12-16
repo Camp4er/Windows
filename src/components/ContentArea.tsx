@@ -3,6 +3,8 @@
 // import { ContentAreaProps } from "../constants/constants";
 // import SkillsMain from "./FileExplorer/Skills/SkillsMain";
 
+import { FileItem } from "./FileExplorer";
+
 // const ContentArea = ({
 //   path,
 //   folderContents,
@@ -228,40 +230,67 @@
 
 
 
-import React from 'react';
 
-interface ContentAreaProps {
-  path: string[];
-  folderContents: any;
-  onNavigate: (folderName: string) => void;
-}
 
-const ContentArea: React.FC<ContentAreaProps> = ({ path, folderContents, onNavigate }) => {
-  const currentFolder = path[path.length - 1];
-  const contents = folderContents[currentFolder] || [];
 
+// import React from 'react';
+
+// interface ContentAreaProps {
+//   path: string[];
+//   folderContents: any;
+//   onNavigate: (folderName: string) => void;
+// }
+
+// const ContentArea: React.FC<ContentAreaProps> = ({ path, folderContents, onNavigate }) => {
+//   const currentFolder = path[path.length - 1];
+//   const contents = folderContents[currentFolder] || [];
+
+//   return (
+//     <div className="p-4 bg-gray-900 text-white flex-1">
+//       <table className="w-full rounded-md shadow-sm">
+//         <thead className="text-white text-sm">
+//           <tr>
+//             <th className="px-5 text-left">Name</th>
+//             <th className="px-5 text-left">Type</th>
+//           </tr>
+//         </thead>
+//         <tbody>
+//           {contents.map((item: any, index: number) => (
+//             <tr 
+//               key={index} 
+//               onClick={() => item.type === 'folder' && onNavigate(item.name)} 
+//               className="hover:bg-gray-700 cursor-pointer"
+//             >
+//               <td className="px-5 py-2">{item.name}</td>
+//               <td className="px-5 py-2">{item.type}</td>
+//             </tr>
+//           ))}
+//         </tbody>
+//       </table>
+//     </div>
+//   );
+// };
+
+// export default ContentArea;
+
+
+type ContentAreaProps = {
+  items: FileItem[];
+  onFolderClick: (folder: FileItem) => void;
+};
+
+const ContentArea: React.FC<ContentAreaProps> = ({ items, onFolderClick }) => {
   return (
-    <div className="p-4 bg-gray-900 text-white flex-1">
-      <table className="w-full rounded-md shadow-sm">
-        <thead className="text-white text-sm">
-          <tr>
-            <th className="px-5 text-left">Name</th>
-            <th className="px-5 text-left">Type</th>
-          </tr>
-        </thead>
-        <tbody>
-          {contents.map((item: any, index: number) => (
-            <tr 
-              key={index} 
-              onClick={() => item.type === 'folder' && onNavigate(item.name)} 
-              className="hover:bg-gray-700 cursor-pointer"
-            >
-              <td className="px-5 py-2">{item.name}</td>
-              <td className="px-5 py-2">{item.type}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+    <div className="grid grid-cols-3 gap-4">
+      {items.map((item) => (
+        <div 
+          key={item.id} 
+          onClick={() => onFolderClick(item)} 
+          className="p-4 bg-white shadow rounded text-center cursor-pointer"
+        >
+          {item.type === 'folder' ? '📁' : '📄'} {item.name}
+        </div>
+      ))}
     </div>
   );
 };
