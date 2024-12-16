@@ -11,7 +11,7 @@ export default function CalendarNotificationPanel({ onClose }: PanelProps) {
   const [selectedDate, setSelectedDate] = useState(new Date());
 
   return (
-    <div className="absolute bottom-full right-0 mb-2 w-80 text-white shadow-lg rounded-md overflow-hidden z-50 animate-slide-in flex flex-col gap-2">
+    <div className="absolute bottom-full right-0 mb-2 w-72 text-white shadow-lg rounded-md overflow-hidden z-50 animate-slide-in flex flex-col gap-2">
       <div className="flex bg-zinc-900 flex-col rounded h-full">
       <div className="p-4 flex justify-between items-center">
         <h2 className="text-md text-white flex align-center items-center">Notifications</h2>

@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import TaskbarRightSection from "./TaskbarRightSection";
+import TaskbarLeftSection from "./TaskbarLeftSection";
 
 // Define the type for taskbar buttons
 interface TaskbarProps {
@@ -110,7 +111,7 @@ const Taskbar = ({ openWindows, toggleWindow, openWindow }: TaskbarProps) => {
           width={28}
           height={28}
         />
-        <span>Contact Me</span>
+        <TaskbarLeftSection/>
       </button>
 
       {/* Taskbar Buttons */}
