@@ -7,38 +7,46 @@ interface ContactPanelProps {
 
 const ContactPanel: React.FC<ContactPanelProps> = () => {
   return (
-    <div className="fixed top-0 left-0 h-full w-96 shadow-md transform transition-transform translate-x-0 p-8">
-      <h2 className="text-3xl font-bold mb-6 text-gray-800">Reach out to me</h2>
-      <p className="text-gray-600 mb-8">
-        Please provide your details in the form below, and I'll respond promptly.
+    <div className="left-0 h-full w-[540px] shadow-md transform transition-transform translate-x-0 p-8">
+      <h2 className="text-3xl font-bold mb-6 text-white font-serif">
+        Reach out to me
+      </h2>
+      <p className="text-white text-xl mb-8">
+        Please provide your details in the form below, and I'll respond
+        promptly.
       </p>
 
-      {/* Contact Form */}
+      <div className="flex flex-row gap-3 align-center justify-center">
       <form className="space-y-4">
-        <input
-          type="text"
-          placeholder="Your name"
-          className="w-full p-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
-        />
-        <input
-          type="email"
-          placeholder="Your email address"
-          className="w-full p-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
-        />
-        <textarea
-          placeholder="Your message for me"
-          className="w-full p-3 rounded-md border border-gray-300 h-32 resize-none focus:outline-none focus:ring-2 focus:ring-blue-500"
-        />
-        <button
-          type="submit"
-          className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold p-3 rounded-md"
-        >
-          Submit
-        </button>
+        <div className="flex flex-col gap-1 flex-start align-center">
+          <div className="flex flex-row gap-1">
+            <input
+              type="text"
+              placeholder="Your name"
+              className="w-full p-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+            <input
+              type="email"
+              placeholder="Your email address"
+              className="w-full p-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
+
+          <textarea
+            placeholder="Your message for me"
+            className="w-full p-3 rounded-md border border-gray-300 h-32 resize-none focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+          <button
+            type="submit"
+            className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold p-3 rounded-md"
+          >
+            Submit
+          </button>
+        </div>
       </form>
 
       {/* Social Links */}
-      <div className="mt-8 space-y-4">
+      <div className="space-y-4 flex flex-col gap-1 flex-end align-center justify-center">
         <a
           href="https://linkedin.com"
           target="_blank"
@@ -75,6 +83,7 @@ const ContactPanel: React.FC<ContactPanelProps> = () => {
           <FaWhatsapp size={24} className="text-green-500" />
           <span>WhatsApp</span>
         </a>
+      </div>
       </div>
     </div>
   );

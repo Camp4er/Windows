@@ -5,7 +5,7 @@ import { FaLinkedin, FaGithub, FaTwitter } from "react-icons/fa";
 
 export default function ContactWindow() {
   return (
-    <div className="p-6 bg-white rounded-md shadow-md text-gray-800 space-y-6">
+    <div className="p-6 bg-white rounded-md shadow-md text-gray-800 space-y-6 h-full">
       <h2 className="text-2xl font-bold text-indigo-700">Contact Me</h2>
       <p className="text-gray-500">I'd love to hear from you! Feel free to reach out using the form below or connect with me on social media.</p>
 

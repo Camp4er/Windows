@@ -36,7 +36,7 @@ export default function ProjectsWindow() {
   };
 
   return (
-    <div className="p-6 bg-white rounded-md shadow-md text-gray-800 space-y-6">
+    <div className="p-6 bg-white rounded-md shadow-md text-gray-800 space-y-6 h-full overflow-scroll">
       <h2 className="text-2xl font-bold text-indigo-700">Projects</h2>
       
       {projects.map((project, index) => (
