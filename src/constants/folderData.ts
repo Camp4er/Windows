@@ -179,15 +179,15 @@ export const sectionTwo = {
     type: "sidebar3",
     icons: "/icons/share.png",
     id: "1",
-    children: {},
+    children: [],
   },
   Documents: {
     name: "Documents",
     type: "sidebar4",
     icons: "/icons/share.png",
     id: "1",
-    children: {
-      Resume: {
+    children: [
+      {
         name: "Resume",
         type: "file",
         dateModified: "2024-12-01",
@@ -202,23 +202,23 @@ export const sectionTwo = {
           //     ></iframe>
         },
       },
-    },
+    ],
   },
   Projects: {
     name: "Projects",
     type: "sidebar5",
     icons: "/icons/share.png",
     id: "1",
-    children: {
-      "Project A": {
+    children: [
+      {
         name: "Project A",
         type: "folder",
         dateModified: "2024-12-01",
         size: "118 KB",
         icons: "/icons/share.png",
         id: "2",
-        children: {
-          Description: {
+        children: [
+          {
             name: "Description",
             type: "file",
             dateModified: "2024-12-01",
@@ -226,7 +226,7 @@ export const sectionTwo = {
             icons: "/icons/share.png",
             id: "3",
           },
-          "Github Repo": {
+          {
             name: "Github Repo",
             type: "file",
             dateModified: "2024-12-01",
@@ -237,7 +237,7 @@ export const sectionTwo = {
               window.open("https://github.com/Camp4er", "_blank");
             },
           },
-          "Live Demo": {
+          {
             name: "Live Demo",
             type: "file",
             dateModified: "2024-12-01",
@@ -248,15 +248,15 @@ export const sectionTwo = {
               window.open("https://github.com/Camp4er", "_blank");
             },
           },
-          "View Images": {
+          {
             name: "View Images",
             type: "file",
             dateModified: "2024-12-01",
             size: "118 KB",
             icons: "/icons/share.png",
             id: "3",
-            children: {
-              "Image 1": {
+            children: [
+              {
                 name: "Image 1",
                 type: "file",
                 dateModified: "2024-12-01",
@@ -264,7 +264,7 @@ export const sectionTwo = {
                 icons: "/icons/share.png",
                 id: "4",
               },
-              "Image 2": {
+              {
                 name: "Image 2",
                 type: "file",
                 dateModified: "2024-12-01",
@@ -272,19 +272,19 @@ export const sectionTwo = {
                 icons: "/icons/share.png",
                 id: "4",
               },
-            },
+            ],
           },
-        },
+        ],
       },
-      "Project B": {
+      {
         name: "Project B",
         type: "folder",
         dateModified: "2024-12-01",
         size: "118 KB",
         icons: "/icons/share.png",
         id: "2",
-        children: {
-          Description: {
+        children: [
+          {
             name: "Description",
             type: "file",
             dateModified: "2024-12-01",
@@ -292,7 +292,7 @@ export const sectionTwo = {
             icons: "/icons/share.png",
             id: "3",
           },
-          "Github Repo": {
+          {
             name: "Github Repo",
             type: "file",
             dateModified: "2024-12-01",
@@ -303,7 +303,7 @@ export const sectionTwo = {
               window.open("https://github.com/Camp4er", "_blank");
             },
           },
-          "Live Demo": {
+          {
             name: "Live Demo",
             type: "file",
             dateModified: "2024-12-01",
@@ -314,15 +314,15 @@ export const sectionTwo = {
               window.open("https://github.com/Camp4er", "_blank");
             },
           },
-          "View Images": {
+          {
             name: "View Images",
             type: "file",
             dateModified: "2024-12-01",
             size: "118 KB",
             icons: "/icons/share.png",
             id: "3",
-            children: {
-              "Image 1": {
+            children: [
+              {
                 name: "Image 1",
                 type: "file",
                 dateModified: "2024-12-01",
@@ -330,7 +330,7 @@ export const sectionTwo = {
                 icons: "/icons/share.png",
                 id: "4",
               },
-              "Image 2": {
+              {
                 name: "Image 2",
                 type: "file",
                 dateModified: "2024-12-01",
@@ -338,27 +338,27 @@ export const sectionTwo = {
                 icons: "/icons/share.png",
                 id: "4",
               },
-            },
+            ],
           },
-        },
+        ],
       },
-    },
+    ],
   },
   Skills: {
     name: "Skills",
     type: "sidebar6",
     icons: "/icons/share.png",
     id: "1",
-    children: {
-      "Languages, Libraries & Frameworks": {
+    children: [
+      {
         name: "Languages & Frameworks",
         type: "folder",
         dateModified: "2024-12-01",
         size: "118 KB",
         icons: "/icons/share.png",
         id: "2",
-        children: {
-          HTML: {
+        children: [
+          {
             name: "HTML",
             type: "file",
             dateModified: "2024-12-01",
@@ -369,7 +369,7 @@ export const sectionTwo = {
               window.open("https://html.com/document", "_blank");
             },
           },
-          CSS: {
+          {
             name: "CSS",
             type: "file",
             dateModified: "2024-12-01",
@@ -380,7 +380,7 @@ export const sectionTwo = {
               window.open("https://devdocs.io/css", "_blank");
             },
           },
-          JavaScript: {
+          {
             name: "JavaScript",
             type: "file",
             dateModified: "2024-12-01",
@@ -394,7 +394,7 @@ export const sectionTwo = {
               );
             },
           },
-          "React.js": {
+          {
             name: "React",
             type: "file",
             dateModified: "2024-12-01",
@@ -408,7 +408,7 @@ export const sectionTwo = {
               );
             },
           },
-          "Next.js": {
+          {
             name: "Next.js",
             type: "file",
             dateModified: "2024-12-01",
@@ -419,7 +419,7 @@ export const sectionTwo = {
               window.open("https://nextjs.org/docs/getting-started", "_blank");
             },
           },
-          "Node.js": {
+          {
             name: "Node",
             type: "file",
             dateModified: "2024-12-01",
@@ -430,7 +430,7 @@ export const sectionTwo = {
               window.open("https://nodejs.org/en/docs/", "_blank");
             },
           },
-          Bootstrap: {
+          {
             name: "Bootstrap",
             type: "file",
             dateModified: "2024-12-01",
@@ -441,7 +441,7 @@ export const sectionTwo = {
               window.open("https://getbootstrap.com/docs/", "_blank");
             },
           },
-          DBMS: {
+          {
             name: "DBMS",
             type: "file",
             dateModified: "2024-12-01",
@@ -452,7 +452,7 @@ export const sectionTwo = {
               window.open("https://dev.mysql.com/doc/", "_blank");
             },
           },
-          jQuery: {
+          {
             name: "jQuery",
             type: "file",
             dateModified: "2024-12-01",
@@ -463,17 +463,17 @@ export const sectionTwo = {
               window.open("https://api.jquery.com/", "_blank");
             },
           },
-        },
+        ],
       },
-      "Tools & Software": {
+      {
         name: "Tools & Software",
         type: "folder",
         dateModified: "2024-12-01",
         size: "118 KB",
         icons: "/icons/share.png",
         id: "2",
-        children: {
-          VSCode: {
+        children: [
+          {
             name: "VSCode",
             type: "file",
             dateModified: "2024-12-01",
@@ -484,7 +484,7 @@ export const sectionTwo = {
               window.open("https://code.visualstudio.com/", "_blank");
             },
           },
-          GitHub: {
+          {
             name: "GitHub",
             type: "file",
             dateModified: "2024-12-01",
@@ -495,7 +495,7 @@ export const sectionTwo = {
               window.open("https://github.com/", "_blank");
             },
           },
-          MongoDB: {
+          {
             name: "MongoDB",
             type: "file",
             dateModified: "2024-12-01",
@@ -506,17 +506,17 @@ export const sectionTwo = {
               window.open("https://www.mongodb.com/", "_blank");
             },
           },
-        },
+        ],
       },
-      "Soft Skills": {
+      {
         name: "Soft Skills",
         type: "folder",
         dateModified: "2024-12-01",
         size: "118 KB",
         icons: "/icons/share.png",
         id: "2",
-        children: {
-          Communication: {
+        children: [
+          {
             name: "Communication",
             type: "file",
             dateModified: "2024-12-01",
@@ -524,7 +524,7 @@ export const sectionTwo = {
             icons: "/icons/share.png",
             id: "3",
           },
-          "Problem Solving": {
+          {
             name: "Problem Solving",
             type: "file",
             dateModified: "2024-12-01",
@@ -532,7 +532,7 @@ export const sectionTwo = {
             icons: "/icons/share.png",
             id: "3",
           },
-          Teamwork: {
+          {
             name: "Teamwork",
             type: "file",
             dateModified: "2024-12-01",
@@ -540,7 +540,7 @@ export const sectionTwo = {
             icons: "/icons/share.png",
             id: "3",
           },
-          "Creative Thinking": {
+          {
             name: "Creative Thinking",
             type: "file",
             dateModified: "2024-12-01",
@@ -548,7 +548,7 @@ export const sectionTwo = {
             icons: "/icons/share.png",
             id: "3",
           },
-          "Decision Making ": {
+          {
             name: "Decision Making ",
             type: "file",
             dateModified: "2024-12-01",
@@ -556,7 +556,7 @@ export const sectionTwo = {
             icons: "/icons/share.png",
             id: "3",
           },
-          Management: {
+          {
             name: "Management ",
             type: "file",
             dateModified: "2024-12-01",
@@ -564,9 +564,9 @@ export const sectionTwo = {
             icons: "/icons/share.png",
             id: "3",
           },
-        },
+        ],
       },
-    },
+    ],
   },
   Experience: {
     name: "Experience",
@@ -580,8 +580,8 @@ export const sectionTwo = {
     type: "sidebar8",
     icons: "/icons/share.png",
     id: "1",
-    children: {
-      Email: {
+    children: [
+      {
         name: "Email",
         type: "file",
         dateModified: "2024-12-01",
@@ -592,7 +592,7 @@ export const sectionTwo = {
           window.open("mailto:saxenapoorva2004@gmail.com", "_blank");
         },
       },
-      LinkedIn: {
+      {
         name: "LinkedIn",
         type: "file",
         dateModified: "2024-12-01",
@@ -606,7 +606,7 @@ export const sectionTwo = {
           );
         },
       },
-      Github: {
+      {
         name: "Github",
         type: "file",
         dateModified: "2024-12-01",
@@ -617,7 +617,7 @@ export const sectionTwo = {
           window.open("https://github.com/Camp4er", "_blank");
         },
       },
-      Twitter: {
+      {
         name: "Twitter",
         type: "file",
         dateModified: "2024-12-01",
@@ -628,7 +628,7 @@ export const sectionTwo = {
           window.open("https://twitter.com/Camp4er", "_blank");
         },
       },
-    },
+    ],
   },
 };
 
@@ -638,8 +638,8 @@ export const sectionThree = {
     type: "sidebar9",
     icons: "/icons/share.png",
     id: "1",
-    children: {
-      Attachments: {
+    children: [
+      {
         name: "Attachments",
         type: "folder",
         dateModified: "2024-12-01",
@@ -648,7 +648,7 @@ export const sectionThree = {
         id: "2",
         children: "self",
       },
-      Dekstop: {
+      {
         name: "Dekstop",
         type: "folder",
         dateModified: "2024-12-01",
@@ -657,7 +657,7 @@ export const sectionThree = {
         id: "2",
         children: "self",
       },
-      Downloads: {
+      {
         name: "Downloads",
         type: "folder",
         dateModified: "2024-12-01",
@@ -666,7 +666,7 @@ export const sectionThree = {
         id: "2",
         children: "self",
       },
-      Pictures: {
+      {
         name: "Pictures",
         type: "folder",
         dateModified: "2024-12-01",
@@ -675,31 +675,31 @@ export const sectionThree = {
         id: "2",
         children: "self",
       },
-    },
+    ],
   },
   "This PC": {
     name: "This PC",
     type: "sidebar10",
     icons: "icons/share.png",
     id: "1",
-    children: {
-      "OS (C:)": {
+    children: [
+      {
         name: "OS (C:)",
         type: "folder",
         dateModified: "2024-12-01",
         size: "118 KB",
         icons: "/icons/share.png",
         id: "2",
-        children: {
-          Game: {
+        children: [
+          {
             name: "Game",
             type: "folder",
             dateModified: "2024-12-01",
             size: "118 KB",
             icons: "/icons/share.png",
             id: "3",
-            children: {
-              Snakeats: {
+            children: [
+              {
                 name: "Snakeats",
                 type: "file",
                 dateModified: "2024-12-01",
@@ -708,24 +708,24 @@ export const sectionThree = {
                 id: "4",
                 onclick: () => {},
               },
-            },
+            ],
           },
-          users: {
+          {
             type: "folder",
             dateModified: "2024-12-01",
             size: "118 KB",
             icons: "/icons/share.png",
             id: "3",
-            children: {
-              "Default user 1000000": {
+            children: [
+              {
                 name: "Default user 1000000",
                 type: "folder",
                 dateModified: "2024-12-01",
                 size: "118 KB",
                 icons: "/icons/share.png",
                 id: 4,
-                children: {
-                  Dekstop: {
+                children: [
+                  {
                     name: "Dekstop",
                     type: "folder",
                     dateModified: "2024-12-01",
@@ -734,7 +734,7 @@ export const sectionThree = {
                     id: "5",
                     children: "self",
                   },
-                  Documents: {
+                  {
                     name: "Documents",
                     type: "folder",
                     dateModified: "2024-12-01",
@@ -743,7 +743,7 @@ export const sectionThree = {
                     id: "5",
                     children: "self",
                   },
-                  Downloads: {
+                  {
                     name: "Downloads",
                     type: "folder",
                     dateModified: "2024-12-01",
@@ -752,7 +752,7 @@ export const sectionThree = {
                     id: "5",
                     children: "self",
                   },
-                  Favorites: {
+                  {
                     name: "Favorites",
                     type: "folder",
                     dateModified: "2024-12-01",
@@ -761,7 +761,7 @@ export const sectionThree = {
                     id: "5",
                     children: "self",
                   },
-                  Links: {
+                  {
                     name: "Links",
                     type: "folder",
                     dateModified: "2024-12-01",
@@ -770,7 +770,7 @@ export const sectionThree = {
                     id: "5",
                     children: "self",
                   },
-                  Music: {
+                  {
                     name: "Music",
                     type: "folder",
                     dateModified: "2024-12-01",
@@ -779,7 +779,7 @@ export const sectionThree = {
                     id: "5",
                     children: "self",
                   },
-                  "One Drive": {
+                  {
                     name: "One Drive",
                     type: "folder",
                     dateModified: "2024-12-01",
@@ -788,7 +788,7 @@ export const sectionThree = {
                     id: "5",
                     children: "self",
                   },
-                  Pictures: {
+                  {
                     name: "Pictures",
                     type: "folder",
                     dateModified: "2024-12-01",
@@ -797,7 +797,7 @@ export const sectionThree = {
                     id: "5",
                     children: "self",
                   },
-                  "Saved games": {
+                  {
                     name: "Saved games",
                     type: "folder",
                     dateModified: "2024-12-01",
@@ -806,7 +806,7 @@ export const sectionThree = {
                     id: "5",
                     children: "self",
                   },
-                  Videos: {
+                  {
                     name: "Videos",
                     type: "folder",
                     dateModified: "2024-12-01",
@@ -815,17 +815,17 @@ export const sectionThree = {
                     id: "5",
                     children: "self",
                   },
-                }
+                ],
               },
-              Public: {
+              {
                 name: "Public",
                 type: "folder",
                 dateModified: "2024-12-01",
                 size: "118 KB",
                 icons: "/icons/share.png",
                 id: 4,
-                children: {
-                  "Public Documents": {
+                children: [
+                  {
                     name: "Public Documents",
                     type: "folder",
                     dateModified: "2024-12-01",
@@ -834,7 +834,7 @@ export const sectionThree = {
                     id: "5",
                     children: "self",
                   },
-                  "Public Downloads": {
+                  {
                     name: "Public Downloads",
                     type: "folder",
                     dateModified: "2024-12-01",
@@ -843,7 +843,7 @@ export const sectionThree = {
                     id: "5",
                     children: "self",
                   },
-                  "Public Music": {
+                  {
                     name: "Public Music",
                     type: "folder",
                     dateModified: "2024-12-01",
@@ -852,7 +852,7 @@ export const sectionThree = {
                     id: "5",
                     children: "self",
                   },
-                  "Public Pictures": {
+                  {
                     name: "Public Pictures",
                     type: "folder",
                     dateModified: "2024-12-01",
@@ -861,7 +861,7 @@ export const sectionThree = {
                     id: "5",
                     children: "self",
                   },
-                  "Public Videos": {
+                  {
                     name: "Public Videos",
                     type: "folder",
                     dateModified: "2024-12-01",
@@ -870,21 +870,21 @@ export const sectionThree = {
                     id: "5",
                     children: "self",
                   },
-                }
-              }
-            },
+                ],
+              },
+            ],
           },
-        },
+        ],
       },
-    },
+    ],
   },
-  "Network": {
+  Network: {
     name: "Network",
     type: "sidebar11",
     icons: "/icons/share.png",
     id: "1",
     children: "self",
-  }
+  },
 };
 
 // Combine all sections into one exportable object
