@@ -7,22 +7,16 @@ interface SidebarProps {
   onFolderClick: (folder: FileItem) => void;
 }
 
-const Sidebar: React.FC<SidebarProps> = ({ folders, onFolderClick  }) => {
+const Sidebar: React.FC<SidebarProps> = ({ folders, onFolderClick }) => {
 
   return (
     <div className="w-60 bg-gray-900 border-r border-gray-500 h-full p-4 transition-opacity duration-500 opacity-100">
       {/* First  section */}
       <div className="flex flex-col items-start space-x-2 mb-4">
-      {folders.map((folder) => (
-        <div 
-          key={folder.id} 
-          onClick={() => onFolderClick(folder)} 
-          className="cursor-pointer p-2 hover:bg-gray-700 rounded"
-        >
-          📁 {folder.name}
-        </div>
+      {folders.map(folder => (
+        <button key={folder.id} onClick={() => onFolderClick(folder)}>{folder.name}</button>
       ))}
-    </div>
+      </div>
       <br className="text-white"/>
 
       {/* Second section */}

@@ -1,21 +1,16 @@
 import { sidebarData } from "@/constants/folderData";
 import { FileItem } from "./FileExplorer";
 
-export const getChildrenById = (folderId: string, level: number): FileItem[] => {
-  const sections = Object.values(sidebarData); // Converts to an array of all sidebar sections
-  const sidebarItem = sections.find((item) => item.id === folderId);
+export const getChildrenById = (id: number | string): FileItem[] => {
+  const sections = Object.values(sidebarData); 
+  const idParts = id.toString().split('.'); 
+  let currentChildren: FileItem[] = sections.flatMap((section) => section ); // Ensures type
 
-  if (!sidebarItem) return [];
-
-  let currentChildren = sidebarItem.children ? Object.values(sidebarItem.children) : [];
-
-  for (let i = 1; i < level; i++) {
-    currentChildren = currentChildren.flatMap((child) => {
-      if (!child.children) return []; // No children in this folder
-      return Object.values(child.children);
-    });
-  }
+  idParts.forEach(part => {
+    const currentId = parseFloat(part); 
+    const folder = currentChildren.find(item => item.id === currentId);
+    currentChildren = folder?.children || []; 
+  });
 
   return currentChildren;
 };
-

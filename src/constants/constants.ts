@@ -1,7 +1,9 @@
+import { FileItem } from "@/components/FileExplorer";
+
 export interface BreadcrumbProps {
-  currentPath: string[];
+  currentPath: FileItem[];
   onBreadcrumbClick: (index: number) => void;
-  onBack: () => void; 
+  onBack?: () => void; 
 }
 
 export interface ContentAreaProps {

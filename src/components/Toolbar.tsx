@@ -69,17 +69,11 @@ const Toolbar = ({ currentPath, onBreadcrumbClick, onBack }: BreadcrumbProps) =>
                 height={20}
               /> */}
               {/* Display the breadcrumb */}
-              {currentPath.map((id, index) => (
-        <div key={id} className="flex items-center">
-          <span 
-            className="cursor-pointer text-blue-500 hover:underline" 
-            onClick={() => onBreadcrumbClick(index)}
-          >
-            Folder {id}
-          </span>
-          {index < currentPath.length - 1 && <span> / </span>}
-        </div>
-        ))}
+              {currentPath.map((item, index) => (
+        <span key={item.id} onClick={() => onBreadcrumbClick(index)}>
+          {item.name} {index < currentPath.length - 1 && '>'}
+        </span>
+      ))}
           </div>
         </div>
 

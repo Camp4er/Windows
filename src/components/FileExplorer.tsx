@@ -1,86 +1,74 @@
-import React, { useState, useEffect } from "react";
-import Sidebar from "./Sidebar";
-import Toolbar from "./Toolbar";
-import ContentArea from "./ContentArea";
-import { getChildrenById } from "./FileStr";
-import { sidebarData } from "@/constants/folderData";
+"use client";
 
-type FileType = "folder" | "file";
+import React, { useState, useEffect } from 'react';
+import Sidebar from './Sidebar';
+import Toolbar from './Toolbar';
+import ContentArea from './ContentArea';
+import { getChildrenById } from './FileStr';
+import { sidebarData } from '@/constants/folderData';
+
+type FileType = 'folder' | 'file';
 
 export type FileItem = {
-  id: string; // Change to string to support sidebar1, folder2, etc.
+  id: string | number; 
   name: string;
-  type: FileType;
-  children?: FileItem[]; // For nested folders
-  onClick?: () => void; // Optional click handler for files
+  type: FileType; 
+  icons?: string;
+  dateModified?: string;
+  size?: string;
+  children?: FileItem[];
+  onClick?: () => void;
 };
 
+
+
 type FileExplorerProps = {
-  initialSidebarId: string; // e.g., 'sidebar1', 'sidebar10', etc.
+  initialSidebarId: number; 
 };
 
 const FileExplorer = ({ initialSidebarId }: FileExplorerProps) => {
-  const [currentPath, setCurrentPath] = useState<string[]>([initialSidebarId]); // Tracks the navigation path using folder IDs
-  const [activeFolder, setActiveFolder] = useState<FileItem[]>([]); // Tracks current folder contents
+  const [currentPath, setCurrentPath] = useState<FileItem[]>([]);
+  const [activeFolder, setActiveFolder] = useState<FileItem[]>([]);
 
-  // Load the initial children for the initial sidebar ID
   useEffect(() => {
-    const initialChildren = getChildrenById(initialSidebarId, 1); // Get level 1 children for the initial sidebar
+    const initialChildren = getChildrenById(initialSidebarId) as FileItem[];
     setActiveFolder(initialChildren);
+    setCurrentPath([{ id: initialSidebarId, name: 'Root', type: 'folder' }]); 
   }, [initialSidebarId]);
 
-  // Handle folder click: Update the path and display new contents
   const handleFolderClick = (folder: FileItem) => {
-    const newPath = [...currentPath, folder.id]; // Append the clicked folder's ID to the path
-    setCurrentPath(newPath);
-    const newChildren = getChildrenById(folder.id, 1); // Get children for the clicked folder
+    setCurrentPath((prevPath) => [...prevPath, folder]);
+    const newChildren = getChildrenById(folder.id);
     setActiveFolder(newChildren);
   };
 
-  // Handle breadcrumb click to navigate to a previous path
   const handleBreadcrumbClick = (index: number) => {
-    const newPath = currentPath.slice(0, index + 1); // Shorten the path up to the clicked breadcrumb
+    const newPath = currentPath.slice(0, index + 1);
     setCurrentPath(newPath);
-
-    let newActiveFolder = getChildrenById(newPath[0], 1); // Start with top-level sidebar data
-    newPath.slice(1).forEach((id) => {
-      newActiveFolder = getChildrenById(id, 1); // Navigate into each folder level
-    });
-
-    setActiveFolder(newActiveFolder);
+    const lastItem = newPath[newPath.length - 1];
+    const newChildren = getChildrenById(lastItem.id);
+    setActiveFolder(newChildren);
   };
 
-  // Go back one level
   const handleBack = () => {
     if (currentPath.length > 1) {
       const newPath = currentPath.slice(0, -1);
       setCurrentPath(newPath);
-      const newChildren = getChildrenById(newPath[newPath.length - 1], 1);
+      const lastItem = newPath[newPath.length - 1];
+      const newChildren = getChildrenById(lastItem.id);
       setActiveFolder(newChildren);
     }
   };
 
   return (
     <div className="p-0">
-      <Toolbar
-        currentPath={currentPath}
-        onBreadcrumbClick={handleBreadcrumbClick}
-        onBack={handleBack}
+      <Toolbar 
+        currentPath={currentPath} 
+        onBreadcrumbClick={handleBreadcrumbClick} 
+        onBack={handleBack} 
       />
       <div className="flex flex-row gap-5 p-0 m-0">
-      <Sidebar
-  folders={Object.values(sidebarData).map((folder) => ({
-    id: folder.id,
-    name: folder.name,
-    type: folder.type === 'folder' ? 'folder' : 'file',
-    children: Array.isArray(folder.children) ? folder.children.map((child) => ({
-      id: child.id,
-      name: child.name,
-      type: child.type,
-    })) : [],
-  }))}
-  onFolderClick={handleFolderClick}
-/>
+        <Sidebar folders={Object.values(sidebarData).flat()} onFolderClick={handleFolderClick} />
         <ContentArea items={activeFolder} onFolderClick={handleFolderClick} />
       </div>
     </div>

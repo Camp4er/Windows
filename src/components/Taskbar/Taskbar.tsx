@@ -101,7 +101,7 @@ const Taskbar = ({ openWindows, toggleWindow, openWindow }: TaskbarProps) => {
   return (
     <div className="fixed bottom-0 left-0 right-0 bg-zinc-900 text-white flex items-center justify-between px-4 h-[54px]">
       {/* Shortcut Button */}
-      <button
+      <div
         className="flex items-center gap-2 hover:bg-zinc-800 p-2 rounded"
         aria-label="Contact Me"
       >
@@ -112,7 +112,7 @@ const Taskbar = ({ openWindows, toggleWindow, openWindow }: TaskbarProps) => {
           height={28}
         />
         <TaskbarLeftSection/>
-      </button>
+      </div>
 
       {/* Taskbar Buttons */}
       <div className="flex items-center">
