@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { skillsCard } from '@/constants/constants';
 import Image from 'next/image';
 

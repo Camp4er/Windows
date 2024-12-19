@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState, useEffect, useRef } from "react";
 import { FaBell } from "react-icons/fa";
 import CalendarNotificationPanel from "./CalendarNotificationPanel";
