@@ -3,6 +3,7 @@
 // import { ContentAreaProps } from "../constants/constants";
 // import SkillsMain from "./FileExplorer/Skills/SkillsMain";
 
+import { useState } from "react";
 import { FileItem } from "./FileExplorer";
 
 // const ContentArea = ({
@@ -273,6 +274,21 @@ import { FileItem } from "./FileExplorer";
 
 // export default ContentArea;
 
+const renderChildren = (item: FileItem) => {
+  if (item.children) {
+    return (
+      <div>
+        {item.children.map((child) => (
+          <div key={child.id}>
+            {child.name}
+            {renderChildren(child)}
+          </div>
+        ))}
+      </div>
+    );
+  }
+  return null;
+};
 
 type ContentAreaProps = {
   items: FileItem[];
@@ -280,9 +296,11 @@ type ContentAreaProps = {
 };
 
 const ContentArea: React.FC<ContentAreaProps> = ({ items, onFolderClick }) => {
+  const [selectedItem, setSelectedItem] = useState<FileItem | null>(null);
+
   return (
     <div className="grid grid-cols-3 gap-4">
-      {items.map((item) => (
+      {/* {items.map((item) => (
         <div 
           key={item.id} 
           onClick={() => onFolderClick(item)} 
@@ -290,7 +308,28 @@ const ContentArea: React.FC<ContentAreaProps> = ({ items, onFolderClick }) => {
         >
           {item.type === 'folder' ? '📁' : '📄'} {item.name}
         </div>
-      ))}
+      ))} */}
+      {selectedItem && selectedItem.children ? (
+  <div>
+    {selectedItem.children.map((child) => (
+      <div key={child.id} onClick={() => setSelectedItem(child)}>
+        {child.name}
+      </div>
+    ))}
+  </div>
+) : (
+  items.map((item) => (
+    <div key={item.id} onClick={() => setSelectedItem(item)}>
+      {item.name}
+    </div>
+  ))
+)}
+      {/* {items.map((item) => (
+  <button key={item.id} onClick={() => onFolderClick(item)}>
+    {item.name}
+    {renderChildren(item)}
+  </button>
+))} */}
     </div>
   );
 };

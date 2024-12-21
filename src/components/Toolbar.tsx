@@ -3,9 +3,18 @@
 import React from "react";
 import Image from "next/image";
 import { BreadcrumbProps } from "../constants/constants";
+import { FileItem } from "./FileExplorer";
 
 const Toolbar = ({ currentPath, onBreadcrumbClick, onBack }: BreadcrumbProps) => {
   //const currentFolder = path[path.length - 1]; // Name of the last item in the path array
+
+  const getPath = (item: FileItem, path: string[] = []) => {
+    path.unshift(item.name);
+    if (item.parent) {
+      return getPath(item.parent, path);
+    }
+    return path.join(' / ');
+  };
 
   return (
     <div className="h-full">
@@ -71,11 +80,24 @@ const Toolbar = ({ currentPath, onBreadcrumbClick, onBack }: BreadcrumbProps) =>
                 height={20}
               /> */}
               {/* Display the breadcrumb */}
-              {currentPath.map((item, index) => (
+              {/* {currentPath.map((item, index) => (
         <span key={item.id} onClick={() => onBreadcrumbClick(index)}>
           {item.name} {index < currentPath.length - 1 && '>'}
         </span>
-      ))}
+      ))} */}
+      {currentPath.map((item, index) => (
+          <span key={index}>
+            {index > 0 && (
+              <button
+                onClick={() => onBreadcrumbClick(index - 1)}
+                className="text-gray-200 hover:text-gray-100"
+              >
+                &larr;
+              </button>
+            )}
+            <span className="text-gray-200">{getPath(item)}</span>
+          </span>
+        ))}
           </div>
         </div>
 

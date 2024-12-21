@@ -17,6 +17,7 @@ export type FileItem = {
   dateModified?: string;
   size?: string;
   children?: FileItem[];
+  parent?: FileItem;
   onClick?: () => void;
 };
 
@@ -84,7 +85,7 @@ const FileExplorer = ({ initialSidebarId }: FileExplorerProps) => {
     const newChildren = getChildrenById(lastItem.id) || [];
     setActiveFolder(newChildren);
   };
-  
+
   const handleBack = () => {
     if (currentPath.length > 1) {
       const newPath = currentPath.slice(0, -1);

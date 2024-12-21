@@ -25,9 +25,9 @@ interface ISystemTrayIcon {
 }
 
 const systemTrayIcons: ISystemTrayIcon[] = [
-  { id: 1, src: "/icons/volume.png", alt: "Volume" },
-  { id: 2, src: "/icons/battery.png", alt: "Battery" },
-  { id: 3, src: "/icons/wifi.png", alt: "Wi-Fi" },
+  { id: 1, src: "/icons/white-wifi.svg", alt: "Wi-Fi" },
+  { id: 2, src: "/icons/white-volume.svg", alt: "Volume" },
+  { id: 3, src: "/icons/white-battery.svg", alt: "Battery" },
 ];
 
 const Taskbar = ({ openWindows, toggleWindow, openWindow }: TaskbarProps) => {
@@ -180,10 +180,10 @@ const Taskbar = ({ openWindows, toggleWindow, openWindow }: TaskbarProps) => {
             IN
           </p>
         </div>
-        <div className="flex items-center hover:bg-zinc-800 gap-1 m-0 py-2 rounded">
+        <div className="flex items-center hover:bg-zinc-800 gap-1 m-0 py-2 px-1 rounded">
           {systemTrayIcons.map((icon) => (
             <button key={icon.id} className="p-1 rounded" aria-label={icon.alt}>
-              <img src={icon.src} alt={icon.alt} width={20} height={20} />
+              <img src={icon.src} alt={icon.alt} width={15} height={16} />
             </button>
           ))}
         </div>
