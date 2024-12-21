@@ -37,19 +37,54 @@ const FileExplorer = ({ initialSidebarId }: FileExplorerProps) => {
   }, [initialSidebarId]);
 
   const handleFolderClick = (folder: FileItem) => {
-    setCurrentPath((prevPath) => [...prevPath, folder]);
-    const newChildren = getChildrenById(folder.id);
+    const isSidebarFolder = currentPath.length === 1; // If there's only "Root", then it's a sidebar click
+
+    setCurrentPath((prevPath) => {
+      // 🛠️ Check if folder already exists in the path
+      const folderIndex = prevPath.findIndex((item) => item.id === folder.id);
+      if (folderIndex !== -1) {
+        // If it exists, trim everything after it
+        return prevPath.slice(0, folderIndex + 1);
+      } 
+      // If it doesn't exist, add it to the path
+      return [...prevPath, folder];
+    });
+    
+    if (isSidebarFolder) {
+      // Reset to only have the clicked folder as the current path
+      setCurrentPath([{ id: folder.id, name: folder.name, type: 'folder' }]);
+    } else {
+      // Add this folder to the existing path (for ContentArea clicks)
+      setCurrentPath((prevPath) => [...prevPath, folder]);
+    }
+  
+    const newChildren = getChildrenById(folder.id) || [];
     setActiveFolder(newChildren);
   };
+
+  // const handleFolderClick = (folder: FileItem) => {
+  //   setCurrentPath((prevPath) => [...prevPath, folder]); // Track parent-child relationship
+  //   const newChildren = getChildrenById(folder.id) || []; 
+  //   setActiveFolder(newChildren);
+  // };
+
+  // const handleBreadcrumbClick = (index: number) => {
+  //   const newPath = currentPath.slice(0, index + 1);
+  //   setCurrentPath(newPath);
+  //   const lastItem = newPath[newPath.length - 1];
+  //   const newChildren = getChildrenById(lastItem.id);
+  //   setActiveFolder(newChildren);
+  // };
+
+  
 
   const handleBreadcrumbClick = (index: number) => {
-    const newPath = currentPath.slice(0, index + 1);
-    setCurrentPath(newPath);
-    const lastItem = newPath[newPath.length - 1];
-    const newChildren = getChildrenById(lastItem.id);
+    setCurrentPath((prevPath) => prevPath.slice(0, index + 1)); // 🛠️ Slice path up to the clicked breadcrumb
+    const lastItem = currentPath[index]; // 🛠️ Get the folder from the breadcrumb
+    const newChildren = getChildrenById(lastItem.id) || [];
     setActiveFolder(newChildren);
   };
-
+  
   const handleBack = () => {
     if (currentPath.length > 1) {
       const newPath = currentPath.slice(0, -1);

@@ -148,7 +148,7 @@ export default function Desktop() {
             )}
             {window.name === "Snakeats" && <Snakegame />}
             {window.name === "Terminal" && <Terminal key={window.name} />}
-            {/* { window.name === "FileExplorer" && <FileExplorer initialSidebarId={1} />}  */}
+            { window.name === "FileExplorer" && <FileExplorer initialSidebarId={1} />} 
           </Window>
         ) : null
       )}
