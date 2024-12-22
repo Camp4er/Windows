@@ -8,12 +8,10 @@ import { FileItem } from "./FileExplorer";
 const Toolbar = ({ currentPath, onBreadcrumbClick, onBack }: BreadcrumbProps) => {
   //const currentFolder = path[path.length - 1]; // Name of the last item in the path array
 
-  const getPath = (item: FileItem, path: string[] = []) => {
-    path.unshift(item.name);
-    if (item.parent) {
-      return getPath(item.parent, path);
-    }
-    return path.join(' / ');
+  const getPath = (item: FileItem) => {
+    const index = currentPath.indexOf(item);
+    if (index === -1) return item.name;
+    return currentPath.slice(0, index + 1).map((i) => i.name).join(' / ');
   };
 
   return (

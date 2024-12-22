@@ -53,7 +53,7 @@ const FileExplorer = ({ initialSidebarId }: FileExplorerProps) => {
     
     if (isSidebarFolder) {
       // Reset to only have the clicked folder as the current path
-      setCurrentPath([{ id: folder.id, name: folder.name, type: 'folder' }]);
+      setCurrentPath([folder]);
     } else {
       // Add this folder to the existing path (for ContentArea clicks)
       setCurrentPath((prevPath) => [...prevPath, folder]);

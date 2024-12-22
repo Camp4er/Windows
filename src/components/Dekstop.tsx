@@ -99,6 +99,11 @@ export default function Desktop() {
             icon="/icons/snake.png"
             onClick={() => openWindow("Snakeats", "/icons/snake.png")}
           />
+          <DesktopIcon
+            title="SampleFileExplorer"
+            icon="/icons/app.png"
+            onClick={() => openWindow("FileExplorer", "/icons/app.png")}
+          />
         </div>
       </div>
 
