@@ -9,9 +9,14 @@ const Toolbar = ({ currentPath, onBreadcrumbClick, onBack }: BreadcrumbProps) =>
   //const currentFolder = path[path.length - 1]; // Name of the last item in the path array
 
   const getPath = (item: FileItem) => {
-    const index = currentPath.indexOf(item);
-    if (index === -1) return item.name;
-    return currentPath.slice(0, index + 1).map((i) => i.name).join(' / ');
+    const path = [];
+    let current: FileItem | undefined = item;
+    while (current) {
+      path.unshift(current.name);
+      current = current.parent;
+      if (!current) break; // Add this null check
+    }
+    return path.join(' / ');
   };
 
   return (

@@ -38,27 +38,18 @@ const FileExplorer = ({ initialSidebarId }: FileExplorerProps) => {
   }, [initialSidebarId]);
 
   const handleFolderClick = (folder: FileItem) => {
-    const isSidebarFolder = currentPath.length === 1; // If there's only "Root", then it's a sidebar click
-
-    setCurrentPath((prevPath) => {
-      // 🛠️ Check if folder already exists in the path
-      const folderIndex = prevPath.findIndex((item) => item.id === folder.id);
-      if (folderIndex !== -1) {
-        // If it exists, trim everything after it
-        return prevPath.slice(0, folderIndex + 1);
-      } 
-      // If it doesn't exist, add it to the path
-      return [...prevPath, folder];
-    });
-    
-    if (isSidebarFolder) {
-      // Reset to only have the clicked folder as the current path
+    if (currentPath.length === 1) { // If there's only "Root", then it's a sidebar click
       setCurrentPath([folder]);
     } else {
-      // Add this folder to the existing path (for ContentArea clicks)
-      setCurrentPath((prevPath) => [...prevPath, folder]);
+      setCurrentPath((prevPath) => {
+        const folderIndex = prevPath.findIndex((item) => item.id === folder.id);
+        if (folderIndex !== -1) {
+          return prevPath.slice(0, folderIndex + 1);
+        } else {
+          return [...prevPath, folder];
+        }
+      });
     }
-  
     const newChildren = getChildrenById(folder.id) || [];
     setActiveFolder(newChildren);
   };
