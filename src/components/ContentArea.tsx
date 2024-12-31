@@ -312,14 +312,17 @@ const ContentArea: React.FC<ContentAreaProps> = ({ items, onFolderClick }) => {
       {selectedItem && selectedItem.children ? (
   <div>
     {selectedItem.children.map((child) => (
-      <div key={child.id} onClick={() => setSelectedItem(child)}>
+      <div key={child.id} onClick={() =>{ setSelectedItem(child)
+      console.log(child);
+      onFolderClick(child)}}>
         {child.name}
       </div>
     ))}
   </div>
 ) : (
   items.map((item) => (
-    <div key={item.id} onClick={() => setSelectedItem(item)}>
+    <div key={item.id} onClick={() => {setSelectedItem(item)
+    console.log(item)}}>
       {item.name}
     </div>
   ))
