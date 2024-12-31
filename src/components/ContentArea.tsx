@@ -292,15 +292,15 @@ const renderChildren = (item: FileItem) => {
 
 type ContentAreaProps = {
   items: FileItem[];
-  onFolderClick: (folder: FileItem) => void;
+  onFolderClick: (folder: FileItem, isSidebarClick: boolean) => void;
 };
 
 const ContentArea: React.FC<ContentAreaProps> = ({ items, onFolderClick }) => {
-  const [selectedItem, setSelectedItem] = useState<FileItem | null>(null);
+	const [selectedItem, setSelectedItem] = useState<FileItem | null>(null);
 
-  return (
-    <div className="grid grid-cols-3 gap-4">
-      {/* {items.map((item) => (
+	return (
+		<div className="grid grid-cols-3 gap-4">
+			{/* {items.map((item) => (
         <div 
           key={item.id} 
           onClick={() => onFolderClick(item)} 
@@ -309,32 +309,41 @@ const ContentArea: React.FC<ContentAreaProps> = ({ items, onFolderClick }) => {
           {item.type === 'folder' ? '📁' : '📄'} {item.name}
         </div>
       ))} */}
-      {selectedItem && selectedItem.children ? (
-  <div>
-    {selectedItem.children.map((child) => (
-      <div key={child.id} onClick={() =>{ setSelectedItem(child)
-      console.log(child);
-      onFolderClick(child)}}>
-        {child.name}
-      </div>
-    ))}
-  </div>
-) : (
-  items.map((item) => (
-    <div key={item.id} onClick={() => {setSelectedItem(item)
-    console.log(item)}}>
-      {item.name}
-    </div>
-  ))
-)}
-      {/* {items.map((item) => (
+			{selectedItem && selectedItem.children ? (
+				<div>
+					{selectedItem.children.map((child) => (
+						<div
+							key={child.id}
+							onClick={() => {
+								onFolderClick(child, false);
+								setSelectedItem(child);
+							}}>
+							{child.name}
+						</div>
+					))}
+				</div>
+			) : (
+				<div>
+					{items.map((item) => (
+						<div
+							key={item.id}
+							onClick={() => {
+								setSelectedItem(item);
+								onFolderClick(item, false);
+							}}>
+							{item.name}
+						</div>
+					))}
+				</div>
+			)}
+			{/* {items.map((item) => (
   <button key={item.id} onClick={() => onFolderClick(item)}>
     {item.name}
     {renderChildren(item)}
   </button>
 ))} */}
-    </div>
-  );
+		</div>
+	);
 };
 
 export default ContentArea;

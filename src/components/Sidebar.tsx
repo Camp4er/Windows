@@ -3,24 +3,24 @@ import React from "react";
 import { FileItem } from "./FileExplorer";
 
 interface SidebarProps {
-  folders: FileItem[];
-  onFolderClick: (folder: FileItem) => void;
+	folders: FileItem[];
+	onFolderClick: (folder: FileItem, isSidebarClick: boolean) => void;
 }
 
 const Sidebar: React.FC<SidebarProps> = ({ folders, onFolderClick }) => {
 
-  return (
-    <div className="w-60 bg-gray-900 border-r border-gray-500 h-full p-4 transition-opacity duration-500 opacity-100">
-      {/* First  section */}
-      <div className="flex flex-col items-start space-x-2 mb-4">
+	return (
+		<div className="w-60 bg-gray-900 border-r border-gray-500 h-full p-4 transition-opacity duration-500 opacity-100">
+			{/* First  section */}
+			<div className="flex flex-col items-start space-x-2 mb-4">
       {folders.map(folder => (
-        <button key={folder.id} onClick={() => onFolderClick(folder)}>{folder.name}</button>
-      ))}
-      </div>
+        <button key={folder.id} onClick={() => onFolderClick(folder,true)}>{folder.name}</button>
+				))}
+			</div>
       <br className="text-white"/>
 
-      {/* Second section */}
-      {/* <ul className="space-y-2">
+			{/* Second section */}
+			{/* <ul className="space-y-2">
         {folders.map((folder, index) => (
           <li key={index} className="flex pl-8 hover:bg-gray-700 cursor-pointer rounded">
             <button
@@ -36,8 +36,8 @@ const Sidebar: React.FC<SidebarProps> = ({ folders, onFolderClick }) => {
 
       <br className="text-white"/> */}
 
-      {/* Third section */}
-      {/* <ul className="space-y-2">
+			{/* Third section */}
+			{/* <ul className="space-y-2">
         {mainFolders.map((folder, index) => (
           <li key={index} className="flex pl-8 hover:bg-gray-700 cursor-pointer rounded">
             <button
@@ -50,8 +50,8 @@ const Sidebar: React.FC<SidebarProps> = ({ folders, onFolderClick }) => {
           </li>
         ))}
       </ul> */}
-    </div>
-  );
+		</div>
+	);
 };
 
 export default Sidebar;
