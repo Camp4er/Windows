@@ -2,9 +2,10 @@
 // import React from "react";
 // import { ContentAreaProps } from "../constants/constants";
 // import SkillsMain from "./FileExplorer/Skills/SkillsMain";
-
+"use client"
 import { useState } from "react";
 import { FileItem } from "./FileExplorer";
+import Banner from "./FileExplorer/Banner";
 
 // const ContentArea = ({
 //   path,
@@ -299,7 +300,7 @@ const ContentArea: React.FC<ContentAreaProps> = ({ items, onFolderClick }) => {
 	const [selectedItem, setSelectedItem] = useState<FileItem | null>(null);
 
 	return (
-		<div className="grid grid-cols-3 gap-4">
+		<div className="w-full">
 			{/* {items.map((item) => (
         <div 
           key={item.id} 
@@ -323,18 +324,22 @@ const ContentArea: React.FC<ContentAreaProps> = ({ items, onFolderClick }) => {
 					))}
 				</div>
 			) : (
-				<div>
-					{items.map((item) => (
-						<div
-							key={item.id}
-							onClick={() => {
-								setSelectedItem(item);
-								onFolderClick(item, false);
-							}}>
-							{item.name}
-						</div>
-					))}
-				</div>
+        <div className="w-full">
+          <Banner/>
+        </div>
+        
+				// <div>
+				// 	{items.map((item) => (
+				// 		<div
+				// 			key={item.id}
+				// 			onClick={() => {
+				// 				setSelectedItem(item);
+				// 				onFolderClick(item, false);
+				// 			}}>
+				// 			{item.name}
+				// 		</div>
+				// 	))}
+				// </div>
 			)}
 			{/* {items.map((item) => (
   <button key={item.id} onClick={() => onFolderClick(item)}>

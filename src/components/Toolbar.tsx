@@ -16,15 +16,15 @@ const Toolbar = ({ currentPath, onBreadcrumbClick, onBack }: BreadcrumbProps) =>
       current = current.parent;
       if (!current) break; // Add this null check
     }
-    return path.join(' / ');
+    return path.join(' > ');
   };
 
   return (
     <div className="h-full">
       {/* Header 1 */}
-      <div className="flex items-center px-4 py-2 bg-gray-800 text-white border-b border-gray-500">
+      <div className="flex items-center w-full px-3 py-2 bg-gray-800 text-white border-b border-gray-500">
         {/* Navigation Buttons */}
-        <div className="flex space-x-2 mr-4 gap-2">
+        <div className="flex space-x-2 mr-5 gap-2">
           <button onClick={onBack} className="p-2 rounded hover:bg-gray-700">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -73,7 +73,7 @@ const Toolbar = ({ currentPath, onBreadcrumbClick, onBack }: BreadcrumbProps) =>
         </div>
 
         {/* Breadcrumbs */}
-        <div className="flex flex-grow items-center space-x-2 text-gray-300">
+        <div className="flex items-center w-[65%] text-gray-300">
           <div className="flex items-center justify-start flex-row  w-full pl-5 pr-2 py-1 bg-gray-900  rounded text-gray-300 focus:outline-none focus:ring focus:ring-gray-600 gap-2">
               {/* Display the folder icon */}
               {/* <Image
@@ -105,7 +105,7 @@ const Toolbar = ({ currentPath, onBreadcrumbClick, onBack }: BreadcrumbProps) =>
         </div>
 
         {/* Search Bar */}
-        <div className="flex-1 ml-4 flex items-center relative">
+        <div className="flex ml-2 items-center w-[30%] relative">
           <input
             type="text"
             placeholder="Search here..."
