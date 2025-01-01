@@ -324,7 +324,15 @@ const ContentArea: React.FC<ContentAreaProps> = ({ items, onFolderClick }) => {
 					))}
 				</div>
 			) : (
-        <div className="w-full">
+        !selectedItem? (
+          items.map((item) => <div
+                 key={item.id}
+                 onClick={() => {
+                   setSelectedItem(item);
+                   onFolderClick(item, false);
+                 }}>
+                 {item.name}
+               </div>)) : <div className="w-full">
           <Banner/>
         </div>
         
