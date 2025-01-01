@@ -20,7 +20,7 @@ const Toolbar = ({ currentPath, onBreadcrumbClick, onBack }: BreadcrumbProps) =>
   };
 
   return (
-    <div className="h-full">
+    <div >
       {/* Header 1 */}
       <div className="flex items-center w-full px-3 py-2 bg-gray-800 text-white border-b border-gray-500">
         {/* Navigation Buttons */}

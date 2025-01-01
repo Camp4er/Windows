@@ -89,13 +89,13 @@ const FileExplorer = ({ initialSidebarId }: FileExplorerProps) => {
 	};
 
 	return (
-		<div className="p-0">
+		<div className="p-0 h-full flex flex-col gap-0">
 			<Toolbar
 				currentPath={currentPath}
 				onBreadcrumbClick={handleBreadcrumbClick}
 				onBack={handleBack}
 			/>
-			<div className="flex flex-row gap-5 p-0 m-0">
+			<div className="flex flex-row gap-5 p-0 m-0 h-full">
         <Sidebar folders={Object.values(sidebarData).flat()} onFolderClick={handleFolderClick} />
         <ContentArea items={activeFolder} onFolderClick={handleFolderClick} />
 			</div>
