@@ -91,14 +91,14 @@ const Toolbar = ({ currentPath, onBreadcrumbClick, onBack }: BreadcrumbProps) =>
       {currentPath.map((item, index) => (
           <span key={index}>
             {index > 0 && (
-              <button
+              <span
                 onClick={() => onBreadcrumbClick(index - 1)}
                 className="text-gray-200 hover:text-gray-100"
               >
-                &larr;
-              </button>
+                {" > "}
+              </span>
             )}
-            <span className="text-gray-200">{getPath(item)}</span>
+            <button className="text-gray-200" onClick={() => onBreadcrumbClick(index - 1)}>{getPath(item)}</button>
           </span>
         ))}
           </div>
