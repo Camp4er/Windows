@@ -4,31 +4,31 @@ export const sectionOne = {
   Home: {
     name: "Home",
     type: 'folder' as const,
-    icons: "/icons/share.png",
+    icons: "/icons/3d-house.png",
     id: 1,
     children: [] as FileItem[],
   },
   Gallery: {
     name: "Gallery",
     type: 'folder' as const,
-    icons: "/icons/share.png",
+    icons: "/icons/gallery.png",
     id: 2,
     children: [] as FileItem[],
   },
 };
 
 export const sectionTwo = {
-  Dekstop: {
-    name: "Dekstop",
+  Desktop: {
+    name: "Desktop",
     type: 'folder' as const,
-    icons: "/icons/share.png",
+    icons: "/icons/desktop.png",
     id: 3,
     children: [] as FileItem[],
   },
   Documents: {
     name: "Documents",
     type: 'folder' as const,
-    icons: "/icons/share.png",
+    icons: "/icons/curriculum-vitae.png",
     id: 4,
     children: [
       {
@@ -51,7 +51,7 @@ export const sectionTwo = {
   Projects: {
     name: "Projects",
     type: 'folder' as const,
-    icons: "/icons/share.png",
+    icons: "/icons/blueprint.png",
     id: 5,
     children: [
       {
@@ -191,7 +191,7 @@ export const sectionTwo = {
   Skills: {
     name: "Skills",
     type: 'folder' as const,
-    icons: "/icons/share.png",
+    icons: "/icons/skills.png",
     id: 6,
     children: [
       {
@@ -415,14 +415,14 @@ export const sectionTwo = {
   Experience: {
     name: "Experience",
     type: 'folder' as const,
-    icons: "/icons/share.png",
+    icons: "/icons/suitcase.png",
     id: 7,
     children: [] as FileItem[],
   },
   Contact: {
     name: "Contact",
     type: 'folder' as const,
-    icons: "/icons/share.png",
+    icons: "/icons/phone-book.png",
     id: 8,
     children: [
       {
@@ -480,7 +480,7 @@ export const sectionThree = {
   OneDrive: {
     name: "OneDrive",
     type: 'folder' as const,
-    icons: "/icons/share.png",
+    icons: "/icons/onedrive.png",
     id: 9,
     children: [
       {
@@ -524,7 +524,7 @@ export const sectionThree = {
   "This PC": {
     name: "This PC",
     type: 'folder' as const,
-    icons: "/icons/share.png",
+    icons: "/icons/computer.png",
     id: 10,
     children: [
       {
@@ -726,7 +726,7 @@ export const sectionThree = {
   Network: {
     name: "Network",
     type: 'folder' as const,
-    icons: "/icons/share.png",
+    icons: "/icons/world-grid.png",
     id: 11,
     children: [] as FileItem[],
   },

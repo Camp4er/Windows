@@ -1,4 +1,4 @@
-import Dekstop from '@/components/Dekstop'
+import Dekstop from '@/components/Desktop'
 import Taskbar from '@/components/Taskbar/Taskbar'
 import React from 'react'
 

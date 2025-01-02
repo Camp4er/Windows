@@ -19,7 +19,7 @@ const Sidebar: React.FC<SidebarProps> = ({ foldersOne, foldersTwo, foldersThree,
 
       <ul className="space-y-2 border-gray-500 border-b-2 mb-1 pb-3">
         {foldersOne.map(folder => (
-          <li key={folder.id} className="flex pl-8 hover:bg-gray-700 cursor-pointer rounded">
+          <li key={folder.id} className="flex pl-6 hover:bg-gray-700 cursor-pointer rounded">
             <button
               className="w-full flex items-center justify-start gap-1 text-center text-sm text-white rounded py-1 pl-1"
               onClick={() => onFolderClick(folder, true)}
@@ -36,7 +36,7 @@ const Sidebar: React.FC<SidebarProps> = ({ foldersOne, foldersTwo, foldersThree,
       {/* Second section */}
 			<ul className="space-y-2 border-gray-500 border-b-2 mb-1 pb-3 mt-1">
         {foldersTwo.map(folder => (
-          <li key={folder.id} className="flex pl-8 hover:bg-gray-700 cursor-pointer rounded">
+          <li key={folder.id} className="flex pl-6 hover:bg-gray-700 cursor-pointer rounded">
             <button
               className="w-full flex items-center justify-start gap-1 text-center text-sm text-white rounded py-1 pl-1"
               onClick={() => onFolderClick(folder, true)}
@@ -52,7 +52,7 @@ const Sidebar: React.FC<SidebarProps> = ({ foldersOne, foldersTwo, foldersThree,
       {/* Third section */}
 			<ul className="space-y-2 mt-1">
         {foldersThree.map(folder => (
-          <li key={folder.id} className="flex pl-8 hover:bg-gray-700 cursor-pointer rounded">
+          <li key={folder.id} className="flex pl-6 hover:bg-gray-700 cursor-pointer rounded">
             <button
               className="w-full flex items-center justify-start gap-1 text-center text-sm text-white rounded py-1 pl-1"
               onClick={() => onFolderClick(folder, true)}
