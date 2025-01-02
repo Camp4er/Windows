@@ -18,7 +18,7 @@ export type FileItem = {
   id: string | number;
   name: string;
   type: FileType;
-  icons?: string;
+  icons: string;
   dateModified?: string;
   size?: string;
   children?: FileItem[];
@@ -37,7 +37,7 @@ const FileExplorer = ({ initialSidebarId }: FileExplorerProps) => {
   useEffect(() => {
     const initialChildren = getChildrenById(initialSidebarId) as FileItem[];
     setActiveFolder(initialChildren);
-    setCurrentPath([{ id: initialSidebarId, name: "Root", type: "folder" }]);
+    setCurrentPath([{ id: initialSidebarId, name: "Root", type: "folder", icons: "" }]);
   }, [initialSidebarId]);
 
   const handleFolderClick = (folder: FileItem, isSidebarClick: boolean) => {

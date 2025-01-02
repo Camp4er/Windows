@@ -2,6 +2,7 @@
 
 import React from "react";
 import { FileItem } from "./FileExplorer";
+import Image from "next/image";
 
 interface SidebarProps {
 	foldersOne: FileItem[];
@@ -15,61 +16,55 @@ const Sidebar: React.FC<SidebarProps> = ({ foldersOne, foldersTwo, foldersThree,
 	return (
 		<div className="w-52 h-full  bg-gray-900 border-r border-gray-500 p-4 transition-opacity duration-500 opacity-100">
 			{/* First section */}
-			<div className="flex flex-col items-start space-x-2 mb-4">
-      {foldersOne.map(folder => (
-        <button key={folder.id} onClick={() => onFolderClick(folder,true)}>{folder.name}</button>
-				))}
-			</div>
 
-      <br className="text-white"/>
-
-      {/* Second section */}
-			<div className="flex flex-col items-start space-x-2 mb-4">
-      {foldersTwo.map(folder => (
-        <button key={folder.id} onClick={() => onFolderClick(folder,true)}>{folder.name}</button>
-				))}
-			</div>
-
-      <br className="text-white"/>
-
-      {/* Third section */}
-			<div className="flex flex-col items-start space-x-2 mb-4">
-      {foldersThree.map(folder => (
-        <button key={folder.id} onClick={() => onFolderClick(folder,true)}>{folder.name}</button>
-				))}
-			</div>
-
-			{/* Second section */}
-			{/* <ul className="space-y-2">
-        {folders.map((folder, index) => (
-          <li key={index} className="flex pl-8 hover:bg-gray-700 cursor-pointer rounded">
+      <ul className="space-y-2">
+        {foldersOne.map(folder => (
+          <li key={folder.id} className="flex pl-8 hover:bg-gray-700 cursor-pointer rounded">
             <button
               className="w-full flex items-center justify-start gap-1 text-center text-sm text-white rounded py-1 pl-1"
-              onClick={() => onNavigate(["This PC", folder])}
+              onClick={() => onFolderClick(folder, true)}
             >
-              <Image src="/icons/user-folder.png" alt="Windows icon" width={20} height={20} />
-              {folder}
+              <Image src={folder.icons} alt={folder.name} width={20} height={20} className="mr-2"/>
+              {folder.name}
             </button>
           </li>
         ))}
       </ul>
 
-      <br className="text-white"/> */}
 
-			{/* Third section */}
-			{/* <ul className="space-y-2">
-        {mainFolders.map((folder, index) => (
-          <li key={index} className="flex pl-8 hover:bg-gray-700 cursor-pointer rounded">
+      <br className="text-white"/>
+
+      {/* Second section */}
+			<ul className="space-y-2">
+        {foldersTwo.map(folder => (
+          <li key={folder.id} className="flex pl-8 hover:bg-gray-700 cursor-pointer rounded">
             <button
-              className="w-full flex items-center justify-start gap-1 text-sm text-white rounded py-1 pl-1"
-              onClick={() => onNavigate([folder])}
+              className="w-full flex items-center justify-start gap-1 text-center text-sm text-white rounded py-1 pl-1"
+              onClick={() => onFolderClick(folder, true)}
             >
-              <Image src="/icons/user-folder.png" alt="Windows icon" width={20} height={20} />
-              {folder}
+              <Image src={folder.icons} alt={folder.name} width={20} height={20} className="mr-2"/>
+              {folder.name}
             </button>
           </li>
         ))}
-      </ul> */}
+      </ul>
+
+      <br className="text-white"/>
+
+      {/* Third section */}
+			<ul className="space-y-2">
+        {foldersThree.map(folder => (
+          <li key={folder.id} className="flex pl-8 hover:bg-gray-700 cursor-pointer rounded">
+            <button
+              className="w-full flex items-center justify-start gap-1 text-center text-sm text-white rounded py-1 pl-1"
+              onClick={() => onFolderClick(folder, true)}
+            >
+              <Image src={folder.icons} alt={folder.name} width={20} height={20} className="mr-2"/>
+              {folder.name}
+            </button>
+          </li>
+        ))}
+      </ul>
 		</div>
 	);
 };
