@@ -125,7 +125,7 @@ const Toolbar = ({ currentPath, onBreadcrumbClick, onBack }: BreadcrumbProps) =>
       <div className="flex items-center px-4 py-2 bg-gray-900 border-b border-gray-500 text-gray-300">
         {/* Toolbar Options */}
         <div className="flex space-x-4">
-          <button className="hover:bg-gray-700 p-2 rounded flex flex-row items-center justify-center gap-1">
+          <button className="hover:bg-gray-700 p-2 rounded flex flex-row items-center justify-center gap-1 opacity-50">
             <Image
               src="/icons/plus.png"
               alt="plus icon"
@@ -134,7 +134,7 @@ const Toolbar = ({ currentPath, onBreadcrumbClick, onBack }: BreadcrumbProps) =>
             />
             <span className="text-white">New</span>
           </button>
-          <button className="hover:bg-gray-700 p-2 rounded">
+          <button className="hover:bg-gray-700 p-2 rounded opacity-50">
             <Image
               src="/icons/scissors.png"
               alt="scissors icon"
@@ -142,7 +142,7 @@ const Toolbar = ({ currentPath, onBreadcrumbClick, onBack }: BreadcrumbProps) =>
               height={18}
             />
           </button>
-          <button className="hover:bg-gray-700 p-2 rounded">
+          <button className="hover:bg-gray-700 p-2 rounded opacity-50">
             <Image
               src="/icons/duplicate.png"
               alt="duplicate icon"
@@ -150,7 +150,7 @@ const Toolbar = ({ currentPath, onBreadcrumbClick, onBack }: BreadcrumbProps) =>
               height={18}
             />
           </button>
-          <button className="hover:bg-gray-700 p-2 rounded">
+          <button className="hover:bg-gray-700 p-2 rounded opacity-50">
             <Image
               src="/icons/paste.png"
               alt="paste icon"
@@ -158,7 +158,7 @@ const Toolbar = ({ currentPath, onBreadcrumbClick, onBack }: BreadcrumbProps) =>
               height={18}
             />
           </button>
-          <button className="hover:bg-gray-700 p-2 rounded">
+          <button className="hover:bg-gray-700 p-2 rounded opacity-50">
             <Image
               src="/icons/rename.png"
               alt="rename icon"
@@ -166,7 +166,7 @@ const Toolbar = ({ currentPath, onBreadcrumbClick, onBack }: BreadcrumbProps) =>
               height={18}
             />
           </button>
-          <button className="hover:bg-gray-700 p-2 rounded">
+          <button className="hover:bg-gray-700 p-2 rounded opacity-50">
             <Image
               src="/icons/share.png"
               alt="share icon"
@@ -174,7 +174,7 @@ const Toolbar = ({ currentPath, onBreadcrumbClick, onBack }: BreadcrumbProps) =>
               height={18}
             />
           </button>
-          <button className="hover:bg-gray-700 p-2 rounded">
+          <button className="hover:bg-gray-700 p-2 rounded opacity-50">
             <Image
               src="/icons/delete.png"
               alt="delete icon"
@@ -189,7 +189,7 @@ const Toolbar = ({ currentPath, onBreadcrumbClick, onBack }: BreadcrumbProps) =>
 
         {/* Action Buttons */}
         <div className="flex space-x-4">
-          <button className="hover:bg-gray-700 p-2 rounded flex flex-row items-center justify-center gap-1">
+          <button className="hover:bg-gray-700 opacity-50 p-2 rounded flex flex-row items-center justify-center gap-1">
             <Image
               src="/icons/sort.png"
               alt="sort icon"
@@ -198,7 +198,7 @@ const Toolbar = ({ currentPath, onBreadcrumbClick, onBack }: BreadcrumbProps) =>
             />
             <span className="text-white">Sort</span>
           </button>
-          <button className="hover:bg-gray-700 p-2 rounded flex flex-row items-center justify-center gap-1">
+          <button className="hover:bg-gray-700 opacity-50 p-2 rounded flex flex-row items-center justify-center gap-1">
             <Image
               src="/icons/analysis.png"
               alt="analysis icon"
@@ -207,7 +207,7 @@ const Toolbar = ({ currentPath, onBreadcrumbClick, onBack }: BreadcrumbProps) =>
             />
             <span className="text-white">View</span>
           </button>
-          <button className="hover:bg-gray-700 p-2 rounded flex flex-row items-center justify-center gap-1">
+          <button className="hover:bg-gray-700 opacity-50 p-2 rounded flex flex-row items-center justify-center gap-1">
             <Image
               src="/icons/filter.png"
               alt="filter icon"
@@ -216,7 +216,7 @@ const Toolbar = ({ currentPath, onBreadcrumbClick, onBack }: BreadcrumbProps) =>
             />
             <span className="text-white">Filter</span>
           </button>
-          <button className="hover:bg-gray-700 p-2 rounded">
+          <button className="hover:bg-gray-700 opacity-50 p-2 rounded">
             <Image
               src="/icons/more.png"
               alt="more icon"
@@ -224,7 +224,7 @@ const Toolbar = ({ currentPath, onBreadcrumbClick, onBack }: BreadcrumbProps) =>
               height={18}
             />
           </button>
-          <button className="hover:bg-gray-700 p-2 rounded flex flex-row items-center justify-center gap-1">
+          <button className="hover:bg-gray-700 opacity-50 p-2 rounded flex flex-row items-center justify-center gap-1">
             <Image
               src="/icons/schedule.png"
               alt="schedule icon"
