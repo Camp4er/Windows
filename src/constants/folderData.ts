@@ -720,6 +720,7 @@ export const sectionThree = {
             ],
           },
           {
+            name: "OS(C:)",
             type: 'folder' as const,
             dateModified: "2024-12-01",
             size: "118 KB",
