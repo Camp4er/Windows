@@ -17,7 +17,7 @@ const Sidebar: React.FC<SidebarProps> = ({ foldersOne, foldersTwo, foldersThree,
 		<div className="w-52 h-full  bg-gray-900 border-r border-gray-500 p-4 transition-opacity duration-500 opacity-100">
 			{/* First section */}
 
-      <ul className="space-y-2">
+      <ul className="space-y-2 border-gray-500 border-b-2 mb-1 pb-3">
         {foldersOne.map(folder => (
           <li key={folder.id} className="flex pl-8 hover:bg-gray-700 cursor-pointer rounded">
             <button
@@ -32,10 +32,9 @@ const Sidebar: React.FC<SidebarProps> = ({ foldersOne, foldersTwo, foldersThree,
       </ul>
 
 
-      <br className="text-white"/>
 
       {/* Second section */}
-			<ul className="space-y-2">
+			<ul className="space-y-2 border-gray-500 border-b-2 mb-1 pb-3 mt-1">
         {foldersTwo.map(folder => (
           <li key={folder.id} className="flex pl-8 hover:bg-gray-700 cursor-pointer rounded">
             <button
@@ -49,10 +48,9 @@ const Sidebar: React.FC<SidebarProps> = ({ foldersOne, foldersTwo, foldersThree,
         ))}
       </ul>
 
-      <br className="text-white"/>
 
       {/* Third section */}
-			<ul className="space-y-2">
+			<ul className="space-y-2 mt-1">
         {foldersThree.map(folder => (
           <li key={folder.id} className="flex pl-8 hover:bg-gray-700 cursor-pointer rounded">
             <button
