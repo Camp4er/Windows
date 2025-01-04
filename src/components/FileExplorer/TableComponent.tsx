@@ -1,3 +1,5 @@
+"use client"
+
 interface TableComponentProps {
     headers: string[];
     rows: { [key: string]: string | React.ReactNode }[];

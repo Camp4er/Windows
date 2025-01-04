@@ -24,7 +24,7 @@ const ContentArea: React.FC<ContentAreaProps> = ({ items, onFolderClick }) => {
             <th className="px-5 text-left border-gray-500 border-r-2">Size</th>
           </tr>
         </thead>
-        
+        {/* the rounded property in tr of tbody only works of i give it flex as well but then the issue of gap arrises */}
           <tbody className="text-gray-100 rounded text-sm">
             {selectedItem.children.map((child) => (
               <tr
@@ -35,13 +35,13 @@ const ContentArea: React.FC<ContentAreaProps> = ({ items, onFolderClick }) => {
                 }}
                 className="hover:bg-gray-700 cursor-pointer hover:rounded"
               >
-                <td className="px-5 py-2 flex flex-row">
+                <td className="px-5 py-1 flex flex-row">
                   <Image src={child.icons} width={25} height={20} alt={child.name} className="pr-2"/>
                   {child.name}
                 </td>
-                <td className="px-5 py-2">{child.type}</td>
-                <td className="px-5 py-2">{child.dateModified}</td>
-                <td className="px-5 py-2">{child.size}</td>
+                <td className="px-5 py-1">{child.type}</td>
+                <td className="px-5 py-1">{child.dateModified}</td>
+                <td className="px-5 py-1">{child.size}</td>
               </tr>
             ))}
           </tbody>
