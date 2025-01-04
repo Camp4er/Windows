@@ -1,4 +1,4 @@
-import { FileItem } from "@/components/FileExplorer";
+import { FileItem } from "@/components/FileExplorer/FileExplorer";
 
 export interface BreadcrumbProps {
   currentPath: FileItem[];

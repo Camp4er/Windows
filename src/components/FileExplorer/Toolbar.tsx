@@ -2,7 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
-import { BreadcrumbProps } from "../constants/constants";
+import { BreadcrumbProps } from "../../constants/constants";
 import { FileItem } from "./FileExplorer";
 
 const Toolbar = ({ currentPath, onBreadcrumbClick, onBack }: BreadcrumbProps) => {

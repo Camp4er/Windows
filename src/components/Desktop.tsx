@@ -10,7 +10,7 @@ import SkillsWindow from "./SkillsWindow";
 import ContactWindow from "./ContactWindow";
 import ProjectsWindow from "./ProjectsWindow";
 import Terminal from "./Terminal";
-import FileExplorer from "./FileExplorer";
+import FileExplorer from "./FileExplorer/FileExplorer";
 import Snakegame from "./Snakegame";
 
 type WindowInfo = {
@@ -148,7 +148,7 @@ export default function Desktop() {
             )}
             {window.name === "Snakeats" && <Snakegame />}
             {window.name === "Terminal" && <Terminal key={window.name} />}
-            { window.name === "FileExplorer" && <FileExplorer initialSidebarId={1} />} 
+            {window.name === "FileExplorer" && <FileExplorer initialSidebarId={1} />} 
           </Window>
         ) : null
       )}

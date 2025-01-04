@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import { FileItem } from "./FileExplorer";
-import Banner from "./FileExplorer/Banner";
+import Banner from "./Banner";
 import Image from "next/image";
 
 type ContentAreaProps = {
