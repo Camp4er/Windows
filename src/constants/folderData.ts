@@ -490,7 +490,7 @@ export const sectionThree = {
         size: "118 KB",
         icons: "/icons/share.png",
         id: 9.1,
-        children: [] as FileItem[],
+        //children: [] as FileItem[],
       },
       {
         name: "Dekstop",
@@ -499,7 +499,7 @@ export const sectionThree = {
         size: "118 KB",
         icons: "/icons/share.png",
         id: 9.2,
-        children: [] as FileItem[],
+        //children: [] as FileItem[],
       },
       {
         name: "Downloads",
@@ -508,7 +508,7 @@ export const sectionThree = {
         size: "118 KB",
         icons: "/icons/share.png",
         id: 9.3,
-        children: [] as FileItem[],
+        //children: [] as FileItem[],
       },
       {
         name: "Pictures",
@@ -517,7 +517,7 @@ export const sectionThree = {
         size: "118 KB",
         icons: "/icons/share.png",
         id: 9.4,
-        children: [] as FileItem[],
+        //children: [] as FileItem[],
       },
     ],
   },
@@ -577,7 +577,7 @@ export const sectionThree = {
                     size: "118 KB",
                     icons: "/icons/share.png",
                     id: "10.1.2.1.1",
-                    children: [] as FileItem[],
+                    //children: [] as FileItem[],
                   },
                   {
                     name: "Documents",
@@ -586,7 +586,7 @@ export const sectionThree = {
                     size: "118 KB",
                     icons: "/icons/share.png",
                     id: "10.1.2.1.2",
-                    children: [] as FileItem[],
+                    //children: [] as FileItem[],
                   },
                   {
                     name: "Downloads",
@@ -595,7 +595,7 @@ export const sectionThree = {
                     size: "118 KB",
                     icons: "/icons/share.png",
                     id: "10.1.2.1.3",
-                    children: [] as FileItem[],
+                    //children: [] as FileItem[],
                   },
                   {
                     name: "Favorites",
@@ -604,7 +604,7 @@ export const sectionThree = {
                     size: "118 KB",
                     icons: "/icons/share.png",
                     id: "10.1.2.1.4",
-                    children: [] as FileItem[],
+                    //children: [] as FileItem[],
                   },
                   {
                     name: "Links",
@@ -613,7 +613,7 @@ export const sectionThree = {
                     size: "118 KB",
                     icons: "/icons/share.png",
                     id: "10.1.2.1.5",
-                    children: [] as FileItem[],
+                    //children: [] as FileItem[],
                   },
                   {
                     name: "Music",
@@ -622,7 +622,7 @@ export const sectionThree = {
                     size: "118 KB",
                     icons: "/icons/share.png",
                     id: "10.1.2.1.6",
-                    children: [] as FileItem[],
+                    //children: [] as FileItem[],
                   },
                   {
                     name: "One Drive",
@@ -631,7 +631,7 @@ export const sectionThree = {
                     size: "118 KB",
                     icons: "/icons/share.png",
                     id: "10.1.2.1.7",
-                    children: [] as FileItem[],
+                    //children: [] as FileItem[],
                   },
                   {
                     name: "Pictures",
@@ -640,7 +640,7 @@ export const sectionThree = {
                     size: "118 KB",
                     icons: "/icons/share.png",
                     id: "10.1.2.1.8",
-                    children: [] as FileItem[],
+                    //children: [] as FileItem[],
                   },
                   {
                     name: "Saved games",
@@ -649,7 +649,7 @@ export const sectionThree = {
                     size: "118 KB",
                     icons: "/icons/share.png",
                     id: "10.1.2.1.9",
-                    children: [] as FileItem[],
+                    //children: [] as FileItem[],
                   },
                   {
                     name: "Videos",
@@ -658,7 +658,7 @@ export const sectionThree = {
                     size: "118 KB",
                     icons: "/icons/share.png",
                     id: "10.1.2.1.10",
-                    children: [] as FileItem[],
+                    //children: [] as FileItem[],
                   },
                 ],
               },
@@ -677,7 +677,7 @@ export const sectionThree = {
                     size: "118 KB",
                     icons: "/icons/share.png",
                     id: "10.1.2.2.1",
-                    children: [] as FileItem[],
+                    //children: [] as FileItem[],
                   },
                   {
                     name: "Public Downloads",
@@ -686,7 +686,7 @@ export const sectionThree = {
                     size: "118 KB",
                     icons: "/icons/share.png",
                     id: "10.1.2.2.2",
-                    children: [] as FileItem[],
+                    //children: [] as FileItem[],
                   },
                   {
                     name: "Public Music",
@@ -695,7 +695,7 @@ export const sectionThree = {
                     size: "118 KB",
                     icons: "/icons/share.png",
                     id: "10.1.2.2.3",
-                    children: [] as FileItem[],
+                    //children: [] as FileItem[],
                   },
                   {
                     name: "Public Pictures",
@@ -704,7 +704,7 @@ export const sectionThree = {
                     size: "118 KB",
                     icons: "/icons/share.png",
                     id: "10.1.2.2.4",
-                    children: [] as FileItem[],
+                    //children: [] as FileItem[],
                   },
                   {
                     name: "Public Videos",
@@ -713,7 +713,7 @@ export const sectionThree = {
                     size: "118 KB",
                     icons: "/icons/share.png",
                     id: "10.1.2.2.5",
-                    children: [] as FileItem[],
+                    //children: [] as FileItem[],
                   },
                 ],
               },
@@ -728,7 +728,7 @@ export const sectionThree = {
     type: 'folder' as const,
     icons: "/icons/world-grid.png",
     id: 11,
-    children: [] as FileItem[],
+    //children: [] as FileItem[],
   },
 };
 

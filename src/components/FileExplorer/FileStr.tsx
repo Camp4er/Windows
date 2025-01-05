@@ -1,5 +1,4 @@
 import { sidebarData } from "@/constants/folderData";
-import { FileItem } from "./FileExplorer";
 
 export const getChildrenById = (id: string | number) => {
   // Your folderData structure should be hierarchical like this:

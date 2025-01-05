@@ -9,7 +9,6 @@ import {
   sectionOne,
   sectionThree,
   sectionTwo,
-  sidebarData,
 } from "@/constants/folderData";
 
 type FileType = "folder" | "file";
@@ -37,47 +36,38 @@ const FileExplorer = ({ initialSidebarId }: FileExplorerProps) => {
   useEffect(() => {
     const initialChildren = getChildrenById(initialSidebarId) as FileItem[];
     setActiveFolder(initialChildren);
-    setCurrentPath([{ id: initialSidebarId, name: "Root", type: "folder", icons: "" }]);
+    setCurrentPath([{ id: initialSidebarId, name: "Home", type: "folder", icons: "" }]);
   }, [initialSidebarId]);
 
   const handleFolderClick = (folder: FileItem, isSidebarClick: boolean) => {
     if (isSidebarClick) {
-      // If there's only "Root", then it's a sidebar click
-      setCurrentPath([folder]);
+      // Reset path and content area for sidebar click
+      setCurrentPath([{ id: folder.id, name: folder.name, type: "folder", icons: folder.icons }]);
+      const newChildren = getChildrenById(folder.id) || [];
+      setActiveFolder(newChildren);
     } else {
       setCurrentPath((prevPath) => {
         const folderIndex = prevPath.findIndex((item) => item.id === folder.id);
         if (folderIndex !== -1) {
-          return prevPath.slice(0, folderIndex + 1);
+          return prevPath.slice(0, folderIndex + 1);  // Navigate back
         } else {
-          return [...prevPath, folder];
+          return [...prevPath, folder];  // Add new path for subfolders
         }
       });
+      const newChildren = getChildrenById(folder.id) || [];
+      setActiveFolder(newChildren);
     }
-    const newChildren = getChildrenById(folder.id) || [];
-    setActiveFolder(newChildren);
   };
-
-  // const handleFolderClick = (folder: FileItem) => {
-  //   setCurrentPath((prevPath) => [...prevPath, folder]); // Track parent-child relationship
-  //   const newChildren = getChildrenById(folder.id) || [];
-  //   setActiveFolder(newChildren);
-  // };
-
-  // const handleBreadcrumbClick = (index: number) => {
-  //   const newPath = currentPath.slice(0, index + 1);
-  //   setCurrentPath(newPath);
-  //   const lastItem = newPath[newPath.length - 1];
-  //   const newChildren = getChildrenById(lastItem.id);
-  //   setActiveFolder(newChildren);
-  // };
+  
 
   const handleBreadcrumbClick = (index: number) => {
     setCurrentPath((prevPath) => prevPath.slice(0, index + 1)); // 🛠️ Slice path up to the clicked breadcrumb
     const lastItem = currentPath[index]; // 🛠️ Get the folder from the breadcrumb
-    // const newChildren = getChildrenById(lastItem.id) || [];
-    setActiveFolder(lastItem.children || []);
+    const newChildren = getChildrenById(lastItem.id) || [];
+    setActiveFolder(newChildren); // Update active folder to the children of the clicked breadcrumb
+    //setActiveFolder(lastItem.children || []);
   };
+
 
   const handleBack = () => {
     if (currentPath.length > 1) {
@@ -103,7 +93,7 @@ const FileExplorer = ({ initialSidebarId }: FileExplorerProps) => {
           foldersThree={Object.values(sectionThree).flat()}
           onFolderClick={handleFolderClick}
         />
-        <ContentArea items={activeFolder} onFolderClick={handleFolderClick} />
+        <ContentArea items={activeFolder} activeFolder={activeFolder} onFolderClick={handleFolderClick} />
       </div>
     </div>
   );
