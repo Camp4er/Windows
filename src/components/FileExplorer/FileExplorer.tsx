@@ -41,23 +41,27 @@ const FileExplorer = ({ initialSidebarId }: FileExplorerProps) => {
 
   const handleFolderClick = (folder: FileItem, isSidebarClick: boolean) => {
     if (isSidebarClick) {
-      // Reset path and content area for sidebar click
+      // If it's a sidebar click, reset to show immediate children
       setCurrentPath([{ id: folder.id, name: folder.name, type: "folder", icons: folder.icons }]);
-      const newChildren = getChildrenById(folder.id) || [];
+      const newChildren = folder.children && folder.children.length > 0 ? folder.children : [];
       setActiveFolder(newChildren);
     } else {
+      // Handle clicks from inside the content area
       setCurrentPath((prevPath) => {
         const folderIndex = prevPath.findIndex((item) => item.id === folder.id);
         if (folderIndex !== -1) {
-          return prevPath.slice(0, folderIndex + 1);  // Navigate back
+          return prevPath.slice(0, folderIndex + 1);  // Go back to the existing path
         } else {
-          return [...prevPath, folder];  // Add new path for subfolders
+          return [...prevPath, folder];  // Append deeper folders
         }
       });
-      const newChildren = getChildrenById(folder.id) || [];
+  
+      // Show immediate children (not deepest)
+      const newChildren = folder.children && folder.children.length > 0 ? folder.children : [];
       setActiveFolder(newChildren);
     }
   };
+  
   
 
   const handleBreadcrumbClick = (index: number) => {

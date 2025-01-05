@@ -6,15 +6,19 @@ import Image from "next/image";
 
 type ContentAreaProps = {
   items: FileItem[];
-  activeFolder: FileItem[];  // This updates on sidebar click
+  activeFolder: FileItem[];  // Sidebar-clicked folder
   onFolderClick: (folder: FileItem, isSidebarClick: boolean) => void;
 };
 
-// Helper function to check for nested children
-const getNestedChildren = (folder: FileItem | null): FileItem[] => {
-  if (!folder) return [];
-  if (folder.children && folder.children.length > 0) return folder.children;
-  return [];
+// Recursive function to find children at the deepest level
+const getDeepestChildren = (folder: FileItem): FileItem[] => {
+  if (!folder.children || folder.children.length === 0) return [];
+  let nextLevel = folder.children;
+
+  while (nextLevel.some(item => item.children && item.children.length > 0)) {
+    nextLevel = nextLevel.flatMap(item => item.children || []);
+  }
+  return nextLevel;
 };
 
 const ContentArea: React.FC<ContentAreaProps> = ({
@@ -23,20 +27,29 @@ const ContentArea: React.FC<ContentAreaProps> = ({
   onFolderClick,
 }) => {
   const [selectedItem, setSelectedItem] = useState<FileItem | null>(null);
+  const [currentItems, setCurrentItems] = useState<FileItem[]>(items);
 
-  // Reset selectedItem if activeFolder changes
+  // Reset when sidebar folder is clicked
   useEffect(() => {
     setSelectedItem(null);
-  }, [activeFolder]);
+    setCurrentItems(items);
+  }, [activeFolder, items]);
 
-  // Fetch children or fallback to nested children
-  const currentItems = selectedItem
-    ? getNestedChildren(selectedItem)
-    : items;
+  // Handles folder click inside content area
+  const handleFolderClick = (item: FileItem) => {
+    if (item.children && item.children.length > 0) {
+      const nextLevelChildren = getDeepestChildren(item);
+      setCurrentItems(nextLevelChildren.length > 0 ? nextLevelChildren : item.children);
+    } else {
+      setCurrentItems([]);
+    }
+    setSelectedItem(item);
+    onFolderClick(item, false);
+  };
 
   return (
     <div className="w-full p-4 bg-gray-900 text-white flex-1">
-      {currentItems && currentItems.length > 0 ? (
+      {currentItems.length > 0 ? (
         <table className="w-full rounded-md shadow-sm">
           <thead className="text-white text-sm border-b-8 border-gray-900">
             <tr>
@@ -50,10 +63,7 @@ const ContentArea: React.FC<ContentAreaProps> = ({
             {currentItems.map((child) => (
               <tr
                 key={child.id}
-                onClick={() => {
-                  setSelectedItem(child);
-                  onFolderClick(child, false);
-                }}
+                onClick={() => handleFolderClick(child)}
                 className="hover:bg-gray-700 cursor-pointer"
               >
                 <td className="px-5 py-1 flex flex-row">

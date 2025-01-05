@@ -5,7 +5,11 @@ import Image from "next/image";
 import { BreadcrumbProps } from "../../constants/constants";
 import { FileItem } from "./FileExplorer";
 
-const Toolbar = ({ currentPath, onBreadcrumbClick, onBack }: BreadcrumbProps) => {
+const Toolbar = ({
+  currentPath,
+  onBreadcrumbClick,
+  onBack,
+}: BreadcrumbProps) => {
   //const currentFolder = path[path.length - 1]; // Name of the last item in the path array
 
   const getPath = (item: FileItem) => {
@@ -16,11 +20,11 @@ const Toolbar = ({ currentPath, onBreadcrumbClick, onBack }: BreadcrumbProps) =>
       current = current.parent;
       if (!current) break; // Add this null check
     }
-    return path.join(' > ');
+    return path.join(" > ");
   };
 
   return (
-    <div >
+    <div>
       {/* Header 1 */}
       <div className="flex items-center w-full px-3 py-2 bg-gray-800 text-white border-b border-gray-500">
         {/* Navigation Buttons */}
@@ -75,32 +79,37 @@ const Toolbar = ({ currentPath, onBreadcrumbClick, onBack }: BreadcrumbProps) =>
         {/* Breadcrumbs */}
         <div className="flex items-center w-[65%] text-gray-300">
           <div className="flex items-center justify-start flex-row  w-full pl-5 pr-2 py-1 bg-gray-900  rounded text-gray-300 focus:outline-none focus:ring focus:ring-gray-600 gap-2">
-              {/* Display the folder icon */}
-              {/* <Image
+            {/* Display the folder icon */}
+            {/* <Image
                 src={folderIcons[currentFolder] || "/icons/app.png"}
                 alt={currentFolder}
                 width={20}
                 height={20}
               /> */}
-              {/* Display the breadcrumb */}
-              {/* {currentPath.map((item, index) => (
+            {/* Display the breadcrumb */}
+            {/* {currentPath.map((item, index) => (
         <span key={item.id} onClick={() => onBreadcrumbClick(index)}>
           {item.name} {index < currentPath.length - 1 && '>'}
         </span>
       ))} */}
-      {currentPath.map((item, index) => (
-          <span key={index}>
-            {index > 0 && (
-              <span
-                onClick={() => onBreadcrumbClick(index - 1)}
-                className="text-gray-200 hover:text-gray-100"
-              >
-                {" > "}
+            {currentPath.map((item, index) => (
+              <span key={index}>
+                {index > 0 && (
+                  <span
+                    // onClick={() => onBreadcrumbClick(index)}
+                    className="text-gray-200 hover:text-gray-100"
+                  >
+                    {" > "}
+                  </span>
+                )}
+                <button
+                  className="text-gray-200"
+                  onClick={() => onBreadcrumbClick(index)}
+                >
+                  {getPath(item)}
+                </button>
               </span>
-            )}
-            <button className="text-gray-200" onClick={() => onBreadcrumbClick(index - 1)}>{getPath(item)}</button>
-          </span>
-        ))}
+            ))}
           </div>
         </div>
 
