@@ -3,7 +3,9 @@ import { FileItem } from "@/components/FileExplorer/FileExplorer";
 export interface BreadcrumbProps {
   currentPath: FileItem[];
   onBreadcrumbClick: (index: number) => void;
-  onBack?: () => void; 
+  onBack?: () => void;
+  onForward?: () => void;
+  onReload?: () => void; 
 }
 
 export interface ContentAreaProps {

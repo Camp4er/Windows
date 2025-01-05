@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import TaskbarRightSection from "./TaskbarRightSection";
 import TaskbarLeftSection from "./TaskbarLeftSection";
+import ActionCenter from "./ActionCenter";
 
 // Define the type for taskbar buttons
 interface TaskbarProps {
@@ -31,6 +32,7 @@ const systemTrayIcons: ISystemTrayIcon[] = [
 ];
 
 const Taskbar = ({ openWindows, toggleWindow, openWindow }: TaskbarProps) => {
+  const [isOpen, setIsOpen] = useState(false);
 
   const taskbarButtons: ITaskbarButton[] = [
     {
@@ -180,12 +182,13 @@ const Taskbar = ({ openWindows, toggleWindow, openWindow }: TaskbarProps) => {
             IN
           </p>
         </div>
-        <div className="flex items-center hover:bg-zinc-800 gap-1 m-0 py-2 px-1 rounded">
+        <div className="flex items-center hover:bg-zinc-800 gap-1 m-0 py-2 px-1 rounded" onClick={() => setIsOpen(!isOpen)}>
           {systemTrayIcons.map((icon) => (
-            <button key={icon.id} className="p-1 rounded" aria-label={icon.alt}>
+            <button key={icon.id} className="p-1 rounded" aria-label={icon.alt} >
               <img src={icon.src} alt={icon.alt} width={15} height={16} />
             </button>
           ))}
+           {isOpen && <ActionCenter />}
         </div>
         <div className="flex items-center hover:bg-zinc-800 gap-1 m-0 rounded">
           <TaskbarRightSection/>
