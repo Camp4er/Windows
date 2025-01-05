@@ -3,14 +3,14 @@ import { FileItem } from "@/components/FileExplorer/FileExplorer";
 export const sectionOne = {
   Home: {
     name: "Home",
-    type: 'folder' as const,
+    type: "folder" as const,
     icons: "/icons/3d-house.png",
     id: 1,
     children: [] as FileItem[],
   },
   Gallery: {
     name: "Gallery",
-    type: 'folder' as const,
+    type: "folder" as const,
     icons: "/icons/gallery.png",
     id: 2,
     children: [] as FileItem[],
@@ -20,20 +20,20 @@ export const sectionOne = {
 export const sectionTwo = {
   Desktop: {
     name: "Desktop",
-    type: 'folder' as const,
+    type: "folder" as const,
     icons: "/icons/desktop.png",
     id: 3,
     children: [] as FileItem[],
   },
   Documents: {
     name: "Documents",
-    type: 'folder' as const,
+    type: "folder" as const,
     icons: "/icons/curriculum-vitae.png",
     id: 4,
     children: [
       {
         name: "Resume",
-        type: 'file' as const,
+        type: "file" as const,
         dateModified: "2024-12-01",
         size: "118 KB",
         icons: "/icons/share.png",
@@ -50,13 +50,13 @@ export const sectionTwo = {
   },
   Projects: {
     name: "Projects",
-    type: 'folder' as const,
+    type: "folder" as const,
     icons: "/icons/blueprint.png",
     id: 5,
     children: [
       {
         name: "Project A",
-        type: 'folder' as const,
+        type: "folder" as const,
         dateModified: "2024-12-01",
         size: "118 KB",
         icons: "/icons/share.png",
@@ -64,7 +64,7 @@ export const sectionTwo = {
         children: [
           {
             name: "Description",
-            type: 'file' as const,
+            type: "file" as const,
             dateModified: "2024-12-01",
             size: "118 KB",
             icons: "/icons/share.png",
@@ -72,7 +72,7 @@ export const sectionTwo = {
           },
           {
             name: "Github Repo",
-            type: 'file' as const,
+            type: "file" as const,
             dateModified: "2024-12-01",
             size: "118 KB",
             icons: "/icons/share.png",
@@ -83,7 +83,7 @@ export const sectionTwo = {
           },
           {
             name: "Live Demo",
-            type: 'file' as const,
+            type: "file" as const,
             dateModified: "2024-12-01",
             size: "118 KB",
             icons: "/icons/share.png",
@@ -94,7 +94,7 @@ export const sectionTwo = {
           },
           {
             name: "View Images",
-            type: 'folder' as const,
+            type: "folder" as const,
             dateModified: "2024-12-01",
             size: "118 KB",
             icons: "/icons/share.png",
@@ -102,7 +102,7 @@ export const sectionTwo = {
             children: [
               {
                 name: "Image 1",
-                type: 'file' as const,
+                type: "file" as const,
                 dateModified: "2024-12-01",
                 size: "118 KB",
                 icons: "/icons/share.png",
@@ -110,7 +110,7 @@ export const sectionTwo = {
               },
               {
                 name: "Image 2",
-                type: 'file' as const,
+                type: "file" as const,
                 dateModified: "2024-12-01",
                 size: "118 KB",
                 icons: "/icons/share.png",
@@ -122,7 +122,7 @@ export const sectionTwo = {
       },
       {
         name: "Project B",
-        type: 'folder' as const,
+        type: "folder" as const,
         dateModified: "2024-12-01",
         size: "118 KB",
         icons: "/icons/share.png",
@@ -130,7 +130,7 @@ export const sectionTwo = {
         children: [
           {
             name: "Description",
-            type: 'file' as const,
+            type: "file" as const,
             dateModified: "2024-12-01",
             size: "118 KB",
             icons: "/icons/share.png",
@@ -138,7 +138,7 @@ export const sectionTwo = {
           },
           {
             name: "Github Repo",
-            type: 'file' as const,
+            type: "file" as const,
             dateModified: "2024-12-01",
             size: "118 KB",
             icons: "/icons/share.png",
@@ -149,7 +149,7 @@ export const sectionTwo = {
           },
           {
             name: "Live Demo",
-            type: 'file' as const,
+            type: "file" as const,
             dateModified: "2024-12-01",
             size: "118 KB",
             icons: "/icons/share.png",
@@ -160,7 +160,7 @@ export const sectionTwo = {
           },
           {
             name: "View Images",
-            type: 'file' as const,
+            type: "file" as const,
             dateModified: "2024-12-01",
             size: "118 KB",
             icons: "/icons/share.png",
@@ -168,7 +168,7 @@ export const sectionTwo = {
             children: [
               {
                 name: "Image 1",
-                type: 'file' as const,
+                type: "file" as const,
                 dateModified: "2024-12-01",
                 size: "118 KB",
                 icons: "/icons/share.png",
@@ -176,7 +176,7 @@ export const sectionTwo = {
               },
               {
                 name: "Image 2",
-                type: 'file' as const,
+                type: "file" as const,
                 dateModified: "2024-12-01",
                 size: "118 KB",
                 icons: "/icons/share.png",
@@ -190,13 +190,13 @@ export const sectionTwo = {
   },
   Skills: {
     name: "Skills",
-    type: 'folder' as const,
+    type: "folder" as const,
     icons: "/icons/skills.png",
     id: 6,
     children: [
       {
         name: "Languages & Frameworks",
-        type: 'folder' as const,
+        type: "folder" as const,
         dateModified: "2024-12-01",
         size: "118 KB",
         icons: "/icons/share.png",
@@ -204,7 +204,7 @@ export const sectionTwo = {
         children: [
           {
             name: "HTML",
-            type: 'file' as const,
+            type: "file" as const,
             dateModified: "2024-12-01",
             size: "118 KB",
             icons: "/icons/share.png",
@@ -215,7 +215,7 @@ export const sectionTwo = {
           },
           {
             name: "CSS",
-            type: 'file' as const,
+            type: "file" as const,
             dateModified: "2024-12-01",
             size: "118 KB",
             icons: "/icons/share.png",
@@ -226,7 +226,7 @@ export const sectionTwo = {
           },
           {
             name: "JavaScript",
-            type: 'file' as const,
+            type: "file" as const,
             dateModified: "2024-12-01",
             size: "118 KB",
             icons: "/icons/share.png",
@@ -240,7 +240,7 @@ export const sectionTwo = {
           },
           {
             name: "React",
-            type: 'file' as const,
+            type: "file" as const,
             dateModified: "2024-12-01",
             size: "118 KB",
             icons: "/icons/share.png",
@@ -254,7 +254,7 @@ export const sectionTwo = {
           },
           {
             name: "Next.js",
-            type: 'file' as const,
+            type: "file" as const,
             dateModified: "2024-12-01",
             size: "118 KB",
             icons: "/icons/share.png",
@@ -265,7 +265,7 @@ export const sectionTwo = {
           },
           {
             name: "Node",
-            type: 'file' as const,
+            type: "file" as const,
             dateModified: "2024-12-01",
             size: "118 KB",
             icons: "/icons/share.png",
@@ -276,7 +276,7 @@ export const sectionTwo = {
           },
           {
             name: "Bootstrap",
-            type: 'file' as const,
+            type: "file" as const,
             dateModified: "2024-12-01",
             size: "118 KB",
             icons: "/icons/share.png",
@@ -287,7 +287,7 @@ export const sectionTwo = {
           },
           {
             name: "DBMS",
-            type: 'file' as const,
+            type: "file" as const,
             dateModified: "2024-12-01",
             size: "118 KB",
             icons: "/icons/share.png",
@@ -298,7 +298,7 @@ export const sectionTwo = {
           },
           {
             name: "jQuery",
-            type: 'file' as const,
+            type: "file" as const,
             dateModified: "2024-12-01",
             size: "118 KB",
             icons: "/icons/share.png",
@@ -311,7 +311,7 @@ export const sectionTwo = {
       },
       {
         name: "Tools & Software",
-        type: 'folder' as const,
+        type: "folder" as const,
         dateModified: "2024-12-01",
         size: "118 KB",
         icons: "/icons/share.png",
@@ -319,7 +319,7 @@ export const sectionTwo = {
         children: [
           {
             name: "VSCode",
-            type: 'file' as const,
+            type: "file" as const,
             dateModified: "2024-12-01",
             size: "118 KB",
             icons: "/icons/share.png",
@@ -330,7 +330,7 @@ export const sectionTwo = {
           },
           {
             name: "GitHub",
-            type: 'file' as const,
+            type: "file" as const,
             dateModified: "2024-12-01",
             size: "118 KB",
             icons: "/icons/share.png",
@@ -341,7 +341,7 @@ export const sectionTwo = {
           },
           {
             name: "MongoDB",
-            type: 'file' as const,
+            type: "file" as const,
             dateModified: "2024-12-01",
             size: "118 KB",
             icons: "/icons/share.png",
@@ -354,7 +354,7 @@ export const sectionTwo = {
       },
       {
         name: "Soft Skills",
-        type: 'folder' as const,
+        type: "folder" as const,
         dateModified: "2024-12-01",
         size: "118 KB",
         icons: "/icons/share.png",
@@ -362,51 +362,69 @@ export const sectionTwo = {
         children: [
           {
             name: "Communication",
-            type: 'file' as const,
+            type: "file" as const,
             dateModified: "2024-12-01",
             size: "118 KB",
             icons: "/icons/share.png",
             id: "6.3.1",
+            onClick: () => {
+              window.open("https://www.cadreworks.org/resources/communication-skills", "_blank");
+            }
           },
           {
             name: "Problem Solving",
-            type: 'file' as const,
+            type: "file" as const,
             dateModified: "2024-12-01",
             size: "118 KB",
             icons: "/icons/share.png",
             id: "6.3.2",
+            onclick: () => {
+              window.open("https://www.thebalancemoney.com/problem-solving-skills-with-examples-2063764", "_blank");
+            }
           },
           {
             name: "Teamwork",
-            type: 'file' as const,
+            type: "file" as const,
             dateModified: "2024-12-01",
             size: "118 KB",
             icons: "/icons/share.png",
             id: "6.3.3",
+            onclick: () => {
+              window.open("https://www.thebalancemoney.com/list-of-teamwork-skills-2063773", "_blank");
+            }
           },
           {
             name: "Creative Thinking",
-            type: 'file' as const,
+            type: "file" as const,
             dateModified: "2024-12-01",
             size: "118 KB",
             icons: "/icons/share.png",
             id: "6.3.4",
+            onclick: () => {
+              window.open("https://rockcontent.com/blog/creative-thinking-skills/", "_blank");
+            }
           },
           {
             name: "Decision Making ",
-            type: 'file' as const,
+            type: "file" as const,
             dateModified: "2024-12-01",
             size: "118 KB",
             icons: "/icons/share.png",
             id: "6.3.5",
+            onClick: () => {
+              window.open("https://www.theforage.com/blog/skills/decision-making-skills", "_blank");
+            }
           },
           {
             name: "Management ",
-            type: 'file' as const,
+            type: "file" as const,
             dateModified: "2024-12-01",
             size: "118 KB",
             icons: "/icons/share.png",
             id: "6.3.6",
+            onClick: () => {
+              window.open("https://corporatefinanceinstitute.com/resources/management/management-skills/#:~:text=Management%20skills%20can%20be%20defined,solving%20problems%20when%20they%20occur.", "_blank");
+            }
           },
         ],
       },
@@ -414,20 +432,32 @@ export const sectionTwo = {
   },
   Experience: {
     name: "Experience",
-    type: 'folder' as const,
+    type: "folder" as const,
     icons: "/icons/suitcase.png",
     id: 7,
-    children: [] as FileItem[],
+    children: [
+      {
+        name: "Frontend50",
+        type: "file" as const,
+        icons: "/icons/suitcase.png",
+        id: 7.2,
+      },{
+        name: "LeopardRuns Innovation Technology",
+        type: "file" as const,
+        icons: "/icons/suitcase.png",
+        id: 7.1,
+      },
+    ],
   },
   Contact: {
     name: "Contact",
-    type: 'folder' as const,
+    type: "folder" as const,
     icons: "/icons/phone-book.png",
     id: 8,
     children: [
       {
         name: "Email",
-        type: 'file' as const,
+        type: "file" as const,
         dateModified: "2024-12-01",
         size: "118 KB",
         icons: "/icons/share.png",
@@ -438,7 +468,7 @@ export const sectionTwo = {
       },
       {
         name: "LinkedIn",
-        type: 'file' as const,
+        type: "file" as const,
         dateModified: "2024-12-01",
         size: "118 KB",
         icons: "/icons/share.png",
@@ -452,7 +482,7 @@ export const sectionTwo = {
       },
       {
         name: "Github",
-        type: 'file' as const,
+        type: "file" as const,
         dateModified: "2024-12-01",
         size: "118 KB",
         icons: "/icons/share.png",
@@ -463,7 +493,7 @@ export const sectionTwo = {
       },
       {
         name: "Twitter",
-        type: 'file' as const,
+        type: "file" as const,
         dateModified: "2024-12-01",
         size: "118 KB",
         icons: "/icons/share.png",
@@ -479,57 +509,53 @@ export const sectionTwo = {
 export const sectionThree = {
   OneDrive: {
     name: "OneDrive",
-    type: 'folder' as const,
+    type: "folder" as const,
     icons: "/icons/onedrive.png",
     id: 9,
     children: [
       {
         name: "Attachments",
-        type: 'folder' as const,
+        type: "folder" as const,
         dateModified: "2024-12-01",
         size: "118 KB",
         icons: "/icons/share.png",
         id: 9.1,
-        //children: [] as FileItem[],
       },
       {
         name: "Dekstop",
-        type: 'folder' as const,
+        type: "folder" as const,
         dateModified: "2024-12-01",
         size: "118 KB",
         icons: "/icons/share.png",
         id: 9.2,
-        //children: [] as FileItem[],
       },
       {
         name: "Downloads",
-        type: 'folder' as const,
+        type: "folder" as const,
         dateModified: "2024-12-01",
         size: "118 KB",
         icons: "/icons/share.png",
         id: 9.3,
-        //children: [] as FileItem[],
       },
       {
         name: "Pictures",
-        type: 'folder' as const,
+        type: "folder" as const,
         dateModified: "2024-12-01",
         size: "118 KB",
         icons: "/icons/share.png",
         id: 9.4,
-        //children: [] as FileItem[],
       },
     ],
   },
   "This PC": {
     name: "This PC",
-    type: 'folder' as const,
+    type: "folder" as const,
     icons: "/icons/computer.png",
     id: 10,
     children: [
       {
         name: "OS (C:)",
-        type: 'folder' as const,
+        type: "folder" as const,
         dateModified: "2024-12-01",
         size: "118 KB",
         icons: "/icons/share.png",
@@ -537,7 +563,7 @@ export const sectionThree = {
         children: [
           {
             name: "Game",
-            type: 'folder' as const,
+            type: "folder" as const,
             dateModified: "2024-12-01",
             size: "118 KB",
             icons: "/icons/share.png",
@@ -545,7 +571,7 @@ export const sectionThree = {
             children: [
               {
                 name: "Snakeats",
-                type: 'file' as const,
+                type: "file" as const,
                 dateModified: "2024-12-01",
                 size: "118 KB",
                 icons: "/icons/share.png",
@@ -555,8 +581,8 @@ export const sectionThree = {
             ],
           },
           {
-            name: "OS(C:)",
-            type: 'folder' as const,
+            name: "Users",
+            type: "folder" as const,
             dateModified: "2024-12-01",
             size: "118 KB",
             icons: "/icons/share.png",
@@ -564,7 +590,7 @@ export const sectionThree = {
             children: [
               {
                 name: "Default user 1000000",
-                type: 'folder' as const,
+                type: "folder" as const,
                 dateModified: "2024-12-01",
                 size: "118 KB",
                 icons: "/icons/share.png",
@@ -572,99 +598,89 @@ export const sectionThree = {
                 children: [
                   {
                     name: "Dekstop",
-                    type: 'folder' as const,
+                    type: "folder" as const,
                     dateModified: "2024-12-01",
                     size: "118 KB",
                     icons: "/icons/share.png",
                     id: "10.1.2.1.1",
-                    //children: [] as FileItem[],
                   },
                   {
                     name: "Documents",
-                    type: 'folder' as const,
+                    type: "folder" as const,
                     dateModified: "2024-12-01",
                     size: "118 KB",
                     icons: "/icons/share.png",
                     id: "10.1.2.1.2",
-                    //children: [] as FileItem[],
                   },
                   {
                     name: "Downloads",
-                    type: 'folder' as const,
+                    type: "folder" as const,
                     dateModified: "2024-12-01",
                     size: "118 KB",
                     icons: "/icons/share.png",
                     id: "10.1.2.1.3",
-                    //children: [] as FileItem[],
                   },
                   {
                     name: "Favorites",
-                    type: 'folder' as const,
+                    type: "folder" as const,
                     dateModified: "2024-12-01",
                     size: "118 KB",
                     icons: "/icons/share.png",
                     id: "10.1.2.1.4",
-                    //children: [] as FileItem[],
                   },
                   {
                     name: "Links",
-                    type: 'folder' as const,
+                    type: "folder" as const,
                     dateModified: "2024-12-01",
                     size: "118 KB",
                     icons: "/icons/share.png",
                     id: "10.1.2.1.5",
-                    //children: [] as FileItem[],
                   },
                   {
                     name: "Music",
-                    type: 'folder' as const,
+                    type: "folder" as const,
                     dateModified: "2024-12-01",
                     size: "118 KB",
                     icons: "/icons/share.png",
                     id: "10.1.2.1.6",
-                    //children: [] as FileItem[],
                   },
                   {
                     name: "One Drive",
-                    type: 'folder' as const,
+                    type: "folder" as const,
                     dateModified: "2024-12-01",
                     size: "118 KB",
                     icons: "/icons/share.png",
                     id: "10.1.2.1.7",
-                    //children: [] as FileItem[],
                   },
                   {
                     name: "Pictures",
-                    type: 'folder' as const,
+                    type: "folder" as const,
                     dateModified: "2024-12-01",
                     size: "118 KB",
                     icons: "/icons/share.png",
                     id: "10.1.2.1.8",
-                    //children: [] as FileItem[],
                   },
                   {
                     name: "Saved games",
-                    type: 'folder' as const,
+                    type: "folder" as const,
                     dateModified: "2024-12-01",
                     size: "118 KB",
                     icons: "/icons/share.png",
                     id: "10.1.2.1.9",
-                    //children: [] as FileItem[],
                   },
                   {
                     name: "Videos",
-                    type: 'folder' as const,
+                    type: "folder" as const,
                     dateModified: "2024-12-01",
                     size: "118 KB",
                     icons: "/icons/share.png",
                     id: "10.1.2.1.10",
-                    //children: [] as FileItem[],
                   },
                 ],
               },
               {
                 name: "Public",
-                type: 'folder' as const,
+                type: "folder" as const,
                 dateModified: "2024-12-01",
                 size: "118 KB",
                 icons: "/icons/share.png",
@@ -672,48 +688,43 @@ export const sectionThree = {
                 children: [
                   {
                     name: "Public Documents",
-                    type: 'folder' as const,
+                    type: "folder" as const,
                     dateModified: "2024-12-01",
                     size: "118 KB",
                     icons: "/icons/share.png",
                     id: "10.1.2.2.1",
-                    //children: [] as FileItem[],
                   },
                   {
                     name: "Public Downloads",
-                    type: 'folder' as const,
+                    type: "folder" as const,
                     dateModified: "2024-12-01",
                     size: "118 KB",
                     icons: "/icons/share.png",
                     id: "10.1.2.2.2",
-                    //children: [] as FileItem[],
                   },
                   {
                     name: "Public Music",
-                    type: 'folder' as const,
+                    type: "folder" as const,
                     dateModified: "2024-12-01",
                     size: "118 KB",
                     icons: "/icons/share.png",
                     id: "10.1.2.2.3",
-                    //children: [] as FileItem[],
                   },
                   {
                     name: "Public Pictures",
-                    type: 'folder' as const,
+                    type: "folder" as const,
                     dateModified: "2024-12-01",
                     size: "118 KB",
                     icons: "/icons/share.png",
                     id: "10.1.2.2.4",
-                    //children: [] as FileItem[],
                   },
                   {
                     name: "Public Videos",
-                    type: 'folder' as const,
+                    type: "folder" as const,
                     dateModified: "2024-12-01",
                     size: "118 KB",
                     icons: "/icons/share.png",
                     id: "10.1.2.2.5",
-                    //children: [] as FileItem[],
                   },
                 ],
               },
@@ -725,12 +736,15 @@ export const sectionThree = {
   },
   Network: {
     name: "Network",
-    type: 'folder' as const,
+    type: "folder" as const,
     icons: "/icons/world-grid.png",
     id: 11,
-    //children: [] as FileItem[],
   },
 };
 
 // Combine all sections into one exportable object
-export const sidebarData: Record<string, any> = { ...sectionOne, ...sectionTwo, ...sectionThree };
+export const sidebarData: Record<string, any> = {
+  ...sectionOne,
+  ...sectionTwo,
+  ...sectionThree,
+};
