@@ -64,13 +64,23 @@ const FileExplorer = ({ initialSidebarId }: FileExplorerProps) => {
   
   
 
+  // const handleBreadcrumbClick = (index: number) => {
+  //   setCurrentPath((prevPath) => prevPath.slice(0, index + 1)); // 🛠️ Slice path up to the clicked breadcrumb
+  //   const lastItem = currentPath[index]; // 🛠️ Get the folder from the breadcrumb
+  //   const newChildren = getChildrenById(lastItem.id) || [];
+  //   setActiveFolder(newChildren); // Update active folder to the children of the clicked breadcrumb
+  //   //setActiveFolder(lastItem.children || []);
+  // };
+
   const handleBreadcrumbClick = (index: number) => {
-    setCurrentPath((prevPath) => prevPath.slice(0, index + 1)); // 🛠️ Slice path up to the clicked breadcrumb
-    const lastItem = currentPath[index]; // 🛠️ Get the folder from the breadcrumb
-    const newChildren = getChildrenById(lastItem.id) || [];
-    setActiveFolder(newChildren); // Update active folder to the children of the clicked breadcrumb
-    //setActiveFolder(lastItem.children || []);
+    setCurrentPath((prevPath) => prevPath.slice(0, index + 1));
+    
+    const lastItem = currentPath[index];
+    const newChildren = lastItem.children || getChildrenById(lastItem.id) || [];
+    
+    setActiveFolder(newChildren);
   };
+  
 
 
   const handleBack = () => {
