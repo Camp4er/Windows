@@ -8,7 +8,7 @@ import { FileItem } from "./FileExplorer";
 const Toolbar = ({
   currentPath,
   onBreadcrumbClick,
-  onBack, onForward, onReload
+  onBack, onForward, onUpArrowClick, onRefresh
 }: BreadcrumbProps) => {
   //const currentFolder = path[path.length - 1]; // Name of the last item in the path array
 
@@ -51,7 +51,7 @@ const Toolbar = ({
               <path d="M1 8a.5.5 0 0 0 .5.5h11.793l-4.147 4.146a.5.5 0 0 0 .708.708l5-5a.5.5 0 0 0 0-.708l-5-5a.5.5 0 0 0-.708.708L13.293 7.5H1.5A.5.5 0 0 0 1 8z" />
             </svg>
           </button>
-          <button className="svg-container p-2 rounded hover:bg-gray-700">
+          <button onClick={onUpArrowClick} className="svg-container p-2 rounded hover:bg-gray-700">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"
@@ -62,7 +62,7 @@ const Toolbar = ({
               <path d="M15 8a.5.5 0 0 0-.5-.5H2.707l4.147-4.146a.5.5 0 0 0-.708-.708l-5 5a.5.5 0 0 0 0 .708l5 5a.5.5 0 0 0 .708-.708L2.707 8.5H14.5a.5.5 0 0 0 .5-.5z" />
             </svg>
           </button>
-          <button onClick={onReload} className="p-2 rounded hover:bg-gray-700">
+          <button onClick={onRefresh} className="p-2 rounded hover:bg-gray-700">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 20 20"

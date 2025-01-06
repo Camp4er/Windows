@@ -5,7 +5,8 @@ export interface BreadcrumbProps {
   onBreadcrumbClick: (index: number) => void;
   onBack?: () => void;
   onForward?: () => void;
-  onReload?: () => void; 
+  onRefresh?: () => void;
+  onUpArrowClick?: () => void;  
 }
 
 export interface ContentAreaProps {

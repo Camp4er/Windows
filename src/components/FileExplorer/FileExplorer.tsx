@@ -5,7 +5,11 @@ import Sidebar from "./Sidebar";
 import Toolbar from "./Toolbar";
 import ContentArea from "./ContentArea";
 import { getChildrenById } from "./FileStr";
-import { sectionOne, sectionThree, sectionTwo } from "@/constants/folderData";
+import {
+  sectionOne,
+  sectionThree,
+  sectionTwo,
+} from "@/constants/folderData";
 
 type FileType = "folder" | "file";
 
@@ -29,7 +33,7 @@ const FileExplorer = ({ initialSidebarId }: FileExplorerProps) => {
   const [currentPath, setCurrentPath] = useState<FileItem[]>([]);
   const [activeFolder, setActiveFolder] = useState<FileItem[]>([]);
   const [history, setHistory] = useState<FileItem[][]>([]);
-  const [forwardStack, setForwardStack] = useState<FileItem[][]>([]);
+  const [historyIndex, setHistoryIndex] = useState(0);
 
   useEffect(() => {
     const initialChildren = getChildrenById(initialSidebarId) as FileItem[];
@@ -40,6 +44,7 @@ const FileExplorer = ({ initialSidebarId }: FileExplorerProps) => {
     setHistory([
       [{ id: initialSidebarId, name: "Home", type: "folder", icons: "" }],
     ]);
+    setHistoryIndex(0);
   }, [initialSidebarId]);
 
   const handleFolderClick = (folder: FileItem, isSidebarClick: boolean) => {
@@ -53,21 +58,15 @@ const FileExplorer = ({ initialSidebarId }: FileExplorerProps) => {
           icons: folder.icons,
         },
       ]);
-      setHistory((prev) => [
-        ...prev,
-        [
-          {
-            id: folder.id,
-            name: folder.name,
-            type: "folder",
-            icons: folder.icons,
-          },
-        ],
+      setActiveFolder(folder.children || []);
+      updateHistory([
+        {
+          id: folder.id,
+          name: folder.name,
+          type: "folder",
+          icons: folder.icons,
+        },
       ]);
-      setForwardStack([]);
-      const newChildren =
-        folder.children && folder.children.length > 0 ? folder.children : [];
-      setActiveFolder(newChildren);
     } else {
       setCurrentPath((prevPath) => {
         const folderIndex = prevPath.findIndex((item) => item.id === folder.id);
@@ -75,62 +74,64 @@ const FileExplorer = ({ initialSidebarId }: FileExplorerProps) => {
           folderIndex !== -1
             ? prevPath.slice(0, folderIndex + 1)
             : [...prevPath, folder];
-        setHistory((prev) => [...prev, newPath]);
-        setForwardStack([]);
+        const newChildren =
+          folder.children && folder.children.length > 0 ? folder.children : [];
+        setActiveFolder(newChildren);
+        updateHistory(newPath);
         return newPath;
       });
-      // Show immediate children (not deepest)
-      const newChildren =
-        folder.children && folder.children.length > 0 ? folder.children : [];
-      setActiveFolder(newChildren);
     }
   };
 
-  // const handleBreadcrumbClick = (index: number) => {
-  //   setCurrentPath((prevPath) => prevPath.slice(0, index + 1));
-
-  //   const lastItem = currentPath[index];
-  //   const newChildren = lastItem.children || getChildrenById(lastItem.id) || [];
-
-  //   setActiveFolder(newChildren);
-  // };
-
   const handleBreadcrumbClick = (index: number) => {
     const newPath = currentPath.slice(0, index + 1);
-    setCurrentPath(newPath);
-    setHistory((prev) => [...prev, newPath]);
-    setForwardStack([]);
     const lastItem = newPath[newPath.length - 1];
-    const newChildren = getChildrenById(lastItem.id) || [];
-    setActiveFolder(newChildren);
+    const children = getChildrenById(lastItem.id);
+    setActiveFolder(lastItem.children || getChildrenById(lastItem.id) || []);
+    setCurrentPath(newPath);
+    updateHistory(newPath);
   };
 
   const handleBack = () => {
-    if (history.length > 1) {
-      const newHistory = [...history];
-      const lastPath = newHistory.pop();
-      if (lastPath) setForwardStack((prev) => [lastPath, ...prev]);
-      setCurrentPath(newHistory[newHistory.length - 1]);
-      setActiveFolder(
-        getChildrenById(newHistory[newHistory.length - 1].slice(-1)[0].id) || []
-      );
-      setHistory(newHistory);
+    if (historyIndex > 0) {
+      const newIndex = historyIndex - 1;
+      setHistoryIndex(newIndex);
+      setCurrentPath(history[newIndex]);
+      const lastItem = history[newIndex][history[newIndex].length - 1];
+      setActiveFolder(lastItem.children || getChildrenById(lastItem.id) || []);
     }
   };
 
   const handleForward = () => {
-    if (forwardStack.length > 0) {
-      const nextPath = forwardStack[0];
-      setCurrentPath(nextPath);
-      setActiveFolder(getChildrenById(nextPath.slice(-1)[0].id) || []);
-      setHistory((prev) => [...prev, nextPath]);
-      setForwardStack((prev) => prev.slice(1));
+    if (historyIndex < history.length - 1) {
+      const newIndex = historyIndex + 1;
+      setHistoryIndex(newIndex);
+      setCurrentPath(history[newIndex]);
+      const lastItem = history[newIndex][history[newIndex].length - 1];
+      setActiveFolder(lastItem.children || getChildrenById(lastItem.id) || []);
     }
   };
 
-  const handleReload = () => {
-    const lastItem = currentPath[currentPath.length - 1];
-    setActiveFolder(getChildrenById(lastItem.id) || []);
+  const handleRefresh = () => {
+    const initialChildren = getChildrenById(1) as FileItem[];
+    setActiveFolder(initialChildren);
+    setCurrentPath([{ id: 1, name: "Home", type: "folder", icons: "" }]);
+    setHistory([[{ id: 1, name: "Home", type: "folder", icons: "" }]]);
+    setHistoryIndex(0);
+  };
+
+  const handleUpArrowClick = () => {
+    setCurrentPath([{ id: 10, name: "This PC", type: "folder", icons: "" }]);
+    const newChildren = (getChildrenById(10) as FileItem[]) || [];
+    setActiveFolder(newChildren);
+    updateHistory([{ id: 10, name: "This PC", type: "folder", icons: "" }]);
+  };
+
+  const updateHistory = (newPath: FileItem[]) => {
+    const updatedHistory = history.slice(0, historyIndex + 1);
+    updatedHistory.push(newPath);
+    setHistory(updatedHistory);
+    setHistoryIndex(updatedHistory.length - 1);
   };
 
   return (
@@ -140,7 +141,8 @@ const FileExplorer = ({ initialSidebarId }: FileExplorerProps) => {
         onBreadcrumbClick={handleBreadcrumbClick}
         onBack={handleBack}
         onForward={handleForward}
-        onReload={handleReload}
+        onRefresh={handleRefresh}
+        onUpArrowClick={handleUpArrowClick}
       />
       <div className="flex flex-row gap-5 p-0 m-0 h-full">
         <Sidebar
