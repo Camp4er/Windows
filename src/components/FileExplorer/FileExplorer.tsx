@@ -11,10 +11,12 @@ import {
   sectionTwo,
 } from "@/constants/folderData";
 
+// Define file types as either folder or file
 type FileType = "folder" | "file";
 
+// Define the structure of a FileItem, which can represent files or folders
 export type FileItem = {
-  id: string | number;
+  id: string | number;          // Unique identifier for the file/folder
   name: string;
   type: FileType;
   icons: string;
@@ -30,21 +32,26 @@ type FileExplorerProps = {
 };
 
 const FileExplorer = ({ initialSidebarId }: FileExplorerProps) => {
+  // Track the current navigation path (breadcrumb style)
   const [currentPath, setCurrentPath] = useState<FileItem[]>([]);
+  // Track the contents of the active folder being viewed
   const [activeFolder, setActiveFolder] = useState<FileItem[]>([]);
+  // Maintain navigation history for back/forward functionality
   const [history, setHistory] = useState<FileItem[][]>([]);
+  // Track the current index in the history (for navigation)
   const [historyIndex, setHistoryIndex] = useState(0);
 
+  // Load initial folder structure when the component mounts
   useEffect(() => {
     const initialChildren = getChildrenById(initialSidebarId) as FileItem[];
-    setActiveFolder(initialChildren);
+    setActiveFolder(initialChildren);     // Display children of the initial folder
     setCurrentPath([
       { id: initialSidebarId, name: "Home", type: "folder", icons: "" },
     ]);
     setHistory([
       [{ id: initialSidebarId, name: "Home", type: "folder", icons: "" }],
     ]);
-    setHistoryIndex(0);
+    setHistoryIndex(0);                   // Reset history index to the start
   }, [initialSidebarId]);
 
   const handleFolderClick = (folder: FileItem, isSidebarClick: boolean) => {
@@ -58,7 +65,7 @@ const FileExplorer = ({ initialSidebarId }: FileExplorerProps) => {
           icons: folder.icons,
         },
       ]);
-      setActiveFolder(folder.children || []);
+      setActiveFolder(folder.children || []);    // Show folder contents
       updateHistory([
         {
           id: folder.id,
@@ -68,21 +75,23 @@ const FileExplorer = ({ initialSidebarId }: FileExplorerProps) => {
         },
       ]);
     } else {
+       // Clicking inside content area updates the path progressively
       setCurrentPath((prevPath) => {
         const folderIndex = prevPath.findIndex((item) => item.id === folder.id);
         const newPath =
           folderIndex !== -1
-            ? prevPath.slice(0, folderIndex + 1)
-            : [...prevPath, folder];
+            ? prevPath.slice(0, folderIndex + 1)    // Truncate path if folder exists in current path
+            : [...prevPath, folder];                // Add folder to path if not present
         const newChildren =
           folder.children && folder.children.length > 0 ? folder.children : [];
-        setActiveFolder(newChildren);
-        updateHistory(newPath);
+          setActiveFolder(newChildren);  // Load folder contents
+          updateHistory(newPath);        // Update navigation history
         return newPath;
       });
     }
   };
 
+  // Handle breadcrumb navigation (clicking on path segments)
   const handleBreadcrumbClick = (index: number) => {
     const newPath = currentPath.slice(0, index + 1);
     const lastItem = newPath[newPath.length - 1];
@@ -92,6 +101,7 @@ const FileExplorer = ({ initialSidebarId }: FileExplorerProps) => {
     updateHistory(newPath);
   };
 
+  // Navigate back in history
   const handleBack = () => {
     if (historyIndex > 0) {
       const newIndex = historyIndex - 1;
@@ -102,6 +112,7 @@ const FileExplorer = ({ initialSidebarId }: FileExplorerProps) => {
     }
   };
 
+  // Navigate forward in history
   const handleForward = () => {
     if (historyIndex < history.length - 1) {
       const newIndex = historyIndex + 1;
@@ -112,6 +123,7 @@ const FileExplorer = ({ initialSidebarId }: FileExplorerProps) => {
     }
   };
 
+  // Refresh and reset to Home directory
   const handleRefresh = () => {
     const initialChildren = getChildrenById(1) as FileItem[];
     setActiveFolder(initialChildren);
@@ -120,6 +132,7 @@ const FileExplorer = ({ initialSidebarId }: FileExplorerProps) => {
     setHistoryIndex(0);
   };
 
+  // Navigate up one level to "This PC"
   const handleUpArrowClick = () => {
     setCurrentPath([{ id: 10, name: "This PC", type: "folder", icons: "" }]);
     const newChildren = (getChildrenById(10) as FileItem[]) || [];
@@ -127,6 +140,7 @@ const FileExplorer = ({ initialSidebarId }: FileExplorerProps) => {
     updateHistory([{ id: 10, name: "This PC", type: "folder", icons: "" }]);
   };
 
+  // Update navigation history after path changes
   const updateHistory = (newPath: FileItem[]) => {
     const updatedHistory = history.slice(0, historyIndex + 1);
     updatedHistory.push(newPath);
@@ -134,6 +148,7 @@ const FileExplorer = ({ initialSidebarId }: FileExplorerProps) => {
     setHistoryIndex(updatedHistory.length - 1);
   };
 
+  // Render toolbar, sidebar, and content area
   return (
     <div className="p-0 h-full flex flex-col gap-0">
       <Toolbar
