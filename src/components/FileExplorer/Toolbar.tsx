@@ -8,7 +8,7 @@ import { FileItem } from "./FileExplorer";
 const Toolbar = ({
   currentPath,
   onBreadcrumbClick,
-  onBack, onForward, onUpArrowClick, onRefresh
+  onBack, onForward, onUpArrowClick, onRefresh, onSearch
 }: BreadcrumbProps) => {
   //const currentFolder = path[path.length - 1]; // Name of the last item in the path array
 
@@ -119,6 +119,7 @@ const Toolbar = ({
             type="text"
             placeholder="Search here..."
             className="w-full pl-2 pr-8 py-1 bg-gray-900  rounded text-gray-300 placeholder-gray-500 focus:outline-none focus:ring focus:ring-gray-600"
+            onClick={onSearch}
           />
           <Image
             src="/icons/search-dark.svg"

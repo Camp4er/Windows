@@ -40,6 +40,8 @@ const FileExplorer = ({ initialSidebarId }: FileExplorerProps) => {
   const [history, setHistory] = useState<FileItem[][]>([]);
   // Track the current index in the history (for navigation)
   const [historyIndex, setHistoryIndex] = useState(0);
+  //For search input
+  const [filteredItems, setFilteredItems] = useState<FileItem[] | null>([]);
 
   // Load initial folder structure when the component mounts
   useEffect(() => {
@@ -66,6 +68,7 @@ const FileExplorer = ({ initialSidebarId }: FileExplorerProps) => {
         },
       ]);
       setActiveFolder(folder.children || []);    // Show folder contents
+      setFilteredItems(null);
       updateHistory([
         {
           id: folder.id,
@@ -85,6 +88,7 @@ const FileExplorer = ({ initialSidebarId }: FileExplorerProps) => {
         const newChildren =
           folder.children && folder.children.length > 0 ? folder.children : [];
           setActiveFolder(newChildren);  // Load folder contents
+          setFilteredItems(null);
           updateHistory(newPath);        // Update navigation history
         return newPath;
       });
@@ -95,8 +99,8 @@ const FileExplorer = ({ initialSidebarId }: FileExplorerProps) => {
   const handleBreadcrumbClick = (index: number) => {
     const newPath = currentPath.slice(0, index + 1);
     const lastItem = newPath[newPath.length - 1];
-    const children = getChildrenById(lastItem.id);
     setActiveFolder(lastItem.children || getChildrenById(lastItem.id) || []);
+    setFilteredItems(null);
     setCurrentPath(newPath);
     updateHistory(newPath);
   };
@@ -109,6 +113,7 @@ const FileExplorer = ({ initialSidebarId }: FileExplorerProps) => {
       setCurrentPath(history[newIndex]);
       const lastItem = history[newIndex][history[newIndex].length - 1];
       setActiveFolder(lastItem.children || getChildrenById(lastItem.id) || []);
+      setFilteredItems(null);
     }
   };
 
@@ -120,6 +125,7 @@ const FileExplorer = ({ initialSidebarId }: FileExplorerProps) => {
       setCurrentPath(history[newIndex]);
       const lastItem = history[newIndex][history[newIndex].length - 1];
       setActiveFolder(lastItem.children || getChildrenById(lastItem.id) || []);
+      setFilteredItems(null);
     }
   };
 
@@ -127,6 +133,7 @@ const FileExplorer = ({ initialSidebarId }: FileExplorerProps) => {
   const handleRefresh = () => {
     const initialChildren = getChildrenById(1) as FileItem[];
     setActiveFolder(initialChildren);
+    setFilteredItems(null);
     setCurrentPath([{ id: 1, name: "Home", type: "folder", icons: "" }]);
     setHistory([[{ id: 1, name: "Home", type: "folder", icons: "" }]]);
     setHistoryIndex(0);
@@ -137,8 +144,23 @@ const FileExplorer = ({ initialSidebarId }: FileExplorerProps) => {
     setCurrentPath([{ id: 10, name: "This PC", type: "folder", icons: "" }]);
     const newChildren = (getChildrenById(10) as FileItem[]) || [];
     setActiveFolder(newChildren);
+    setFilteredItems(null);
     updateHistory([{ id: 10, name: "This PC", type: "folder", icons: "" }]);
   };
+
+  //For search query
+  const handleSearch = (event: React.MouseEvent<HTMLInputElement>) => {
+    console.log('handleSearch called!');
+    console.log(event);
+    const query = event.currentTarget.value; // Get the search query from the input field
+    console.log(query);
+    if (!query) {
+      setFilteredItems(null);
+    } else {
+      const filtered = activeFolder.filter((item) => item.name.toLowerCase().includes(query.toLowerCase()));
+      setFilteredItems(filtered);
+    }
+  }
 
   // Update navigation history after path changes
   const updateHistory = (newPath: FileItem[]) => {
@@ -158,6 +180,7 @@ const FileExplorer = ({ initialSidebarId }: FileExplorerProps) => {
         onForward={handleForward}
         onRefresh={handleRefresh}
         onUpArrowClick={handleUpArrowClick}
+        onSearch={handleSearch}
       />
       <div className="flex flex-row gap-5 p-0 m-0 h-full">
         <Sidebar
@@ -167,7 +190,7 @@ const FileExplorer = ({ initialSidebarId }: FileExplorerProps) => {
           onFolderClick={handleFolderClick}
         />
         <ContentArea
-          items={activeFolder}
+          items={filteredItems || activeFolder}
           activeFolder={activeFolder}
           onFolderClick={handleFolderClick}
         />
