@@ -7,7 +7,7 @@ export interface BreadcrumbProps {
   onForward?: () => void;
   onRefresh?: () => void;
   onUpArrowClick?: () => void;  
-  onSearch?:(event: React.MouseEvent<HTMLInputElement>) => void;
+  onSearch?:(event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 export interface ContentAreaProps {

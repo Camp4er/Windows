@@ -41,6 +41,7 @@ const FileExplorer = ({ initialSidebarId }: FileExplorerProps) => {
   // Track the current index in the history (for navigation)
   const [historyIndex, setHistoryIndex] = useState(0);
   //For search input
+  const [searchQuery, setSearchQuery] = useState('');
   const [filteredItems, setFilteredItems] = useState<FileItem[] | null>([]);
 
   // Load initial folder structure when the component mounts
@@ -149,18 +150,17 @@ const FileExplorer = ({ initialSidebarId }: FileExplorerProps) => {
   };
 
   //For search query
-  const handleSearch = (event: React.MouseEvent<HTMLInputElement>) => {
-    console.log('handleSearch called!');
-    console.log(event);
-    const query = event.currentTarget.value; // Get the search query from the input field
-    console.log(query);
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const query = event.target.value;
+    setSearchQuery(query);
+  
     if (!query) {
       setFilteredItems(null);
     } else {
       const filtered = activeFolder.filter((item) => item.name.toLowerCase().includes(query.toLowerCase()));
       setFilteredItems(filtered);
     }
-  }
+  };
 
   // Update navigation history after path changes
   const updateHistory = (newPath: FileItem[]) => {
@@ -180,7 +180,7 @@ const FileExplorer = ({ initialSidebarId }: FileExplorerProps) => {
         onForward={handleForward}
         onRefresh={handleRefresh}
         onUpArrowClick={handleUpArrowClick}
-        onSearch={handleSearch}
+        onSearch={handleChange}
       />
       <div className="flex flex-row gap-5 p-0 m-0 h-full">
         <Sidebar
