@@ -32,8 +32,8 @@ const ContentArea: React.FC<ContentAreaProps> = ({
   // Reset when sidebar folder is clicked
   useEffect(() => {
     setSelectedItem(null);
-    setCurrentItems(activeFolder.length > 0 ? activeFolder : items);
-  }, [activeFolder, items]);
+    setCurrentItems(items);
+  }, [items]);
 
   // Handles folder click inside content area
   const handleFolderClick = (item: FileItem) => {

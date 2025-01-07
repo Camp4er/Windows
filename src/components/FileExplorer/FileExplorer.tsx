@@ -94,6 +94,7 @@ const FileExplorer = ({ initialSidebarId, sidebarData }: FileExplorerProps) => {
       ]);
       setActiveFolder(folder.children || []);    // Show folder contents
       setFilteredItems(null);
+      setSearchQuery('');  // Clear input field
       updateHistory([
         {
           id: folder.id,
@@ -159,6 +160,7 @@ const FileExplorer = ({ initialSidebarId, sidebarData }: FileExplorerProps) => {
     const initialChildren = getChildrenById(1) as FileItem[];
     setActiveFolder(initialChildren);
     setFilteredItems(null);
+    setSearchQuery('');
     setCurrentPath([{ id: 1, name: "Home", type: "folder", icons: "" }]);
     setHistory([[{ id: 1, name: "Home", type: "folder", icons: "" }]]);
     setHistoryIndex(0);
@@ -170,6 +172,7 @@ const FileExplorer = ({ initialSidebarId, sidebarData }: FileExplorerProps) => {
     const newChildren = (getChildrenById(10) as FileItem[]) || [];
     setActiveFolder(newChildren);
     setFilteredItems(null);
+    setSearchQuery('');
     updateHistory([{ id: 10, name: "This PC", type: "folder", icons: "" }]);
   };
 
@@ -181,10 +184,14 @@ const FileExplorer = ({ initialSidebarId, sidebarData }: FileExplorerProps) => {
     if (!query) {
       setFilteredItems(null);
     } else {
-      const filtered = activeFolder.filter((item) => item.name.toLowerCase().includes(query.toLowerCase()));
+      const searchIn = activeFolder.length > 0 ? activeFolder : [];
+      const filtered = searchIn.filter((item) =>
+        item.name.toLowerCase().includes(query.toLowerCase())
+      );
       setFilteredItems(filtered);
     }
   };
+  
 
   // Update navigation history after path changes
   const updateHistory = (newPath: FileItem[]) => {
