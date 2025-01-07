@@ -29,9 +29,10 @@ export type FileItem = {
 
 type FileExplorerProps = {
   initialSidebarId: number;
+  sidebarData: FileItem[];  // Pass all folders as props
 };
 
-const FileExplorer = ({ initialSidebarId }: FileExplorerProps) => {
+const FileExplorer = ({ initialSidebarId, sidebarData }: FileExplorerProps) => {
   // Track the current navigation path (breadcrumb style)
   const [currentPath, setCurrentPath] = useState<FileItem[]>([]);
   // Track the contents of the active folder being viewed
@@ -44,18 +45,41 @@ const FileExplorer = ({ initialSidebarId }: FileExplorerProps) => {
   const [searchQuery, setSearchQuery] = useState('');
   const [filteredItems, setFilteredItems] = useState<FileItem[] | null>([]);
 
-  // Load initial folder structure when the component mounts
   useEffect(() => {
     const initialChildren = getChildrenById(initialSidebarId) as FileItem[];
-    setActiveFolder(initialChildren);     // Display children of the initial folder
-    setCurrentPath([
-      { id: initialSidebarId, name: "Home", type: "folder", icons: "" },
-    ]);
-    setHistory([
-      [{ id: initialSidebarId, name: "Home", type: "folder", icons: "" }],
-    ]);
-    setHistoryIndex(0);                   // Reset history index to the start
-  }, [initialSidebarId]);
+    
+    // Explicitly find the folder by ID from sidebarData
+    const initialFolder = sidebarData.find((folder: FileItem) => folder.id === initialSidebarId) as FileItem;
+
+    console.log("initialFolder:", initialFolder, initialChildren);
+
+    if (initialFolder) {
+      setActiveFolder(initialChildren);
+      setCurrentPath([{
+        id: initialFolder.id,
+        name: initialFolder.name,
+        type: initialFolder.type,
+        icons: initialFolder.icons,
+        children: initialChildren,
+      }]);
+      setHistory([[{
+        id: initialFolder.id,
+        name: initialFolder.name,
+        type: initialFolder.type,
+        icons: initialFolder.icons,
+        children: initialChildren,
+      }]]);
+    } else {
+      setActiveFolder([]);
+      setCurrentPath([]);
+      setHistory([]);
+      console.log("Did not work");
+    }
+    setHistoryIndex(0);
+  }, [initialSidebarId, sidebarData]);
+
+  
+
 
   const handleFolderClick = (folder: FileItem, isSidebarClick: boolean) => {
     if (isSidebarClick) {

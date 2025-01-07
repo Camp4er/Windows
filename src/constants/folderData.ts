@@ -18,10 +18,10 @@ export const sectionOne = {
 };
 
 export const sectionTwo = {
-  Desktop: {
-    name: "Desktop",
+  About: {
+    name: "About",
     type: "folder" as const,
-    icons: "/icons/desktop.png",
+    icons: "/icons/user-folder.png",
     id: 3,
     children: [] as FileItem[],
   },
@@ -743,8 +743,8 @@ export const sectionThree = {
 };
 
 // Combine all sections into one exportable object
-export const sidebarData: Record<string, any> = {
-  ...sectionOne,
-  ...sectionTwo,
-  ...sectionThree,
-};
+export const sidebarData: FileItem[] = [
+  ...Object.values(sectionOne),
+  ...Object.values(sectionTwo),
+  ...Object.values(sectionThree),
+];
