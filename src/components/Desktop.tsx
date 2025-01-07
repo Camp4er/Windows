@@ -54,12 +54,12 @@ export default function Desktop() {
           <DesktopIcon
             title="About Me"
             icon="/icons/user-folder.png"
-            onClick={() => openWindow("About Me", "/icons/user-folder.png")}
+            onClick={() => openWindow("About Me", "/icons/app.png")}
           />
           <DesktopIcon
             title="Projects"
             icon="/icons/blueprint.png"
-            onClick={() => openWindow("Projects", "/icons/blueprint.png")}
+            onClick={() => openWindow("Projects", "/icons/app.png")}
           />
           <DesktopIcon
             title="Portfolio"
@@ -71,17 +71,17 @@ export default function Desktop() {
           <DesktopIcon
             title="Experience"
             icon="/icons/suitcase.png"
-            onClick={() => openWindow("Experience", "/icons/suitcase.png")}
+            onClick={() => openWindow("Experience", "/icons/app.png")}
           />
           <DesktopIcon
             title="Skills"
             icon="/icons/skills.png"
-            onClick={() => openWindow("Skills", "/icons/skills.png")}
+            onClick={() => openWindow("Skills", "/icons/app.png")}
           />
           <DesktopIcon
             title="Contact"
             icon="/icons/phone-book.png"
-            onClick={() => openWindow("Contact", "/icons/phone-book.png")}
+            onClick={() => openWindow("Contact", "/icons/app.png")}
           />
           <DesktopIcon
             title="File Explorer"
