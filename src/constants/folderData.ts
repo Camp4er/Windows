@@ -23,7 +23,16 @@ export const sectionTwo = {
     type: "folder" as const,
     icons: "/icons/user-folder.png",
     id: 3,
-    children: [] as FileItem[],
+    children: [
+      {
+        name: "Description",
+        type: "file" as const,
+        icons: "/icons/user-folder.png",
+        id: 3.1,
+        dateModified: "08-01-2025",
+        size: "118 KB",
+      }
+    ],
   },
   Documents: {
     name: "Documents",
@@ -39,11 +48,6 @@ export const sectionTwo = {
         icons: "/icons/share.png",
         id: 4.1,
         onClick: () => {
-          // <iframe
-          //       src="@/public/pdf/PoorvaSaxenaResume6.pdf"
-          //       width="100%"
-          //       height="400px"
-          //     ></iframe>
         },
       },
     ],
@@ -186,6 +190,139 @@ export const sectionTwo = {
           },
         ],
       },
+      {
+        name: "Project C",
+        type: "folder" as const,
+        dateModified: "2024-12-01",
+        size: "118 KB",
+        icons: "/icons/share.png",
+        id: 5.3,
+        children: [
+          {
+            name: "Description",
+            type: "file" as const,
+            dateModified: "2024-12-01",
+            size: "118 KB",
+            icons: "/icons/share.png",
+            id: "5.3.1",
+          },
+          {
+            name: "Github Repo",
+            type: "file" as const,
+            dateModified: "2024-12-01",
+            size: "118 KB",
+            icons: "/icons/share.png",
+            id: "5.3.2",
+            onClick: () => {
+              window.open("https://github.com/Camp4er", "_blank");
+            },
+          },
+          {
+            name: "Live Demo",
+            type: "file" as const,
+            dateModified: "2024-12-01",
+            size: "118 KB",
+            icons: "/icons/share.png",
+            id: "5.3.3",
+            onClick: () => {
+              window.open("https://github.com/Camp4er", "_blank");
+            },
+          },
+          {
+            name: "View Images",
+            type: "file" as const,
+            dateModified: "2024-12-01",
+            size: "118 KB",
+            icons: "/icons/share.png",
+            id: "5.3.4",
+            children: [
+              {
+                name: "Image 1",
+                type: "file" as const,
+                dateModified: "2024-12-01",
+                size: "118 KB",
+                icons: "/icons/share.png",
+                id: "5.3.4.1",
+              },
+              {
+                name: "Image 2",
+                type: "file" as const,
+                dateModified: "2024-12-01",
+                size: "118 KB",
+                icons: "/icons/share.png",
+                id: "5.3.4.2",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        name: "Project D",
+        type: "folder" as const,
+        dateModified: "2024-12-01",
+        size: "118 KB",
+        icons: "/icons/share.png",
+        id: 5.4,
+        children: [
+          {
+            name: "Description",
+            type: "file" as const,
+            dateModified: "2024-12-01",
+            size: "118 KB",
+            icons: "/icons/share.png",
+            id: "5.4.1",
+          },
+          {
+            name: "Github Repo",
+            type: "file" as const,
+            dateModified: "2024-12-01",
+            size: "118 KB",
+            icons: "/icons/share.png",
+            id: "5.4.2",
+            onClick: () => {
+              window.open("https://github.com/Camp4er", "_blank");
+            },
+          },
+          {
+            name: "Live Demo",
+            type: "file" as const,
+            dateModified: "2024-12-01",
+            size: "118 KB",
+            icons: "/icons/share.png",
+            id: "5.4.3",
+            onClick: () => {
+              window.open("https://github.com/Camp4er", "_blank");
+            },
+          },
+          {
+            name: "View Images",
+            type: "file" as const,
+            dateModified: "2024-12-01",
+            size: "118 KB",
+            icons: "/icons/share.png",
+            id: "5.4.4",
+            children: [
+              {
+                name: "Image 1",
+                type: "file" as const,
+                dateModified: "2024-12-01",
+                size: "118 KB",
+                icons: "/icons/share.png",
+                id: "5.4.4.1",
+              },
+              {
+                name: "Image 2",
+                type: "file" as const,
+                dateModified: "2024-12-01",
+                size: "118 KB",
+                icons: "/icons/share.png",
+                id: "5.4.4.2",
+              },
+            ],
+          },
+        ],
+      },
+
     ],
   },
   Skills: {
@@ -440,12 +577,12 @@ export const sectionTwo = {
         name: "Frontend50",
         type: "file" as const,
         icons: "/icons/suitcase.png",
-        id: 7.2,
+        id: 7.1,
       },{
         name: "LeopardRuns Innovation Technology",
         type: "file" as const,
         icons: "/icons/suitcase.png",
-        id: 7.1,
+        id: 7.2,
       },
     ],
   },
