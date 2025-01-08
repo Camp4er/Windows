@@ -63,7 +63,12 @@ const ContentArea: React.FC<ContentAreaProps> = ({
             {currentItems.map((child) => (
               <tr
                 key={child.id}
-                onClick={() => handleFolderClick(child)}
+                onClick={() => {
+                  handleFolderClick(child);
+                  if (child.type === "file" && child.onClick) {
+                      child.onClick?.(); // Assuming onClick is a function
+                  }
+              }}
                 className="hover:bg-gray-700 cursor-pointer"
               >
                 <td className="px-5 py-1 flex flex-row">

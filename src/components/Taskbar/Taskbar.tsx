@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import TaskbarRightSection from "./TaskbarRightSection";
 import TaskbarLeftSection from "./TaskbarLeftSection";
 import ActionCenter from "./ActionCenter";
@@ -32,7 +32,22 @@ const systemTrayIcons: ISystemTrayIcon[] = [
 ];
 
 const Taskbar = ({ openWindows, toggleWindow, openWindow }: TaskbarProps) => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isPanelOpen, setIsPanelOpen] = useState(false);
+  const panelRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (panelRef.current && !panelRef.current.contains(e.target as Node)) {
+        setIsPanelOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  const togglePanel = () => {
+    setIsPanelOpen(!isPanelOpen);
+  }
 
   const taskbarButtons: ITaskbarButton[] = [
     {
@@ -182,13 +197,16 @@ const Taskbar = ({ openWindows, toggleWindow, openWindow }: TaskbarProps) => {
             IN
           </p>
         </div>
-        <div className="flex items-center hover:bg-zinc-800 gap-1 m-0 py-2 px-1 rounded" onClick={() => setIsOpen(!isOpen)}>
+        {/* <button className="flex items-center hover:bg-zinc-800 gap-1 m-0 py-2 px-1 rounded"  onClick={togglePanel}>
           {systemTrayIcons.map((icon) => (
-            <button key={icon.id} className="p-1 rounded" aria-label={icon.alt} >
+            <div key={icon.id} className="p-1 rounded" aria-label={icon.alt} >
               <img src={icon.src} alt={icon.alt} width={15} height={16} />
-            </button>
+            </div>
           ))}
-           {isOpen && <ActionCenter />}
+           <ActionCenter />
+        </button> */}
+        <div className="flex items-center hover:bg-zinc-800 gap-1 m-0 rounded">
+          <ActionCenter/>
         </div>
         <div className="flex items-center hover:bg-zinc-800 gap-1 m-0 rounded">
           <TaskbarRightSection/>
