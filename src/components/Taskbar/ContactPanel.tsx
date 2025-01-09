@@ -1,5 +1,5 @@
 import React from "react";
-import { FaLinkedin, FaGithub, FaTwitter, FaWhatsapp } from "react-icons/fa";
+import { FaLinkedin, FaGithub, FaTwitter, FaWhatsapp, FaMailBulk } from "react-icons/fa";
 
 interface ContactPanelProps {
   //onClose: () => void;
@@ -7,7 +7,7 @@ interface ContactPanelProps {
 
 const ContactPanel: React.FC<ContactPanelProps> = () => {
   return (
-    <div className="left-0 h-full w-[600px] shadow-md transform transition-transform translate-x-0 p-8">
+    <div className="left-0 h-full w-[600px] shadow-md transform transition-transform translate-x-0 p-8 ">
       <h2 className="text-3xl font-bold mb-6 text-white font-serif">
         Reach out to me
       </h2>
@@ -16,25 +16,25 @@ const ContactPanel: React.FC<ContactPanelProps> = () => {
         promptly.
       </p>
 
-      <div className="flex flex-row gap-3 align-center justify-center">
+      <div className="flex flex-col gap-3 align-center justify-center">
       <form className="space-y-4">
         <div className="flex flex-col gap-1 flex-start align-center">
           <div className="flex flex-row gap-1">
             <input
               type="text"
               placeholder="Your name"
-              className="w-full p-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="text-black w-full p-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
             <input
               type="email"
               placeholder="Your email address"
-              className="w-full p-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="text-black w-full p-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
 
           <textarea
             placeholder="Your message for me"
-            className="w-full p-3 rounded-md border border-gray-300 h-32 resize-none focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="text-black w-full p-3 rounded-md border border-gray-300 h-32 resize-none focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
           <button
             type="submit"
@@ -47,42 +47,44 @@ const ContactPanel: React.FC<ContactPanelProps> = () => {
 
       {/* Social Links */}
       <div className="space-y-4 flex flex-col gap-1 flex-end align-center justify-center">
+        <div className="flex flex-row gap-3">
         <a
-          href="https://linkedin.com"
+          href="https://www.linkedin.com/in/poorva-saxena-983642256/"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-3 p-3 bg-white border rounded-md shadow hover:bg-gray-50"
+          className="flex items-center w-full gap-3 p-3 bg-white border rounded-md shadow hover:bg-gray-300"
         >
           <FaLinkedin size={24} className="text-blue-600" />
-          <span>LinkedIn</span>
+          <span className="text-black">LinkedIn</span>
         </a>
         <a
-          href="https://github.com"
+          href="https://github.com/Camp4er"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-3 p-3 bg-white border rounded-md shadow hover:bg-gray-50"
+          className="flex items-center w-full gap-3 p-3 bg-white border rounded-md shadow hover:bg-gray-300"
         >
           <FaGithub size={24} className="text-gray-800" />
-          <span>GitHub</span>
-        </a>
+          <span className="text-black">GitHub</span>
+        </a></div>
+        <div className="flex flex-row gap-3">
         <a
-          href="https://twitter.com"
+          href="https://twitter.com/Camp4er"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-3 p-3 bg-white border rounded-md shadow hover:bg-gray-50"
+          className="flex items-center w-full gap-3 p-3 bg-white border rounded-md shadow hover:bg-gray-300"
         >
           <FaTwitter size={24} className="text-blue-400" />
-          <span>Twitter</span>
+          <span className="text-black">Twitter</span>
         </a>
         <a
-          href="https://wa.me"
+          href="mailto:saxenapoorva2004@gmail.com"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-3 p-3 bg-white border rounded-md shadow hover:bg-gray-50"
+          className="flex items-center w-full gap-3 p-3 bg-white border rounded-md shadow hover:bg-gray-300"
         >
-          <FaWhatsapp size={24} className="text-green-500" />
-          <span>WhatsApp</span>
-        </a>
+          <FaMailBulk size={24} className="text-orange-500" />
+          <span className="text-black">Email</span>
+        </a></div>
       </div>
       </div>
     </div>
