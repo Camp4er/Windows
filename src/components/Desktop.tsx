@@ -9,6 +9,7 @@ import FileExplorer from "./FileExplorer/FileExplorer";
 import Snakegame from "./Snakegame";
 import { sidebarData } from "@/constants/folderData";
 import Notepad from "./SeparateWindows/Notepad";
+import NotepadOpener from "./SeparateWindows/NotepadOpener";
 
 type WindowInfo = {
   name: string;
@@ -27,6 +28,7 @@ export const openNotepad = (content: string) => {
 
 export default function Desktop() {
   const [openWindows, setOpenWindows] = useState<WindowInfo[]>([]);
+  const [fileId, setFileId] = useState<string | null>(null);
 
   const openWindow = (appName: string, icon: string) => {
     if (!openWindows.some((window) => window.name === appName)) {
@@ -167,7 +169,14 @@ export default function Desktop() {
             {window.name === "File Explorer" && (
               <FileExplorer initialSidebarId={1} sidebarData={sidebarData} />
             )}
-            {window.name === "Notepad" && <Notepad  content={""} />}
+            
+{window.name === "Notepad" && (
+  fileId ? (
+    <NotepadOpener fileId={fileId} />
+  ) : (
+    <Notepad content={""} />
+  )
+)}
           </Window>
         ) : null
       )}

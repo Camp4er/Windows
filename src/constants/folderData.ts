@@ -1,5 +1,6 @@
 import { openNotepad } from "@/components/Desktop";
 import { FileItem } from "@/components/FileExplorer/FileExplorer";
+import { openNotepadWithContent } from "@/components/SeparateWindows/NotepadOpener";
 
 // Create a data structure to map IDs to content
 const contentMap = {
@@ -39,7 +40,10 @@ export const sectionTwo = {
         id: 3.1,
         dateModified: "08-01-2025",
         size: "118 KB",
-        onClick: () => openNotepad(contentMap["3.1"]),
+        onClick: () => {
+          console.log("onClick event triggered");
+          openNotepadWithContent("3.1");
+        }
       }
     ],
   },
@@ -82,7 +86,7 @@ export const sectionTwo = {
             size: "118 KB",
             icons: "/icons/share.png",
             id: "5.1.1",
-            onClick: () => openNotepad(contentMap["5.1.1"]),
+            onClick: () => openNotepadWithContent("5.1.1"),
           },
           {
             name: "Github Repo",
