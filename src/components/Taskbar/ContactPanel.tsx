@@ -7,7 +7,7 @@ interface ContactPanelProps {
 
 const ContactPanel: React.FC<ContactPanelProps> = () => {
   return (
-    <div className="left-0 h-full w-[540px] shadow-md transform transition-transform translate-x-0 p-8">
+    <div className="left-0 h-full w-[600px] shadow-md transform transition-transform translate-x-0 p-8">
       <h2 className="text-3xl font-bold mb-6 text-white font-serif">
         Reach out to me
       </h2>
