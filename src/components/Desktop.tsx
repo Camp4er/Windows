@@ -8,6 +8,7 @@ import Terminal from "./Terminal";
 import FileExplorer from "./FileExplorer/FileExplorer";
 import Snakegame from "./Snakegame";
 import { sidebarData } from "@/constants/folderData";
+import Notepad from "./SeparateWindows/Notepad";
 
 type WindowInfo = {
   name: string;
@@ -59,9 +60,7 @@ export default function Desktop() {
           <DesktopIcon
             title="Portfolio"
             icon="/icons/curriculum-vitae.png"
-            onClick={() =>
-              openWindow("Documents", "/icons/app.png")
-            }
+            onClick={() => openWindow("Documents", "/icons/app.png")}
           />
           <DesktopIcon
             title="Experience"
@@ -95,7 +94,13 @@ export default function Desktop() {
             icon="/icons/snake.png"
             onClick={() => openWindow("Snakeats", "/icons/snake.png")}
           />
+          <DesktopIcon
+          title="Notepad"
+          icon="/icons/app.png"
+          onClick={() => openWindow("Notepad", "/icons/app.png")}
+        />
         </div>
+        
       </div>
 
       {/* Render open windows */}
@@ -109,12 +114,24 @@ export default function Desktop() {
             onMinimize={() => toggleMinimizeWindow(window.name)}
           >
             {/* Content for each window */}
-            {window.name === "About Me" && <FileExplorer initialSidebarId={3} sidebarData={sidebarData}/>}
-            {window.name === "Projects" && <FileExplorer initialSidebarId={5} sidebarData={sidebarData}/>}
-            {window.name === "Documents" && <FileExplorer initialSidebarId={4} sidebarData={sidebarData}/>}
-            {window.name === "Experience" && <FileExplorer initialSidebarId={7} sidebarData={sidebarData}/>}
-            {window.name === "Skills" && <FileExplorer initialSidebarId={6} sidebarData={sidebarData}/>}
-            {window.name === "Contact" && <FileExplorer initialSidebarId={8} sidebarData={sidebarData}/>}
+            {window.name === "About Me" && (
+              <FileExplorer initialSidebarId={3} sidebarData={sidebarData} />
+            )}
+            {window.name === "Projects" && (
+              <FileExplorer initialSidebarId={5} sidebarData={sidebarData} />
+            )}
+            {window.name === "Documents" && (
+              <FileExplorer initialSidebarId={4} sidebarData={sidebarData} />
+            )}
+            {window.name === "Experience" && (
+              <FileExplorer initialSidebarId={7} sidebarData={sidebarData} />
+            )}
+            {window.name === "Skills" && (
+              <FileExplorer initialSidebarId={6} sidebarData={sidebarData} />
+            )}
+            {window.name === "Contact" && (
+              <FileExplorer initialSidebarId={8} sidebarData={sidebarData} />
+            )}
             {window.name === "Google Search" && (
               <iframe
                 src="https://www.google.com/webhp?igu=1"
@@ -138,7 +155,10 @@ export default function Desktop() {
             )}
             {window.name === "Snakeats" && <Snakegame />}
             {window.name === "Terminal" && <Terminal key={window.name} />}
-            {window.name === "File Explorer" && <FileExplorer initialSidebarId={1} sidebarData={sidebarData}/>} 
+            {window.name === "File Explorer" && (
+              <FileExplorer initialSidebarId={1} sidebarData={sidebarData} />
+            )}
+            {window.name === "Notepad" && <Notepad />}
           </Window>
         ) : null
       )}
