@@ -106,12 +106,11 @@ export default function Desktop() {
             onClick={() => openWindow("Snakeats", "/icons/snake.png")}
           />
           <DesktopIcon
-          title="Notepad"
-          icon="/icons/app.png"
-          onClick={() => openWindow("Notepad", "/icons/app.png")}
-        />
+            title="Notepad"
+            icon="/icons/app.png"
+            onClick={() => openWindow("Notepad", "/icons/app.png")}
+          />
         </div>
-        
       </div>
 
       {/* Render open windows */}
@@ -169,14 +168,17 @@ export default function Desktop() {
             {window.name === "File Explorer" && (
               <FileExplorer initialSidebarId={1} sidebarData={sidebarData} />
             )}
-            
-{window.name === "Notepad" && (
-  fileId ? (
-    <NotepadOpener fileId={fileId} />
-  ) : (
-    <Notepad content={""} />
-  )
-)}
+
+            {
+              window.name === "Notepad" && <Notepad/>
+            }
+
+            {/* {window.name === "Notepad" &&
+              (fileId ? (
+                <NotepadOpener fileId={fileId} />
+              ) : (
+                <Notepad content="Default Notepad content" />
+              ))} */}
           </Window>
         ) : null
       )}
