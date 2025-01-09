@@ -1,4 +1,12 @@
+import { openNotepad } from "@/components/Desktop";
 import { FileItem } from "@/components/FileExplorer/FileExplorer";
+
+// Create a data structure to map IDs to content
+const contentMap = {
+  "3.1": "This is the About section description...",
+  "5.1.1": "This is the Project A description...",
+  // Add more IDs and content as needed
+};
 
 export const sectionOne = {
   Home: {
@@ -31,7 +39,7 @@ export const sectionTwo = {
         id: 3.1,
         dateModified: "08-01-2025",
         size: "118 KB",
-       // onClick: () => openNotepad('This is the About section description...')
+        onClick: () => openNotepad(contentMap["3.1"]),
       }
     ],
   },
@@ -74,6 +82,7 @@ export const sectionTwo = {
             size: "118 KB",
             icons: "/icons/share.png",
             id: "5.1.1",
+            onClick: () => openNotepad(contentMap["5.1.1"]),
           },
           {
             name: "Github Repo",

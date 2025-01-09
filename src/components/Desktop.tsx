@@ -16,6 +16,15 @@ type WindowInfo = {
   minimized: boolean;
 };
 
+export const openNotepad = (content: string) => {
+  const notepadWindow = window.open("", "Notepad", "width=800,height=600");
+  if (notepadWindow) {
+    notepadWindow.document.write(content);
+  } else {
+    console.error("Failed to open Notepad window");
+  }
+};
+
 export default function Desktop() {
   const [openWindows, setOpenWindows] = useState<WindowInfo[]>([]);
 
@@ -158,7 +167,7 @@ export default function Desktop() {
             {window.name === "File Explorer" && (
               <FileExplorer initialSidebarId={1} sidebarData={sidebarData} />
             )}
-            {window.name === "Notepad" && <Notepad />}
+            {window.name === "Notepad" && <Notepad  content={""} />}
           </Window>
         ) : null
       )}

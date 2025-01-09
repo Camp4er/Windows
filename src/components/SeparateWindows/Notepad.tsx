@@ -1,15 +1,19 @@
-"use client";
-
 import React, { useState, useEffect } from "react";
 
-export default function Notepad({ initialText }: { initialText: string }) {
-  const [text, setText] = useState(initialText);
+interface NotepadProps {
+  content?: string;
+}
 
+export default function Notepad({ content }: NotepadProps) {
+  const [text, setText] = useState(content || "");
+
+  // Load saved text from localStorage
   useEffect(() => {
     const savedText = localStorage.getItem("notepad-content");
-    if (savedText) setText(savedText);
+    if (savedText && !content) setText(savedText);
   }, []);
 
+  // Save text to localStorage
   const handleSave = () => {
     localStorage.setItem("notepad-content", text);
     alert("Content saved!");
