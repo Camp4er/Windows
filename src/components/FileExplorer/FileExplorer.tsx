@@ -221,6 +221,7 @@ const FileExplorer = ({ initialSidebarId, sidebarData }: FileExplorerProps) => {
           onFolderClick={handleFolderClick}
         />
         <ContentArea
+        // items = {items}
           items={filteredItems || activeFolder}
           activeFolder={activeFolder}
           onFolderClick={handleFolderClick}

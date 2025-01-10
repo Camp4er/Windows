@@ -28,7 +28,6 @@ export const openNotepad = (content: string) => {
 
 export default function Desktop() {
   const [openWindows, setOpenWindows] = useState<WindowInfo[]>([]);
-  const [fileId, setFileId] = useState<string | null>(null);
 
   const openWindow = (appName: string, icon: string) => {
     if (!openWindows.some((window) => window.name === appName)) {
