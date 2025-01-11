@@ -11,6 +11,13 @@ export default function Notepad({ content }: NotepadProps) {
   useEffect(() => {
     const savedText = localStorage.getItem("notepad-content");
     if (savedText && !content) setText(savedText);
+    console.log("content not provided");
+
+    if (content) {
+      console.log(content, "working");
+    } else {
+      console.log("content not provided");
+    }
   }, []);
 
   // Save text to localStorage
