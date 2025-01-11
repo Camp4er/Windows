@@ -44,6 +44,10 @@ const ContentArea: React.FC<ContentAreaProps> = ({
       setCurrentItems([]);
     }
     setSelectedItem(item);
+  if (item.onClick) {
+    item.onClick();
+    return; // Prevent default behavior
+  }
     onFolderClick(item, false);
   };
 
@@ -64,14 +68,14 @@ const ContentArea: React.FC<ContentAreaProps> = ({
               <tr
                 key={child.id}
                 onClick={() => {
-                  handleFolderClick(child);
-                  if (child.type === "file" && child.onClick) {
-                      child.onClick?.(); // Assuming onClick is a function
+                  if (!child.onClick) {
+                    handleFolderClick(child);
                   }
-              }}
+                  child.onClick?.();
+                }}
                 className="hover:bg-gray-700 cursor-pointer"
               >
-                <td className="px-5 py-1 flex flex-row">
+                <td className="px-5 py-1 overflow-hidden whitespace-nowrap flex flex-row">
                   <Image
                     src={child.icons}
                     width={25}
@@ -81,9 +85,9 @@ const ContentArea: React.FC<ContentAreaProps> = ({
                   />
                   {child.name}
                 </td>
-                <td className="px-5 py-1">{child.type}</td>
-                <td className="px-5 py-1">{child.dateModified || "-"}</td>
-                <td className="px-5 py-1">{child.size || "-"}</td>
+                <td className="px-5 py-1 overflow-hidden whitespace-nowrap">{child.type}</td>
+                <td className="px-5 py-1 overflow-hidden whitespace-nowrap">{child.dateModified || "-"}</td>
+                <td className="px-5 py-1 overflow-hidden whitespace-nowrap">{child.size || "-"}</td>
               </tr>
             ))}
           </tbody>
