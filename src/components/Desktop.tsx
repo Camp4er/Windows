@@ -29,6 +29,7 @@ export const openNotepad = (content: string) => {
 export default function Desktop() {
   const [openWindows, setOpenWindows] = useState<WindowInfo[]>([]);
 
+  //adds a new window to the openWindows state array if a window with the same appName does not already exist
   const openWindow = (appName: string, icon: string) => {
     if (!openWindows.some((window) => window.name === appName)) {
       setOpenWindows([
@@ -38,6 +39,7 @@ export default function Desktop() {
     }
   };
 
+  //removes the window with the specified appName from the openWindows array
   const closeWindow = (appName: string) => {
     setOpenWindows(openWindows.filter((window) => window.name !== appName));
   };
