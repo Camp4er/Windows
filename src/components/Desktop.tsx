@@ -9,7 +9,7 @@ import FileExplorer from "./FileExplorer/FileExplorer";
 import Snakegame from "./Snakegame";
 import { sidebarData } from "@/constants/folderData";
 import Notepad from "./SeparateWindows/Notepad";
-import NotepadOpener from "./SeparateWindows/NotepadOpener";
+import { useWindowManager } from "./NewWindow/WindowManagerContext";
 
 type WindowInfo = {
   name: string;
@@ -17,42 +17,44 @@ type WindowInfo = {
   minimized: boolean;
 };
 
-export const openNotepad = (content: string) => {
-  const notepadWindow = window.open("", "Notepad", "width=800,height=600");
-  if (notepadWindow) {
-    notepadWindow.document.write(content);
-  } else {
-    console.error("Failed to open Notepad window");
-  }
-};
+//to open notepad in a new window
+// export const openNotepad = (content: string) => {
+//   const notepadWindow = window.open("", "Notepad", "width=800,height=600");
+//   if (notepadWindow) {
+//     notepadWindow.document.write(content);
+//   } else {
+//     console.error("Failed to open Notepad window");
+//   }
+// };
 
 export default function Desktop() {
-  const [openWindows, setOpenWindows] = useState<WindowInfo[]>([]);
+  const { openWindows, openWindow, closeWindow, toggleMinimizeWindow } =
+    useWindowManager();
 
   //adds a new window to the openWindows state array if a window with the same appName does not already exist
-  const openWindow = (appName: string, icon: string) => {
-    if (!openWindows.some((window) => window.name === appName)) {
-      setOpenWindows([
-        ...openWindows,
-        { name: appName, icon, minimized: false },
-      ]);
-    }
-  };
+  // const openWindow = (appName: string, icon: string) => {
+  //   if (!openWindows.some((window) => window.name === appName)) {
+  //     setOpenWindows([
+  //       ...openWindows,
+  //       { name: appName, icon, minimized: false },
+  //     ]);
+  //   }
+  // };
 
   //removes the window with the specified appName from the openWindows array
-  const closeWindow = (appName: string) => {
-    setOpenWindows(openWindows.filter((window) => window.name !== appName));
-  };
+  // const closeWindow = (appName: string) => {
+  //   setOpenWindows(openWindows.filter((window) => window.name !== appName));
+  // };
 
-  const toggleMinimizeWindow = (appName: string) => {
-    setOpenWindows((prevWindows) =>
-      prevWindows.map((window) =>
-        window.name === appName
-          ? { ...window, minimized: !window.minimized }
-          : window
-      )
-    );
-  };
+  // const toggleMinimizeWindow = (appName: string) => {
+  //   setOpenWindows((prevWindows) =>
+  //     prevWindows.map((window) =>
+  //       window.name === appName
+  //         ? { ...window, minimized: !window.minimized }
+  //         : window
+  //     )
+  //   );
+  // };
 
   return (
     <>

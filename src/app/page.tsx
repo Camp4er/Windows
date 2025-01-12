@@ -1,6 +1,5 @@
 import Dekstop from "@/components/Desktop";
-import { WindowManagerProvider } from "@/components/NewWindow/WindowManagerOpener";
-import Taskbar from "@/components/Taskbar/Taskbar";
+import { WindowManagerProvider } from "@/components/NewWindow/WindowManagerContext";
 import React from "react";
 
 const page = () => {

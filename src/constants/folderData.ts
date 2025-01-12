@@ -1,4 +1,3 @@
-import { openNotepad } from "@/components/Desktop";
 import { FileItem } from "@/components/FileExplorer/FileExplorer";
 import  NotepadOpener  from "@/components/SeparateWindows/NotepadOpener";
 
@@ -86,7 +85,11 @@ export const sectionTwo = {
             size: "118 KB",
             icons: "/icons/share.png",
             id: "5.1.1",
-            onClick: () => NotepadOpener("5.1.1"),
+            // onClick: () => openWindow(
+            //   "Notepad",
+            //   "/icons/notepad.png",
+            //   <Notepad/>
+            // ),
           },
           {
             name: "Github Repo",

@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import { FileItem } from "./FileExplorer";
 import Banner from "./Banner";
 import Image from "next/image";
+import Notepad from "../SeparateWindows/Notepad";
+import { useWindowManager } from "../NewWindow/WindowManagerContext";
 
 type ContentAreaProps = {
   items: FileItem[];
@@ -26,6 +28,7 @@ const ContentArea: React.FC<ContentAreaProps> = ({
   activeFolder,
   onFolderClick,
 }) => {
+  const { openWindow } = useWindowManager();
   const [selectedItem, setSelectedItem] = useState<FileItem | null>(null);
   const [currentItems, setCurrentItems] = useState<FileItem[]>(items);
 
@@ -68,6 +71,13 @@ const ContentArea: React.FC<ContentAreaProps> = ({
               <tr
                 key={child.id}
                 onClick={() => {
+                  if (child.name === "Description") {
+                    openWindow(
+                      "Notepad",
+                      "/icons/notepad.png",
+                      <Notepad content="hello" />
+                    );
+                  }
                   if (!child.onClick) {
                     handleFolderClick(child);
                   }
