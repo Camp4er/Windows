@@ -1,13 +1,16 @@
-import Dekstop from '@/components/Desktop'
-import Taskbar from '@/components/Taskbar/Taskbar'
-import React from 'react'
+import Dekstop from "@/components/Desktop";
+import { WindowManagerProvider } from "@/components/SeparateWindows/WindowManagerOpener";
+import Taskbar from "@/components/Taskbar/Taskbar";
+import React from "react";
 
 const page = () => {
   return (
     <div>
-      <Dekstop/>
+      <WindowManagerProvider>
+        <Dekstop />
+      </WindowManagerProvider>
     </div>
-  )
-}
+  );
+};
 
-export default page
+export default page;
