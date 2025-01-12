@@ -1,5 +1,5 @@
 import Dekstop from "@/components/Desktop";
-import { WindowManagerProvider } from "@/components/SeparateWindows/WindowManagerOpener";
+import { WindowManagerProvider } from "@/components/NewWindow/WindowManagerOpener";
 import Taskbar from "@/components/Taskbar/Taskbar";
 import React from "react";
 
