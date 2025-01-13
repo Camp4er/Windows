@@ -10,6 +10,7 @@ import Snakegame from "./Snakegame";
 import { sidebarData } from "@/constants/folderData";
 import Notepad from "./SeparateWindows/Notepad";
 import { useWindowManager } from "./NewWindow/WindowManagerContext";
+import PDFViewer from "./SeparateWindows/PdfViewer";
 
 type WindowInfo = {
   name: string;
@@ -177,6 +178,9 @@ export default function Desktop() {
             }
             {
               window.name === "About" && <Notepad content="about"/>
+            }
+            {
+              window.name === "Resume" && <PDFViewer/>
             }
           </Window>
         ) : null

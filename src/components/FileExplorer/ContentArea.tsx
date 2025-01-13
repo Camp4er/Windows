@@ -73,10 +73,10 @@ const ContentArea: React.FC<ContentAreaProps> = ({
               <tr
                 key={child.id}
                 onClick={() => {
-                  if (child.name === "Description") {
+                  if (child.name === "Resume") {
                     console.log("Opening Notepad with content: hello");
                     openWindow(
-                      "About",
+                      "Resume",
                       "/icons/notepad.png",
                       "hello"
                     );
