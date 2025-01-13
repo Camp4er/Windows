@@ -35,7 +35,7 @@ export const sectionTwo = {
       {
         name: "Description",
         type: "file" as const,
-        icons: "/icons/user-folder.png",
+        icons: "/icons/notepad.png",
         id: 3.1,
         dateModified: "08-01-2025",
         size: "118 KB",
@@ -83,7 +83,7 @@ export const sectionTwo = {
             type: "file" as const,
             dateModified: "2024-12-01",
             size: "118 KB",
-            icons: "/icons/share.png",
+            icons: "/icons/notepad.png",
             id: "5.1.1",
             // onClick: () => openWindow(
             //   "Notepad",
@@ -154,7 +154,7 @@ export const sectionTwo = {
             type: "file" as const,
             dateModified: "2024-12-01",
             size: "118 KB",
-            icons: "/icons/share.png",
+            icons: "/icons/notepad.png",
             id: "5.2.1",
           },
           {

@@ -76,12 +76,12 @@ const ContentArea: React.FC<ContentAreaProps> = ({
                   if (child.name === "Description") {
                     console.log("Opening Notepad with content: hello");
                     openWindow(
-                      "Snakeats",
-                      "/icons/app.png",
-                      <FileExplorer sidebarData={sidebarData} initialSidebarId={1}/>
+                      "About",
+                      "/icons/notepad.png",
+                      "hello"
                     );
                   }
-                  if (!child.onClick) {
+                  if (child.type === "folder") {
                     handleFolderClick(child);
                   }
                   child.onClick?.();

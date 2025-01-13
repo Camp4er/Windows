@@ -110,7 +110,7 @@ export default function Desktop() {
           />
           <DesktopIcon
             title="Notepad"
-            icon="/icons/app.png"
+            icon="/icons/notepad.png"
             onClick={() => openWindow("Notepad", "/icons/app.png")}
           />
         </div>
@@ -173,15 +173,11 @@ export default function Desktop() {
             )}
 
             {
-              window.name === "Notepad" && <Notepad/>
+              window.name === "Notepad" && <Notepad content="hello there"/>
             }
-
-            {/* {window.name === "Notepad" &&
-              (fileId ? (
-                <NotepadOpener fileId={fileId} />
-              ) : (
-                <Notepad content="Default Notepad content" />
-              ))} */}
+            {
+              window.name === "About" && <Notepad content="about"/>
+            }
           </Window>
         ) : null
       )}
