@@ -39,10 +39,6 @@ export const sectionTwo = {
         id: 3.1,
         dateModified: "08-01-2025",
         size: "118 KB",
-        // onClick: () => {
-        //   console.log("onClick event triggered");
-        //   NotepadOpener("3.1");
-        // }
       }
     ],
   },
@@ -59,8 +55,6 @@ export const sectionTwo = {
         size: "118 KB",
         icons: "/icons/share.png",
         id: 4.1,
-        onClick: () => {
-        },
       },
     ],
   },
@@ -85,11 +79,6 @@ export const sectionTwo = {
             size: "118 KB",
             icons: "/icons/notepad.png",
             id: "5.1.1",
-            // onClick: () => openWindow(
-            //   "Notepad",
-            //   "/icons/notepad.png",
-            //   <Notepad/>
-            // ),
           },
           {
             name: "Github Repo",

@@ -53,8 +53,6 @@ const FileExplorer = ({ initialSidebarId, sidebarData }: FileExplorerProps) => {
     // Explicitly find the folder by ID from sidebarData
     const initialFolder = sidebarData.find((folder: FileItem) => folder.id === initialSidebarId) as FileItem;
 
-    console.log("initialFolder:", initialFolder, initialChildren);
-
     if (initialFolder) {
       setActiveFolder(initialChildren);
       // setActiveFolder(initialFolder.children || []);
@@ -77,7 +75,6 @@ const FileExplorer = ({ initialSidebarId, sidebarData }: FileExplorerProps) => {
       setActiveFolder([]);
       setCurrentPath([]);
       setHistory([]);
-      console.log("Did not work");
     }
     setHistoryIndex(0);
   }, [initialSidebarId, sidebarData]);

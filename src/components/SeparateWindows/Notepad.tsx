@@ -5,14 +5,6 @@ interface NotepadProps {
 }
 
 export default function Notepad({ content }: NotepadProps) {
-  
-  useEffect (() => {
-    if (content) {
-      console.log("content received: ", content);
-    } else {
-      console.log("content not received");
-    }
-  })
 
   return (
     <div className="h-full w-full p-4 bg-gray-800 text-white flex flex-col">
