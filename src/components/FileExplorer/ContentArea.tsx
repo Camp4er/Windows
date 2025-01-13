@@ -1,10 +1,12 @@
 "use client";
 import { useEffect, useState } from "react";
-import { FileItem } from "./FileExplorer";
+import FileExplorer, { FileItem } from "./FileExplorer";
 import Banner from "./Banner";
 import Image from "next/image";
 import Notepad from "../SeparateWindows/Notepad";
 import { useWindowManager } from "../NewWindow/WindowManagerContext";
+import Snakegame from "../Snakegame";
+import { sidebarData } from "@/constants/folderData";
 
 type ContentAreaProps = {
   items: FileItem[];
@@ -72,10 +74,11 @@ const ContentArea: React.FC<ContentAreaProps> = ({
                 key={child.id}
                 onClick={() => {
                   if (child.name === "Description") {
+                    console.log("Opening Notepad with content: hello");
                     openWindow(
-                      "Notepad",
-                      "/icons/notepad.png",
-                      <Notepad content="hello" />
+                      "Snakeats",
+                      "/icons/app.png",
+                      <FileExplorer sidebarData={sidebarData} initialSidebarId={1}/>
                     );
                   }
                   if (!child.onClick) {

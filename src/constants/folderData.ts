@@ -39,10 +39,10 @@ export const sectionTwo = {
         id: 3.1,
         dateModified: "08-01-2025",
         size: "118 KB",
-        onClick: () => {
-          console.log("onClick event triggered");
-          NotepadOpener("3.1");
-        }
+        // onClick: () => {
+        //   console.log("onClick event triggered");
+        //   NotepadOpener("3.1");
+        // }
       }
     ],
   },

@@ -24,6 +24,7 @@ export const WindowManagerProvider = ({ children }: { children: React.ReactNode 
   const [openWindows, setOpenWindows] = useState<WindowInfo[]>([]);
 
   const openWindow = (name: string, icon: string, content?: React.ReactNode) => {
+    console.log("Opening window with title:", name , "and content component:", content);
     if (!openWindows.some((window) => window.name === name)) {
       setOpenWindows([
         ...openWindows,
