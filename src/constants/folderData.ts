@@ -1,5 +1,4 @@
 import { FileItem } from "@/components/FileExplorer/FileExplorer";
-import  NotepadOpener  from "@/components/SeparateWindows/NotepadOpener";
 
 // Create a data structure to map IDs to content
 const contentMap = {
