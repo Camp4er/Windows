@@ -607,8 +607,8 @@ export const sectionTwo = {
       {
         name: "Email",
         type: "file" as const,
-        dateModified: "2024-12-01",
-        size: "",
+        dateModified: "01-04-2004",
+        size: "10 MB",
         icons: "/icons/gmail.png",
         id: 8.1,
         onClick: () => {
@@ -618,8 +618,8 @@ export const sectionTwo = {
       {
         name: "LinkedIn",
         type: "file" as const,
-        dateModified: "2024-12-01",
-        size: "118 KB",
+        dateModified: "28-12-2002",
+        size: "50 MB",
         icons: "/icons/linkedin.png",
         id: 8.2,
         onClick: () => {
@@ -632,8 +632,8 @@ export const sectionTwo = {
       {
         name: "Github",
         type: "file" as const,
-        dateModified: "2024-12-01",
-        size: "118 KB",
+        dateModified: "08-02-2008",
+        size: "100 MB",
         icons: "/icons/github.svg",
         id: 8.3,
         onClick: () => {
@@ -643,8 +643,8 @@ export const sectionTwo = {
       {
         name: "Twitter",
         type: "file" as const,
-        dateModified: "2024-12-01",
-        size: "118 KB",
+        dateModified: "21-03-2006",
+        size: "20 MB",
         icons: "/icons/twitter.png",
         id: 8.4,
         onClick: () => {
