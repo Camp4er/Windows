@@ -36,8 +36,8 @@ export const sectionTwo = {
         type: "file" as const,
         icons: "/icons/notepad.png",
         id: 3.1,
-        dateModified: "08-01-2025",
-        size: "118 KB",
+        dateModified: "17-04-2024",
+        size: "1.60 KB",
       }
     ],
   },
@@ -50,9 +50,9 @@ export const sectionTwo = {
       {
         name: "Resume",
         type: "file" as const,
-        dateModified: "2024-12-01",
+        dateModified: "18-07-2024",
         size: "118 KB",
-        icons: "/icons/share.png",
+        icons: "/icons/pdf.png",
         id: 4.1,
       },
     ],
