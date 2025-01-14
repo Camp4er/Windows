@@ -22,6 +22,16 @@ export default function Desktop() {
   const { openWindows, openWindow, closeWindow, toggleMinimizeWindow } =
     useWindowManager();
 
+    const aboutMe = "About Me\n\n" + 
+"- 🎨 Frontend Developer with 7 months of experience in React.js and Next.js.\n" + 
+"- 🧪 Switched from a B.Sc. in Chemistry to tech, combining logic with creativity.\n" + 
+"- 💻 Built projects like e-commerce platforms and interactive web components.\n" + 
+"- 🔧 Skilled in creating responsive designs and clean, organized code.\n" + 
+"- 🌱 Always learning and exploring new technologies.\n" + 
+"- 🤝 A team player who enjoys solving problems and building great products.\n\n" + 
+"Let’s create something amazing together! 😊";
+
+
   return (
     <>
       {/* Desktop icons */}
@@ -142,7 +152,7 @@ export default function Desktop() {
               window.name === "Notepad" && <Notepad/>
             }
             {
-              window.name === "About" && <Notepad content="about"/>
+              window.name === "About" && <Notepad content={aboutMe} />
             }
             {
               window.name === "Resume" && <PDFViewer/>

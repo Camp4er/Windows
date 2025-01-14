@@ -3,10 +3,7 @@ import { useEffect, useState } from "react";
 import FileExplorer, { FileItem } from "./FileExplorer";
 import Banner from "./Banner";
 import Image from "next/image";
-import Notepad from "../SeparateWindows/Notepad";
 import { useWindowManager } from "../NewWindow/WindowManagerContext";
-import Snakegame from "../Snakegame";
-import { sidebarData } from "@/constants/folderData";
 
 type ContentAreaProps = {
   items: FileItem[];
@@ -56,6 +53,15 @@ const ContentArea: React.FC<ContentAreaProps> = ({
     onFolderClick(item, false);
   };
 
+  const functionContent = (id: string|number) => {
+    if (id = "3.1") {
+      openWindow(
+        "About",
+        "/icons/notepad.png",
+      );
+    }
+  }
+
   return (
     <div className="w-full p-4 bg-gray-900 text-white flex-1">
       {currentItems.length > 0 ? (
@@ -73,12 +79,8 @@ const ContentArea: React.FC<ContentAreaProps> = ({
               <tr
                 key={child.id}
                 onClick={() => {
-                  if (child.name === "Resume") {
-                    openWindow(
-                      "Resume",
-                      "/icons/notepad.png",
-                      "hello"
-                    );
+                  if (child.type === "file") {
+                    functionContent(child.id)
                   }
                   if (child.type === "folder") {
                     handleFolderClick(child);
