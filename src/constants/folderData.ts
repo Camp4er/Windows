@@ -831,7 +831,7 @@ export const sectionThree = {
                 type: "folder" as const,
                 dateModified: "12-05-2001",
                 size: "",
-                icons: "/icons/share.png",
+                icons: "/icons/app.png",
                 id: "10.1.2.2",
                 children: [
                   {
@@ -839,7 +839,7 @@ export const sectionThree = {
                     type: "folder" as const,
                     dateModified: "12-05-2001",
                     size: "",
-                    icons: "/icons/share.png",
+                    icons: "/icons/app.png",
                     id: "10.1.2.2.1",
                   },
                   {
@@ -847,7 +847,7 @@ export const sectionThree = {
                     type: "folder" as const,
                     dateModified: "12-05-2001",
                     size: "",
-                    icons: "/icons/share.png",
+                    icons: "/icons/app.png",
                     id: "10.1.2.2.2",
                   },
                   {
@@ -855,7 +855,7 @@ export const sectionThree = {
                     type: "folder" as const,
                     dateModified: "12-05-2001",
                     size: "",
-                    icons: "/icons/share.png",
+                    icons: "/icons/app.png",
                     id: "10.1.2.2.3",
                   },
                   {
@@ -863,7 +863,7 @@ export const sectionThree = {
                     type: "folder" as const,
                     dateModified: "12-05-2001",
                     size: "",
-                    icons: "/icons/share.png",
+                    icons: "/icons/app.png",
                     id: "10.1.2.2.4",
                   },
                   {
@@ -871,7 +871,7 @@ export const sectionThree = {
                     type: "folder" as const,
                     dateModified: "12-05-2001",
                     size: "",
-                    icons: "/icons/share.png",
+                    icons: "/icons/app.png",
                     id: "10.1.2.2.5",
                   },
                 ],
