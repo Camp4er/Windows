@@ -79,6 +79,16 @@ const ContentArea: React.FC<ContentAreaProps> = ({
                       "Resume",
                       "/icons/pdf.png",
                     )
+                  } else if (child.id === 7.1) {
+                    openWindow(
+                      "Frontend50",
+                      "/icons/suitcase.png",
+                    )
+                  } else if (child.id === 7.2) {
+                    openWindow(
+                      "LRIT",
+                      "/icons/suitcase.png",
+                    )
                   }
                   if (child.type === "folder") {
                     handleFolderClick(child);

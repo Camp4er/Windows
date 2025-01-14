@@ -22,15 +22,39 @@ export default function Desktop() {
   const { openWindows, openWindow, closeWindow, toggleMinimizeWindow } =
     useWindowManager();
 
-    const aboutMe = "About Me\n\n" + 
-"- 🎨 Frontend Developer with 7 months of experience in React.js and Next.js.\n" + 
-"- 🧪 Switched from a B.Sc. in Chemistry to tech, combining logic with creativity.\n" + 
-"- 💻 Built projects like e-commerce platforms and interactive web components.\n" + 
-"- 🔧 Skilled in creating responsive designs and clean, organized code.\n" + 
-"- 🌱 Always learning and exploring new technologies.\n" + 
-"- 🤝 A team player who enjoys solving problems and building great products.\n\n" + 
-"Let’s create something amazing together! 😊";
+  const aboutMe =
+    "About Me\n\n" +
+    "- 🎨 Frontend Developer with 7 months of experience in React.js and Next.js.\n" +
+    "- 🧪 Switched from a B.Sc. in Chemistry to tech, combining logic with creativity.\n" +
+    "- 💻 Built projects like e-commerce platforms and interactive web components.\n" +
+    "- 🔧 Skilled in creating responsive designs and clean, organized code.\n" +
+    "- 🌱 Always learning and exploring new technologies.\n" +
+    "- 🤝 A team player who enjoys solving problems and building great products.\n\n" +
+    "Let’s create something amazing together! 😊";
 
+    const LRIT = `
+    ### Software Developer Intern 🚀\n
+    **LeopardRuns Innovation and Technology**\n
+    📍 Remote | February 2024 – April 2024\n\n
+    - 🎨 Designed user experience flows for multiple features, enhancing usability and user navigation.\n
+    - 🌐 Developed a blood donation website, contributing to an improved user experience through compelling visuals and design.\n
+    - ⚡ Improved website performance by optimizing assets, reducing load time by 20%.\n
+    - 🛠️ Conducted code reviews and debugging sessions, ensuring code quality and maintainability.\n
+    - 🤝 Collaborated with a team of developers and designers to deliver user-centered solutions.\n
+    `;
+    
+    const F50 = `
+    ### Frontend Developer Intern 💻\n
+    **Frontend50**\n
+    📍 Remote | June 2024 – Current\n\n
+    - ✨ Redesigned core user interface components, improving user satisfaction based on feedback.\n
+    - 📱 Collaborated with cross-functional teams to create a mobile-responsive platform for a seamless experience on various devices.\n
+    - ♻️ Built reusable React components, reducing development time for new features.\n
+    - 🧑‍🦽 Implemented accessibility features, ensuring compliance with WCAG standards.\n
+    - 🔗 Integrated APIs to fetch and display dynamic content, enhancing platform interactivity.\n
+    - 🗓️ Participated in weekly sprint meetings, contributing to planning and feature prioritization.\n
+    `;
+    
 
   return (
     <>
@@ -148,15 +172,11 @@ export default function Desktop() {
               <FileExplorer initialSidebarId={1} sidebarData={sidebarData} />
             )}
 
-            {
-              window.name === "Notepad" && <Notepad/>
-            }
-            {
-              window.name === "About" && <Notepad content={aboutMe} />
-            }
-            {
-              window.name === "Resume" && <PDFViewer/>
-            }
+            {window.name === "Notepad" && <Notepad />}
+            {window.name === "About" && <Notepad content={aboutMe} />}
+            {window.name === "Resume" && <PDFViewer />}
+            {window.name === "LRIT" && <Notepad content={LRIT} />}
+            {window.name === "Frontend50" && <Notepad content={F50} />}
           </Window>
         ) : null
       )}
