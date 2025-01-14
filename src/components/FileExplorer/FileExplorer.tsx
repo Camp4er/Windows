@@ -45,7 +45,7 @@ const FileExplorer = ({ initialSidebarId, sidebarData }: FileExplorerProps) => {
   const [searchQuery, setSearchQuery] = useState('');
   const [filteredItems, setFilteredItems] = useState<FileItem[] | null>([]);
 
-  //const [items, setItems] = useState<FileItem[]>([]);
+  const [items, setItems] = useState<FileItem[]>([]);
 
   useEffect(() => {
     const initialChildren = getChildrenById(initialSidebarId) as FileItem[];
@@ -56,7 +56,7 @@ const FileExplorer = ({ initialSidebarId, sidebarData }: FileExplorerProps) => {
     if (initialFolder) {
       setActiveFolder(initialChildren);
       // setActiveFolder(initialFolder.children || []);
-      // setItems(initialFolder.children || []); // Update items prop to match activeFolder state
+      setItems(initialFolder.children || []); // Update items prop to match activeFolder state
       setCurrentPath([{
         id: initialFolder.id,
         name: initialFolder.name,
@@ -222,8 +222,8 @@ const FileExplorer = ({ initialSidebarId, sidebarData }: FileExplorerProps) => {
           onFolderClick={handleFolderClick}
         />
         <ContentArea
-        //items = {items}
-          items={filteredItems || activeFolder}
+          items = {items}
+        //items={filteredItems || activeFolder}
           activeFolder={activeFolder}
           onFolderClick={handleFolderClick}
         />
