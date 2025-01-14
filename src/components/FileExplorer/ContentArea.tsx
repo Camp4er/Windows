@@ -24,7 +24,6 @@ const getDeepestChildren = (folder: FileItem): FileItem[] => {
 
 const ContentArea: React.FC<ContentAreaProps> = ({
   items,
-  activeFolder,
   onFolderClick,
 }) => {
   const { openWindow } = useWindowManager();

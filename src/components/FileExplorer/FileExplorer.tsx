@@ -43,7 +43,7 @@ const FileExplorer = ({ initialSidebarId, sidebarData }: FileExplorerProps) => {
   const [historyIndex, setHistoryIndex] = useState(0);
   //For search input
   const [searchQuery, setSearchQuery] = useState('');
-  const [filteredItems, setFilteredItems] = useState<FileItem[] | null>([]);
+  const [filteredItems, setFilteredItems] = useState<FileItem[] | null>(null);
 
   const [items, setItems] = useState<FileItem[]>([]);
 
@@ -222,7 +222,7 @@ const FileExplorer = ({ initialSidebarId, sidebarData }: FileExplorerProps) => {
           onFolderClick={handleFolderClick}
         />
         <ContentArea
-          items = {items}
+          items = {filteredItems || activeFolder}
         //items={filteredItems || activeFolder}
           activeFolder={activeFolder}
           onFolderClick={handleFolderClick}

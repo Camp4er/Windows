@@ -169,7 +169,7 @@ export const sectionTwo = {
           },
           {
             name: "View Images",
-            type: "file" as const,
+            type: "folder" as const,
             dateModified: "2024-12-01",
             size: "118 KB",
             icons: "/icons/share.png",
@@ -235,7 +235,7 @@ export const sectionTwo = {
           },
           {
             name: "View Images",
-            type: "file" as const,
+            type: "folder" as const,
             dateModified: "2024-12-01",
             size: "118 KB",
             icons: "/icons/share.png",
@@ -301,7 +301,7 @@ export const sectionTwo = {
           },
           {
             name: "View Images",
-            type: "file" as const,
+            type: "folder" as const,
             dateModified: "2024-12-01",
             size: "118 KB",
             icons: "/icons/share.png",
