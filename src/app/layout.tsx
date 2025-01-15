@@ -1,7 +1,8 @@
 import './globals.css';
 
 export const metadata = {
-  title: 'Welcome Back!',
+  title: 'Windows: Poorva Saxena',
+  description: 'Portfolio of Poorva Saxena, designed like Windows OS'
 };
 
 export default function RootLayout({
