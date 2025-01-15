@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React from "react";
 import { FaLinkedin, FaGithub, FaTwitter, FaWhatsapp, FaMailBulk } from "react-icons/fa";
 
@@ -82,7 +83,7 @@ const ContactPanel: React.FC<ContactPanelProps> = () => {
           rel="noopener noreferrer"
           className="flex items-center w-full gap-3 p-3 bg-white border rounded-md shadow hover:bg-gray-300"
         >
-          <FaMailBulk size={24} className="text-orange-500" />
+          <Image src="/icons/gmail.png" alt="gmail icon" width={24} height={24} />
           <span className="text-black">Email</span>
         </a></div>
       </div>
