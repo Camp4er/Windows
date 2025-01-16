@@ -1,5 +1,13 @@
 import { FileItem } from "@/components/FileExplorer/FileExplorer";
 
+const galleryImages = [
+  "/images/gallery/photo1.jpg",
+  "/images/gallery/photo2.jpg",
+  "/images/gallery/photo3.jpg",
+  // Add more image paths here
+];
+
+
 export const sectionOne = {
   Home: {
     name: "Home",
