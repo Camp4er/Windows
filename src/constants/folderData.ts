@@ -1,9 +1,9 @@
 import { FileItem } from "@/components/FileExplorer/FileExplorer";
 
-const galleryImages = [
-  "/images/gallery/photo1.jpg",
-  "/images/gallery/photo2.jpg",
-  "/images/gallery/photo3.jpg",
+export const galleryImages = [
+  "/icons/blueprint.png",
+  "/icons/app.png",
+  "/icons/notepad.png",
   // Add more image paths here
 ];
 

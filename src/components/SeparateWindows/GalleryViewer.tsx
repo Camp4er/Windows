@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 interface GalleryViewerProps {
   images: string[]; // Array of image URLs
@@ -6,6 +6,11 @@ interface GalleryViewerProps {
 
 export default function GalleryViewer({ images }: GalleryViewerProps) {
   const [currentImage, setCurrentImage] = useState<number | null>(null);
+
+  useEffect(() => {
+    console.log("Opening Gallery Viewer with images:", images); // Debug log
+  }, [images]); // Runs only when `images` changes
+  
 
   const handleImageClick = (index: number) => {
     setCurrentImage(index); // Open the clicked image
@@ -29,7 +34,7 @@ export default function GalleryViewer({ images }: GalleryViewerProps) {
 
   return (
     <div className="h-full w-full bg-gray-800 text-white p-4 flex flex-col">
-      {/* Image Grid */}
+      Image Grid
       <div className="grid grid-cols-3 gap-4">
         {images.map((image, index) => (
           <div

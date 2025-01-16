@@ -7,10 +7,11 @@ import Taskbar from "./Taskbar/Taskbar";
 import Terminal from "./Terminal";
 import FileExplorer from "./FileExplorer/FileExplorer";
 import Snakegame from "./Snakegame";
-import { sidebarData } from "@/constants/folderData";
+import { galleryImages, sidebarData } from "@/constants/folderData";
 import Notepad from "./SeparateWindows/Notepad";
 import { useWindowManager } from "./NewWindow/WindowManagerContext";
 import PDFViewer from "./SeparateWindows/PdfViewer";
+import GalleryViewer from "./SeparateWindows/GalleryViewer";
 
 type WindowInfo = {
   name: string;
@@ -197,6 +198,10 @@ export default function Desktop() {
             {window.name === "LRIT" && <Notepad content={LRIT} />}
             {window.name === "Frontend50" && <Notepad content={F50} />}
             {window.name === "Shopper" && <Notepad content={shopper} />}
+            {
+              window.name === "Gallery" && <GalleryViewer images={galleryImages}
+              />
+            }
           </Window>
         ) : null
       )}

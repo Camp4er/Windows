@@ -4,6 +4,7 @@ import FileExplorer, { FileItem } from "./FileExplorer";
 import Banner from "./Banner";
 import Image from "next/image";
 import { useWindowManager } from "../NewWindow/WindowManagerContext";
+import GalleryViewer from "../SeparateWindows/GalleryViewer";
 
 type ContentAreaProps = {
   items: FileItem[];
@@ -99,7 +100,14 @@ const ContentArea: React.FC<ContentAreaProps> = ({
                       "Shopper",
                       "/projects/shopper/shopper_logo.png",
                     )
+                  } else if (child.name === "Image 1") {
+                    console.log("opened from ca")
+                    openWindow(
+                      "Gallery",
+                      "/icons/gallery.png",
+                    );
                   }
+                  
                   if (child.type === "folder") {
                     handleFolderClick(child);
                   }
