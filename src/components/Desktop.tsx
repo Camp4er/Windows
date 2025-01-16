@@ -133,6 +133,11 @@ export default function Desktop() {
             icon="/icons/notepad.png"
             onClick={() => openWindow("Notepad", "/icons/app.png")}
           />
+          <DesktopIcon
+            title="Recycle Bin"
+            icon="/icons/recycle-bin-empty.webp"
+            onClick={() => openWindow("RecycleBin", "/icons/recycle-bin-empty.webp")}
+          />
         </div>
       </div>
 
