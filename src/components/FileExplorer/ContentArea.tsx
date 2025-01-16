@@ -98,12 +98,11 @@ const ContentArea: React.FC<ContentAreaProps> = ({
                   } else if (child.id === "5.1.1") {
                     openWindow(
                       "Shopper",
-                      "/projects/shopper/shopper_logo.png",
+                      "/icons/notepad.png",
                     )
-                  } else if (child.name === "Image 1") {
-                    console.log("opened from ca")
+                  } else if (child.id === "5.1.4") {
                     openWindow(
-                      "Gallery",
+                      "Shopper Gallery",
                       "/icons/gallery.png",
                     );
                   }

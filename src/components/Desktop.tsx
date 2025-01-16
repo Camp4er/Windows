@@ -7,7 +7,7 @@ import Taskbar from "./Taskbar/Taskbar";
 import Terminal from "./Terminal";
 import FileExplorer from "./FileExplorer/FileExplorer";
 import Snakegame from "./Snakegame";
-import { galleryImages, sidebarData } from "@/constants/folderData";
+import {ShopperImages, sidebarData } from "@/constants/folderData";
 import Notepad from "./SeparateWindows/Notepad";
 import { useWindowManager } from "./NewWindow/WindowManagerContext";
 import PDFViewer from "./SeparateWindows/PdfViewer";
@@ -199,8 +199,7 @@ export default function Desktop() {
             {window.name === "Frontend50" && <Notepad content={F50} />}
             {window.name === "Shopper" && <Notepad content={shopper} />}
             {
-              window.name === "Gallery" && <GalleryViewer images={galleryImages}
-              />
+              window.name === "Shopper Gallery" && <GalleryViewer images={ShopperImages}/>
             }
           </Window>
         ) : null

@@ -1,10 +1,11 @@
 import { FileItem } from "@/components/FileExplorer/FileExplorer";
 
-export const galleryImages = [
-  "/icons/blueprint.png",
-  "/icons/app.png",
-  "/icons/notepad.png",
-  // Add more image paths here
+export const ShopperImages = [
+  "/projects/shopper/img1.png",
+  "/projects/shopper/img2.png",
+  "/projects/shopper/img3.png",
+  "/projects/shopper/img4.png",
+  "/projects/shopper/img5.png",
 ];
 
 
@@ -110,51 +111,11 @@ export const sectionTwo = {
           },
           {
             name: "View Images",
-            type: "folder" as const,
+            type: "file" as const,
             dateModified: "13-05-2024",
             size: "118 KB",
             icons: "/icons/gallery.png",
-
             id: "5.1.4",
-            children: [
-              {
-                name: "Image 1",
-                type: "file" as const,
-                dateModified: "13-05-2024",
-                size: "118 KB",
-                icons: "/icons/image.png",
-                id: "5.1.4.1",
-              },
-              {
-                name: "Image 2",
-                type: "file" as const,
-                dateModified: "13-05-2024",
-                size: "118 KB",
-                icons: "/icons/image.png",
-                id: "5.1.4.2",
-              },{
-                name: "Image 3",
-                type: "file" as const,
-                dateModified: "13-05-2024",
-                size: "118 KB",
-                icons: "/icons/image.png",
-                id: "5.1.4.3",
-              },{
-                name: "Image 4",
-                type: "file" as const,
-                dateModified: "13-05-2024",
-                size: "118 KB",
-                icons: "/icons/image.png",
-                id: "5.1.4.4",
-              },{
-                name: "Image 5",
-                type: "file" as const,
-                dateModified: "13-05-2024",
-                size: "118 KB",
-                icons: "/icons/image.png",
-                id: "5.1.4.5",
-              },
-            ],
           },
         ],
       },
