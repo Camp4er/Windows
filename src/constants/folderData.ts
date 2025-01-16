@@ -31,7 +31,7 @@ export const sectionTwo = {
         id: 3.1,
         dateModified: "17-04-2024",
         size: "1.60 KB",
-      }
+      },
     ],
   },
   Documents: {
@@ -57,17 +57,17 @@ export const sectionTwo = {
     id: 5,
     children: [
       {
-        name: "Project A",
+        name: "Shopper",
         type: "folder" as const,
-        dateModified: "2024-12-01",
+        dateModified: "13-05-2024",
         size: "118 KB",
-        icons: "/icons/share.png",
+        icons: "/projects/shopper/shopper_logo.png",
         id: 5.1,
         children: [
           {
             name: "Description",
             type: "file" as const,
-            dateModified: "2024-12-01",
+            dateModified: "13-05-2024",
             size: "118 KB",
             icons: "/icons/notepad.png",
             id: "5.1.1",
@@ -75,48 +75,76 @@ export const sectionTwo = {
           {
             name: "Github Repo",
             type: "file" as const,
-            dateModified: "2024-12-01",
+            dateModified: "13-05-2024",
             size: "118 KB",
-            icons: "/icons/share.png",
+            icons: "/icons/github.svg",
             id: "5.1.2",
             onClick: () => {
-              window.open("https://github.com/Camp4er", "_blank");
+              window.open(
+                "https://github.com/Camp4er/e-commerce-website",
+                "_blank"
+              );
             },
           },
           {
             name: "Live Demo",
             type: "file" as const,
-            dateModified: "2024-12-01",
+            dateModified: "13-05-2024",
             size: "118 KB",
-            icons: "/icons/share.png",
+            icons: "/icons/desktop.png",
             id: "5.1.3",
             onClick: () => {
-              window.open("https://github.com/Camp4er", "_blank");
+              window.open(
+                "https://main--statuesque-dusk-74b82b.netlify.app/",
+                "_blank"
+              );
             },
           },
           {
             name: "View Images",
             type: "folder" as const,
-            dateModified: "2024-12-01",
+            dateModified: "13-05-2024",
             size: "118 KB",
-            icons: "/icons/share.png",
+            icons: "/icons/gallery.png",
+
             id: "5.1.4",
             children: [
               {
                 name: "Image 1",
                 type: "file" as const,
-                dateModified: "2024-12-01",
+                dateModified: "13-05-2024",
                 size: "118 KB",
-                icons: "/icons/share.png",
+                icons: "/icons/image.png",
                 id: "5.1.4.1",
               },
               {
                 name: "Image 2",
                 type: "file" as const,
-                dateModified: "2024-12-01",
+                dateModified: "13-05-2024",
                 size: "118 KB",
-                icons: "/icons/share.png",
+                icons: "/icons/image.png",
                 id: "5.1.4.2",
+              },{
+                name: "Image 3",
+                type: "file" as const,
+                dateModified: "13-05-2024",
+                size: "118 KB",
+                icons: "/icons/image.png",
+                id: "5.1.4.3",
+              },{
+                name: "Image 4",
+                type: "file" as const,
+                dateModified: "13-05-2024",
+                size: "118 KB",
+                icons: "/icons/image.png",
+                id: "5.1.4.4",
+              },{
+                name: "Image 5",
+                type: "file" as const,
+                dateModified: "13-05-2024",
+                size: "118 KB",
+                icons: "/icons/image.png",
+                id: "5.1.4.5",
               },
             ],
           },
@@ -165,7 +193,7 @@ export const sectionTwo = {
             type: "folder" as const,
             dateModified: "2024-12-01",
             size: "118 KB",
-            icons: "/icons/share.png",
+            icons: "/icons/gallery.png",
             id: "5.2.4",
             children: [
               {
@@ -231,7 +259,7 @@ export const sectionTwo = {
             type: "folder" as const,
             dateModified: "2024-12-01",
             size: "118 KB",
-            icons: "/icons/share.png",
+            icons: "/icons/gallery.png",
             id: "5.3.4",
             children: [
               {
@@ -297,7 +325,7 @@ export const sectionTwo = {
             type: "folder" as const,
             dateModified: "2024-12-01",
             size: "118 KB",
-            icons: "/icons/share.png",
+            icons: "/icons/gallery.png",
             id: "5.4.4",
             children: [
               {
@@ -320,7 +348,6 @@ export const sectionTwo = {
           },
         ],
       },
-
     ],
   },
   Skills: {
@@ -381,10 +408,7 @@ export const sectionTwo = {
             icons: "/icons/typescript.png",
             id: "6.1.4",
             onClick: () => {
-              window.open(
-                "https://www.typescriptlang.org/",
-                "_blank"
-              );
+              window.open("https://www.typescriptlang.org/", "_blank");
             },
           },
           {
@@ -517,8 +541,11 @@ export const sectionTwo = {
             icons: "/icons/chat.png",
             id: "6.3.1",
             onClick: () => {
-              window.open("https://www.cadreworks.org/resources/communication-skills", "_blank");
-            }
+              window.open(
+                "https://www.cadreworks.org/resources/communication-skills",
+                "_blank"
+              );
+            },
           },
           {
             name: "Problem Solving",
@@ -528,8 +555,11 @@ export const sectionTwo = {
             icons: "/icons/problem-solving.png",
             id: "6.3.2",
             onclick: () => {
-              window.open("https://www.thebalancemoney.com/problem-solving-skills-with-examples-2063764", "_blank");
-            }
+              window.open(
+                "https://www.thebalancemoney.com/problem-solving-skills-with-examples-2063764",
+                "_blank"
+              );
+            },
           },
           {
             name: "Teamwork",
@@ -539,8 +569,11 @@ export const sectionTwo = {
             icons: "/icons/partners.png",
             id: "6.3.3",
             onclick: () => {
-              window.open("https://www.thebalancemoney.com/list-of-teamwork-skills-2063773", "_blank");
-            }
+              window.open(
+                "https://www.thebalancemoney.com/list-of-teamwork-skills-2063773",
+                "_blank"
+              );
+            },
           },
           {
             name: "Creative Thinking",
@@ -550,8 +583,11 @@ export const sectionTwo = {
             icons: "/icons/design-thinking.png",
             id: "6.3.4",
             onclick: () => {
-              window.open("https://rockcontent.com/blog/creative-thinking-skills/", "_blank");
-            }
+              window.open(
+                "https://rockcontent.com/blog/creative-thinking-skills/",
+                "_blank"
+              );
+            },
           },
           {
             name: "Decision Making ",
@@ -561,8 +597,11 @@ export const sectionTwo = {
             icons: "/icons/decision-making.png",
             id: "6.3.5",
             onClick: () => {
-              window.open("https://www.theforage.com/blog/skills/decision-making-skills", "_blank");
-            }
+              window.open(
+                "https://www.theforage.com/blog/skills/decision-making-skills",
+                "_blank"
+              );
+            },
           },
           {
             name: "Management ",
@@ -572,8 +611,11 @@ export const sectionTwo = {
             icons: "/icons/management.png",
             id: "6.3.6",
             onClick: () => {
-              window.open("https://corporatefinanceinstitute.com/resources/management/management-skills/#:~:text=Management%20skills%20can%20be%20defined,solving%20problems%20when%20they%20occur.", "_blank");
-            }
+              window.open(
+                "https://corporatefinanceinstitute.com/resources/management/management-skills/#:~:text=Management%20skills%20can%20be%20defined,solving%20problems%20when%20they%20occur.",
+                "_blank"
+              );
+            },
           },
         ],
       },
@@ -590,7 +632,8 @@ export const sectionTwo = {
         type: "file" as const,
         icons: "/icons/suitcase.png",
         id: 7.1,
-      },{
+      },
+      {
         name: "LRIT",
         type: "file" as const,
         icons: "/icons/suitcase.png",

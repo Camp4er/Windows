@@ -94,6 +94,11 @@ const ContentArea: React.FC<ContentAreaProps> = ({
                       "Snakeats",
                       "/icons/snake.png",
                     )
+                  } else if (child.id === "5.1.1") {
+                    openWindow(
+                      "Shopper",
+                      "/projects/shopper/shopper_logo.png",
+                    )
                   }
                   if (child.type === "folder") {
                     handleFolderClick(child);

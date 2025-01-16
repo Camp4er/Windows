@@ -32,7 +32,7 @@ export default function Desktop() {
     "- 🤝 A team player who enjoys solving problems and building great products.\n\n" +
     "Let’s create something amazing together! 😊";
 
-    const LRIT = `
+  const LRIT = `
     ### Software Developer Intern 🚀\n
     **LeopardRuns Innovation and Technology**\n
     📍 Remote | February 2024 – April 2024\n\n
@@ -42,8 +42,8 @@ export default function Desktop() {
     - 🛠️ Conducted code reviews and debugging sessions, ensuring code quality and maintainability.\n
     - 🤝 Collaborated with a team of developers and designers to deliver user-centered solutions.\n
     `;
-    
-    const F50 = `
+
+  const F50 = `
     ### Frontend Developer Intern 💻\n
     **Frontend50**\n
     📍 Remote | June 2024 – Current\n\n
@@ -54,7 +54,26 @@ export default function Desktop() {
     - 🔗 Integrated APIs to fetch and display dynamic content, enhancing platform interactivity.\n
     - 🗓️ Participated in weekly sprint meetings, contributing to planning and feature prioritization.\n
     `;
-    
+
+  const shopper = `
+    Shopper – E-commerce Website 🛍️\n
+    Project Type: Final project of my first internship\n
+    Frontend Development: Designed and developed by me\n
+    Backend Development: Created by my colleague from the internship\n\n
+    Description:\n
+    Shopper is a feature-rich e-commerce platform that provides a seamless shopping experience. As the frontend developer, I designed and implemented the user interface, ensuring a visually appealing, responsive, and intuitive design for users.\n\n
+    Key Features:\n
+    - 🛒 Product Listings: Dynamic product displays with detailed information and images.\n
+    - 🔍 Search and Filter Options: Simplified navigation for users to find their desired products quickly.\n
+    - 📱 Responsive Design: Optimized for various devices, offering a consistent experience on mobile, tablet, and desktop.\n
+    - 🎨 Modern UI/UX: Clean layouts and engaging visuals for an intuitive shopping journey.\n\n
+    Collaboration:\n
+    This project was the final deliverable of my first internship. While I handled the frontend entirely, my colleague worked on the backend to integrate features like user authentication, product management, and order processing.\n\n
+    Experience Gained:\n
+    - Learned to collaborate effectively on a full-stack project.\n
+    - Improved my skills in creating responsive designs and optimizing frontend performance.\n
+    - Gained hands-on experience with integrating a frontend with backend functionalities.\n\n
+  `;
 
   return (
     <>
@@ -177,6 +196,7 @@ export default function Desktop() {
             {window.name === "Resume" && <PDFViewer />}
             {window.name === "LRIT" && <Notepad content={LRIT} />}
             {window.name === "Frontend50" && <Notepad content={F50} />}
+            {window.name === "Shopper" && <Notepad content={shopper} />}
           </Window>
         ) : null
       )}

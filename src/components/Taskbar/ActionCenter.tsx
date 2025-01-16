@@ -82,11 +82,11 @@ export default function ActionCenter() {
         >
           {/* Top Actions */}
           <div className="grid grid-cols-3 gap-2 mb-4">
-            <div className="flex flex-col items-center p-2 bg-red-600 rounded-lg">
+            <div className="flex flex-col items-center p-2 bg-zinc-600 rounded-lg">
               <FaWifi size={24} />
               <span className="text-xs mt-1">NARZO 70</span>
             </div>
-            <div className="flex flex-col items-center p-2 bg-red-600 rounded-lg">
+            <div className="flex flex-col items-center p-2 bg-zinc-600 rounded-lg">
               <FaBluetooth size={24} />
               <span className="text-xs mt-1">Not connected</span>
             </div>
