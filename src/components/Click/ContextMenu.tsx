@@ -1,18 +1,23 @@
 import React, { useState } from 'react';
 
-const ContextMenu: React.FC = () => {
+interface ContextMenuProps {
+    x: number;
+    y: number;
+  }
+
+const ContextMenu: React.FC<ContextMenuProps> = ({ x, y }) => {
   const [isVisible, setIsVisible] = useState(false);
   const [menuPosition, setMenuPosition] = useState({ x: 0, y: 0 });
 
-  const handleContextMenu = (e: React.MouseEvent) => {
-    e.preventDefault();
-    setMenuPosition({ x: e.clientX, y: e.clientY });
-    setIsVisible(true);
-  };
+//   const handleContextMenu = (e: React.MouseEvent) => {
+//     e.preventDefault();
+//     setMenuPosition({ x: e.clientX, y: e.clientY });
+//     setIsVisible(true);
+//   };
 
-  const handleClick = () => {
-    setIsVisible(false);
-  };
+//   const handleClick = () => {
+//     setIsVisible(false);
+//   };
 
   const menuItems = [
     {
@@ -45,13 +50,14 @@ const ContextMenu: React.FC = () => {
   return (
     <div
       className="w-screen h-screen relative"
-      onContextMenu={handleContextMenu}
-      onClick={handleClick}
+    //   onContextMenu={handleContextMenu}
+    //   onClick={handleClick}
+      style={{ top: y, left: x }}
     >
       {isVisible && (
         <ul
           className="absolute bg-white shadow-lg rounded-md text-sm p-2"
-          style={{ top: `${menuPosition.y}px`, left: `${menuPosition.x}px` }}
+          style={{position:"fixed", zIndex:1000, top: `${menuPosition.y}px`, left: `${menuPosition.x}px` }}
         >
           {menuItems.map((item) => (
             <li

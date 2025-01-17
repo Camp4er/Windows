@@ -12,6 +12,7 @@ import Notepad from "./SeparateWindows/Notepad";
 import { useWindowManager } from "./NewWindow/WindowManagerContext";
 import PDFViewer from "./SeparateWindows/PdfViewer";
 import GalleryViewer from "./SeparateWindows/GalleryViewer";
+import ContextMenu from "./Click/ContextMenu";
 
 type WindowInfo = {
   name: string;
@@ -22,6 +23,26 @@ type WindowInfo = {
 export default function Desktop() {
   const { openWindows, openWindow, closeWindow, toggleMinimizeWindow } =
     useWindowManager();
+
+    const [contextMenu, setContextMenu] = useState<{
+      visible: boolean;
+      x: number;
+      y: number;
+      
+    }>({visible: false ,x: 0, y: 0});
+  
+    const handleRightClick = (event: React.MouseEvent) => {
+      event.preventDefault();
+      setContextMenu({
+        visible: true,
+        x: event.clientX,
+        y: event.clientY,
+      });
+    };
+  
+    const handleLeftClick = () => {
+      setContextMenu({ visible: false, x: 0, y: 0 });
+    };
 
   const aboutMe =
     "About Me\n\n" +
@@ -79,7 +100,15 @@ export default function Desktop() {
   return (
     <>
       {/* Desktop icons */}
-      <div className="flex flex-row">
+      <div className="flex flex-row desktop-container"
+      onContextMenu={handleRightClick}
+      onClick={handleLeftClick}
+      style={{ position: "relative", width: "100vw", height: "100vh" }}
+      >
+        {/* Render context menu */}
+  {contextMenu.visible && (
+    <ContextMenu x={contextMenu.x} y={contextMenu.y} />
+  )}
         <div className="flex flex-col gap-3 justify-start items-start p-4 flex-wrap">
           <DesktopIcon
             title="About Me"
