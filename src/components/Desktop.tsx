@@ -43,7 +43,7 @@ export default function Desktop() {
     const handleLeftClick = () => {
       setContextMenu({ visible: false, x: 0, y: 0 });
     };
-
+  //context for notepad's description
   const aboutMe =
     "About Me\n\n" +
     "- 🎨 Frontend Developer with 7 months of experience in React.js and Next.js.\n" +
