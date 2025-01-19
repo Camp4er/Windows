@@ -24,25 +24,26 @@ export default function Desktop() {
   const { openWindows, openWindow, closeWindow, toggleMinimizeWindow } =
     useWindowManager();
 
-    const [contextMenu, setContextMenu] = useState<{
-      visible: boolean;
-      x: number;
-      y: number;
+    // const [contextMenu, setContextMenu] = useState<{
+    //   visible: boolean;
+    //   x: number;
+    //   y: number;
       
-    }>({visible: false ,x: 0, y: 0});
+    // }>({visible: false ,x: 0, y: 0});
   
-    const handleRightClick = (event: React.MouseEvent) => {
-      event.preventDefault();
-      setContextMenu({
-        visible: true,
-        x: event.clientX,
-        y: event.clientY,
-      });
-    };
+    // const handleRightClick = (event: React.MouseEvent) => {
+    //   event.preventDefault();
+    //   setContextMenu({
+    //     visible: true,
+    //     x: event.clientX,
+    //     y: event.clientY,
+    //   });
+    // };
   
-    const handleLeftClick = () => {
-      setContextMenu({ visible: false, x: 0, y: 0 });
-    };
+    // const handleLeftClick = () => {
+    //   setContextMenu({ visible: false, x: 0, y: 0 });
+    // };
+
   //context for notepad's description
   const aboutMe =
     "About Me\n\n" +
@@ -101,14 +102,14 @@ export default function Desktop() {
     <>
       {/* Desktop icons */}
       <div className="flex flex-row desktop-container"
-      onContextMenu={handleRightClick}
-      onClick={handleLeftClick}
+      // onContextMenu={handleRightClick}
+      // onClick={handleLeftClick}
       style={{ position: "relative", width: "100vw", height: "100vh" }}
       >
         {/* Render context menu */}
-  {contextMenu.visible && (
+  {/* {contextMenu.visible && (
     <ContextMenu x={contextMenu.x} y={contextMenu.y} />
-  )}
+  )} */}
         <div className="flex flex-col gap-3 justify-start items-start p-4 flex-wrap">
           <DesktopIcon
             title="About Me"

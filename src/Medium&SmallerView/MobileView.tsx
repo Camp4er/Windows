@@ -3,7 +3,7 @@ import Hero from "./Hero";
 
 const MobileView = () => {
   return (
-    <div className="h-screen p-4 bg-gray-900 text-white">
+    <div className="h-screen w-screen p-4 bg-gray-900 text-white">
       <Hero />
     </div>
   );
