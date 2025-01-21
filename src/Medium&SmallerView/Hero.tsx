@@ -3,8 +3,6 @@ import React from "react";
 import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
 
 
-//main section till about, then add projects and contact section with toggle
-
 const Hero = () => {
   return (
     <div className="rounded">
