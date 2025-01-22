@@ -1,11 +1,18 @@
 import React from "react";
 import Hero from "./Hero";
+import Header from "./Header";
+import About from "./About";
+import Projects from "./Projects";
+import Footer from "./Footer";
 
 const MobileView = () => {
   return (
-    <div className="h-screen w-screen p-4 bg-gray-900 text-white">
+    <><Header />
       <Hero />
-    </div>
+      <About />
+      <Projects />
+      <Footer />
+      </>
   );
 };
 
