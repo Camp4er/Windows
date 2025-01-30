@@ -246,6 +246,9 @@ export default function Desktop() {
         toggleWindow={toggleMinimizeWindow}
         openWindow={openWindow}
       />
+      <div className="w-screen h-screen bg-black">
+      <ContextMenu /> {/* Add right-click menu */}
+    </div>
     </>
   );
 }
