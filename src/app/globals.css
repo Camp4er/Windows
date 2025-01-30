@@ -76,7 +76,16 @@ body {
     100% {
       transform: translate(0, -0px);
     }
-  }  
+  }
+  
+  @keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  
+  .animate-fade-in {
+    animation: fadeIn 2s ease-in-out;
+  }
 
   .animate-slide-in {
     animation: slide-in 0.1s ease-out forwards;
