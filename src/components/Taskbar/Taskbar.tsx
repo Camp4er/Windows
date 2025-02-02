@@ -3,6 +3,8 @@ import React, { useEffect, useRef, useState } from "react";
 import TaskbarRightSection from "./TaskbarRightSection";
 import TaskbarLeftSection from "./TaskbarLeftSection";
 import ActionCenter from "./ActionCenter";
+import StartMenu from "./StartButton/StartMenu";
+import StartButton from "./StartButton/StartButton";
 
 // Define the type for taskbar buttons
 interface TaskbarProps {
@@ -47,23 +49,9 @@ const Taskbar = ({ openWindows, toggleWindow, openWindow }: TaskbarProps) => {
 
   const togglePanel = () => {
     setIsPanelOpen(!isPanelOpen);
-  }
+  };
 
   const taskbarButtons: ITaskbarButton[] = [
-    {
-      id: 1,
-      src: "/icons/Windows.png",
-      size: { width: 30, height: 30 },
-      action: () => console.log("Open Start Menu"),
-      alt: "Windows icon",
-    },
-    {
-      id: 2,
-      src: "/icons/search-dark.svg",
-      size: { width: 30, height: 30 },
-      action: () => console.log("Open Search"),
-      alt: "Search icon",
-    },
     {
       id: 3,
       src: "/icons/Widgets.png",
@@ -128,12 +116,36 @@ const Taskbar = ({ openWindows, toggleWindow, openWindow }: TaskbarProps) => {
           width={28}
           height={28}
         />
-        <TaskbarLeftSection/>
+        <TaskbarLeftSection />
       </div>
 
       {/* Taskbar Buttons */}
       <div className="flex items-center">
         <div className="flex items-center gap-1 pr-1">
+          {/* Start and Search Buttons */}
+          <button
+            key="1"
+            onClick={() => console.log("Open Start Menu")}
+            className="flex items-center hover:bg-zinc-800 p-2 rounded"
+            aria-label="Windows icon"
+          >
+            <StartButton/>
+          </button>
+          <button
+            key="2"
+            onClick={() => console.log("Open Start Menu")}
+            className="flex items-center hover:bg-zinc-800 p-2 rounded"
+            aria-label="Search icon"
+          >
+            <img
+              src="/icons/search-dark.svg"
+              alt="Search icon"
+              width={30}
+              height={30}
+            />
+          </button>
+
+          {/*Rest Buttons*/}
           {taskbarButtons.map((button) => (
             <button
               key={button.id}
@@ -206,10 +218,10 @@ const Taskbar = ({ openWindows, toggleWindow, openWindow }: TaskbarProps) => {
            <ActionCenter />
         </button> */}
         <div className="flex items-center hover:bg-zinc-800 gap-1 m-0 rounded">
-          <ActionCenter/>
+          <ActionCenter />
         </div>
         <div className="flex items-center hover:bg-zinc-800 gap-1 m-0 rounded">
-          <TaskbarRightSection/>
+          <TaskbarRightSection />
         </div>
       </div>
     </div>
