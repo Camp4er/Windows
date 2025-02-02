@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { FaWindows } from "react-icons/fa";
 import StartMenu from "./StartMenu";
 
 const StartButton = () => {
@@ -9,7 +8,7 @@ const StartButton = () => {
     <div className="relative">
       {/* Start Button */}
       <button
-        className="w-10 h-10 flex items-center justify-center rounded-lg"
+        className="flex items-center justify-center rounded-lg"
         onClick={() => setIsOpen(!isOpen)}
       >
         <img

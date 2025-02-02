@@ -2,18 +2,28 @@ import { useEffect } from "react";
 import { FaSearch, FaPowerOff } from "react-icons/fa";
 
 const pinnedApps = [
-  { name: "GitHub", icon: "/icons/github.png" },
-  { name: "VSCode", icon: "/icons/vscode.png" },
-  { name: "WebStorm", icon: "/icons/webstorm.png" },
-  { name: "PyCharm", icon: "/icons/pycharm.png" },
-  { name: "Postman", icon: "/icons/postman.png" },
-  { name: "Docker", icon: "/icons/docker.png" },
-  { name: "Chrome", icon: "/icons/chrome.png" },
   { name: "Edge", icon: "/icons/edge.png" },
+  { name: "Word", icon: "/icons/word.png" },
+  { name: "Excel", icon: "/icons/excel.png" },
+  { name: "PowerPoint", icon: "/icons/powerpoint.png" },
+  { name: "Outlook", icon: "/icons/outlook.png" },
+  { name: "Calendar", icon: "/icons/calendar.png" },
+  { name: "Microsoft Store", icon: "/icons/store.png" },
+  { name: "Photos", icon: "/icons/photos.png" },
+  { name: "Spotify", icon: "/icons/spotify.png" },
+  { name: "Xbox", icon: "/icons/xbox.png" },
+  { name: "Instagram", icon: "/icons/instagram.png" },
+  { name: "Messenger", icon: "/icons/messenger.png" },
+];
+
+const recommendedFiles = [
+  { name: "Screenshot (32)", time: "Yesterday at 12:44 PM" },
+  { name: "Screenshot (31)", time: "Friday at 11:56 AM" },
+  { name: "Screenshot (30)", time: "Thursday at 11:10 PM" },
+  { name: "Screenshot (29)", time: "Thursday at 11:09 PM" },
 ];
 
 const StartMenu = ({ closeMenu }: { closeMenu: () => void }) => {
-  // Close menu on click outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (!(event.target as HTMLElement).closest(".start-menu")) {
@@ -25,34 +35,47 @@ const StartMenu = ({ closeMenu }: { closeMenu: () => void }) => {
   }, []);
 
   return (
-    <div className="start-menu absolute bottom-12 left-0 w-80 bg-gray-900 text-white rounded-lg shadow-lg p-3">
+    <div className="start-menu absolute bottom-12 left-4 w-96 bg-zinc-900 text-white rounded-lg shadow-lg p-4">
       {/* Search Bar */}
-      <div className="relative mb-3">
-        <FaSearch className="absolute left-3 top-2 text-gray-400" />
+      <div className="relative">
+        <FaSearch className="absolute left-4 top-3 text-gray-400" />
         <input
           type="text"
-          placeholder="Type here to search"
-          className="w-full bg-gray-800 rounded-full px-10 py-2 text-sm focus:outline-none"
+          placeholder="Search for apps, settings, and documents"
+          className="w-full bg-zinc-800 rounded-full px-12 py-2 text-sm focus:outline-none"
         />
       </div>
 
       {/* Pinned Apps */}
-      <div>
+      <div className="mt-4">
         <h3 className="text-sm text-gray-400">Pinned</h3>
-        <div className="grid grid-cols-4 gap-3 mt-2">
+        <div className="grid grid-cols-6 gap-3 mt-2">
           {pinnedApps.map((app) => (
             <div key={app.name} className="flex flex-col items-center text-center">
-              <img src={app.icon} alt={app.name} className="w-10 h-10 rounded-md" />
+              <img src={app.icon} alt={app.name} className="w-10 h-10" />
               <span className="text-xs">{app.name}</span>
             </div>
           ))}
         </div>
       </div>
 
-      {/* Power Button */}
-      <div className="mt-3 flex justify-between items-center">
-        <span className="text-sm">Vova Ushenko</span>
-        <button className="p-2 hover:bg-gray-800 rounded-md">
+      {/* Recommended Files */}
+      <div className="mt-4">
+        <h3 className="text-sm text-gray-400">Recommended</h3>
+        <ul className="mt-2 space-y-2">
+          {recommendedFiles.map((file, index) => (
+            <li key={index} className="flex justify-between text-sm hover:bg-zinc-800 p-2 rounded">
+              <span>{file.name}</span>
+              <span className="text-gray-400">{file.time}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      {/* Bottom User & Power Button */}
+      <div className="mt-4 flex justify-between items-center border-t border-zinc-700 pt-2">
+        <span className="text-sm">Poorva Saxena</span>
+        <button className="p-2 hover:bg-zinc-800 rounded-md">
           <FaPowerOff className="text-white" />
         </button>
       </div>
