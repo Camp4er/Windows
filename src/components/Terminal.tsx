@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useRef } from "react";
 
-// File system structure for commands like `cd`, `ls`
+// Initial mock file system structure
 type FileSystem = {
   [key: string]: FileSystem;
 };
@@ -17,17 +17,30 @@ const initialFileSystem: FileSystem = {
   }
 };
 
+// Collection of jokes and riddles
 const jokes = [
   "Why do programmers prefer dark mode? Because light attracts bugs! 🪲😂",
   "Why did the PowerShell script break up? Because it had too many arguments! 😆",
-  "I told my computer I needed a break... Now it won't stop sending me vacation ads! 😅"
+  "I told my computer I needed a break... Now it won't stop sending me vacation ads! 😅",
+  "Why did the coder go broke? Because he used up all his cache! 💸",
+  "What is a programmer’s favorite hangout place? The Foo Bar. 🍻",
+  "Why do Java developers wear glasses? Because they can’t C#! 🤓",
+  "A SQL query walks into a bar, walks up to two tables, and asks: ‘Can I join you?’ 🍻",
+  "Why don’t bachelors like Git? Because they are afraid to commit! 😆",
+  "How did the programmer propose to his girlfriend? With a pull request! 💍",
+  "Why did the function break up with the loop? Because it kept going around in circles! 🔄"
 ];
 
 const riddles = [
   { question: "I'm tall when I'm young, and short when I'm old. What am I?", answer: "A candle! 🕯️" },
-  { question: "The more you take, the more you leave behind. What are they?", answer: "Footsteps! 👣" }
+  { question: "The more you take, the more you leave behind. What are they?", answer: "Footsteps! 👣" },
+  { question: "What has to be broken before you can use it?", answer: "An egg! 🥚" },
+  { question: "I speak without a mouth and hear without ears. What am I?", answer: "An echo! 🔊" },
+  { question: "The more of me you take, the more you leave behind. What am I?", answer: "A picture! 📸" },
+  { question: "What comes once in a minute, twice in a moment, but never in a thousand years?", answer: "The letter M! 🔠" },
+  { question: "What can fill a room but takes up no space?", answer: "Light! 💡" },
+  { question: "I am not alive, but I grow. I don’t have lungs, but I need air. What am I?", answer: "Fire! 🔥" }
 ];
-
 
 const Terminal = () => {
   const [tabs, setTabs] = useState([
@@ -45,10 +58,10 @@ const Terminal = () => {
   const getCurrentTab = () => tabs.find(tab => tab.id === activeTab);
 
   const updateTab = (updatedTab: any) => {
-    setTabs(tabs.map(tab => tab.id === activeTab ? updatedTab : tab));
+    setTabs(tabs.map(tab => (tab.id === activeTab ? updatedTab : tab)));
   };
 
-  // Function to handle command execution
+  // Function to execute a command
   const executeCommand = (command: string) => {
     const currentTab = getCurrentTab();
     if (!currentTab) return;
@@ -61,102 +74,124 @@ const Terminal = () => {
     const argument = commandParts.slice(1).join(" ");
 
     switch (mainCommand) {
-    case "cd":
-      if (argument === ".." && newPath.length > 1) {
-        newPath.pop();
-      } else if (fileSystem[argument]) {
-        newPath.push(argument);
-      } else {
-        newOutput.push(`>> The system cannot find the path specified: ${argument}`);
-      }
-      break;
+      case "cd":
+        if (argument === ".." && newPath.length > 1) {
+          newPath.pop();
+        } else {
+          const folder = argument.trim();
+          let currentDir = fileSystem;
+          for (const part of newPath.slice(1)) {
+            if (currentDir[part]) currentDir = currentDir[part];
+          }
+          if (currentDir[folder]) {
+            newPath.push(folder);
+          } else {
+            newOutput.push(`>> The system cannot find the path specified: ${folder}`);
+          }
+        }
+        break;
+        case "ls":
+          case "dir": {
+            let currentDir: FileSystem | undefined = fileSystem;
+            
+            // Navigate to the correct directory based on current path
+            for (const part of newPath.slice(1)) {
+              if (currentDir[part]) {
+                currentDir = currentDir[part];
+              } else {
+                newOutput.push(`>> The system cannot find the path specified: ${newPath.join("\\")}`);
+                updateTab({ ...currentTab, output: newOutput });
+                return;
+              }
+            }
+          
+            // Display contents
+            const contents = Object.keys(currentDir);
+            newOutput.push(`Contents of ${newPath.join("\\")}:`);
+            newOutput.push(contents.length > 0 ? contents.join("  ") : "(empty)");
+            break;
+          }
+          
+          case "mkdir": {
+            if (!argument.trim()) {
+              newOutput.push(">> Invalid folder name");
+              break;
+            }
+          
+            let currentDir: FileSystem | undefined = fileSystem;
+          
+            // Navigate to the current directory
+            for (const part of newPath.slice(1)) {
+              if (!currentDir[part]) {
+                newOutput.push(`>> The system cannot find the path specified: ${newPath.join("\\")}`);
+                updateTab({ ...currentTab, output: newOutput });
+                return;
+              }
+              currentDir = currentDir[part];
+            }
+          
+            if (currentDir[argument]) {
+              newOutput.push(`>> Folder already exists: ${argument}`);
+            } else {
+              currentDir[argument] = {};
+              setFileSystem({ ...fileSystem });
+              newOutput.push(`>> Created folder: ${argument.trim()}`);
+            }
+            break;
+          }
+          
 
-    case "ls":
-    case "dir":
-      const currentDir = fileSystem[newPath[newPath.length - 1]];
-      newOutput.push(`Contents of ${newPath.join("\\")}:`);
-      newOutput.push(Object.keys(currentDir).join("  ") || "(empty)");
-      break;
+      case "help":
+        newOutput.push("Available Commands:");
+        newOutput.push("- cd [folder] → Change directory");
+        newOutput.push("- ls / dir → List files");
+        newOutput.push("- mkdir [name] → Create folder");
+        newOutput.push("- clear → Clear screen");
+        newOutput.push("- resume → Open your resume");
+        newOutput.push("- google [query] → Search on Google");
+        newOutput.push("- bing [query] → Search on Bing");
+        newOutput.push("- joke → Get a random joke");
+        newOutput.push("- riddle → Get a fun riddle");
+        break;
 
-    case "mkdir":
-      if (argument.trim()) {
-        fileSystem[argument] = {};
-        setFileSystem({ ...fileSystem });
-        newOutput.push(`>> Created folder: ${argument.trim()}`);
-      } else {
-        newOutput.push(">> Invalid folder name");
-      }
-      break;
+      case "resume":
+        window.open("/path/to/resume.pdf", "_blank");
+        newOutput.push(">> Opening your resume...");
+        break;
 
-    case "help":
-      newOutput.push("Available Commands:");
-      newOutput.push("- cd [folder] → Change directory");
-      newOutput.push("- ls / dir → List files");
-      newOutput.push("- mkdir [name] → Create folder");
-      newOutput.push("- clear → Clear screen");
-      newOutput.push("- resume → Open your resume");
-      newOutput.push("- google [query] → Search on Google");
-      newOutput.push("- bing [query] → Search on Bing");
-      newOutput.push("- joke → Get a random joke");
-      newOutput.push("- riddle → Get a fun riddle");
-      newOutput.push("- ascii-art → See a cool ASCII drawing!");
-      break;
+      case "google":
+        window.open(`https://www.google.com/search?q=${encodeURIComponent(argument)}`, "_blank");
+        newOutput.push(`>> Searching Google for: ${argument}`);
+        break;
 
-    case "resume":
-      window.open("/path/to/resume.pdf", "_blank");
-      newOutput.push(">> Opening your resume...");
-      break;
+      case "bing":
+        window.open(`https://www.bing.com/search?q=${encodeURIComponent(argument)}`, "_blank");
+        newOutput.push(`>> Searching Bing for: ${argument}`);
+        break;
 
-    case "google":
-      window.open(`https://www.google.com/search?q=${encodeURIComponent(argument)}`, "_blank");
-      newOutput.push(`>> Searching Google for: ${argument}`);
-      break;
+      case "joke":
+        newOutput.push(jokes[Math.floor(Math.random() * jokes.length)]);
+        break;
 
-    case "bing":
-      window.open(`https://www.bing.com/search?q=${encodeURIComponent(argument)}`, "_blank");
-      newOutput.push(`>> Searching Bing for: ${argument}`);
-      break;
+      case "riddle":
+        const randomRiddle = riddles[Math.floor(Math.random() * riddles.length)];
+        newOutput.push(randomRiddle.question);
+        setTimeout(() => newOutput.push(`Answer: ${randomRiddle.answer}`), 2000);
+        break;
 
-    case "joke":
-      newOutput.push(jokes[Math.floor(Math.random() * jokes.length)]);
-      break;
+      case "clear":
+        updateTab({ ...currentTab, output: [] });
+        return;
 
-    case "riddle":
-      const randomRiddle = riddles[Math.floor(Math.random() * riddles.length)];
-      newOutput.push(randomRiddle.question);
-      setTimeout(() => newOutput.push(`Answer: ${randomRiddle.answer}`), 2000);
-      break;
+      default:
+        newOutput.push(`>> Command not recognized: ${command}`);
+    }
 
-    case "ascii-art":
-      newOutput.push("⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⣀⣀⡀⠀⠀⠀⠀⠀");
-      newOutput.push("⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⡴⠋⠉⠉⠀⠀⠉⠉⠳⣦⡀⠀");
-      newOutput.push("⠀⠀⠀⠀⠀⠀⠀⣠⠞⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⣧⠀");
-      newOutput.push("⠀⠀⠀⠀⠀⠀⢰⠃⠀⠀⠀⠀⢀⣀⣀⠀⠀⠀⠀⠀⠘⡄");
-      newOutput.push(">> A simple ASCII smiley face 😊");
-      break;
-
-    case "clear":
-      updateTab({ ...currentTab, output: [] });
-      return;
-
-    default:
-      newOutput.push(`>> Command not recognized: ${command}`);
-  }
-
-  updateTab({ ...currentTab, output: newOutput, path: newPath });
-};
+    updateTab({ ...currentTab, output: newOutput, path: newPath });
+  };
 
   const handleInput = (e: React.KeyboardEvent<HTMLInputElement>, input: string) => {
     if (e.key === "Enter") {
-      const currentTab = getCurrentTab();
-      if (!currentTab) return;
-
-      updateTab({
-        ...currentTab,
-        history: [...currentTab.history, input],
-        historyIndex: -1
-      });
-
       executeCommand(input);
       e.currentTarget.value = "";
     }
