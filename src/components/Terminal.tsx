@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef } from "react";
 
+// File system structure for commands like `cd`, `ls`
 type FileSystem = {
   [key: string]: FileSystem;
 };
@@ -15,6 +16,18 @@ const initialFileSystem: FileSystem = {
     }
   }
 };
+
+const jokes = [
+  "Why do programmers prefer dark mode? Because light attracts bugs! 🪲😂",
+  "Why did the PowerShell script break up? Because it had too many arguments! 😆",
+  "I told my computer I needed a break... Now it won't stop sending me vacation ads! 😅"
+];
+
+const riddles = [
+  { question: "I'm tall when I'm young, and short when I'm old. What am I?", answer: "A candle! 🕯️" },
+  { question: "The more you take, the more you leave behind. What are they?", answer: "Footsteps! 👣" }
+];
+
 
 const Terminal = () => {
   const [tabs, setTabs] = useState([
@@ -35,6 +48,7 @@ const Terminal = () => {
     setTabs(tabs.map(tab => tab.id === activeTab ? updatedTab : tab));
   };
 
+  // Function to handle command execution
   const executeCommand = (command: string) => {
     const currentTab = getCurrentTab();
     if (!currentTab) return;
@@ -46,51 +60,91 @@ const Terminal = () => {
     const mainCommand = commandParts[0].toLowerCase();
     const argument = commandParts.slice(1).join(" ");
 
-    if (mainCommand === "cd") {
-      if (argument === "..") {
-        if (newPath.length > 1) newPath.pop();
+    switch (mainCommand) {
+    case "cd":
+      if (argument === ".." && newPath.length > 1) {
+        newPath.pop();
+      } else if (fileSystem[argument]) {
+        newPath.push(argument);
       } else {
-        const folder = argument.trim();
-        let currentDir = fileSystem;
-        for (const part of newPath.slice(1)) {
-          if (currentDir[part]) currentDir = currentDir[part];
-        }
-        if (currentDir[folder]) {
-          newPath.push(folder);
-        } else {
-          newOutput.push(`>> The system cannot find the path specified: ${folder}`);
-        }
+        newOutput.push(`>> The system cannot find the path specified: ${argument}`);
       }
-    } else if (mainCommand === "ls" || mainCommand === "dir") {
-      let currentDir = fileSystem;
-      for (const part of newPath.slice(1)) {
-        if (currentDir[part]) currentDir = currentDir[part];
-      }
+      break;
+
+    case "ls":
+    case "dir":
+      const currentDir = fileSystem[newPath[newPath.length - 1]];
       newOutput.push(`Contents of ${newPath.join("\\")}:`);
       newOutput.push(Object.keys(currentDir).join("  ") || "(empty)");
-    } else if (mainCommand === "mkdir") {
-      let currentDir = fileSystem;
-      for (const part of newPath.slice(1)) {
-        if (currentDir[part]) currentDir = currentDir[part];
-      }
+      break;
+
+    case "mkdir":
       if (argument.trim()) {
-        currentDir[argument.trim()] = {};
+        fileSystem[argument] = {};
         setFileSystem({ ...fileSystem });
         newOutput.push(`>> Created folder: ${argument.trim()}`);
       } else {
         newOutput.push(">> Invalid folder name");
       }
-    } else if (mainCommand === "echo") {
-      newOutput.push(argument);
-    } else if (mainCommand === "clear") {
+      break;
+
+    case "help":
+      newOutput.push("Available Commands:");
+      newOutput.push("- cd [folder] → Change directory");
+      newOutput.push("- ls / dir → List files");
+      newOutput.push("- mkdir [name] → Create folder");
+      newOutput.push("- clear → Clear screen");
+      newOutput.push("- resume → Open your resume");
+      newOutput.push("- google [query] → Search on Google");
+      newOutput.push("- bing [query] → Search on Bing");
+      newOutput.push("- joke → Get a random joke");
+      newOutput.push("- riddle → Get a fun riddle");
+      newOutput.push("- ascii-art → See a cool ASCII drawing!");
+      break;
+
+    case "resume":
+      window.open("/path/to/resume.pdf", "_blank");
+      newOutput.push(">> Opening your resume...");
+      break;
+
+    case "google":
+      window.open(`https://www.google.com/search?q=${encodeURIComponent(argument)}`, "_blank");
+      newOutput.push(`>> Searching Google for: ${argument}`);
+      break;
+
+    case "bing":
+      window.open(`https://www.bing.com/search?q=${encodeURIComponent(argument)}`, "_blank");
+      newOutput.push(`>> Searching Bing for: ${argument}`);
+      break;
+
+    case "joke":
+      newOutput.push(jokes[Math.floor(Math.random() * jokes.length)]);
+      break;
+
+    case "riddle":
+      const randomRiddle = riddles[Math.floor(Math.random() * riddles.length)];
+      newOutput.push(randomRiddle.question);
+      setTimeout(() => newOutput.push(`Answer: ${randomRiddle.answer}`), 2000);
+      break;
+
+    case "ascii-art":
+      newOutput.push("⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⣀⣀⡀⠀⠀⠀⠀⠀");
+      newOutput.push("⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⡴⠋⠉⠉⠀⠀⠉⠉⠳⣦⡀⠀");
+      newOutput.push("⠀⠀⠀⠀⠀⠀⠀⣠⠞⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⣧⠀");
+      newOutput.push("⠀⠀⠀⠀⠀⠀⢰⠃⠀⠀⠀⠀⢀⣀⣀⠀⠀⠀⠀⠀⠘⡄");
+      newOutput.push(">> A simple ASCII smiley face 😊");
+      break;
+
+    case "clear":
       updateTab({ ...currentTab, output: [] });
       return;
-    } else {
-      newOutput.push(`>> Command not recognized: ${command}`);
-    }
 
-    updateTab({ ...currentTab, output: newOutput, path: newPath });
-  };
+    default:
+      newOutput.push(`>> Command not recognized: ${command}`);
+  }
+
+  updateTab({ ...currentTab, output: newOutput, path: newPath });
+};
 
   const handleInput = (e: React.KeyboardEvent<HTMLInputElement>, input: string) => {
     if (e.key === "Enter") {
@@ -114,13 +168,14 @@ const Terminal = () => {
     setNextTabId(nextTabId + 1); // Ensure next tab has a unique ID
   };
 
+  // Close tab and auto-select next one
   const closeTab = (id: number) => {
     if (tabs.length === 1) return; // Prevent closing the last tab
 
     const newTabs = tabs.filter(tab => tab.id !== id);
     setTabs(newTabs);
 
-    // Determine next active tab
+    // Only change active tab if the closed tab was the active one
     if (activeTab === id) {
       const remainingIds = newTabs.map(tab => tab.id);
       const nextActive = remainingIds.find(tabId => tabId > id) || remainingIds[remainingIds.length - 1];
