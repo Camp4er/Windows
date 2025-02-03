@@ -164,6 +164,10 @@ body {
   background: rgba(22, 22, 27, 0.8)
 }
 
+.hover-color:hover {
+  background:rgba(70, 66, 66, 0.492) /* Dark gray with 75% opacity */
+}
+
 .small-buttons {
   background:rgba(70, 66, 66, 0.492) /* Dark gray with 75% opacity */
 }

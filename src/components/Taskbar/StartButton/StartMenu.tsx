@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { useEffect } from "react";
 import { FaSearch, FaPowerOff } from "react-icons/fa";
 
@@ -17,10 +18,10 @@ const pinnedApps = [
 ];
 
 const recommendedFiles = [
-  { name: "Screenshot (32)", time: "Yesterday at 12:44 PM" },
-  { name: "Screenshot (31)", time: "Friday at 11:56 AM" },
-  { name: "Screenshot (30)", time: "Thursday at 11:10 PM" },
-  { name: "Screenshot (29)", time: "Thursday at 11:09 PM" },
+  { name: "Resume", icon:"/icons/pdf.png", time: "Yesterday at 12:44 PM" },
+  { name: "Notepad", icon: "/icons/notepad.png", time: "Friday at 11:56 AM" },
+  { name: "LinkedIn", icon: "/icons/linkedin.png", time: "Thursday at 11:10 PM" },
+  { name: "Time Tracker", icon: "/icons/time-tracking.png", time: "Thursday at 11:09 PM" },
 ];
 
 const StartMenu = ({ closeMenu }: { closeMenu: () => void }) => {
@@ -54,8 +55,8 @@ const StartMenu = ({ closeMenu }: { closeMenu: () => void }) => {
         </div>
         <div className="grid grid-cols-6 gap-3 mt-2">
           {pinnedApps.map((app) => (
-            <div key={app.name} className="flex flex-col items-center text-center">
-              <img src={app.icon} alt={app.name} className="w-10 h-10" />
+            <div key={app.name} className="flex flex-col items-center text-center hover-color p-2 rounded">
+              <img src={app.icon} alt={app.name} className="w-10 h-10 mb-1" />
               <span className="text-xs">{app.name}</span>
             </div>
           ))}
@@ -64,12 +65,15 @@ const StartMenu = ({ closeMenu }: { closeMenu: () => void }) => {
 
       {/* Recommended Files */}
       <div className="mt-4">
-        <h3 className="text-sm text-gray-400">Recommended</h3>
-        <ul className="mt-2 space-y-2">
+        <h3 className="text-sm text-white font-extralight py-3">Recommended</h3>
+        <ul className="mt-2 grid grid-cols-2">
           {recommendedFiles.map((file, index) => (
-            <li key={index} className="flex justify-between text-sm hover:bg-zinc-800 p-2 rounded">
-              <span>{file.name}</span>
-              <span className="text-gray-400">{file.time}</span>
+            <li key={index} className="flex justify-start gap-5 items-center text-sm hover-color p-2 rounded">
+              <Image src={file.icon} alt={file.name} width={30} height={30}/>
+              <div className="flex flex-col justify-center items-start ">
+                <span>{file.name}</span>
+                <span className="text-gray-400">{file.time}</span>
+              </div>
             </li>
           ))}
         </ul>
