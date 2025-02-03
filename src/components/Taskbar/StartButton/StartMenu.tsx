@@ -35,7 +35,7 @@ const StartMenu = ({ closeMenu }: { closeMenu: () => void }) => {
   }, []);
 
   return (
-    <div className="start-menu absolute bottom-12 left-4 w-96 bg-zinc-900 text-white rounded-lg shadow-lg p-4">
+    <div className="start-menu absolute bottom-12 left-4 w-[650px] start-button text-white rounded-lg shadow-lg p-4">
       {/* Search Bar */}
       <div className="relative">
         <FaSearch className="absolute left-4 top-3 text-gray-400" />

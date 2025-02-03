@@ -7,7 +7,7 @@ const StartButton = () => {
   return (
     <div className="relative">
       {/* Start Button */}
-      <button
+      <div
         className="flex items-center justify-center rounded-lg"
         onClick={() => setIsOpen(!isOpen)}
       >
@@ -17,7 +17,7 @@ const StartButton = () => {
           width={30}
           height={30}
         />
-      </button>
+      </div>
 
       {/* Start Menu Popup */}
       {isOpen && <StartMenu closeMenu={() => setIsOpen(false)} />}

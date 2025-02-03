@@ -4,7 +4,6 @@
 
 body {
   font-family: Arial, Helvetica, sans-serif;
-  
 }
 
 @layer utilities {
@@ -39,7 +38,7 @@ body {
     }
   }
   @keyframes slideOutLeft {
-    from  {
+    from {
       transform: translateX(0);
       opacity: 1;
     }
@@ -56,7 +55,7 @@ body {
       transform: translateY(0);
     }
   }
-  
+
   @keyframes slideOutTop {
     from {
       transform: translateY(0);
@@ -77,12 +76,16 @@ body {
       transform: translate(0, -0px);
     }
   }
-  
+
   @keyframes fadeIn {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
   }
-  
+
   .animate-fade-in {
     animation: fadeIn 2s ease-in-out;
   }
@@ -106,7 +109,7 @@ body {
   .animate-slide-in-top {
     animation: slideInTop 5s;
   }
-  
+
   .animate-slide-out-top {
     animation: slideOutTop 5s;
   }
@@ -152,6 +155,11 @@ body {
   animation-timing-function: ease-in-out;
 }
 
+.start-button {
+  backdrop-filter: blur(20px);
+  background: rgba(32, 32, 32, 0.75); /* Dark gray with 75% opacity */
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -179,7 +187,6 @@ body {
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
     --radius: 0.5rem;
-  
   }
   .dark {
     --background: 0 0% 3.9%;
@@ -206,19 +213,14 @@ body {
     --chart-3: 30 80% 55%;
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
-  
   }
-  
 }
 
 @layer base {
   * {
     @apply border-border;
-  
   }
   body {
     @apply bg-background text-foreground;
-  
   }
-  
 }
