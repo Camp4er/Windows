@@ -37,12 +37,12 @@ const StartMenu = ({ closeMenu }: { closeMenu: () => void }) => {
   return (
     <div className="start-menu absolute bottom-12 left-4 w-[650px] start-button text-white rounded-lg shadow-lg p-4">
       {/* Search Bar */}
-      <div className="relative">
-        <FaSearch className="absolute left-4 top-3 text-gray-400" />
+      <div className="relative py-5">
+        <FaSearch className="absolute left-4 bottom-[39%] text-gray-400" />
         <input
           type="text"
           placeholder="Search for apps, settings, and documents"
-          className="w-full search rounded-full px-12 py-2 text-sm focus:outline-none"
+          className="w-full search rounded-full px-12 py-2 text-sm focus:outline-none border border-gray-700"
         />
       </div>
 
