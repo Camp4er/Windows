@@ -123,14 +123,14 @@ const Taskbar = ({ openWindows, toggleWindow, openWindow }: TaskbarProps) => {
       <div className="flex items-center">
         <div className="flex items-center gap-1 pr-1">
           {/* Start and Search Buttons */}
-          <button
+          <div
             key="1"
             onClick={() => console.log("Open Start Menu")}
             className="flex items-center hover:bg-zinc-800 p-2 rounded"
             aria-label="Windows icon"
           >
             <StartButton/>
-          </button>
+          </div>
           <button
             key="2"
             onClick={() => console.log("Open Start Menu")}

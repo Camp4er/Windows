@@ -42,7 +42,7 @@ const StartMenu = ({ closeMenu }: { closeMenu: () => void }) => {
         <input
           type="text"
           placeholder="Search for apps, settings, and documents"
-          className="w-full bg-zinc-800 rounded-full px-12 py-2 text-sm focus:outline-none"
+          className="w-full search rounded-full px-12 py-2 text-sm focus:outline-none"
         />
       </div>
 
