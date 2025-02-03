@@ -157,7 +157,7 @@ body {
 
 .start-button {
   backdrop-filter: blur(20px);
-  background:rgba(39, 39, 42, 0.88) /* Dark gray with 75% opacity */
+  background:rgba(39, 39, 42, 0.88);
 }
 
 .search {
@@ -165,11 +165,15 @@ body {
 }
 
 .hover-color:hover {
-  background:rgba(70, 66, 66, 0.492) /* Dark gray with 75% opacity */
+  background:rgba(70, 66, 66, 0.492);
 }
 
 .small-buttons {
-  background:rgba(70, 66, 66, 0.492) /* Dark gray with 75% opacity */
+  background:rgba(70, 66, 66, 0.492);
+}
+
+.small-buttons:hover {
+  background:rgba(73, 71, 71, 0.492);
 }
 
 @layer base {

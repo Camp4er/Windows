@@ -36,7 +36,8 @@ const StartMenu = ({ closeMenu }: { closeMenu: () => void }) => {
   }, []);
 
   return (
-    <div className="start-menu absolute bottom-12 left-4 w-[650px] start-button text-white rounded-lg shadow-lg py-4 px-10">
+    <div className="start-menu absolute bottom-12 left-4 w-[650px] start-button text-white rounded-lg shadow-lg">
+      <div className="pt-4 px-10">
       {/* Search Bar */}
       <div className="relative py-5">
         <FaSearch className="absolute left-4 bottom-[39%] text-gray-400" />
@@ -64,7 +65,7 @@ const StartMenu = ({ closeMenu }: { closeMenu: () => void }) => {
       </div>
 
       {/* Recommended Files */}
-      <div className="mt-4">
+      <div className="mt-4 pb-2">
         <h3 className="text-sm text-white font-extralight py-3">Recommended</h3>
         <ul className="mt-2 grid grid-cols-2">
           {recommendedFiles.map((file, index) => (
@@ -78,13 +79,19 @@ const StartMenu = ({ closeMenu }: { closeMenu: () => void }) => {
           ))}
         </ul>
       </div>
+      </div>
 
       {/* Bottom User & Power Button */}
-      <div className="mt-4 flex justify-between items-center border-t border-zinc-700 pt-2">
+      <div className="pb-2 px-10 search rounded">
+      <div className="mt-2 flex justify-between items-center pt-2">
+        <button className="flex justify-center items-center gap-2 hover:bg-zinc-800 rounded-md py-2 px-3">
+        <Image src="/icons/user.png" alt="hero image" width={30} height={30} className="rounded-full" />
         <span className="text-sm">Poorva Saxena</span>
-        <button className="p-2 hover:bg-zinc-800 rounded-md">
+        </button>
+        <button className="p-3 hover:bg-zinc-800 rounded-md">
           <FaPowerOff className="text-white" />
         </button>
+      </div>
       </div>
     </div>
   );
