@@ -4,7 +4,6 @@ import FileExplorer, { FileItem } from "./FileExplorer";
 import Banner from "./Banner";
 import Image from "next/image";
 import { useWindowManager } from "../NewWindow/WindowManagerContext";
-import GalleryViewer from "../SeparateWindows/GalleryViewer";
 
 type ContentAreaProps = {
   items: FileItem[];

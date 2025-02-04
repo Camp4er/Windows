@@ -3,7 +3,6 @@ import React, { useEffect, useRef, useState } from "react";
 import TaskbarRightSection from "./TaskbarRightSection";
 import TaskbarLeftSection from "./TaskbarLeftSection";
 import ActionCenter from "./ActionCenter";
-import StartMenu from "./StartButton/StartMenu";
 import StartButton from "./StartButton/StartButton";
 
 // Define the type for taskbar buttons

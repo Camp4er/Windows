@@ -2,21 +2,7 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 import { FaSearch, FaPowerOff } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
-
-const pinnedApps = [
-  { name: "Calculator", icon: "/icons/calculator.png" },
-  { name: "Edge", icon: "/icons/microsoft.png" },
-  { name: "Snakeats", icon: "/icons/snake.png" },
-  { name: "Calendar", icon: "/icons/calendar.png" },
-  { name: "Google Chrome", icon: "/icons/chrome.svg" },
-  { name: "Visual Studio Code", icon: "/icons/vscode.svg" },
-  { name: "Terminal", icon: "/icons/bash.png" },
-  { name: "Clock", icon: "/icons/clock.png" },
-  { name: "Sticky Notes", icon: "/icons/sticky-note.png" },
-  { name: "Photos", icon: "/icons/gallery.png" },
-  { name: "Camera", icon: "/icons/camera.png" },
-  { name: "Notepad", icon: "/icons/notepad.png" },
-];
+import { useWindowManager } from "@/components/NewWindow/WindowManagerContext";
 
 const allApps = [
   { name: "3D Chess Game", icon: "/icons/chess.png", type:"file"},
@@ -64,6 +50,7 @@ const recommendedFiles = [
 ];
 
 const StartMenu = ({ closeMenu }: { closeMenu: () => void }) => {
+  const { openWindow } = useWindowManager();
   const [showAllApps, setShowAllApps] = useState(false);
 
   useEffect(() => {
@@ -75,6 +62,21 @@ const StartMenu = ({ closeMenu }: { closeMenu: () => void }) => {
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
+
+  const pinnedApps = [
+    { name: "Calculator", icon: "/icons/calculator.png", action: () => console.log("Calculator") },
+    { name: "Edge", icon: "/icons/microsoft.png", action: () => openWindow("Microsoft Edge", "/icons/microsoft.png")},
+    { name: "Snakeats", icon: "/icons/snake.png", action: () => openWindow("Snakeats", "/icons/snake.png")},
+    { name: "Calendar", icon: "/icons/calendar.png", action: () => console.log("Calculator")  },
+    { name: "Google Chrome", icon: "/icons/chrome.svg", action:() => openWindow("Google Search", "/icons/chrome.svg")},
+    { name: "Visual Studio Code", icon: "/icons/vscode.svg", action: () => openWindow("VS Code", "/icons/vscode.svg")},
+    { name: "Terminal", icon: "/icons/bash.png", action: () => openWindow("Terminal", "icons/bash.png")},
+    { name: "Clock", icon: "/icons/clock.png", action: () => console.log("Calculator")  },
+    { name: "Sticky Notes", icon: "/icons/sticky-note.png", action: () => console.log("Calculator")  },
+    { name: "Photos", icon: "/icons/gallery.png", action: () => console.log("Calculator")  },
+    { name: "Camera", icon: "/icons/camera.png", action: () => console.log("Calculator")  },
+    { name: "Notepad", icon: "/icons/notepad.png", action: () => openWindow("Notepad", "/icons/app.png")},
+  ];
 
   return (
     <div className="start-menu absolute bottom-12 left-4 w-[650px] h-[621.6px] start-button text-white rounded-lg shadow-lg overflow-x-hidden overflow-y-hidden">
@@ -119,6 +121,7 @@ const StartMenu = ({ closeMenu }: { closeMenu: () => void }) => {
                     <div
                       key={app.name}
                       className="flex flex-col items-center text-center hover-color p-2 rounded"
+                      onClick={app.action}
                     >
                       <img
                         src={app.icon}

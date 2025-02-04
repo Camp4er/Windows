@@ -66,7 +66,7 @@ const Hero: React.FC = () => {
   return (
     <section id="home" className="h-screen flex items-center justify-center bg-customGray text-white">
       <div className="text-center">
-        <h1 className="text-5xl font-bold mb-4">Hi, I'm Birat Datta</h1>
+        <h1 className="text-5xl font-bold mb-4">Hi, I'm Poorva Saxena</h1>
         <p className="text-lg mb-6">A passionate Frontend Developer building interactive web applications.</p>
         <a
           href="#projects"

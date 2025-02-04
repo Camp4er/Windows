@@ -102,14 +102,8 @@ export default function Desktop() {
     <>
       {/* Desktop icons */}
       <div className="flex flex-row desktop-container"
-      // onContextMenu={handleRightClick}
-      // onClick={handleLeftClick}
       style={{ position: "relative", width: "100vw", height: "100vh" }}
       >
-        {/* Render context menu */}
-  {/* {contextMenu.visible && (
-    <ContextMenu x={contextMenu.x} y={contextMenu.y} />
-  )} */}
         <div className="flex flex-col gap-3 justify-start items-start p-4 flex-wrap">
           <DesktopIcon
             title="About Me"
