@@ -19,16 +19,33 @@ const pinnedApps = [
 ];
 
 const allApps = [
-  { name: "3D Chess Game", icon: "/icons/chess.png" },
-  { name: "Accessibility", icon: "/icons/folder.png" },
-  { name: "AudioWizard", icon: "/icons/audio.png" },
-  { name: "Calculator", icon: "/icons/calculator.png" },
-  { name: "Calendar", icon: "/icons/calendar.png" },
-  { name: "Camera", icon: "/icons/camera.png" },
-  { name: "Chrome Apps", icon: "/icons/chrome.svg" },
-  { name: "Clock", icon: "/icons/clock.png" },
-  { name: "Copilot", icon: "/icons/ai.png" },
-  { name: "Cortana", icon: "/icons/assistant.png" },
+  { name: "3D Chess Game", icon: "/icons/chess.png", type:"file"},
+  { name: "Family", icon: "/icons/family.png", type:"file"},
+  { name: "Feedback Hub", icon: "/icons/audio.png", type:"file"},
+  { name: "Calculator", icon: "/icons/calculator.png", type:"file"},
+  { name: "Calendar", icon: "/icons/calendar.png", type:"file"},
+  { name: "Camera", icon: "/icons/camera.png", type:"file"},
+  { name: "File Explorer", icon: "/icons/app.png", type:"file"},
+  { name: "Chrome Apps", icon: "/icons/app.png", type: "folder", children: [
+    {name: "Google Chrome", icon: "/icons/Google Chrome.png", type:"file"},
+    {name: "Youtube", icon: "/icons/Youtube.png", type:"file"},
+  ] },
+  { name: "Game Bar", icon: "/icons/folder.png", type: "folder", children: [
+    {name: "Snakeats", icon: "/icons/snake.png", type:"file"},
+  ] },
+  {name: "Google Chrome", icon: "/icons/chrome.png", type:"file"},
+  {name: "Microsoft Edge", icon: "/icons/edge.png", type:"file"},
+  { name: "Get Help", icon: "/icons/Help.png", type:"file"},
+  { name: "Youtube", icon: "/icons/Youtube.png", type:"file"},
+  { name: "Clock", icon: "/icons/clock.png", type:"file"},
+  { name: "Notepad", icon: "/icons/notepad.png", type:"file"},
+  { name: "Photos", icon: "/icons/gallery.png", type:"file"},
+  { name: "Terminal", icon: "/icons/bash.png", type:"file"},
+  { name: "Visual Studio Code", icon: "/icons/vscode.svg", type:"file"},
+  {name: "Snakeats", icon: "/icons/snake.png", type:"file"},
+  {name: "Weather", icon: "/icons/weather.png", type:"file"},
+  {name: "Time Tracker", icon: "/icons/time-tracking.png", type:"file"},
+  {name: "Sticky Notes", icon: "/icons/sticky-note.png", type:"file"},
 ].sort((a, b) => a.name.localeCompare(b.name)); // Sort alphabetically
 
 const recommendedFiles = [
@@ -151,34 +168,36 @@ const StartMenu = ({ closeMenu }: { closeMenu: () => void }) => {
                 transition={{ duration: 0.3 }}
                 className="w-full"
               >
-                <div className="py-4">
-                  <div className="flex flex-row justify-between">
+                <div className="pt-4 pb-2">
+                  <div className="flex flex-row justify-between pb-2">
                     <h3 className="text-sm text-white font-extralight py-3">
                       All Apps
                     </h3>
-                    <button
-                      className="text-xs small-buttons py-1 font-thin px-3 rounded text-white border border-gray-700"
-                      onClick={() => setShowAllApps(false)}
-                    >
-                      {`<`} Back
-                    </button>
+                    <div>
+                      <button
+                        className="text-xs small-buttons py-1 font-thin px-2 rounded text-white border border-gray-700"
+                        onClick={() => setShowAllApps(false)}
+                      >
+                        {`<`}&nbsp;&nbsp;&nbsp;Back
+                      </button>
+                    </div>
                   </div>
                   <div className="overflow-y-scroll h-[350px] scrollbar-thin scrollbar-thumb-zinc-600 scrollbar-track-zinc-900 scrollbar-thumb-rounded-md">
-                  <div className="grid grid-cols-1 gap-3">
-                    {allApps.map((app) => (
-                      <div
-                        key={app.name}
-                        className="flex items-center gap-3 hover:bg-zinc-800 p-2 rounded"
-                      >
-                        <img
-                          src={app.icon}
-                          alt={app.name}
-                          className="w-8 h-8"
-                        />
-                        <span className="text-sm">{app.name}</span>
-                      </div>
-                    ))}
-                  </div>
+                    <div className="grid grid-cols-1 gap-3">
+                      {allApps.map((app) => (
+                        <div
+                          key={app.name}
+                          className="flex items-center gap-3 hover:bg-zinc-800 p-2 rounded"
+                        >
+                          <img
+                            src={app.icon}
+                            alt={app.name}
+                            className="w-8 h-8"
+                          />
+                          <span className="text-sm">{app.name}</span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </motion.div>
