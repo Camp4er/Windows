@@ -14,6 +14,7 @@ import PDFViewer from "./SeparateWindows/PdfViewer";
 import GalleryViewer from "./SeparateWindows/GalleryViewer";
 import ContextMenu from "./Click/ContextMenu";
 import Calculator from "./AllApps/Calculator";
+import Clock from "./AllApps/Clock";
 
 type WindowInfo = {
   name: string;
@@ -232,6 +233,7 @@ export default function Desktop() {
               window.name === "Shopper Gallery" && <GalleryViewer images={ShopperImages}/>
             }
             {window.name === "Calculator" && <Calculator/>}
+            {window.name === "Clock" && <Clock/>}
           </Window>
         ) : null
       )}

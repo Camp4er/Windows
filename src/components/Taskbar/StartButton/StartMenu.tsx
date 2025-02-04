@@ -71,7 +71,7 @@ const StartMenu = ({ closeMenu }: { closeMenu: () => void }) => {
     { name: "Google Chrome", icon: "/icons/chrome.svg", action:() => openWindow("Google Search", "/icons/chrome.svg")},
     { name: "Visual Studio Code", icon: "/icons/vscode.svg", action: () => openWindow("VS Code", "/icons/vscode.svg")},
     { name: "Terminal", icon: "/icons/bash.png", action: () => openWindow("Terminal", "icons/bash.png")},
-    { name: "Clock", icon: "/icons/clock.png", action: () => console.log("Calculator")  },
+    { name: "Clock", icon: "/icons/clock.png", action: () => openWindow("Clock", "/icons/clock.png")},
     { name: "Sticky Notes", icon: "/icons/sticky-note.png", action: () => console.log("Calculator")  },
     { name: "Photos", icon: "/icons/gallery.png", action: () => console.log("Calculator")  },
     { name: "Camera", icon: "/icons/camera.png", action: () => console.log("Calculator")  },
