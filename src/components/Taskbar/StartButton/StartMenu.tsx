@@ -21,21 +21,21 @@ const pinnedApps = [
 const allApps = [
   { name: "3D Chess Game", icon: "/icons/chess.png", type:"file"},
   { name: "Family", icon: "/icons/family.png", type:"file"},
-  { name: "Feedback Hub", icon: "/icons/audio.png", type:"file"},
+  { name: "Feedback Hub", icon: "/icons/review.png", type:"file"},
   { name: "Calculator", icon: "/icons/calculator.png", type:"file"},
   { name: "Calendar", icon: "/icons/calendar.png", type:"file"},
   { name: "Camera", icon: "/icons/camera.png", type:"file"},
   { name: "File Explorer", icon: "/icons/app.png", type:"file"},
-  { name: "Chrome Apps", icon: "/icons/app.png", type: "folder", children: [
-    {name: "Google Chrome", icon: "/icons/Google Chrome.png", type:"file"},
-    {name: "Youtube", icon: "/icons/Youtube.png", type:"file"},
+  { name: "Chrome Apps", icon: "/icons/folder.png", type: "folder", children: [
+    {name: "Google Chrome", icon: "/icons/chrome.svg", type:"file"},
+    {name: "Youtube", icon: "/icons/youtube.png", type:"file"},
   ] },
   { name: "Game Bar", icon: "/icons/folder.png", type: "folder", children: [
     {name: "Snakeats", icon: "/icons/snake.png", type:"file"},
   ] },
-  {name: "Google Chrome", icon: "/icons/chrome.png", type:"file"},
-  {name: "Microsoft Edge", icon: "/icons/edge.png", type:"file"},
-  { name: "Get Help", icon: "/icons/Help.png", type:"file"},
+  {name: "Google Chrome", icon: "/icons/chrome.svg", type:"file"},
+  {name: "Microsoft Edge", icon: "/icons/microsoft.png", type:"file"},
+  { name: "Get Help", icon: "/icons/question.png", type:"file"},
   { name: "Youtube", icon: "/icons/Youtube.png", type:"file"},
   { name: "Clock", icon: "/icons/clock.png", type:"file"},
   { name: "Notepad", icon: "/icons/notepad.png", type:"file"},
@@ -43,7 +43,7 @@ const allApps = [
   { name: "Terminal", icon: "/icons/bash.png", type:"file"},
   { name: "Visual Studio Code", icon: "/icons/vscode.svg", type:"file"},
   {name: "Snakeats", icon: "/icons/snake.png", type:"file"},
-  {name: "Weather", icon: "/icons/weather.png", type:"file"},
+  {name: "Weather", icon: "/icons/cloud.png", type:"file"},
   {name: "Time Tracker", icon: "/icons/time-tracking.png", type:"file"},
   {name: "Sticky Notes", icon: "/icons/sticky-note.png", type:"file"},
 ].sort((a, b) => a.name.localeCompare(b.name)); // Sort alphabetically
