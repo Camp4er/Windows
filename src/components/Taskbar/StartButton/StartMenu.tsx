@@ -64,7 +64,7 @@ const StartMenu = ({ closeMenu }: { closeMenu: () => void }) => {
   }, []);
 
   const pinnedApps = [
-    { name: "Calculator", icon: "/icons/calculator.png", action: () => console.log("Calculator") },
+    { name: "Calculator", icon: "/icons/calculator.png", action: () => openWindow("Calculator", "/icons/calculator.png") },
     { name: "Edge", icon: "/icons/microsoft.png", action: () => openWindow("Microsoft Edge", "/icons/microsoft.png")},
     { name: "Snakeats", icon: "/icons/snake.png", action: () => openWindow("Snakeats", "/icons/snake.png")},
     { name: "Calendar", icon: "/icons/calendar.png", action: () => console.log("Calculator")  },
