@@ -29,9 +29,9 @@ export default function Calculator() {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-900">
-      <div className="bg-gray-800 p-4 rounded-lg shadow-lg">
-        <div className="text-white text-right text-2xl p-4 bg-gray-700 rounded">
+    <div className="flex justify-center items-center min-h-screen bg-gray-900 h-full">
+      <div className="bg-gray-800 p-4 rounded-lg shadow-lg w-full h-full">
+        <div className="text-white text-right text-2xl p-10 bg-gray-700 rounded">
           {display}
         </div>
         <div className="grid grid-cols-4 gap-2 mt-4">
@@ -45,7 +45,7 @@ export default function Calculator() {
           ].map((button) => (
             <button
               key={button}
-              className={`p-4 text-white text-xl font-bold rounded ${
+              className={`p-4 text-white text-xl font-bold rounded hover:bg-gray-700 ${
                 button === "=" ? "bg-orange-500 col-span-2" : "bg-gray-600"
               }`}
               onClick={() => handleButtonClick(button)}
