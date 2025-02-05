@@ -87,6 +87,11 @@ const StickyNotes = () => {
             onChange={() => setFavoritesOnly(!favoritesOnly)}
             className="hidden"
           />
+           <div className="w-10 h-5 bg-gray-700 rounded-full relative">
+            <div
+              className={`absolute top-1 left-1 w-3 h-3 bg-white rounded-full transition-transform ${favoritesOnly ? 'translate-x-5' : ''}`}
+            ></div>
+          </div>
         </label>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 w-full max-w-2xl px-4">

@@ -74,7 +74,7 @@ const StartMenu = ({ closeMenu }: { closeMenu: () => void }) => {
     { name: "Clock", icon: "/icons/clock.png", action: () => openWindow("Clock", "/icons/clock.png")},
     { name: "Sticky Notes", icon: "/icons/sticky-note.png", action: () => openWindow("Sticky Notes", "/icons/sticky-note.png")},
     { name: "Photos", icon: "/icons/gallery.png", action: () => console.log("Calculator")  },
-    { name: "Camera", icon: "/icons/camera.png", action: () => console.log("Calculator")  },
+    { name: "Camera", icon: "/icons/camera.png", action: () => openWindow("Camera", "/icons/camera.png")},
     { name: "Notepad", icon: "/icons/notepad.png", action: () => openWindow("Notepad", "/icons/app.png")},
   ];
 

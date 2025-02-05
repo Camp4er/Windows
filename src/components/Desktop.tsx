@@ -17,6 +17,7 @@ import Calculator from "./AllApps/Calculator";
 import Clock from "./AllApps/Clock";
 import Calendar from "./AllApps/Calendar";
 import StickyNotes from "./AllApps/StickyNotes";
+import Camera from "./AllApps/Camera";
 
 type WindowInfo = {
   name: string;
@@ -237,6 +238,7 @@ export default function Desktop() {
             {window.name === "Calculator" && <Calculator/>}
             {window.name === "Calendar" && <Calendar/>}
             {window.name === "Sticky Notes" && <StickyNotes/>}
+            {window.name === "Camera" && <Camera/>}
             {window.name === "Clock" && <Clock/>}
           </Window>
         ) : null
