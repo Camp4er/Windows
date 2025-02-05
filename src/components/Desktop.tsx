@@ -15,6 +15,7 @@ import GalleryViewer from "./SeparateWindows/GalleryViewer";
 import ContextMenu from "./Click/ContextMenu";
 import Calculator from "./AllApps/Calculator";
 import Clock from "./AllApps/Clock";
+import Calendar from "./AllApps/Calendar";
 
 type WindowInfo = {
   name: string;
@@ -233,6 +234,7 @@ export default function Desktop() {
               window.name === "Shopper Gallery" && <GalleryViewer images={ShopperImages}/>
             }
             {window.name === "Calculator" && <Calculator/>}
+            {window.name === "Calendar" && <Calendar/>}
             {window.name === "Clock" && <Clock/>}
           </Window>
         ) : null
