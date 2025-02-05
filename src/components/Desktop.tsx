@@ -16,6 +16,7 @@ import ContextMenu from "./Click/ContextMenu";
 import Calculator from "./AllApps/Calculator";
 import Clock from "./AllApps/Clock";
 import Calendar from "./AllApps/Calendar";
+import StickyNotes from "./AllApps/StickyNotes";
 
 type WindowInfo = {
   name: string;
@@ -235,6 +236,7 @@ export default function Desktop() {
             }
             {window.name === "Calculator" && <Calculator/>}
             {window.name === "Calendar" && <Calendar/>}
+            {window.name === "Sticky Notes" && <StickyNotes/>}
             {window.name === "Clock" && <Clock/>}
           </Window>
         ) : null

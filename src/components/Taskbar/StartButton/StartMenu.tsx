@@ -72,7 +72,7 @@ const StartMenu = ({ closeMenu }: { closeMenu: () => void }) => {
     { name: "Visual Studio Code", icon: "/icons/vscode.svg", action: () => openWindow("VS Code", "/icons/vscode.svg")},
     { name: "Terminal", icon: "/icons/bash.png", action: () => openWindow("Terminal", "icons/bash.png")},
     { name: "Clock", icon: "/icons/clock.png", action: () => openWindow("Clock", "/icons/clock.png")},
-    { name: "Sticky Notes", icon: "/icons/sticky-note.png", action: () => console.log("Calculator")  },
+    { name: "Sticky Notes", icon: "/icons/sticky-note.png", action: () => openWindow("Sticky Notes", "/icons/sticky-note.png")},
     { name: "Photos", icon: "/icons/gallery.png", action: () => console.log("Calculator")  },
     { name: "Camera", icon: "/icons/camera.png", action: () => console.log("Calculator")  },
     { name: "Notepad", icon: "/icons/notepad.png", action: () => openWindow("Notepad", "/icons/app.png")},
