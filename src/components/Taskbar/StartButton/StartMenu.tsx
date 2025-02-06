@@ -4,36 +4,6 @@ import { FaSearch, FaPowerOff } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
 import { useWindowManager } from "@/components/NewWindow/WindowManagerContext";
 
-const allApps = [
-  { name: "3D Chess Game", icon: "/icons/chess.png", type:"file"},
-  { name: "Family", icon: "/icons/family.png", type:"file"},
-  { name: "Feedback Hub", icon: "/icons/review.png", type:"file"},
-  { name: "Calculator", icon: "/icons/calculator.png", type:"file"},
-  { name: "Calendar", icon: "/icons/calendar.png", type:"file"},
-  { name: "Camera", icon: "/icons/camera.png", type:"file"},
-  { name: "File Explorer", icon: "/icons/app.png", type:"file"},
-  { name: "Chrome Apps", icon: "/icons/folder.png", type: "folder", children: [
-    {name: "Google Chrome", icon: "/icons/chrome.svg", type:"file"},
-    {name: "Youtube", icon: "/icons/youtube.png", type:"file"},
-  ] },
-  { name: "Game Bar", icon: "/icons/folder.png", type: "folder", children: [
-    {name: "Snakeats", icon: "/icons/snake.png", type:"file"},
-  ] },
-  {name: "Google Chrome", icon: "/icons/chrome.svg", type:"file"},
-  {name: "Microsoft Edge", icon: "/icons/microsoft.png", type:"file"},
-  { name: "Get Help", icon: "/icons/question.png", type:"file"},
-  { name: "Youtube", icon: "/icons/Youtube.png", type:"file"},
-  { name: "Clock", icon: "/icons/clock.png", type:"file"},
-  { name: "Notepad", icon: "/icons/notepad.png", type:"file"},
-  { name: "Photos", icon: "/icons/gallery.png", type:"file"},
-  { name: "Terminal", icon: "/icons/bash.png", type:"file"},
-  { name: "Visual Studio Code", icon: "/icons/vscode.svg", type:"file"},
-  {name: "Snakeats", icon: "/icons/snake.png", type:"file"},
-  {name: "Weather", icon: "/icons/cloud.png", type:"file"},
-  {name: "Time Tracker", icon: "/icons/time-tracking.png", type:"file"},
-  {name: "Sticky Notes", icon: "/icons/sticky-note.png", type:"file"},
-].sort((a, b) => a.name.localeCompare(b.name)); // Sort alphabetically
-
 const recommendedFiles = [
   { name: "Resume", icon: "/icons/pdf.png", time: "Yesterday at 12:44 PM" },
   { name: "Notepad", icon: "/icons/notepad.png", time: "Friday at 11:56 AM" },
@@ -77,6 +47,36 @@ const StartMenu = ({ closeMenu }: { closeMenu: () => void }) => {
     { name: "Camera", icon: "/icons/camera.png", action: () => openWindow("Camera", "/icons/camera.png")},
     { name: "Notepad", icon: "/icons/notepad.png", action: () => openWindow("Notepad", "/icons/app.png")},
   ];
+
+  const allApps = [
+    { name: "3D Chess Game", icon: "/icons/chess.png", type:"file", action: () => openWindow("3D Chess Game", "/icons/chess.png") },
+    { name: "Family", icon: "/icons/family.png", type:"file", action: () => console.log("Calculator")  },
+    { name: "Feedback Hub", icon: "/icons/review.png", type:"file", action: () => console.log("Calculator")  },
+    { name: "Calculator", icon: "/icons/calculator.png", type:"file", action: () => openWindow("Calculator", "/icons/calculator.png") },
+    { name: "Calendar", icon: "/icons/calendar.png", type:"file", action: () => console.log("Calculator")  },
+    { name: "Camera", icon: "/icons/camera.png", type:"file", action: () => console.log("Calculator")  },
+    { name: "File Explorer", icon: "/icons/app.png", type:"file", action: () => console.log("Calculator")  },
+    { name: "Chrome Apps", icon: "/icons/folder.png", type: "folder",action: () => console.log("Calculator")  , children: [
+      {name: "Google Chrome", icon: "/icons/chrome.svg", type:"file", action: () => console.log("Calculator")  },
+      {name: "Youtube", icon: "/icons/youtube.png", type:"file", action: () => console.log("Calculator")  },
+    ] },
+    { name: "Game Bar", icon: "/icons/folder.png", type: "folder",action: () => console.log("Calculator"), children: [
+      {name: "Snakeats", icon: "/icons/snake.png", type:"file", action: () => console.log("Calculator")  },
+    ] },
+    {name: "Google Chrome", icon: "/icons/chrome.svg", type:"file", action: () => console.log("Calculator")  },
+    {name: "Microsoft Edge", icon: "/icons/microsoft.png", type:"file", action: () => console.log("Calculator")  },
+    { name: "Get Help", icon: "/icons/question.png", type:"file", action: () => console.log("Calculator")  },
+    { name: "Youtube", icon: "/icons/Youtube.png", type:"file", action: () => console.log("Calculator")  },
+    { name: "Clock", icon: "/icons/clock.png", type:"file", action: () => console.log("Calculator")  },
+    { name: "Notepad", icon: "/icons/notepad.png", type:"file", action: () => console.log("Calculator")  },
+    { name: "Photos", icon: "/icons/gallery.png", type:"file", action: () => console.log("Calculator")  },
+    { name: "Terminal", icon: "/icons/bash.png", type:"file", action: () => console.log("Calculator")  },
+    { name: "Visual Studio Code", icon: "/icons/vscode.svg", type:"file", action: () => console.log("Calculator")  },
+    {name: "Snakeats", icon: "/icons/snake.png", type:"file", action: () => console.log("Calculator")  },
+    {name: "Weather", icon: "/icons/cloud.png", type:"file", action: () => console.log("Calculator")  },
+    {name: "Time Tracker", icon: "/icons/time-tracking.png", type:"file", action: () => console.log("Calculator")  },
+    {name: "Sticky Notes", icon: "/icons/sticky-note.png", type:"file", action: () => console.log("Calculator")  },
+  ].sort((a, b) => a.name.localeCompare(b.name)); // Sort alphabetically
 
   return (
     <div className="start-menu absolute bottom-12 left-4 w-[650px] h-[621.6px] start-button text-white rounded-lg shadow-lg overflow-x-hidden overflow-y-hidden">
@@ -191,6 +191,7 @@ const StartMenu = ({ closeMenu }: { closeMenu: () => void }) => {
                         <div
                           key={app.name}
                           className="flex items-center gap-3 hover:bg-zinc-800 p-2 rounded"
+                          onClick={app.action}
                         >
                           <img
                             src={app.icon}
