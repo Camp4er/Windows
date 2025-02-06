@@ -1,3 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" width="50" height="50">
-  <path d="M 25 5 L 27 11 L 33 7 L 32 14 L 40 11 L 35 18 L 42 19 L 34 24 C 34 24 35 28 36 30 C 38 33 38 34 38 34 L 12 34 C 12 34 12 33 14 30 C 15 28 16 24 16 24 L 8 19 L 15 18 L 10 11 L 18 14 L 17 7 L 23 11 Z M 14 36 L 36 36 L 36 38 L 14 38 Z M 12 40 L 38 40 L 38 42 L 12 42 Z M 10 44 L 40 44 L 40 46 L 10 46 Z" fill="white" stroke="black" stroke-width="2"/>
+<svg width="50" height="50" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="15" cy="12" r="4" fill="white" stroke="black" stroke-width="2"/>
+  <circle cx="25" cy="10" r="4" fill="white" stroke="black" stroke-width="2"/>
+  <circle cx="35" cy="12" r="4" fill="white" stroke="black" stroke-width="2"/>
+  <path d="M20 18 L25 30 L30 18 Z" fill="white" stroke="black" stroke-width="2"/>
+  <rect x="15" y="34" width="20" height="6" fill="white" stroke="black" stroke-width="2"/>
 </svg>

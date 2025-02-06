@@ -1,18 +1,19 @@
 import React, { useState, useEffect } from 'react';
 
 // Import piece images
-import whitePawn from '../../../public/games/whitepawn.svg';
-import blackPawn from '../../../public/games/blackpawn.svg';
-import whiteRook from '../../../public/games/whiterook.svg';
-import blackRook from '../../../public/games/blackrook.svg';
-import whiteKnight from '../../../public/games/whiteknight.svg';
-import blackKnight from '../../../public/games/blackknight.svg';
-import whiteBishop from '../../../public/games/whitebishop.svg';
-import blackBishop from '../../../public/games/blackbishop.svg';
-import whiteQueen from '../../../public/games/whitequeen.svg';
-import blackQueen from '../../../public/games/blackqueen.svg';
-import whiteKing from '../../../public/games/whiteking.svg';
-import blackKing from '../../../public/games/blackking.svg';
+import whitePawn from '../../../public/games/wp.png';
+import blackPawn from '../../../public/games/bp.png';
+import whiteRook from '../../../public/games/wr.png';
+import blackRook from '../../../public/games/br.png';
+import whiteKnight from '../../../public/games/wn.png';
+import blackKnight from '../../../public/games/bn.png';
+import whiteBishop from '../../../public/games/wb.png';
+import blackBishop from '../../../public/games/bb.png';
+import whiteQueen from '../../../public/games/wq.png';
+import blackQueen from '../../../public/games/bq.png';
+import whiteKing from '../../../public/games/wk.png';
+import blackKing from '../../../public/games/bk.png';
+import Image from 'next/image';
 
 // Define types
 type Piece = 'r' | 'n' | 'b' | 'q' | 'k' | 'p' | 'P' | 'R' | 'N' | 'B' | 'Q' | 'K' | '';
@@ -29,7 +30,7 @@ const initialBoard: Board = [
     ['R', 'N', 'B', 'Q', 'K', 'B', 'N', 'R'],
 ];
 
-const pieceImages: { [key: string]: string } = {
+const pieceImages: { [key: string]: any } = {
     P: whitePawn,
     R: whiteRook,
     N: whiteKnight,
@@ -146,7 +147,6 @@ const Chess: React.FC = () => {
 
     return (
         <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-gray-900 to-gray-800 p-6">
-            <h1 className="text-3xl text-white mb-4">Chess Game</h1>
             <h2 className="text-xl text-white mb-4">{isWhiteTurn ? "White's Turn" : "Black's Turn"}</h2>
             <div className="grid grid-cols-8 gap-0">
                 {board.map((rowArr, rowIndex) => (
@@ -158,7 +158,7 @@ const Chess: React.FC = () => {
                 ${selectedSquare?.row === rowIndex && selectedSquare?.col === colIndex ? "border-4 border-blue-400" : ""}`}
                             onClick={() => handleSquareClick(rowIndex, colIndex)}
                         >
-                            {piece && <img src={pieceImages[piece]} alt={piece} className="w-full h-full" />}
+                            {piece && <Image src={pieceImages[piece]} alt={piece} width={50} height={50} />}
                         </div>
                     ))
                 ))}
