@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import Image from 'next/image';
-import { FaCog } from 'react-icons/fa'; // Import settings icon
+import { FaCog, FaUserCircle } from 'react-icons/fa'; // Import settings icon
+import useSound from 'use-sound';
 
 // Import piece images
 import whitePawn from '../../../public/games/wp.png';
@@ -15,6 +16,9 @@ import whiteQueen from '../../../public/games/wq.png';
 import blackQueen from '../../../public/games/bq.png';
 import whiteKing from '../../../public/games/wk.png';
 import blackKing from '../../../public/games/bk.png';
+// Sounds
+// import moveSound from '../../../public/sound/ting.mp3?url';
+// import captureSound from '../../../public/sound/ting.mp3?url';
 
 // Define types
 type Piece = 'r' | 'n' | 'b' | 'q' | 'k' | 'p' | 'P' | 'R' | 'N' | 'B' | 'Q' | 'K' | '';
@@ -56,17 +60,27 @@ const Chess: React.FC = () => {
     const [isCheck, setIsCheck] = useState(false);
     const [isCheckmate, setIsCheckmate] = useState(false);
     const [gameOver, setGameOver] = useState(false); // Track if the game is over
+    const [lastMove, setLastMove] = useState<string>(''); // Track the last move
+    // Sounds
+    // const [playMoveSound] = useSound(moveSound);
+    // const [playCaptureSound] = useSound(captureSound);
 
     const handleSquareClick = (row: number, col: number) => {
-        if (gameOver) return;
+        if (gameOver) return; // Stop further moves if the game is over
 
         if (selectedSquare) {
             const selectedPiece = board[selectedSquare.row][selectedSquare.col];
             if (isValidMove(selectedPiece, selectedSquare.row, selectedSquare.col, row, col, board, isWhiteTurn, enPassantPossible)) {
                 let newBoard = board.map((rowArr) => [...rowArr]);
+
+                // Handle capturing a piece
+                const capturedPiece = newBoard[row][col];
+
+                // Handle en passant capture
                 if (enPassantPossible && selectedPiece.toLowerCase() === 'p' && row === enPassantPossible.row && col === enPassantPossible.col) {
                     newBoard[selectedSquare.row][col] = '';
                 }
+
                 newBoard[row][col] = selectedPiece;
                 newBoard[selectedSquare.row][selectedSquare.col] = '';
 
@@ -76,15 +90,36 @@ const Chess: React.FC = () => {
                 setPossibleMoves([]); // Clear possible moves
                 setEnPassantPossible(null);
 
-                if (selectedPiece.toLowerCase() === 'p' && Math.abs(row - selectedSquare.row) === 2) {
-                    setEnPassantPossible({ row: (selectedSquare.row + row) / 2, col });
+                // Track the last move
+                setLastMove(`Moved ${selectedPiece} from ${String.fromCharCode(97 + selectedSquare.col)}${8 - selectedSquare.row} to ${String.fromCharCode(97 + col)}${8 - row}`);
+
+                // Check to determine who took the step
+                if (isWhiteTurn) {
+                  setLastMove(`White` + ' ' + `${selectedPiece} from ${String.fromCharCode(97 + selectedSquare.col)}${8 - selectedSquare.row} to ${String.fromCharCode(97 + col)}${8 - row}`);
+                } else {
+                  setLastMove(`Black` + ' ' + `${selectedPiece} from ${String.fromCharCode(97 + selectedSquare.col)}${8 - selectedSquare.row} to ${String.fromCharCode(97 + col)}${8 - row}`);
                 }
 
+                // Play appropriate sound
+                // if (capturedPiece) {
+                //     playCaptureSound();
+                // } else {
+                //     playMoveSound();
+                // }
+                // Check to determine if it's a checkmate
+                if (selectedPiece.toLowerCase() === 'k') {
+                    setGameOver(true);
+                    alert(`Checkmate! ${isWhiteTurn ? "White" : "Black"} wins!`);
+                    return;
+                }
+
+                // Check if the opponent is in check or checkmate
                 if (isInCheck(newBoard, !isWhiteTurn)) {
                     setIsCheck(true);
-                    if (isCheckmateFn(newBoard, !isWhiteTurn, newBoard)) {
+                    if (isCheckmateFn(newBoard, !isWhiteTurn)) {
                         setIsCheckmate(true);
-                        setGameOver(true); // End the game
+                        setGameOver(true);
+                        alert(`Checkmate! ${isWhiteTurn ? "White" : "Black"} wins!`);
                     }
                 } else {
                     setIsCheck(false);
@@ -207,42 +242,51 @@ const Chess: React.FC = () => {
         }
         return false; // King is not under attack
     };
-    const isCheckmateFn = (board: Board, isWhiteTurn: boolean, originalBoard: Board): boolean => {
-        let hasSafeMove = false;
-    
-        for (let row = 0; row < 8; row++) {
-            for (let col = 0; col < 8; col++) {
-                const piece = board[row][col];
-    
-                // Ensure the piece is of the correct color
-                if (piece && ((isWhiteTurn && piece === piece.toUpperCase()) || (!isWhiteTurn && piece === piece.toLowerCase()))) {
-                    // Try all possible moves for the piece
-                    for (let moveRow = 0; moveRow < 8; moveRow++) {
-                        for (let moveCol = 0; moveCol < 8; moveCol++) {
-                            let newBoard = board.map((rowArr) => [...rowArr]);
-    
-                            // Make sure the move is valid
-                            if (isValidMove(piece, row, col, moveRow, moveCol, board, isWhiteTurn, null)) {
-    
-                                // Simulate the move
-                                newBoard[moveRow][moveCol] = piece;
-                                newBoard[row][col] = '';
-    
-                                // If the move doesn't put the king in check, then it's not checkmate
-                                if (!isInCheck(newBoard, isWhiteTurn)) {
-                                    return false;
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-        return true; // No moves to escape checkmate
-    };
+    const isCheckmateFn = (board: Board, isWhiteTurn: boolean): boolean => {
+      for (let row = 0; row < 8; row++) {
+          for (let col = 0; col < 8; col++) {
+              const piece = board[row][col];
+  
+              // Skip empty squares and opponent's pieces
+              if (!piece || (isWhiteTurn && piece === piece.toLowerCase()) || (!isWhiteTurn && piece === piece.toUpperCase())) {
+                  continue;
+              }
+  
+              for (let moveRow = 0; moveRow < 8; moveRow++) {
+                  for (let moveCol = 0; moveCol < 8; moveCol++) {
+                      let newBoard = board.map((rowArr) => [...rowArr]);
+  
+                      if (isValidMove(piece, row, col, moveRow, moveCol, board, isWhiteTurn, null)) {
+                          // Simulate the move
+                          newBoard[moveRow][moveCol] = piece;
+                          newBoard[row][col] = '';
+  
+                          // If the move gets the king out of check, it's not checkmate
+                          if (!isInCheck(newBoard, isWhiteTurn)) {
+                              return false;
+                          }
+                      }
+                  }
+              }
+          }
+      }
+      return true; // No legal moves left → Checkmate
+  };
+
     return (
-        <div className="flex flex-col items-center justify-center min-h-screen bg-gray-800 text-white p-6">
-            <h2 className="text-2xl text-white mb-4">{isWhiteTurn ? "White's Turn" : "Black's Turn"}</h2>
+        <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-6">
+            <div className="flex justify-between w-full max-w-md items-center mb-4">
+                <div className="flex items-center">
+                    <FaUserCircle size={32} className={`mr-2 ${isWhiteTurn ? 'text-green-500' : 'text-gray-400'}`} />
+                    <span>White</span>
+                </div>
+                <div className="flex items-center">
+                    <span>Black</span>
+                    <FaUserCircle size={32} className={`ml-2 ${!isWhiteTurn ? 'text-green-500' : 'text-gray-400'}`} />
+                </div>
+            </div>
+            <h2 className="text-xl text-gray-700 mb-2">{(isWhiteTurn ? "White's Turn" : "Black's Turn")}</h2>
+            <p className="text-sm text-gray-500 mb-2">{lastMove}</p>
             {isCheck && <p className="text-red-500">Check!</p>}
             {isCheckmate && <p className="text-red-500">Checkmate!</p>}
             {gameOver && <p className="text-2xl text-green-500">Game Over!</p>}
@@ -251,10 +295,10 @@ const Chess: React.FC = () => {
                     rowArr.map((piece, colIndex) => (
                         <div
                             key={`${rowIndex}-${colIndex}`}
-                            className={`w-16 h-16 flex items-center justify-center cursor-pointer transition duration-200 
-                ${(rowIndex + colIndex) % 2 === 0 ? "bg-green-400" : "bg-green-500"} 
-                ${selectedSquare?.row === rowIndex && selectedSquare?.col === colIndex ? "border-4 border-blue-400" : ""}
-                 ${possibleMoves.some(move => move[0] === rowIndex && move[1] === colIndex) ? "bg-blue-200" : ""}`}
+                            className={`w-12 h-12 flex items-center justify-center cursor-pointer transition duration-200 
+                              ${(rowIndex + colIndex) % 2 === 0 ? "bg-green-400" : "bg-green-500"} 
+                              ${selectedSquare?.row === rowIndex && selectedSquare?.col === colIndex ? "border-4 border-blue-400" : ""}
+                              ${possibleMoves.some(move => move[0] === rowIndex && move[1] === colIndex) ? "bg-blue-200" : ""}`}
                             onClick={() => handleSquareClick(rowIndex, colIndex)}
                         >
                             {piece && <Image src={pieceImages[piece]} alt={piece} width={50} height={50} />}
@@ -270,7 +314,7 @@ const Chess: React.FC = () => {
                         checked={showPossibleMoves}
                         onChange={() => setShowPossibleMoves(!showPossibleMoves)}
                     />
-                    <span className="ml-2 text-gray-300">Show Possible Moves</span>
+                    <span className="ml-2 text-gray-700">Show Possible Moves</span>
                 </label>
             </div>
         </div>
