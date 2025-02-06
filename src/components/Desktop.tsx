@@ -19,6 +19,7 @@ import Calendar from "./AllApps/Calendar";
 import StickyNotes from "./AllApps/StickyNotes";
 import Camera from "./AllApps/Camera";
 import Chess from "./AllApps/Chess";
+import Weather from "./AllApps/Weather";
 
 type WindowInfo = {
   name: string;
@@ -242,6 +243,7 @@ export default function Desktop() {
             {window.name === "Camera" && <Camera/>}
             {window.name === "Clock" && <Clock/>}
             {window.name === "3D Chess Game" && <Chess/>}
+            {window.name === "Weather" && <Weather/>}
           </Window>
         ) : null
       )}
