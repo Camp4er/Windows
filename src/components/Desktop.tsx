@@ -20,6 +20,7 @@ import StickyNotes from "./AllApps/StickyNotes";
 import Camera from "./AllApps/Camera";
 import Chess from "./AllApps/Chess";
 import Weather from "./AllApps/Weather";
+import TimeTracker from "./AllApps/TimeTracker";
 
 type WindowInfo = {
   name: string;
@@ -244,6 +245,7 @@ export default function Desktop() {
             {window.name === "Clock" && <Clock/>}
             {window.name === "3D Chess Game" && <Chess/>}
             {window.name === "Weather" && <Weather/>}
+            {window.name === "Time Tracker" && <TimeTracker/>}
           </Window>
         ) : null
       )}

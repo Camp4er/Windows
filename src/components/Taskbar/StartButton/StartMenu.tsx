@@ -74,7 +74,7 @@ const StartMenu = ({ closeMenu }: { closeMenu: () => void }) => {
     { name: "Visual Studio Code", icon: "/icons/vscode.svg", type:"file", action: () => console.log("Calculator")  },
     {name: "Snakeats", icon: "/icons/snake.png", type:"file", action: () => console.log("Calculator")  },
     {name: "Weather", icon: "/icons/cloud.png", type:"file", action: () => openWindow("Weather", "/icons/cloud.png")  },
-    {name: "Time Tracker", icon: "/icons/time-tracking.png", type:"file", action: () => console.log("Calculator")  },
+    {name: "Time Tracker", icon: "/icons/time-tracking.png", type:"file", action: () => openWindow("Time Tracker", "/icons/time-tracking.png")  },
     {name: "Sticky Notes", icon: "/icons/sticky-note.png", type:"file", action: () => console.log("Calculator")  },
   ].sort((a, b) => a.name.localeCompare(b.name)); // Sort alphabetically
 
