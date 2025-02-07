@@ -34,13 +34,13 @@ export default function Window({
   };
 
   return (
-    <div className="w-full h-full relative">
+    <div className="w-full h-full relative h-[calc(100vh - 54px)]">
       {isVisible && (
         <div
           className={`window bg-gray-900 border border-gray-600 shadow-lg transition-all duration-300 ${
             isMaximized
               ? "fixed top-0 left-0 right-0 m-0 " // full screen without margins
-              : "fixed top-1/4 bottom-1/8 left-1/4 right-1/4 transform -translate-y-1/4" //center the window
+              : "fixed top-1/4 bottom-1/8 left-1/4 right-1/4 max-h-[60%] transform -translate-y-1/4" //center the window
           }`}
           style={{
             height: isMaximized ? "calc(100vh - 54px)" : "auto", // Adjusts for taskbar height (54px)
