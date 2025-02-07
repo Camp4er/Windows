@@ -51,7 +51,7 @@ const StartMenu = ({ closeMenu }: { closeMenu: () => void }) => {
   const allApps = [
     // { name: "3D Chess Game", icon: "/icons/chess.png", type:"file", action: () => openWindow("3D Chess Game", "/icons/chess.png") },
     { name: "Family", icon: "/icons/family.png", type:"file", action: () => console.log("Calculator")  },
-    { name: "Feedback Hub", icon: "/icons/review.png", type:"file", action: () => console.log("Calculator")  },
+    { name: "Feedback Hub", icon: "/icons/review.png", type:"file", action: () => openWindow("Feedback Hub", "/icons/review.png") },
     { name: "Calculator", icon: "/icons/calculator.png", type:"file", action: () => openWindow("Calculator", "/icons/calculator.png") },
     { name: "Calendar", icon: "/icons/calendar.png", type:"file", action: () => console.log("Calculator")  },
     { name: "Camera", icon: "/icons/camera.png", type:"file", action: () => console.log("Calculator")  },

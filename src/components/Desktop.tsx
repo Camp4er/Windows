@@ -21,6 +21,7 @@ import Camera from "./AllApps/Camera";
 import Chess from "./AllApps/Chess";
 import Weather from "./AllApps/Weather";
 import TimeTracker from "./AllApps/TimeTracker";
+import Feedback from "./AllApps/Feedback";
 
 type WindowInfo = {
   name: string;
@@ -246,6 +247,7 @@ export default function Desktop() {
             {window.name === "3D Chess Game" && <Chess/>}
             {window.name === "Weather" && <Weather/>}
             {window.name === "Time Tracker" && <TimeTracker/>}
+            {window.name === "Feedback Hub" && <Feedback/>}
           </Window>
         ) : null
       )}
