@@ -1,7 +1,9 @@
+"use client";
+
 import React, { useState, useEffect, useCallback } from "react";
 import axios from "axios";
 import { FiSearch } from "react-icons/fi";
-import { FaWind, FaTint, FaCompress, FaThermometerHalf } from "react-icons/fa";
+import { FaWind, FaTint, FaCompress, FaThermometerHalf, FaHeart, FaArrowLeft } from "react-icons/fa";
 
 interface WeatherData {
     temperature: number;
@@ -24,9 +26,10 @@ const Weather: React.FC = () => {
     const [error, setError] = useState<string | null>(null);
     const [searchQuery, setSearchQuery] = useState(location);
     const [weatherWisdom, setWeatherWisdom] = useState("");
+    const [selectedFactIndex, setSelectedFactIndex] = useState<number | null>(null);
+    const [isFactFavorite, setIsFactFavorite] = useState(false);
 
-    const API_KEY = "d7aa9667d92f4585c98f508328a5654d";
-
+    const API_KEY = process.env.NEXT_PUBLIC_WEATHER_API_KEY;
     const weatherFacts = [
         "The dew point is the temperature to which air must be cooled to become saturated with water vapor.",
         "Wind speed is measured with an anemometer.",
@@ -122,15 +125,44 @@ const Weather: React.FC = () => {
         setWeatherWisdom(weatherWisdoms[Math.floor(Math.random() * weatherWisdoms.length)]);
     };
 
+    const handleFactClick = (index: number) => {
+        setSelectedFactIndex(index);
+    };
+
+    const handleGoBack = () => {
+        setSelectedFactIndex(null);
+    };
+
+    const handleToggleFavorite = () => {
+        setIsFactFavorite(!isFactFavorite);
+    };
+
     return (
-        <div className="min-h-screen bg-gradient-to-br from-blue-200 to-blue-800 text-gray-800 flex flex-col items-center p-6">
-            <div className="container mx-auto  flex flex-col justify-between lg:flex-row">
+        <div className="min-h-screen font-roboto bg-gradient-to-br from-blue-200 to-blue-800 text-gray-800 flex flex-col items-center p-6">
+            <div className="container mx-auto flex flex-row justify-between">
+
                 {/* Left Section (Weather Facts) */}
-                <div className="lg:w-1/4 p-4 bg-white rounded-lg shadow-md overflow-y-auto">
+                <div className="lg:w-1/4 p-4 bg-white rounded-lg shadow-md overflow-y-auto max-h-96">
                     <h3 className="text-lg font-semibold mb-2">Did You Know?</h3>
-                    {weatherFacts.map((fact, index) => (
-                        <p key={index} className="text-sm mb-2">{fact}</p>
-                    ))}
+                    {selectedFactIndex === null ? (
+                        weatherFacts.map((fact, index) => (
+                            <div key={index} className="text-sm mb-2 cursor-pointer" onClick={() => handleFactClick(index)}>
+                                {fact}
+                            </div>
+                        ))
+                    ) : (
+                        <div>
+                            <div className="flex justify-between items-center mb-2">
+                                <button onClick={handleGoBack} className="text-blue-500 hover:text-blue-700">
+                                    <FaArrowLeft className="inline-block mr-1" /> Back
+                                </button>
+                                <button onClick={handleToggleFavorite} className={`text-red-500 hover:text-red-700 ${isFactFavorite ? 'text-red-700' : ''}`}>
+                                    <FaHeart className="inline-block" /> {isFactFavorite ? 'Unfavorite' : 'Favorite'}
+                                </button>
+                            </div>
+                            <p className="text-sm">{weatherFacts[selectedFactIndex]}</p>
+                        </div>
+                    )}
                 </div>
 
                 {/* Central Section (Weather Content) */}
@@ -202,6 +234,7 @@ const Weather: React.FC = () => {
                         </div>
                     )}
                 </div>
+
                 {/* Right Section (Weather Wisdom) */}
                 <div className="lg:w-1/4 p-4">
                     <div className="bg-white rounded-lg shadow-md p-4">
