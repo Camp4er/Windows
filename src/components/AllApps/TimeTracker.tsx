@@ -150,7 +150,7 @@ const TimeTracker: React.FC = () => {
 
 
  return (
- <div className="min-h-screen bg-gradient-to-br from-gray-900 to-gray-700 p-4 flex items-center justify-center">
+ <div className="min-h-screen bg-gradient-to-br from-gray-900 to-gray-700 p-4 flex pt-14">
  <div className="w-full h-full bg-gray-800 rounded-xl shadow-lg overflow-hidden flex flex-col md:flex-row">
  {/* Time Tracking Section */}
  <div className="md:w-1/2 p-8 flex flex-col justify-between">
@@ -202,7 +202,7 @@ const TimeTracker: React.FC = () => {
  {/* Time Entries Section */}
  <div className="md:w-1/2 p-6 bg-gray-700 border-l border-gray-600">
  <h2 className="text-xl font-bold mb-2 text-white">Time Entries</h2>
- <div className="overflow-y-auto h-96">
+ <div className="overflow-y-auto pr-2 h-96 scrollbar-thin scrollbar-thumb-zinc-600 scrollbar-track-zinc-900 scrollbar-thumb-rounded-md">
  {entries.map((entry) => (
  <div
  key={entry.id}
