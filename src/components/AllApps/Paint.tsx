@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useRef, useEffect, useCallback } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { FaPencilAlt, FaEraser, FaMousePointer, FaSearchPlus, FaSearchMinus, FaPaintBrush, FaFont, FaSquare, FaCircle, FaFillDrip, FaTextHeight } from 'react-icons/fa';
 
 const Paint: React.FC = () => {
@@ -25,26 +25,6 @@ const Paint: React.FC = () => {
     const [isTyping, setIsTyping] = useState(false);
     const [isInsideCanvas, setIsInsideCanvas] = useState(false);
     const [shapeData, setShapeData] = useState<{ x: number; y: number; width: number; height: number }>({ x: 0, y: 0, width: 0, height: 0 });
-
-    // Use useCallback for stable functions
-    const drawShape = useCallback((ctx: CanvasRenderingContext2D, x: number, y: number, width: number, height: number, tool: string) => {
-        ctx.beginPath();
-        if (tool === 'square') {
-            ctx.rect(x, y, width, height);
-        } else if (tool === 'circle') {
-            const radius = Math.sqrt(Math.pow(width, 2) + Math.pow(height, 2));
-            ctx.arc(x, y, radius, 0, 2 * Math.PI);
-        }
-        ctx.stroke();
-    }, []);
-
-    const saveToHistory = useCallback((ctx: CanvasRenderingContext2D, dataURL: string) => {
-        setHistory(prevHistory => {
-            const newHistory = prevHistory.slice(0, historyStep + 1);
-            return [...newHistory, dataURL];
-        });
-        setHistoryStep(prevHistoryStep => prevHistoryStep + 1);
-    }, [historyStep]);
 
     useEffect(() => {
         const canvas = canvasRef.current;
@@ -75,7 +55,7 @@ const Paint: React.FC = () => {
         }
 
         setCursorStyle(selectedTool);
-    }, [canvasWidth, canvasHeight, fillColor, zoomLevel, selectedTool, historyStep, saveToHistory]);
+    }, [canvasWidth, canvasHeight, fillColor, zoomLevel, selectedTool, historyStep]);
 
     const startDrawing = (e: React.MouseEvent<HTMLCanvasElement>) => {
         if (!context) return;
@@ -91,6 +71,7 @@ const Paint: React.FC = () => {
         } else {
             context.beginPath();
             context.moveTo(x, y);
+            draw(e); // Start drawing immediately
         }
     };
 
@@ -113,24 +94,25 @@ const Paint: React.FC = () => {
                 break;
             case 'square':
             case 'circle':
-                if (drawing) {
-                    context.clearRect(0, 0, canvasWidth, canvasHeight);
-                    const img = new Image();
-                    img.src = history[historyStep];
-                    img.onload = () => {
-                        context.drawImage(img, 0, 0, canvasWidth, canvasHeight);
-                        context.beginPath();
-                        if (selectedTool === 'square') {
-                            context.rect(startX, startY, x - startX, y - startY);
-                        } else if (selectedTool === 'circle') {
-                            const radius = Math.sqrt(Math.pow(x - startX, 2) + Math.pow(y - startY, 2));
-                            context.arc(startX, startY, radius, 0, 2 * Math.PI);
-                        }
-                        context.strokeStyle = strokeColor;
-                        context.lineWidth = lineWidth;
-                        context.stroke();
-                    };
-                }
+                // Clear the canvas and redraw the initial image
+                context.clearRect(0, 0, canvasWidth, canvasHeight);
+                const img = new Image();
+                img.src = history[historyStep];
+                img.onload = () => {
+                    context.drawImage(img, 0, 0, canvasWidth, canvasHeight);
+
+                    // Draw the shape
+                    context.beginPath();
+                    if (selectedTool === 'square') {
+                        context.rect(startX, startY, x - startX, y - startY);
+                    } else if (selectedTool === 'circle') {
+                        const radius = Math.sqrt(Math.pow(x - startX, 2) + Math.pow(y - startY, 2));
+                        context.arc(startX, startY, radius, 0, 2 * Math.PI);
+                    }
+                    context.strokeStyle = strokeColor;
+                    context.lineWidth = lineWidth;
+                    context.stroke();
+                };
                 break;
             default:
                 break;
@@ -174,6 +156,14 @@ const Paint: React.FC = () => {
         });
     };
 
+    const saveToHistory = (ctx: CanvasRenderingContext2D, dataURL: string) => {
+        setHistory(prevHistory => {
+            const newHistory = prevHistory.slice(0, historyStep + 1);
+            return [...newHistory, dataURL];
+        });
+        setHistoryStep(prevHistoryStep => prevHistoryStep + 1);
+    };
+
     const undo = () => {
         if (historyStep > 0) {
             setHistoryStep(prevStep => prevStep - 1);
@@ -207,7 +197,7 @@ const Paint: React.FC = () => {
         setTooltipText('');
     };
 
-    const setCursorStyle = useCallback((tool: string) => {
+    const setCursorStyle = (tool: string) => {
         let cursor = 'default';
         switch (tool) {
             case 'pencil':
@@ -227,7 +217,7 @@ const Paint: React.FC = () => {
         if (canvasRef.current) {
             canvasRef.current.style.cursor = isInsideCanvas ? cursor : 'default';
         }
-    }, [isInsideCanvas]);
+    };
 
     const handleCanvasEnter = () => {
         setIsInsideCanvas(true);
