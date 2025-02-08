@@ -65,7 +65,7 @@ const StartMenu = ({ closeMenu }: { closeMenu: () => void }) => {
     ] },
     {name: "Google Chrome", icon: "/icons/chrome.svg", type:"file", action: () => console.log("Calculator")  },
     {name: "Microsoft Edge", icon: "/icons/microsoft.png", type:"file", action: () => console.log("Calculator")  },
-    { name: "Get Help", icon: "/icons/question.png", type:"file", action: () => console.log("Calculator")  },
+    { name: "Paint", icon: "/icons/paint.png", type:"file", action: () => openWindow("Paint", "/icons/paint.png") },
     { name: "Youtube", icon: "/icons/Youtube.png", type:"file", action: () => console.log("Calculator")  },
     { name: "Clock", icon: "/icons/clock.png", type:"file", action: () => console.log("Calculator")  },
     { name: "Notepad", icon: "/icons/notepad.png", type:"file", action: () => console.log("Calculator")  },

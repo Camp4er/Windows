@@ -22,6 +22,7 @@ import Chess from "./AllApps/Chess";
 import Weather from "./AllApps/Weather";
 import TimeTracker from "./AllApps/TimeTracker";
 import Feedback from "./AllApps/Feedback";
+import Paint from "./AllApps/Paint";
 
 type WindowInfo = {
   name: string;
@@ -248,6 +249,7 @@ export default function Desktop() {
             {window.name === "Weather" && <Weather/>}
             {window.name === "Time Tracker" && <TimeTracker/>}
             {window.name === "Feedback Hub" && <Feedback/>}
+            {window.name === "Paint" && <Paint/>}
           </Window>
         ) : null
       )}
