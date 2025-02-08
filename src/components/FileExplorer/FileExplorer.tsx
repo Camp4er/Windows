@@ -214,7 +214,7 @@ const FileExplorer = ({ initialSidebarId, sidebarData }: FileExplorerProps) => {
         onUpArrowClick={handleUpArrowClick}
         onSearch={handleChange}
       />
-      <div className="flex flex-row gap-5 p-0 m-0 h-full">
+      <div className="flex flex-row p-0 m-0 h-full">
         <Sidebar
           foldersOne={Object.values(sectionOne).flat()}
           foldersTwo={Object.values(sectionTwo).flat()}
