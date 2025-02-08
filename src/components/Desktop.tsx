@@ -23,6 +23,7 @@ import Weather from "./AllApps/Weather";
 import TimeTracker from "./AllApps/TimeTracker";
 import Feedback from "./AllApps/Feedback";
 import Paint from "./AllApps/Paint";
+import TicTacToe from "./AllApps/TicTacToe";
 
 type WindowInfo = {
   name: string;
@@ -250,6 +251,7 @@ export default function Desktop() {
             {window.name === "Time Tracker" && <TimeTracker/>}
             {window.name === "Feedback Hub" && <Feedback/>}
             {window.name === "Paint" && <Paint/>}
+            {window.name === "Tic-Tac-Toe" && <TicTacToe/>}
           </Window>
         ) : null
       )}
