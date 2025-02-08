@@ -60,7 +60,7 @@ const StartMenu = ({ closeMenu }: { closeMenu: () => void }) => {
     { name: "File Explorer", icon: "/icons/app.png", type:"file", action: () => console.log("Calculator")  },
     { name: "Chrome Apps", icon: "/icons/folder.png", type: "folder",action: () => console.log("Calculator")  , children: [
       {name: "Google Chrome", icon: "/icons/chrome.svg", type:"file", action: () => console.log("Calculator")  },
-      {name: "Youtube", icon: "/icons/youtube.png", type:"file", action: () => console.log("Calculator")  },
+      {name: "Youtube", icon: "/icons/youtube.png", type:"file", action: () => openWindow("Youtube", "/icons/youtube.png")  },
     ] },
     { name: "Game Bar", icon: "/icons/folder.png", type: "folder",action: () => console.log("Calculator"), children: [
       {name: "Snakeats", icon: "/icons/snake.png", type:"file", action: () => console.log("Calculator")  },
@@ -68,7 +68,7 @@ const StartMenu = ({ closeMenu }: { closeMenu: () => void }) => {
     {name: "Google Chrome", icon: "/icons/chrome.svg", type:"file", action: () => console.log("Calculator")  },
     {name: "Microsoft Edge", icon: "/icons/microsoft.png", type:"file", action: () => console.log("Calculator")  },
     { name: "Paint", icon: "/icons/paint.png", type:"file", action: () => openWindow("Paint", "/icons/paint.png") },
-    { name: "Youtube", icon: "/icons/Youtube.png", type:"file", action: () => console.log("Calculator")  },
+    { name: "Youtube", icon: "/icons/Youtube.png", type:"file", action: () => openWindow("Youtube", "/icons/youtube.png")  },
     { name: "Clock", icon: "/icons/clock.png", type:"file", action: () => console.log("Calculator")  },
     { name: "Notepad", icon: "/icons/notepad.png", type:"file", action: () => console.log("Calculator")  },
     { name: "Photos", icon: "/icons/gallery.png", type:"file", action: () => console.log("Calculator")  },

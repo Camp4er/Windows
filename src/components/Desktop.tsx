@@ -236,6 +236,13 @@ export default function Desktop() {
             {window.name === "Tic-Tac-Toe" && <TicTacToe/>}
             {window.name === "Rock Paper Scissors" && <RockPaperScissors/>}
             {window.name === "Minesweeper" && <Minesweeper/>}
+            {window.name === "Youtube" && (
+              <iframe
+              src="https://www.youtube.com/embed/3s1aHBNjlq4"
+              width="100%"
+              height="100%">
+              </iframe>
+            )}
           </Window>
         ) : null
       )}
