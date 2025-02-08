@@ -50,7 +50,8 @@ const StartMenu = ({ closeMenu }: { closeMenu: () => void }) => {
 
   const allApps = [
     // { name: "3D Chess Game", icon: "/icons/chess.png", type:"file", action: () => openWindow("3D Chess Game", "/icons/chess.png") },
-    {name: "Rock Paper Scissors", icon: "/icons/rock-paper-scissors.png", type:"file", action: () => openWindow("Rock Paper Scissors", "/icons/rock-paper-scissors.png") },
+    { name: "Minesweeper", icon: "/icons/review.png", type:"file", action: () => openWindow("Minesweeper", "/icons/review.png") },
+    { name: "Rock Paper Scissors", icon: "/icons/rock-paper-scissors.png", type:"file", action: () => openWindow("Rock Paper Scissors", "/icons/rock-paper-scissors.png") },
     { name: "Tic-Tac-Toe", icon: "/icons/tictactoe.png", type:"file", action: () => openWindow("Tic-Tac-Toe", "/icons/tictactoe.png") },
     { name: "Feedback Hub", icon: "/icons/review.png", type:"file", action: () => openWindow("Feedback Hub", "/icons/review.png") },
     { name: "Calculator", icon: "/icons/calculator.png", type:"file", action: () => openWindow("Calculator", "/icons/calculator.png") },

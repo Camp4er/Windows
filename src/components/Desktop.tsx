@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import DesktopIcon from "./DesktopIcon";
 import Window from "./Window";
 import Taskbar from "./Taskbar/Taskbar";
@@ -25,6 +25,7 @@ import Feedback from "./AllApps/Feedback";
 import Paint from "./AllApps/Paint";
 import TicTacToe from "./AllApps/TicTacToe";
 import RockPaperScissors from "./AllApps/RockPaperScissors";
+import Minesweeper from "./AllApps/Minesweeper";
 
 type WindowInfo = {
   name: string;
@@ -35,26 +36,6 @@ type WindowInfo = {
 export default function Desktop() {
   const { openWindows, openWindow, closeWindow, toggleMinimizeWindow } =
     useWindowManager();
-
-    // const [contextMenu, setContextMenu] = useState<{
-    //   visible: boolean;
-    //   x: number;
-    //   y: number;
-      
-    // }>({visible: false ,x: 0, y: 0});
-  
-    // const handleRightClick = (event: React.MouseEvent) => {
-    //   event.preventDefault();
-    //   setContextMenu({
-    //     visible: true,
-    //     x: event.clientX,
-    //     y: event.clientY,
-    //   });
-    // };
-  
-    // const handleLeftClick = () => {
-    //   setContextMenu({ visible: false, x: 0, y: 0 });
-    // };
 
   //context for notepad's description
   const aboutMe =
@@ -254,6 +235,7 @@ export default function Desktop() {
             {window.name === "Paint" && <Paint/>}
             {window.name === "Tic-Tac-Toe" && <TicTacToe/>}
             {window.name === "Rock Paper Scissors" && <RockPaperScissors/>}
+            {window.name === "Minesweeper" && <Minesweeper/>}
           </Window>
         ) : null
       )}
