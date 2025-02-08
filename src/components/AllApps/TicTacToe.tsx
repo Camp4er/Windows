@@ -1,4 +1,3 @@
- // TicTacToe.tsx
  import React, { useState, useEffect } from 'react';
  import { Inter } from 'next/font/google';
  

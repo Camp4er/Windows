@@ -24,6 +24,7 @@ import TimeTracker from "./AllApps/TimeTracker";
 import Feedback from "./AllApps/Feedback";
 import Paint from "./AllApps/Paint";
 import TicTacToe from "./AllApps/TicTacToe";
+import RockPaperScissors from "./AllApps/RockPaperScissors";
 
 type WindowInfo = {
   name: string;
@@ -252,6 +253,7 @@ export default function Desktop() {
             {window.name === "Feedback Hub" && <Feedback/>}
             {window.name === "Paint" && <Paint/>}
             {window.name === "Tic-Tac-Toe" && <TicTacToe/>}
+            {window.name === "Rock Paper Scissors" && <RockPaperScissors/>}
           </Window>
         ) : null
       )}
