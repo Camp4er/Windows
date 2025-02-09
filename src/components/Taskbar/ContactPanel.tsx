@@ -24,22 +24,22 @@ const ContactPanel: React.FC<ContactPanelProps> = () => {
             <input
               type="text"
               placeholder="Your name"
-              className="text-black w-full p-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="text-white w-full p-3 rounded-md border bg-slate-950 border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
             <input
               type="email"
               placeholder="Your email address"
-              className="text-black w-full p-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="text-white w-full p-3 rounded-md border bg-slate-950 border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
 
           <textarea
             placeholder="Your message for me"
-            className="text-black w-full p-3 rounded-md border border-gray-300 h-32 resize-none focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="text-white w-full p-3 rounded-md border bg-slate-950 border-gray-300 h-32 resize-none focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
           <button
             type="submit"
-            className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold p-3 rounded-md"
+            className="w-full bg-blue-700 hover:bg-blue-600 text-white font-semibold mt-1 p-3 rounded-md"
           >
             Submit
           </button>
@@ -53,38 +53,38 @@ const ContactPanel: React.FC<ContactPanelProps> = () => {
           href="https://www.linkedin.com/in/poorva-saxena-983642256/"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center w-full gap-3 p-3 bg-white border rounded-md shadow hover:bg-gray-300"
+          className="flex items-center w-full gap-3 p-3 bg-slate-950 border rounded-md shadow hover:bg-slate-900"
         >
           <FaLinkedin size={24} className="text-blue-600" />
-          <span className="text-black">LinkedIn</span>
+          <span className="text-white">LinkedIn</span>
         </a>
         <a
           href="https://github.com/Camp4er"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center w-full gap-3 p-3 bg-white border rounded-md shadow hover:bg-gray-300"
+          className="flex items-center w-full gap-3 p-3 bg-slate-950 border rounded-md shadow hover:bg-slate-900"
         >
-          <FaGithub size={24} className="text-gray-800" />
-          <span className="text-black">GitHub</span>
+          <FaGithub size={24} className="text-white" />
+          <span className="text-white">GitHub</span>
         </a></div>
         <div className="flex flex-row gap-3">
         <a
-          href="https://twitter.com/Camp4er"
+          href="https://X.com/Camp4er"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center w-full gap-3 p-3 bg-white border rounded-md shadow hover:bg-gray-300"
+          className="flex items-center w-full gap-3 p-3 bg-slate-950 border rounded-md shadow hover:bg-slate-900"
         >
-          <FaTwitter size={24} className="text-blue-400" />
-          <span className="text-black">Twitter</span>
+          <Image src={"/icons/x.png"} alt="X icon" width={24} height={24}/>
+          <span className="text-white">X</span>
         </a>
         <a
           href="mailto:saxenapoorva2004@gmail.com"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center w-full gap-3 p-3 bg-white border rounded-md shadow hover:bg-gray-300"
+          className="flex items-center w-full gap-3 p-3 bg-slate-950 border rounded-md shadow hover:bg-slate-900"
         >
           <Image src="/icons/gmail.png" alt="gmail icon" width={24} height={24} />
-          <span className="text-black">Email</span>
+          <span className="text-white">Email</span>
         </a></div>
       </div>
       </div>

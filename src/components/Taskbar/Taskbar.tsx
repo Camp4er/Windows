@@ -103,14 +103,14 @@ const Taskbar = ({ openWindows, toggleWindow, openWindow }: TaskbarProps) => {
   ];
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 bg-zinc-900 text-white flex items-center justify-between px-4 h-[54px]">
-      {/* Shortcut Button */}
+    <div className="fixed bottom-0 left-0 right-0 bg-zinc-900 text-white flex items-center justify-between px-3 h-[54px]">
+      {/* Contact Button */}
       <div
-        className="flex items-center gap-2 hover:bg-zinc-800 p-2 rounded"
+        className="flex items-center gap-2 px-1 hover:bg-zinc-800 rounded"
         aria-label="Contact Me"
       >
         <img
-          src="/icons/shortcut.png"
+          src="/icons/contact-us.png"
           alt="Contact Me icon"
           width={28}
           height={28}
@@ -201,21 +201,13 @@ const Taskbar = ({ openWindows, toggleWindow, openWindow }: TaskbarProps) => {
             />
           </button>
         </div>
-        <div className="flex items-center hover:bg-zinc-800 gap-1 m-0 py-2 px-2 rounded">
+        <div className="flex items-center hover:bg-zinc-800 gap-1 m-0 py-1 px-2 rounded">
           <p className="text-center text-white text-xs">
             ENG
             <br />
             IN
           </p>
         </div>
-        {/* <button className="flex items-center hover:bg-zinc-800 gap-1 m-0 py-2 px-1 rounded"  onClick={togglePanel}>
-          {systemTrayIcons.map((icon) => (
-            <div key={icon.id} className="p-1 rounded" aria-label={icon.alt} >
-              <img src={icon.src} alt={icon.alt} width={15} height={16} />
-            </div>
-          ))}
-           <ActionCenter />
-        </button> */}
         <div className="flex items-center hover:bg-zinc-800 gap-1 m-0 rounded">
           <ActionCenter />
         </div>

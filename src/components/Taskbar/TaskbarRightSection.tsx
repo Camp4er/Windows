@@ -47,7 +47,7 @@ export default function TaskbarRightSection() {
     <div className="relative">
       {/* Taskbar Right Section */}
       <div
-        className="flex items-center gap-2 p-2 cursor-pointer rounded-md"
+        className="flex items-center gap-2 p-1 cursor-pointer rounded-md"
         onClick={togglePanel}
       >
         <div className="text-white">

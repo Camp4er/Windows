@@ -35,7 +35,7 @@ export default function TaskbarLeftSection() {
       {isContactOpen && (
         <div
           ref={panelRef}
-          className="absolute bottom-full left-5 mb-2 h-[600px] w-auto z-50 transform transition-transform duration-300 bg-gray-600 bg-opacity-80 rounded"
+          className="absolute bottom-full mb-2 h-[600px] w-auto z-50 transform transition-transform duration-300 bg-gray-700 bg-opacity-80 rounded"
           style={{ transform: isContactOpen ? "animate-slide-in-left" : "animate-slide-out-left" }}
         >
           <ContactPanel />
