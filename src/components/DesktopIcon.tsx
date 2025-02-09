@@ -6,7 +6,7 @@ type DesktopIconProps = {
   
   export default function DesktopIcon({ title, icon, onClick }: DesktopIconProps) {
     return (
-      <div onClick={onClick} className="flex flex-col  cursor-pointer text-center p-1 px-2 rounded hover:bg-gray-800 ">
+      <div onClick={onClick} className="flex flex-col items-center cursor-pointer text-center py-1 px-10 rounded hover:bg-gray-800 max-w-14">
         <div className="w-12 h-12 flex  justify-center rounded-md">
           <img src={icon} alt={`${title} icon`} className="w-10 h-10" />
         </div>

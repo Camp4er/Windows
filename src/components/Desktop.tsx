@@ -94,10 +94,10 @@ export default function Desktop() {
   return (
     <>
       {/* Desktop icons */}
-      <div className="flex flex-row desktop-container"
-      style={{ position: "relative", width: "100vw", height: "100vh" }}
+      <div className="flex flex-row desktop-container pl-3"
+      style={{ position: "relative", width: "100vw", height: "100vh"}}
       >
-        <div className="flex flex-col gap-3 justify-start items-start p-4 flex-wrap">
+        <div className="flex flex-col gap-3 justify-start items-start p-3 flex-wrap">
           <DesktopIcon
             title="About Me"
             icon="/icons/user-folder.png"
@@ -141,9 +141,9 @@ export default function Desktop() {
             onClick={() => console.log("VS Code opened")}
           />
           <DesktopIcon
-            title="Snakeats"
-            icon="/icons/snake.png"
-            onClick={() => openWindow("Snakeats", "/icons/snake.png")}
+            title="Feedback Hub"
+            icon="/icons/review.png"
+            onClick={() => openWindow("Feedback Hub", "/icons/review.png") }
           />
           <DesktopIcon
             title="Notepad"

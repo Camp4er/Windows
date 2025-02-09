@@ -1,4 +1,5 @@
 import React from "react";
+import Snake from "./AllApps/Snake";
 
 const Snakegame = () => {
   return (
@@ -6,7 +7,9 @@ const Snakegame = () => {
       src="https://snakeats.netlify.app/"
       width="100%"
       height="100%"
-    ></iframe>
+     ></iframe>
+    // <>
+    // <Snake /></>
   );
 };
 
