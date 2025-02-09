@@ -23,7 +23,7 @@ export default function TaskbarLeftSection() {
   return (
     <div className="relative">
       <button
-        className="text-white py-2 cursor-pointer rounded-md"
+        className="text-white py-2 cursor-pointer rounded-md pr-1"
         onClick={toggleContactPanel}
       >
         Contact Me
