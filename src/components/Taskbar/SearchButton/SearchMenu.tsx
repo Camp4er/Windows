@@ -2,7 +2,6 @@
 import React, { useState, useEffect } from "react";
 import { FaSearch } from "react-icons/fa";
 import { useWindowManager } from "@/components/NewWindow/WindowManagerContext";
-import Image from "next/image";
 
 interface App {
   name: string;
@@ -11,204 +10,6 @@ interface App {
   action: () => void;
   children?: App[];
 }
-
-const recommendedFiles = [
-  { name: "Resume", icon: "/icons/pdf.png", time: "Yesterday at 12:44 PM" },
-  { name: "Notepad", icon: "/icons/notepad.png", time: "Friday at 11:56 AM" },
-  {
-    name: "LinkedIn",
-    icon: "/icons/linkedin.png",
-    time: "Thursday at 11:10 PM",
-  },
-  {
-    name: "Time Tracker",
-    icon: "/icons/time-tracking.png",
-    time: "Thursday at 11:09 PM",
-  },
-];
-
-const allApps: App[] = [
-  {
-    name: "Minesweeper",
-    icon: "/icons/bomb.png",
-    type: "file",
-    action: () => {},
-  },
-  {
-    name: "Rock Paper Scissors",
-    icon: "/icons/rock-paper-scissors.png",
-    type: "file",
-    action: () => {},
-  },
-  {
-    name: "Tic-Tac-Toe",
-    icon: "/icons/tictactoe.png",
-    type: "file",
-    action: () => {},
-  },
-  {
-    name: "Feedback Hub",
-    icon: "/icons/review.png",
-    type: "file",
-    action: () => {},
-  },
-  {
-    name: "Calculator",
-    icon: "/icons/calculator.png",
-    type: "file",
-    action: () => {},
-  },
-  {
-    name: "Calendar",
-    icon: "/icons/calendar.png",
-    type: "file",
-    action: () => {},
-  },
-  { name: "Camera", icon: "/icons/camera.png", type: "file", action: () => {} },
-  {
-    name: "File Explorer",
-    icon: "/icons/app.png",
-    type: "file",
-    action: () => {},
-  },
-  {
-    name: "Chrome Apps",
-    icon: "/icons/folder.png",
-    type: "folder",
-    action: () => {},
-    children: [
-      {
-        name: "Google Chrome",
-        icon: "/icons/chrome.svg",
-        type: "file",
-        action: () => {},
-      },
-      {
-        name: "Youtube",
-        icon: "/icons/youtube.png",
-        type: "file",
-        action: () => {},
-      },
-    ],
-  },
-  {
-    name: "Game Bar",
-    icon: "/icons/folder.png",
-    type: "folder",
-    action: () => {},
-    children: [
-      {
-        name: "Snakeats",
-        icon: "/icons/snake.png",
-        type: "file",
-        action: () => {},
-      },
-      {
-        name: "Minesweeper",
-        icon: "/icons/bomb.png",
-        type: "file",
-        action: () => {},
-      },
-      {
-        name: "Rock Paper Scissors",
-        icon: "/icons/rock-paper-scissors.png",
-        type: "file",
-        action: () => {},
-      },
-      {
-        name: "Tic-Tac-Toe",
-        icon: "/icons/tictactoe.png",
-        type: "file",
-        action: () => {},
-      },
-    ],
-  },
-  {
-    name: "Google Chrome",
-    icon: "/icons/chrome.svg",
-    type: "file",
-    action: () => {},
-  },
-  {
-    name: "Microsoft Edge",
-    icon: "/icons/microsoft.png",
-    type: "file",
-    action: () => {},
-  },
-  { name: "Paint", icon: "/icons/paint.png", type: "file", action: () => {} },
-  {
-    name: "Youtube",
-    icon: "/icons/Youtube.png",
-    type: "file",
-    action: () => {},
-  },
-  { name: "Clock", icon: "/icons/clock.png", type: "file", action: () => {} },
-  {
-    name: "Notepad",
-    icon: "/icons/notepad.png",
-    type: "file",
-    action: () => {},
-  },
-  {
-    name: "Photos",
-    icon: "/icons/gallery.png",
-    type: "file",
-    action: () => {},
-  },
-  { name: "Terminal", icon: "/icons/bash.png", type: "file", action: () => {} },
-  {
-    name: "Visual Studio Code",
-    icon: "/icons/vscode.svg",
-    type: "file",
-    action: () => {},
-  },
-  {
-    name: "Snakeats",
-    icon: "/icons/snake.png",
-    type: "file",
-    action: () => {},
-  },
-  { name: "Weather", icon: "/icons/cloud.png", type: "file", action: () => {} },
-  {
-    name: "Time Tracker",
-    icon: "/icons/time-tracking.png",
-    type: "file",
-    action: () => {},
-  },
-  {
-    name: "Sticky Notes",
-    icon: "/icons/sticky-note.png",
-    type: "file",
-    action: () => {},
-  },
-].sort((a, b) => a.name.localeCompare(b.name));
-
-const topApps: App[] = [
-  {
-    name: "Calculator",
-    icon: "/icons/calculator.png",
-    type: "file",
-    action: () => {},
-  },
-  {
-    name: "Notepad",
-    icon: "/icons/notepad.png",
-    type: "file",
-    action: () => {},
-  },
-  {
-    name: "File Explorer",
-    icon: "/icons/app.png",
-    type: "file",
-    action: () => {},
-  },
-  {
-    name: "Google Chrome",
-    icon: "/icons/chrome.svg",
-    type: "file",
-    action: () => {},
-  },
-];
 
 const SearchMenu = ({ closeMenu }: { closeMenu: () => void }) => {
   const { openWindow } = useWindowManager();
@@ -238,6 +39,183 @@ const SearchMenu = ({ closeMenu }: { closeMenu: () => void }) => {
       setSearchResults([]);
     }
   }, [searchTerm]);
+
+  const topApps: App[] = [
+    {
+      name: "Calculator",
+      icon: "/icons/calculator.png",
+      type: "file",
+      action: () => openWindow("Calculator", "/icons/calculator.png"),
+    },
+    {
+      name: "Terminal",
+      icon: "/icons/bash.png",
+      type: "file",
+      action: () => openWindow("Terminal", "/icons/bash.png"),
+    },
+    {
+      name: "File Explorer",
+      icon: "/icons/app.png",
+      type: "file",
+      action: () => openWindow("File Explorer", "/icons/app.png"),
+    },
+    {
+      name: "Google Chrome",
+      icon: "/icons/chrome.svg",
+      type: "file",
+      action: () => openWindow("Google Chrome", "/icons/chrome.svg"),
+    },
+  ];
+
+  const recommendedFiles = [
+    {
+      name: "Resume",
+      icon: "/icons/pdf.png",
+      time: "Yesterday at 12:44 PM",
+      action: () => openWindow("Resume", "/icons/pdf.png"),
+    },
+    {
+      name: "Notepad",
+      icon: "/icons/notepad.png",
+      time: "Friday at 11:56 AM",
+      action: () => openWindow("Notepad", "/icons/notepad.png"),
+    },
+    {
+      name: "LinkedIn",
+      icon: "/icons/linkedin.png",
+      time: "Thursday at 11:10 PM",
+      action: () =>
+        window.open(
+          "https://www.linkedin.com/in/poorva-saxena-983642256/",
+          "_blank"
+        ),
+    },
+    {
+      name: "Time Tracker",
+      icon: "/icons/time-tracking.png",
+      time: "Thursday at 11:09 PM",
+      action: () => openWindow("Time Tracker", "/icons/time-tracking.png"),
+    },
+  ];
+
+  const allApps: App[] = [
+    {
+      name: "Minesweeper",
+      icon: "/icons/bomb.png",
+      type: "file",
+      action: () => openWindow("Minesweeper", "/icons/bomb.png"),
+    },
+    {
+      name: "Rock Paper Scissors",
+      icon: "/icons/rock-paper-scissors.png",
+      type: "file",
+      action: () => openWindow("Rock Paper Scissors", "/icons/rock-paper-scissors.png"),
+    },
+    {
+      name: "Tic-Tac-Toe",
+      icon: "/icons/tictactoe.png",
+      type: "file",
+      action: () => openWindow("Tic Tac Toe", "/icons/tictactoe.png"),
+    },
+    {
+      name: "Feedback Hub",
+      icon: "/icons/review.png",
+      type: "file",
+      action: () => openWindow("Feedback Hub", "/icons/review.png"),
+    },
+    {
+      name: "Calculator",
+      icon: "/icons/calculator.png",
+      type: "file",
+      action: () => openWindow("Calculator", "/icons/calculator.png"),
+    },
+    {
+      name: "Calendar",
+      icon: "/icons/calendar.png",
+      type: "file",
+      action: () => openWindow("Calendar", "/icons/calendar.png"),
+    },
+    {
+      name: "Camera",
+      icon: "/icons/camera.png",
+      type: "file",
+      action: () => openWindow("Camera", "/icons/camera.png"),
+    },
+    {
+      name: "File Explorer",
+      icon: "/icons/app.png",
+      type: "file",
+      action: () => openWindow("File Explorer", "/icons/app.png"),
+    },
+    {
+      name: "Google Chrome",
+      icon: "/icons/chrome.svg",
+      type: "file",
+      action: () => openWindow("Google Chrome", "/icons/chrome.svg"),
+    },
+    {
+      name: "Microsoft Edge",
+      icon: "/icons/microsoft.png",
+      type: "file",
+      action: () => openWindow("Microsoft Edge", "/icons/microsoft.png"),
+    },
+    { name: "Paint", icon: "/icons/paint.png", type: "file", action: () => openWindow("Paint", "/icons/paint.png") },
+    {
+      name: "Youtube",
+      icon: "/icons/Youtube.png",
+      type: "file",
+      action: () => openWindow("Youtube", "/icons/Youtube.png"),
+    },
+    { name: "Clock", icon: "/icons/clock.png", type: "file", action: () => openWindow("Clock", "/icons/clock.png") },
+    {
+      name: "Notepad",
+      icon: "/icons/notepad.png",
+      type: "file",
+      action: () => openWindow("Notepad", "/icons/notepad.png"),
+    },
+    {
+      name: "Photos",
+      icon: "/icons/gallery.png",
+      type: "file",
+      action: () => openWindow("Photos", "/icons/gallery.png"),
+    },
+    {
+      name: "Terminal",
+      icon: "/icons/bash.png",
+      type: "file",
+      action: () => openWindow("Terminal", "/icons/bash.png"),
+    },
+    {
+      name: "Visual Studio Code",
+      icon: "/icons/vscode.svg",
+      type: "file",
+      action: () => openWindow("Visual Studio Code", "/icons/vscode.svg"),
+    },
+    {
+      name: "Snakeats",
+      icon: "/icons/snake.png",
+      type: "file",
+      action: () => openWindow("Snakeats", "/icons/snake.png"),
+    },
+    {
+      name: "Weather",
+      icon: "/icons/cloud.png",
+      type: "file",
+      action: () => openWindow("Weather", "/icons/cloud.png"),
+    },
+    {
+      name: "Time Tracker",
+      icon: "/icons/time-tracking.png",
+      type: "file",
+      action: () => openWindow("Time Tracker", "/icons/time-tracking.png"),
+    },
+    {
+      name: "Sticky Notes",
+      icon: "/icons/sticky-note.png",
+      type: "file",
+      action: () => openWindow("Sticky Notes", "/icons/sticky-note.png"),
+    },
+  ].sort((a, b) => a.name.localeCompare(b.name));
 
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(e.target.value);
@@ -283,7 +261,7 @@ const SearchMenu = ({ closeMenu }: { closeMenu: () => void }) => {
             // Display top apps in the form of list:
             <div>
               {/* Top Apps Section */}
-              <h3 className="text-sm text-white font-extralight">Top apps</h3>
+              <h3 className="text-base text-white font-medium">Top apps</h3>
               <ul className="mt-2 space-y-2">
                 {topApps.map((app) => (
                   <li
@@ -317,10 +295,12 @@ const SearchMenu = ({ closeMenu }: { closeMenu: () => void }) => {
                 Type: {searchResults[0].type}
               </p>
               <div className="mt-4 flex justify-center space-x-4">
-                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                <div className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded cursor-pointer"
+                onClick={searchResults[0].action}>
                   Open
-                </button>
-                <button className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">
+                </div>
+                <button className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded"
+                onClick={searchResults[0].action}>
                   Run as administrator
                 </button>
               </div>
@@ -328,14 +308,13 @@ const SearchMenu = ({ closeMenu }: { closeMenu: () => void }) => {
           ) : (
             // Display Recommended Section:
             <div>
-              <h3 className="text-sm text-white font-extralight">
-                Recommended
-              </h3>
+              <h3 className="text-base text-white font-medium">Recent</h3>
               <ul className="mt-2">
                 {recommendedFiles.map((file, index) => (
                   <li
                     key={index}
                     className="flex justify-start gap-5 items-center text-sm hover:bg-zinc-700 p-2 rounded cursor-pointer"
+                    onClick={file.action}
                   >
                     <img
                       src={file.icon}

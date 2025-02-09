@@ -4,21 +4,6 @@ import { FaSearch, FaPowerOff } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
 import { useWindowManager } from "@/components/NewWindow/WindowManagerContext";
 
-const recommendedFiles = [
-  { name: "Resume", icon: "/icons/pdf.png", time: "Yesterday at 12:44 PM" },
-  { name: "Notepad", icon: "/icons/notepad.png", time: "Friday at 11:56 AM" },
-  {
-    name: "LinkedIn",
-    icon: "/icons/linkedin.png",
-    time: "Thursday at 11:10 PM",
-  },
-  {
-    name: "Time Tracker",
-    icon: "/icons/time-tracking.png",
-    time: "Thursday at 11:09 PM",
-  },
-];
-
 const StartMenu = ({ closeMenu }: { closeMenu: () => void }) => {
   const { openWindow } = useWindowManager();
   const [showAllApps, setShowAllApps] = useState(false);
@@ -48,6 +33,23 @@ const StartMenu = ({ closeMenu }: { closeMenu: () => void }) => {
     { name: "Photos", icon: "/icons/gallery.png", action: () => console.log("Calculator")  },
     { name: "Camera", icon: "/icons/camera.png", action: () => openWindow("Camera", "/icons/camera.png")},
     { name: "Notepad", icon: "/icons/notepad.png", action: () => openWindow("Notepad", "/icons/app.png")},
+  ];
+
+  const recommendedFiles = [
+    { name: "Resume", icon: "/icons/pdf.png", time: "Yesterday at 12:44 PM", action: () => openWindow("Resume", "/icons/pdf.png") },
+    { name: "Notepad", icon: "/icons/notepad.png", time: "Friday at 11:56 AM", action: () => openWindow("Notepad", "/icons/notepad.png") },
+    {
+      name: "LinkedIn",
+      icon: "/icons/linkedin.png",
+      time: "Thursday at 11:10 PM",
+      action: () => window.open("https://www.linkedin.com/in/poorva-saxena-983642256/", "_blank"),
+    },
+    {
+      name: "Time Tracker",
+      icon: "/icons/time-tracking.png",
+      time: "Thursday at 11:09 PM",
+      action: () => openWindow("Time Tracker", "/icons/time-tracking.png"),
+    },
   ];
 
   const allApps = [
@@ -150,6 +152,7 @@ const StartMenu = ({ closeMenu }: { closeMenu: () => void }) => {
                       <li
                         key={index}
                         className="flex justify-start gap-5 items-center text-sm hover-color p-2 rounded"
+                        onClick={file.action}
                       >
                         <Image
                           src={file.icon}
