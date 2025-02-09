@@ -55,7 +55,7 @@ const ContactPanel: React.FC<ContactPanelProps> = () => {
           rel="noopener noreferrer"
           className="flex items-center w-full gap-3 p-3 bg-slate-950 border rounded-md shadow hover:bg-slate-900"
         >
-          <FaLinkedin size={24} className="text-blue-600" />
+          <FaLinkedin size={24} className="text-blue-400" />
           <span className="text-white">LinkedIn</span>
         </a>
         <a

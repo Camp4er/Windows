@@ -7,24 +7,29 @@ body {
 }
 
 @layer utilities {
-  @keyframes slide-in {
+  .slide-in-left {
+    animation: slide-in-left 0.3s forwards;
+  }
+  
+  .slide-out-right {
+    animation: slide-out-right 0.3s forwards;
+  }
+  
+  @keyframes slide-in-left {
     from {
-      transform: translateX(100%);
-      opacity: 0;
+      transform: translateX(-100%);
     }
     to {
       transform: translateX(0);
-      opacity: 1;
     }
   }
-  @keyframes slide-out {
+  
+  @keyframes slide-out-right {
     from {
       transform: translateX(0);
-      opacity: 1;
     }
     to {
       transform: translateX(100%);
-      opacity: 0;
     }
   }
   @keyframes slideInLeft {
