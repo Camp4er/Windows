@@ -84,7 +84,7 @@ const StartMenu = ({ closeMenu }: { closeMenu: () => void }) => {
   ].sort((a, b) => a.name.localeCompare(b.name)); // Sort alphabetically
 
   return (
-    <div className="start-menu absolute bottom-12 left-4 w-[650px] h-[621.6px] start-button text-white rounded-lg shadow-lg overflow-x-hidden overflow-y-hidden">
+    <div className="absolute bottom-12 left-4 w-[650px] h-[621.6px] start-button text-white rounded-lg shadow-lg overflow-x-hidden overflow-y-hidden">
       {/* Search Bar */}
       <div className="pt-4 px-10">
         <div className="relative py-5">

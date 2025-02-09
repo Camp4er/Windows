@@ -4,6 +4,7 @@ import TaskbarRightSection from "./TaskbarRightSection";
 import TaskbarLeftSection from "./TaskbarLeftSection";
 import ActionCenter from "./ActionCenter";
 import StartButton from "./StartButton/StartButton";
+import SearchButton from "./SearchButton/SearchButton";
 
 // Define the type for taskbar buttons
 interface TaskbarProps {
@@ -124,7 +125,6 @@ const Taskbar = ({ openWindows, toggleWindow, openWindow }: TaskbarProps) => {
           {/* Start and Search Buttons */}
           <div
             key="1"
-            onClick={() => console.log("Open Start Menu")}
             className="flex items-center hover:bg-zinc-800 p-2 rounded"
             aria-label="Windows icon"
           >
@@ -132,16 +132,10 @@ const Taskbar = ({ openWindows, toggleWindow, openWindow }: TaskbarProps) => {
           </div>
           <button
             key="2"
-            onClick={() => console.log("Open Start Menu")}
             className="flex items-center hover:bg-zinc-800 p-2 rounded"
             aria-label="Search icon"
           >
-            <img
-              src="/icons/search-dark.svg"
-              alt="Search icon"
-              width={30}
-              height={30}
-            />
+            <SearchButton/>
           </button>
 
           {/*Rest Buttons*/}
