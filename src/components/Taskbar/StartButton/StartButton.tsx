@@ -20,7 +20,7 @@ const StartButton = () => {
       </div>
 
       {/* Start Menu Popup */}
-      {isOpen && <StartMenu closeMenu={() => setIsOpen(false)} />}
+      {isOpen && <StartMenu closeMenu={() => setIsOpen(!isOpen)} />}
     </div>
   );
 };
