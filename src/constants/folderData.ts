@@ -29,6 +29,23 @@ export const ZappifyImages = [
   "/projects/zappify/img11.png",
 ];
 
+export const GPTImages = [
+  "/projects/gpt3/img1.png",
+  "/projects/gpt3/img2.png",
+  "/projects/gpt3/img3.png",
+  "/projects/gpt3/img4.png",
+  "/projects/gpt3/img5.png",
+];
+
+export const BlogTextImages = [
+  "/projects/blogtext/img1.png",
+  "/projects/blogtext/img2.png",
+  "/projects/blogtext/img3.png",
+  "/projects/blogtext/img4.png",
+  "/projects/blogtext/img5.png",
+  "/projects/blogtext/img6.png",
+];
+
 
 export const sectionOne = {
   Home: {
@@ -189,47 +206,36 @@ export const sectionTwo = {
         ],
       },
       {
-        name: "Project C",
+        name: "BlogText",
         type: "folder" as const,
-        dateModified: "2024-12-01",
+        dateModified: "10-11-2024",
         size: "118 KB",
-        icons: "/icons/share.png",
+        icons: "/projects/blogtext/icon.png",
         id: 5.3,
         children: [
           {
             name: "Description",
             type: "file" as const,
-            dateModified: "2024-12-01",
+            dateModified: "10-11-2024",
             size: "118 KB",
-            icons: "/icons/share.png",
+            icons: "/icons/notepad.png",
             id: "5.3.1",
           },
           {
             name: "Github Repo",
             type: "file" as const,
-            dateModified: "2024-12-01",
+            dateModified: "10-11-2024",
             size: "",
             icons: "/icons/github.svg",
             id: "5.3.2",
             onClick: () => {
-              window.open("https://github.com/Camp4er", "_blank");
-            },
-          },
-          {
-            name: "Live Demo",
-            type: "file" as const,
-            dateModified: "2024-12-01",
-            size: "",
-            icons: "/icons/desktop.png",
-            id: "5.3.3",
-            onClick: () => {
-              window.open("https://github.com/Camp4er", "_blank");
+              window.open("https://github.com/Camp4er/BlogText", "_blank");
             },
           },
           {
             name: "View Images",
             type: "file" as const,
-            dateModified: "2024-12-01",
+            dateModified: "10-11-2024",
             size: "118 KB",
             icons: "/icons/gallery.png",
             id: "5.3.4",
@@ -237,11 +243,11 @@ export const sectionTwo = {
         ],
       },
       {
-        name: "Project D",
+        name: "GPT-3",
         type: "folder" as const,
         dateModified: "2024-12-01",
         size: "118 KB",
-        icons: "/icons/share.png",
+        icons: "/icons/science.png",
         id: 5.4,
         children: [
           {
@@ -249,7 +255,7 @@ export const sectionTwo = {
             type: "file" as const,
             dateModified: "2024-12-01",
             size: "118 KB",
-            icons: "/icons/share.png",
+            icons: "/icons/notepad.png",
             id: "5.4.1",
           },
           {
@@ -260,7 +266,7 @@ export const sectionTwo = {
             icons: "/icons/github.svg",
             id: "5.4.2",
             onClick: () => {
-              window.open("https://github.com/Camp4er", "_blank");
+              window.open("https://github.com/Camp4er/GPT-3", "_blank");
             },
           },
           {
@@ -271,7 +277,7 @@ export const sectionTwo = {
             icons: "/icons/desktop.png",
             id: "5.4.3",
             onClick: () => {
-              window.open("https://github.com/Camp4er", "_blank");
+              window.open("https://main--legendary-cendol-69ad02.netlify.app/", "_blank");
             },
           },
           {

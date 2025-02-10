@@ -7,7 +7,7 @@ import Taskbar from "./Taskbar/Taskbar";
 import Terminal from "./Terminal";
 import FileExplorer from "./FileExplorer/FileExplorer";
 import Snakegame from "./Snakegame";
-import { ShopperImages, sidebarData, TodoListImages, ZappifyImages } from "@/constants/folderData";
+import { BlogTextImages, GPTImages, ShopperImages, sidebarData, TodoListImages, ZappifyImages } from "@/constants/folderData";
 import Notepad from "./SeparateWindows/Notepad";
 import { useWindowManager } from "./NewWindow/WindowManagerContext";
 import PDFViewer from "./SeparateWindows/PdfViewer";
@@ -126,6 +126,45 @@ Experience Gained:\n
 - Improved skills in creating fully responsive, interactive web pages.\n
 - Strengthened my problem-solving abilities while debugging complex animation issues.\n\n
 Check out the project here: https://zappify.netlify.app/\n
+`;
+
+const blogTextProject = `
+BlogText – Video to Blog Converter 📝🎥\n
+Project Type: Full-Stack Web Application\n
+Tech Stack: Next.js, Tailwind CSS, TypeScript, NeonDB, Stripe, Clerk\n\n
+Description:\n
+BlogText transforms videos into well-structured and engaging blog posts with ease. It features an intuitive and customizable text editor that allows users to modify content, add emojis, and format text seamlessly.\n\n
+Key Features:\n
+- 🎥 Video-to-Blog Conversion: Generates blog posts from video content.\n
+- 📝 Editable Rich Text Editor: Allows users to format text, insert emojis, and personalize content.\n
+- 💳 Stripe Integration: Supports payments for premium features.\n
+- 🗄️ Full-Stack Implementation: Uses NeonDB as the database for efficient data storage.\n
+- 🔐 Authentication with Clerk: Secures user accounts (not deployable due to missing production variables).\n
+- 📱 Responsive Design: Ensures accessibility across all devices.\n\n
+Experience Gained:\n
+- Built and structured a complete full-stack application from scratch.\n
+- Worked with authentication and payment gateways using Clerk and Stripe.\n
+- Gained experience in database management with NeonDB.\n
+- Improved UI/UX skills by designing an intuitive and engaging text editor.\n\n
+(⚠️ This project is currently not deployable due to unavailable production variables for Clerk.)\n
+`;
+
+const gpt3Project = `
+GPT-3 – Frontend Practice Website 🖥️🎨\n
+Project Type: Demo Website\n
+Tech Stack: HTML, CSS, JavaScript\n\n
+Description:\n
+GPT-3 is a demo website designed to practice and enhance frontend development skills. The project focuses on implementing clean UI designs, improving responsiveness, and refining animation techniques.\n\n
+Key Features:\n
+- 🎨 Modern UI Design: Built with a sleek and visually appealing layout.\n
+- 📱 Fully Responsive: Ensures seamless experience across devices.\n
+- 🏗️ Frontend Skill Enhancement: Focused on improving styling, layout structuring, and interactive elements.\n
+- ⚡ Fast and Lightweight: Optimized for smooth performance and quick loading times.\n\n
+Experience Gained:\n
+- Improved frontend development skills with HTML, CSS, and JavaScript.\n
+- Worked on responsiveness and UI/UX improvements.\n
+- Practiced implementing animations and interactive components.\n\n
+Check out the project here: https://main--legendary-cendol-69ad02.netlify.app/\n
 `;
 
 
@@ -264,13 +303,21 @@ Check out the project here: https://zappify.netlify.app/\n
             {window.name === "Shopper Gallery" && (
               <GalleryViewer images={ShopperImages} />
             )}
-            {window.name === "To-do List" && <Notepad content={todoProject} />}
-            {window.name === "To-do List Gallery" && (
-              <GalleryViewer images={TodoListImages} />
-            )}
             {window.name === "Zappify" && <Notepad content={zappifyProject} />}
             {window.name === "Zappify Gallery" && (
               <GalleryViewer images={ZappifyImages} />
+            )}
+            {window.name === "BlogText" && <Notepad content={blogTextProject} />}
+            {window.name === "BlogText Gallery" && (
+              <GalleryViewer images={BlogTextImages} />
+            )}
+            {window.name === "GPT-3" && <Notepad content={gpt3Project} />}
+            {window.name === "GPT-3 Gallery" && (
+              <GalleryViewer images={GPTImages} />
+            )}
+            {window.name === "To-do List" && <Notepad content={todoProject} />}
+            {window.name === "To-do List Gallery" && (
+              <GalleryViewer images={TodoListImages} />
             )}
             {window.name === "Calculator" && <Calculator />}
             {window.name === "Calendar" && <Calendar />}
