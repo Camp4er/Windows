@@ -224,7 +224,7 @@ const SearchMenu = ({ closeMenu }: { closeMenu: () => void }) => {
   return (
     <div className="search-menu absolute bottom-12 left-4 w-[650px] h-[621.6px] text-white rounded-lg shadow-lg overflow-hidden start-button">
       {/* Search Bar */}
-      <div className="pt-4 px-6">
+      <div className="pt-4 px-6 pb-3">
         <div className="relative py-2">
           <FaSearch className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400" />
           <input
@@ -240,7 +240,7 @@ const SearchMenu = ({ closeMenu }: { closeMenu: () => void }) => {
       {/* Content Area */}
       <div className="flex h-[500px]">
         {/* Left Section */}
-        <div className="w-1/2 p-4 overflow-y-auto">
+        <div className="w-1/2 p-5 overflow-y-auto scrollbar-thin scrollbar-thumb-zinc-600 scrollbar-track-zinc-900 scrollbar-thumb-rounded-md">
           {searchTerm ? (
             // Display search results
             searchResults.length > 0 ? (
@@ -261,7 +261,7 @@ const SearchMenu = ({ closeMenu }: { closeMenu: () => void }) => {
             // Display top apps in the form of list:
             <div>
               {/* Top Apps Section */}
-              <h3 className="text-base text-white font-medium">Top apps</h3>
+              <h3 className="text-base text-center text-white font-medium">Top apps</h3>
               <ul className="mt-2 space-y-2">
                 {topApps.map((app) => (
                   <li
@@ -279,7 +279,7 @@ const SearchMenu = ({ closeMenu }: { closeMenu: () => void }) => {
         </div>
 
         {/* Right Section */}
-        <div className="w-1/2 p-4 border-l border-gray-700">
+        <div className="w-1/2 p-5 border-l border-gray-700">
           {searchTerm && searchResults.length > 0 ? (
             // Display details of the first search result
             <>
@@ -308,7 +308,7 @@ const SearchMenu = ({ closeMenu }: { closeMenu: () => void }) => {
           ) : (
             // Display Recommended Section:
             <div>
-              <h3 className="text-base text-white font-medium">Recent</h3>
+              <h3 className="text-base text-center text-white font-medium">Recent</h3>
               <ul className="mt-2">
                 {recommendedFiles.map((file, index) => (
                   <li

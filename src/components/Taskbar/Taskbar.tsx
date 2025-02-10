@@ -130,13 +130,13 @@ const Taskbar = ({ openWindows, toggleWindow, openWindow }: TaskbarProps) => {
           >
             <StartButton/>
           </div>
-          <button
+          <div
             key="2"
             className="flex items-center hover:bg-zinc-800 p-2 rounded"
             aria-label="Search icon"
           >
             <SearchButton/>
-          </button>
+          </div>
 
           {/*Rest Buttons*/}
           {taskbarButtons.map((button) => (
