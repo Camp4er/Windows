@@ -48,10 +48,10 @@ const SearchMenu = ({ closeMenu }: { closeMenu: () => void }) => {
       action: () => openWindow("Calculator", "/icons/calculator.png"),
     },
     {
-      name: "Terminal",
-      icon: "/icons/bash.png",
+      name: "Administrator: Windows PowerShell",
+      icon: "/icons/window.png",
       type: "file",
-      action: () => openWindow("Terminal", "/icons/bash.png"),
+      action: () => openWindow("Administrator: Windows PowerShell", "/icons/window.png"),
     },
     {
       name: "File Explorer",
@@ -180,10 +180,10 @@ const SearchMenu = ({ closeMenu }: { closeMenu: () => void }) => {
       action: () => openWindow("Photos", "/icons/gallery.png"),
     },
     {
-      name: "Terminal",
-      icon: "/icons/bash.png",
+      name: "Administrator: Windows PowerShell",
+      icon: "/icons/window.png",
       type: "App",
-      action: () => openWindow("Terminal", "/icons/bash.png"),
+      action: () => openWindow("Administrator: Windows PowerShell", "/icons/window.png"),
     },
     {
       name: "Visual Studio Code",

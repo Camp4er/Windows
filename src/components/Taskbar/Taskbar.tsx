@@ -89,10 +89,10 @@ const Taskbar = ({ openWindows, toggleWindow, openWindow }: TaskbarProps) => {
     },
     {
       id: 8,
-      src: "icons/bash.png",
+      src: "icons/window.png",
       size: { width: 32, height: 32 },
-      action: () => openWindow("Terminal", "icons/bash.png"),
-      alt: "Terminal",
+      action: () => openWindow("Administrator: Windows PowerShell", "icons/window.png"),
+      alt: "Administrator: Windows PowerShell",
     },
     {
       id: 9,

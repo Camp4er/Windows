@@ -307,7 +307,7 @@ Check out the project here: https://clinquant-donut-3bfcbf.netlify.app/\n
               ></iframe>
             )}
             {window.name === "Snakeats" && <Snakegame />}
-            {window.name === "Terminal" && <Terminal key={window.name} />}
+            {window.name === "Administrator: Windows PowerShell" && <Terminal />}
             {window.name === "File Explorer" && (
               <FileExplorer initialSidebarId={1} sidebarData={sidebarData} />
             )}

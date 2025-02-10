@@ -163,8 +163,37 @@ const Terminal = () => {
  newOutput.push("- bing [query] → Search on Bing");
  newOutput.push("- joke → Get a random joke");
  newOutput.push("- riddle → Get a fun riddle");
+ newOutput.push("- about → Open About Me in file explorer");
+ newOutput.push("- projects → Open Projects in file explorer");
+ newOutput.push("- experience → Open Experience in file explorer");
+ newOutput.push("- skills → Open Skills in file explorer");
+ newOutput.push("- contact → Open Contact in file explorer");
  break;
 
+ case "about":
+  openWindow("About Me", "/icons/app.png"); 
+ newOutput.push(">> Opening your About...");
+ break;
+
+ case "projects":
+  openWindow("Projects", "/icons/app.png"); 
+ newOutput.push(">> Opening your Projects...");
+ break;
+
+ case "experience":
+  openWindow("Experience", "/icons/app.png"); 
+ newOutput.push(">> Opening your Experience...");
+ break;
+
+ case "skills":
+  openWindow("Skills", "/icons/app.png");
+ newOutput.push(">> Opening your Skills...");
+ break;
+
+ case "contact":
+  openWindow("Contact", "/icons/app.png"); 
+ newOutput.push(">> Opening your Contact...");
+ break;
 
  case "resume":
   openWindow("Resume", "/icons/pdf.png"); 
@@ -268,7 +297,7 @@ case "bing":
 
 
  {/* Terminal Content */}
- <div className="flex-grow overflow-y-auto p-4">
+ <div className="flex-grow overflow-y-auto p-4  scrollbar-thin scrollbar-thumb-zinc-600 scrollbar-track-zinc-900 scrollbar-thumb-rounded-md">
  {getCurrentTab()?.output.map((line, index) => (
  <pre key={index} className="whitespace-pre-wrap text-white">
  {line}
