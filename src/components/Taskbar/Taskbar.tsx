@@ -77,7 +77,7 @@ const Taskbar = ({ openWindows, toggleWindow, openWindow }: TaskbarProps) => {
       id: 6,
       src: "/icons/app.png",
       size: { width: 32, height: 32 },
-      action: () => console.log("Open File Explorer"),
+      action: () => openWindow("File Explorer", "/icons/app.png"),
       alt: "File Explorer",
     },
     {

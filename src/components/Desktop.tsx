@@ -7,7 +7,7 @@ import Taskbar from "./Taskbar/Taskbar";
 import Terminal from "./Terminal";
 import FileExplorer from "./FileExplorer/FileExplorer";
 import Snakegame from "./Snakegame";
-import {ShopperImages, sidebarData } from "@/constants/folderData";
+import { ShopperImages, sidebarData, TodoListImages } from "@/constants/folderData";
 import Notepad from "./SeparateWindows/Notepad";
 import { useWindowManager } from "./NewWindow/WindowManagerContext";
 import PDFViewer from "./SeparateWindows/PdfViewer";
@@ -91,11 +91,30 @@ export default function Desktop() {
     - Gained hands-on experience with integrating a frontend with backend functionalities.\n\n
   `;
 
+  const todoProject = `
+   To-Do List ✅\n
+   Project Type: My first ever app\n
+   Tech Stack: HTML, CSS, JavaScript\n\n
+   Description:\n
+   This is a simple yet functional To-Do List application, marking my first step into web development. Built using basic HTML, CSS, and JavaScript, this app helps users efficiently manage their daily tasks.\n\n
+   Key Features:\n
+   - ➕ Add new tasks instantly\n
+   - ✅ Mark tasks as completed\n
+   - ❌ Remove tasks when done\n
+   - 📜 Simple and clean UI for easy usability\n\n
+   Experience Gained:\n
+   - Learned the fundamentals of JavaScript and DOM manipulation\n
+   - Understood how to store and update user data dynamically\n
+   - Developed an appreciation for structuring clean and readable code\n\n
+   Check out the project here: https://gorgeous-pastelito-e4e467.netlify.app/\n
+`;
+
   return (
     <>
       {/* Desktop icons */}
-      <div className="flex flex-row desktop-container"
-      style={{ position: "relative", width: "100vw", height: "100vh"}}
+      <div
+        className="flex flex-row desktop-container"
+        style={{ position: "relative", width: "100vw", height: "100vh" }}
       >
         <div className="flex flex-col gap-3 justify-start items-start py-3 pl-2 flex-wrap">
           <DesktopIcon
@@ -143,7 +162,7 @@ export default function Desktop() {
           <DesktopIcon
             title="Feedback Hub"
             icon="/icons/review.png"
-            onClick={() => openWindow("Feedback Hub", "/icons/review.png") }
+            onClick={() => openWindow("Feedback Hub", "/icons/review.png")}
           />
           <DesktopIcon
             title="Notepad"
@@ -153,7 +172,9 @@ export default function Desktop() {
           <DesktopIcon
             title="Recycle Bin"
             icon="/icons/recycle-bin-empty.webp"
-            onClick={() => openWindow("RecycleBin", "/icons/recycle-bin-empty.webp")}
+            onClick={() =>
+              openWindow("RecycleBin", "/icons/recycle-bin-empty.webp")
+            }
           />
         </div>
       </div>
@@ -220,35 +241,39 @@ export default function Desktop() {
             {window.name === "LRIT" && <Notepad content={LRIT} />}
             {window.name === "Frontend50" && <Notepad content={F50} />}
             {window.name === "Shopper" && <Notepad content={shopper} />}
-            {
-              window.name === "Shopper Gallery" && <GalleryViewer images={ShopperImages}/>
-            }
-            {window.name === "Calculator" && <Calculator/>}
-            {window.name === "Calendar" && <Calendar/>}
-            {window.name === "Sticky Notes" && <StickyNotes/>}
-            {window.name === "Camera" && <Camera/>}
-            {window.name === "Clock" && <Clock/>}
-            {window.name === "3D Chess Game" && <Chess/>}
-            {window.name === "Weather" && <Weather/>}
-            {window.name === "Time Tracker" && <TimeTracker/>}
-            {window.name === "Feedback Hub" && <Feedback/>}
-            {window.name === "Paint" && <Paint/>}
-            {window.name === "Tic-Tac-Toe" && <TicTacToe/>}
-            {window.name === "Rock Paper Scissors" && <RockPaperScissors/>}
-            {window.name === "Minesweeper" && <Minesweeper/>}
+            {window.name === "Shopper Gallery" && (
+              <GalleryViewer images={ShopperImages} />
+            )}
+            {window.name === "To-do List" && <Notepad content={todoProject} />}
+            {window.name === "To-do List Gallery" && (
+              <GalleryViewer images={TodoListImages} />
+            )}
+            {window.name === "Calculator" && <Calculator />}
+            {window.name === "Calendar" && <Calendar />}
+            {window.name === "Sticky Notes" && <StickyNotes />}
+            {window.name === "Camera" && <Camera />}
+            {window.name === "Clock" && <Clock />}
+            {window.name === "3D Chess Game" && <Chess />}
+            {window.name === "Weather" && <Weather />}
+            {window.name === "Time Tracker" && <TimeTracker />}
+            {window.name === "Feedback Hub" && <Feedback />}
+            {window.name === "Paint" && <Paint />}
+            {window.name === "Tic-Tac-Toe" && <TicTacToe />}
+            {window.name === "Rock Paper Scissors" && <RockPaperScissors />}
+            {window.name === "Minesweeper" && <Minesweeper />}
             {window.name === "Youtube" && (
               <iframe
-              src="https://www.youtube.com/embed/3s1aHBNjlq4"
-              width="100%"
-              height="100%">
-              </iframe>
+                src="https://www.youtube.com/embed/3s1aHBNjlq4"
+                width="100%"
+                height="100%"
+              ></iframe>
             )}
             {window.name === "Todo List" && (
               <iframe
-              src="https://gorgeous-pastelito-e4e467.netlify.app/"
-              width="100%"
-              height="100%">
-              </iframe>
+                src="https://gorgeous-pastelito-e4e467.netlify.app/"
+                width="100%"
+                height="100%"
+              ></iframe>
             )}
           </Window>
         ) : null
@@ -261,8 +286,8 @@ export default function Desktop() {
         openWindow={openWindow}
       />
       <div className="w-screen h-screen bg-black">
-      <ContextMenu /> {/* Add right-click menu */}
-    </div>
+        <ContextMenu /> {/* Add right-click menu */}
+      </div>
     </>
   );
 }

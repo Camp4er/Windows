@@ -8,6 +8,13 @@ export const ShopperImages = [
   "/projects/shopper/img5.png",
 ];
 
+export const TodoListImages = [
+  "/projects/todolist/img1.png",
+  "/projects/todolist/img2.png",
+  "/projects/todolist/img3.png",
+  "/projects/todolist/img4.png",
+];
+
 
 export const sectionOne = {
   Home: {
@@ -77,7 +84,7 @@ export const sectionTwo = {
             name: "Description",
             type: "file" as const,
             dateModified: "13-05-2024",
-            size: "118 KB",
+            size: "2.2 KB",
             icons: "/icons/notepad.png",
             id: "5.1.1",
           },
@@ -85,7 +92,7 @@ export const sectionTwo = {
             name: "Github Repo",
             type: "file" as const,
             dateModified: "13-05-2024",
-            size: "118 KB",
+            size: "",
             icons: "/icons/github.svg",
             id: "5.1.2",
             onClick: () => {
@@ -99,7 +106,7 @@ export const sectionTwo = {
             name: "Live Demo",
             type: "file" as const,
             dateModified: "13-05-2024",
-            size: "118 KB",
+            size: "",
             icons: "/icons/desktop.png",
             id: "5.1.3",
             onClick: () => {
@@ -139,8 +146,8 @@ export const sectionTwo = {
             name: "Github Repo",
             type: "file" as const,
             dateModified: "2024-12-01",
-            size: "118 KB",
-            icons: "/icons/share.png",
+            size: "",
+            icons: "/icons/github.svg",
             id: "5.2.2",
             onClick: () => {
               window.open("https://github.com/Camp4er", "_blank");
@@ -150,8 +157,8 @@ export const sectionTwo = {
             name: "Live Demo",
             type: "file" as const,
             dateModified: "2024-12-01",
-            size: "118 KB",
-            icons: "/icons/share.png",
+            size: "",
+            icons: "/icons/desktop.png",
             id: "5.2.3",
             onClick: () => {
               window.open("https://github.com/Camp4er", "_blank");
@@ -159,29 +166,11 @@ export const sectionTwo = {
           },
           {
             name: "View Images",
-            type: "folder" as const,
+            type: "file" as const,
             dateModified: "2024-12-01",
             size: "118 KB",
             icons: "/icons/gallery.png",
             id: "5.2.4",
-            children: [
-              {
-                name: "Image 1",
-                type: "file" as const,
-                dateModified: "2024-12-01",
-                size: "118 KB",
-                icons: "/icons/share.png",
-                id: "5.2.4.1",
-              },
-              {
-                name: "Image 2",
-                type: "file" as const,
-                dateModified: "2024-12-01",
-                size: "118 KB",
-                icons: "/icons/share.png",
-                id: "5.2.4.2",
-              },
-            ],
           },
         ],
       },
@@ -205,8 +194,8 @@ export const sectionTwo = {
             name: "Github Repo",
             type: "file" as const,
             dateModified: "2024-12-01",
-            size: "118 KB",
-            icons: "/icons/share.png",
+            size: "",
+            icons: "/icons/github.svg",
             id: "5.3.2",
             onClick: () => {
               window.open("https://github.com/Camp4er", "_blank");
@@ -216,8 +205,8 @@ export const sectionTwo = {
             name: "Live Demo",
             type: "file" as const,
             dateModified: "2024-12-01",
-            size: "118 KB",
-            icons: "/icons/share.png",
+            size: "",
+            icons: "/icons/desktop.png",
             id: "5.3.3",
             onClick: () => {
               window.open("https://github.com/Camp4er", "_blank");
@@ -225,29 +214,11 @@ export const sectionTwo = {
           },
           {
             name: "View Images",
-            type: "folder" as const,
+            type: "file" as const,
             dateModified: "2024-12-01",
             size: "118 KB",
             icons: "/icons/gallery.png",
             id: "5.3.4",
-            children: [
-              {
-                name: "Image 1",
-                type: "file" as const,
-                dateModified: "2024-12-01",
-                size: "118 KB",
-                icons: "/icons/share.png",
-                id: "5.3.4.1",
-              },
-              {
-                name: "Image 2",
-                type: "file" as const,
-                dateModified: "2024-12-01",
-                size: "118 KB",
-                icons: "/icons/share.png",
-                id: "5.3.4.2",
-              },
-            ],
           },
         ],
       },
@@ -271,8 +242,8 @@ export const sectionTwo = {
             name: "Github Repo",
             type: "file" as const,
             dateModified: "2024-12-01",
-            size: "118 KB",
-            icons: "/icons/share.png",
+            size: "",
+            icons: "/icons/github.svg",
             id: "5.4.2",
             onClick: () => {
               window.open("https://github.com/Camp4er", "_blank");
@@ -282,8 +253,8 @@ export const sectionTwo = {
             name: "Live Demo",
             type: "file" as const,
             dateModified: "2024-12-01",
-            size: "118 KB",
-            icons: "/icons/share.png",
+            size: "",
+            icons: "/icons/desktop.png",
             id: "5.4.3",
             onClick: () => {
               window.open("https://github.com/Camp4er", "_blank");
@@ -296,24 +267,54 @@ export const sectionTwo = {
             size: "118 KB",
             icons: "/icons/gallery.png",
             id: "5.4.4",
-            children: [
-              {
-                name: "Image 1",
-                type: "file" as const,
-                dateModified: "2024-12-01",
-                size: "118 KB",
-                icons: "/icons/share.png",
-                id: "5.4.4.1",
-              },
-              {
-                name: "Image 2",
-                type: "file" as const,
-                dateModified: "2024-12-01",
-                size: "118 KB",
-                icons: "/icons/share.png",
-                id: "5.4.4.2",
-              },
-            ],
+          },
+        ],
+      },
+      {
+        name: "To-do List",
+        type: "folder" as const,
+        dateModified: "17-04-2024",
+        size: "9 KB",
+        icons: "/icons/to-do-list.png",
+        id: 5.8,
+        children: [
+          {
+            name: "Description",
+            type: "file" as const,
+            dateModified: "17-04-2024",
+            size: "1.9 KB",
+            icons: "/icons/notepad.png",
+            id: "5.8.1",
+          },
+          {
+            name: "Github Repo",
+            type: "file" as const,
+            dateModified: "17-04-2024",
+            size: "",
+            icons: "/icons/github.svg",
+            id: "5.8.2",
+            onClick: () => {
+              window.open("https://github.com/Camp4er/TodoList", "_blank");
+            },
+          },
+          {
+            name: "Live Demo",
+            type: "file" as const,
+            dateModified: "17-04-2024",
+            size: "",
+            icons: "/icons/desktop.png",
+            id: "5.8.3",
+            onClick: () => {
+              window.open("https://gorgeous-pastelito-e4e467.netlify.app/", "_blank");
+            },
+          },
+          {
+            name: "View Images",
+            type: "file" as const,
+            dateModified: "17-04-2024",
+            size: "118 KB",
+            icons: "/icons/gallery.png",
+            id: "5.8.4",
           },
         ],
       },
