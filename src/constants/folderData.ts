@@ -46,6 +46,14 @@ export const BlogTextImages = [
   "/projects/blogtext/img6.png",
 ];
 
+export const HeatMapImages = [
+  "/projects/heatmap/img1.png",
+  "/projects/heatmap/img2.png",
+  "/projects/heatmap/img3.png",
+  "/projects/heatmap/img4.png",
+  "/projects/heatmap/img5.png",
+];
+
 
 export const sectionOne = {
   Home: {
@@ -291,12 +299,60 @@ export const sectionTwo = {
         ],
       },
       {
+        name: "Heat Map",
+        type: "folder" as const,
+        dateModified: "02-05-2024",
+        size: "118 KB",
+        icons: "/projects/heatmap/desert.png",
+        id: 5.5,
+        children: [
+          {
+            name: "Description",
+            type: "file" as const,
+            dateModified: "02-05-2024",
+            size: "118 KB",
+            icons: "/icons/notepad.png",
+            id: "5.5.1",
+          },
+          {
+            name: "Github Repo",
+            type: "file" as const,
+            dateModified: "02-05-2024",
+            size: "",
+            icons: "/icons/github.svg",
+            id: "5.5.2",
+            onClick: () => {
+              window.open("https://github.com/Camp4er/Heat-Map", "_blank");
+            },
+          },
+          {
+            name: "Live Demo",
+            type: "file" as const,
+            dateModified: "02-05-2024",
+            size: "",
+            icons: "/icons/desktop.png",
+            id: "5.5.3",
+            onClick: () => {
+              window.open("https://clinquant-donut-3bfcbf.netlify.app/", "_blank");
+            },
+          },
+          {
+            name: "View Images",
+            type: "folder" as const,
+            dateModified: "02-05-2024",
+            size: "118 KB",
+            icons: "/icons/gallery.png",
+            id: "5.5.4",
+          },
+        ],
+      },
+      {
         name: "To-do List",
         type: "folder" as const,
         dateModified: "17-04-2024",
         size: "9 KB",
         icons: "/icons/to-do-list.png",
-        id: 5.8,
+        id: 5.6,
         children: [
           {
             name: "Description",
@@ -304,7 +360,7 @@ export const sectionTwo = {
             dateModified: "17-04-2024",
             size: "1.9 KB",
             icons: "/icons/notepad.png",
-            id: "5.8.1",
+            id: "5.6.1",
           },
           {
             name: "Github Repo",
@@ -312,7 +368,7 @@ export const sectionTwo = {
             dateModified: "17-04-2024",
             size: "",
             icons: "/icons/github.svg",
-            id: "5.8.2",
+            id: "5.6.2",
             onClick: () => {
               window.open("https://github.com/Camp4er/TodoList", "_blank");
             },
@@ -323,7 +379,7 @@ export const sectionTwo = {
             dateModified: "17-04-2024",
             size: "",
             icons: "/icons/desktop.png",
-            id: "5.8.3",
+            id: "5.6.3",
             onClick: () => {
               window.open("https://gorgeous-pastelito-e4e467.netlify.app/", "_blank");
             },
@@ -334,7 +390,7 @@ export const sectionTwo = {
             dateModified: "17-04-2024",
             size: "118 KB",
             icons: "/icons/gallery.png",
-            id: "5.8.4",
+            id: "5.6.4",
           },
         ],
       },

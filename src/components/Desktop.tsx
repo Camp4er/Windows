@@ -7,7 +7,7 @@ import Taskbar from "./Taskbar/Taskbar";
 import Terminal from "./Terminal";
 import FileExplorer from "./FileExplorer/FileExplorer";
 import Snakegame from "./Snakegame";
-import { BlogTextImages, GPTImages, ShopperImages, sidebarData, TodoListImages, ZappifyImages } from "@/constants/folderData";
+import { BlogTextImages, GPTImages, HeatMapImages, ShopperImages, sidebarData, TodoListImages, ZappifyImages } from "@/constants/folderData";
 import Notepad from "./SeparateWindows/Notepad";
 import { useWindowManager } from "./NewWindow/WindowManagerContext";
 import PDFViewer from "./SeparateWindows/PdfViewer";
@@ -152,7 +152,7 @@ Experience Gained:\n
 const gpt3Project = `
 GPT-3 – Frontend Practice Website 🖥️🎨\n
 Project Type: Demo Website\n
-Tech Stack: HTML, CSS, JavaScript\n\n
+Tech Stack: React.js, CSS, JavaScript\n\n
 Description:\n
 GPT-3 is a demo website designed to practice and enhance frontend development skills. The project focuses on implementing clean UI designs, improving responsiveness, and refining animation techniques.\n\n
 Key Features:\n
@@ -161,10 +161,28 @@ Key Features:\n
 - 🏗️ Frontend Skill Enhancement: Focused on improving styling, layout structuring, and interactive elements.\n
 - ⚡ Fast and Lightweight: Optimized for smooth performance and quick loading times.\n\n
 Experience Gained:\n
-- Improved frontend development skills with HTML, CSS, and JavaScript.\n
+- Improved frontend development skills with React.js, CSS, and JavaScript.\n
 - Worked on responsiveness and UI/UX improvements.\n
 - Practiced implementing animations and interactive components.\n\n
 Check out the project here: https://main--legendary-cendol-69ad02.netlify.app/\n
+`;
+
+const heatMapProject = `
+Heat Map – Data Visualization Project 📊🔥\n
+Project Type: FreeCodeCamp Assignment\n
+Tech Stack: D3.js, HTML, CSS, JavaScript\n\n
+Description:\n
+Heat Map is a data visualization project built using the D3.js library. It effectively represents complex data patterns through color gradients, making it easier to identify trends and variations at a glance.\n\n
+Key Features:\n
+- 🎨 Dynamic Color Scaling: Uses color intensity to depict data variations.\n
+- 📅 Time-Based Data Representation: Displays data distribution over a given period.\n
+- 🛠️ Interactive Elements: Includes tooltips for better insights.\n
+- 📊 D3.js Implementation: Strengthened understanding of data-driven DOM manipulation.\n\n
+Experience Gained:\n
+- Learned and implemented core D3.js concepts for data visualization.\n
+- Gained hands-on experience in binding data to visual elements.\n
+- Improved skills in handling and presenting structured datasets.\n\n
+Check out the project here: https://clinquant-donut-3bfcbf.netlify.app/\n
 `;
 
 
@@ -314,6 +332,10 @@ Check out the project here: https://main--legendary-cendol-69ad02.netlify.app/\n
             {window.name === "GPT-3" && <Notepad content={gpt3Project} />}
             {window.name === "GPT-3 Gallery" && (
               <GalleryViewer images={GPTImages} />
+            )}
+            {window.name === "Heat Map" && <Notepad content={heatMapProject} />}
+            {window.name === "Heat Map Gallery" && (
+              <GalleryViewer images={HeatMapImages} />
             )}
             {window.name === "To-do List" && <Notepad content={todoProject} />}
             {window.name === "To-do List Gallery" && (

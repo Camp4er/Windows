@@ -124,12 +124,32 @@ const ContentArea: React.FC<ContentAreaProps> = ({
                       "BlogText Gallery",
                       "/icons/gallery.png",
                     );
-                  } else if (child.id === "5.8.1") {
+                  } else if (child.id === "5.4.1") {
+                    openWindow(
+                      "GPT-3",
+                      "/icons/notepad.png",
+                    )
+                  } else if (child.id === "5.4.4") {
+                    openWindow(
+                      "GPT-3 Gallery",
+                      "/icons/gallery.png",
+                    );
+                  } else if (child.id === "5.5.1") {
+                    openWindow(
+                      "Heat Map",
+                      "/icons/notepad.png",
+                    )
+                  } else if (child.id === "5.5.4") {
+                    openWindow(
+                      "Heat Map Gallery",
+                      "/icons/gallery.png",
+                    );
+                  } else if (child.id === "5.6.1") {
                     openWindow(
                       "To-do List",
                       "/icons/notepad.png",
                     )
-                  } else if (child.id === "5.8.4") {
+                  } else if (child.id === "5.6.4") {
                     openWindow(
                       "To-do List Gallery",
                       "/icons/gallery.png",
