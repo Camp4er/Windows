@@ -104,6 +104,16 @@ const ContentArea: React.FC<ContentAreaProps> = ({
                       "Shopper Gallery",
                       "/icons/gallery.png",
                     );
+                  } else if (child.id === "5.2.1") {
+                    openWindow(
+                      "Zappify",
+                      "/icons/notepad.png",
+                    )
+                  } else if (child.id === "5.2.4") {
+                    openWindow(
+                      "Zappify Gallery",
+                      "/icons/gallery.png",
+                    );
                   } else if (child.id === "5.8.1") {
                     openWindow(
                       "To-do List",

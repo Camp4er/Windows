@@ -7,7 +7,7 @@ import Taskbar from "./Taskbar/Taskbar";
 import Terminal from "./Terminal";
 import FileExplorer from "./FileExplorer/FileExplorer";
 import Snakegame from "./Snakegame";
-import { ShopperImages, sidebarData, TodoListImages } from "@/constants/folderData";
+import { ShopperImages, sidebarData, TodoListImages, ZappifyImages } from "@/constants/folderData";
 import Notepad from "./SeparateWindows/Notepad";
 import { useWindowManager } from "./NewWindow/WindowManagerContext";
 import PDFViewer from "./SeparateWindows/PdfViewer";
@@ -108,6 +108,26 @@ export default function Desktop() {
    - Developed an appreciation for structuring clean and readable code\n\n
    Check out the project here: https://gorgeous-pastelito-e4e467.netlify.app/\n
 `;
+
+const zappifyProject = `
+Zappify – Zaap.ai Clone ⚡\n
+Project Type: First project of my second internship\n
+Tech Stack: React, CSS, Javascript
+Description:\n
+Zappify is a pixel-perfect clone of the Zaap.ai website, built to replicate its interactive and visually engaging design. This project was my introduction to implementing complex animations while ensuring a fully responsive layout across all devices.\n\n
+Key Features:\n
+- 🎭 Extensive Animations: Smooth transitions, dynamic motion effects, and engaging user interactions.\n
+- 📱 Fully Responsive: Ensured adaptability across different screen sizes without breaking the design.\n
+- ⚡ Performance Optimization: Fine-tuned animations to maintain fluidity without lag.\n
+- 🎨 UI Precision: Matched the original website's design aesthetics with high attention to detail.\n\n
+Experience Gained:\n
+- Deep understanding of animation libraries like Framer Motion.\n
+- Learned to balance animations with performance optimization.\n
+- Improved skills in creating fully responsive, interactive web pages.\n
+- Strengthened my problem-solving abilities while debugging complex animation issues.\n\n
+Check out the project here: https://zappify.netlify.app/\n
+`;
+
 
   return (
     <>
@@ -247,6 +267,10 @@ export default function Desktop() {
             {window.name === "To-do List" && <Notepad content={todoProject} />}
             {window.name === "To-do List Gallery" && (
               <GalleryViewer images={TodoListImages} />
+            )}
+            {window.name === "Zappify" && <Notepad content={zappifyProject} />}
+            {window.name === "Zappify Gallery" && (
+              <GalleryViewer images={ZappifyImages} />
             )}
             {window.name === "Calculator" && <Calculator />}
             {window.name === "Calendar" && <Calendar />}

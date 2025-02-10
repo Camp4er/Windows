@@ -15,6 +15,20 @@ export const TodoListImages = [
   "/projects/todolist/img4.png",
 ];
 
+export const ZappifyImages = [
+  "/projects/zappify/img1.png",
+  "/projects/zappify/img2.png",
+  "/projects/zappify/img3.png",
+  "/projects/zappify/img4.png",
+  "/projects/zappify/img5.png",
+  "/projects/zappify/img6.png",
+  "/projects/zappify/img7.png",
+  "/projects/zappify/img8.png",
+  "/projects/zappify/img9.png",
+  "/projects/zappify/img10.png",
+  "/projects/zappify/img11.png",
+];
+
 
 export const sectionOne = {
   Home: {
@@ -127,47 +141,47 @@ export const sectionTwo = {
         ],
       },
       {
-        name: "Project B",
+        name: "Zappify",
         type: "folder" as const,
-        dateModified: "2024-12-01",
+        dateModified: "16-07-2024",
         size: "118 KB",
-        icons: "/icons/share.png",
+        icons: "/projects/zappify/logo.svg",
         id: 5.2,
         children: [
           {
             name: "Description",
             type: "file" as const,
-            dateModified: "2024-12-01",
-            size: "118 KB",
+            dateModified: "16-07-2024",
+            size: "2.3 KB",
             icons: "/icons/notepad.png",
             id: "5.2.1",
           },
           {
             name: "Github Repo",
             type: "file" as const,
-            dateModified: "2024-12-01",
+            dateModified: "16-07-2024",
             size: "",
             icons: "/icons/github.svg",
             id: "5.2.2",
             onClick: () => {
-              window.open("https://github.com/Camp4er", "_blank");
+              window.open("https://github.com/Camp4er/Zapp-clone", "_blank");
             },
           },
           {
             name: "Live Demo",
             type: "file" as const,
-            dateModified: "2024-12-01",
+            dateModified: "16-07-2024",
             size: "",
             icons: "/icons/desktop.png",
             id: "5.2.3",
             onClick: () => {
-              window.open("https://github.com/Camp4er", "_blank");
+              window.open("https://zappify.netlify.app/", "_blank");
             },
           },
           {
             name: "View Images",
             type: "file" as const,
-            dateModified: "2024-12-01",
+            dateModified: "16-07-2024",
             size: "118 KB",
             icons: "/icons/gallery.png",
             id: "5.2.4",
