@@ -54,10 +54,10 @@ const Taskbar = ({ openWindows, toggleWindow, openWindow }: TaskbarProps) => {
   const taskbarButtons: ITaskbarButton[] = [
     {
       id: 3,
-      src: "/icons/Widgets.png",
+      src: "/icons/to-do-list.png",
       size: { width: 30, height: 30 },
-      action: () => console.log("Open Widgets"),
-      alt: "Widgets icon",
+      action: () => openWindow("Todo List", "/icons/to-do-list.png"),
+      alt: "Todo list icon",
     },
     {
       id: 4,

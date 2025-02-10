@@ -215,6 +215,12 @@ const SearchMenu = ({ closeMenu }: { closeMenu: () => void }) => {
       type: "file",
       action: () => openWindow("Sticky Notes", "/icons/sticky-note.png"),
     },
+    {
+      name: "Todo List",
+      icon: "/icons/to-do-list.png",
+      type: "file",
+      action: () => openWindow("Todo List", "/icons/to-do-list.png"),
+    }
   ].sort((a, b) => a.name.localeCompare(b.name));
 
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {

@@ -243,6 +243,13 @@ export default function Desktop() {
               height="100%">
               </iframe>
             )}
+            {window.name === "Todo List" && (
+              <iframe
+              src="https://gorgeous-pastelito-e4e467.netlify.app/"
+              width="100%"
+              height="100%">
+              </iframe>
+            )}
           </Window>
         ) : null
       )}

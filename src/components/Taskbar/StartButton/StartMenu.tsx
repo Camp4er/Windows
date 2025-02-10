@@ -85,6 +85,7 @@ const StartMenu = ({ closeMenu }: { closeMenu: () => void }) => {
     {name: "Weather", icon: "/icons/cloud.png", type:"file", action: () => openWindow("Weather", "/icons/cloud.png")  },
     {name: "Time Tracker", icon: "/icons/time-tracking.png", type:"file", action: () => openWindow("Time Tracker", "/icons/time-tracking.png")  },
     {name: "Sticky Notes", icon: "/icons/sticky-note.png", type:"file", action: () => openWindow("Sticky Notes", "/icons/sticky-note.png")  },
+    {name: "Todo List", icon: "/icons/to-do-list.png", type:"file", action: () => openWindow("Todo List", "/icons/checklist.png")  },
   ].sort((a, b) => a.name.localeCompare(b.name)); // Sort alphabetically
 
   return (
