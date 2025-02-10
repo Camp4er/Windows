@@ -25,7 +25,7 @@ const StartMenu = ({ closeMenu }: { closeMenu: () => void }) => {
     { name: "Edge", icon: "/icons/microsoft.png", action: () => openWindow("Microsoft Edge", "/icons/microsoft.png")},
     { name: "Snakeats", icon: "/icons/snake.png", action: () => openWindow("Snakeats", "/icons/snake.png")},
     { name: "Calendar", icon: "/icons/calendar.png", action: () => openWindow("Calendar", "/icons/calendar.png")},
-    { name: "Google Chrome", icon: "/icons/chrome.svg", action:() => openWindow("Google Search", "/icons/chrome.svg")},
+    { name: "Google Chrome", icon: "/icons/chrome.svg", action:() => openWindow("Google Chrome", "/icons/chrome.svg")},
     { name: "Visual Studio Code", icon: "/icons/vscode.svg", action: () => openWindow("VS Code", "/icons/vscode.svg")},
     { name: "Terminal", icon: "/icons/bash.png", action: () => openWindow("Terminal", "icons/bash.png")},
     { name: "Clock", icon: "/icons/clock.png", action: () => openWindow("Clock", "/icons/clock.png")},

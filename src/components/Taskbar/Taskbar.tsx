@@ -63,7 +63,7 @@ const Taskbar = ({ openWindows, toggleWindow, openWindow }: TaskbarProps) => {
       id: 4,
       src: "/icons/chrome.svg",
       size: { width: 32, height: 32 },
-      action: () => openWindow("Google Search", "/icons/chrome.svg"),
+      action: () => openWindow("Google Chrome", "/icons/chrome.svg"),
       alt: "Chrome",
     },
     {

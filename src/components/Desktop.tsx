@@ -234,7 +234,7 @@ Check out the project here: https://clinquant-donut-3bfcbf.netlify.app/\n
           <DesktopIcon
             title="VS Code"
             icon="/icons/vscode.svg"
-            onClick={() => console.log("VS Code opened")}
+            onClick={() => openWindow("VS Code", "/icons/vscode.svg")}
           />
           <DesktopIcon
             title="Feedback Hub"
@@ -285,7 +285,7 @@ Check out the project here: https://clinquant-donut-3bfcbf.netlify.app/\n
             {window.name === "Contact" && (
               <FileExplorer initialSidebarId={8} sidebarData={sidebarData} />
             )}
-            {window.name === "Google Search" && (
+            {window.name === "Google Chrome" && (
               <iframe
                 src="https://www.google.com/webhp?igu=1"
                 width="100%"
