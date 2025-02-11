@@ -17,29 +17,41 @@ export default function TaskbarLeftSection() {
   }, []);
 
   const toggleContactPanel = () => {
-    setIsContactOpen(!isContactOpen);
+    if (isContactOpen) {
+      setIsContactOpen(false);
+      setTimeout(() => {
+        // Remove the panel from the DOM
+      }, 300); // delay for 300ms to allow animation to run
+    } else {
+      setIsContactOpen(true);
+    }
   };
 
   return (
     <div className="relative">
-      <button
-        className="text-white py-2 cursor-pointer rounded-md pr-1"
-        onClick={toggleContactPanel}
-      >
-        Contact Me
-      </button>
+  <button
+    className="text-white py-2 cursor-pointer rounded-md pr-1"
+    onClick={toggleContactPanel}
+  >
+    Contact Me
+  </button>
 
-      {/* Sliding Panel */}
-      {isContactOpen && (
-        <div
-          ref={panelRef}
-          className={`absolute bottom-full mb-2 h-[600px] w-auto z-50 transform transition-transform duration-300 bg-gray-700 bg-opacity-80 rounded ${
-            isContactOpen ? "slide-in-left" : "slide-out-right"
-          }`}
-        >
-          <ContactPanel />
-        </div>
-      )}
+  {isContactOpen && (
+    <div
+      ref={panelRef}
+      className={`absolute bottom-full mb-2 h-[600px] w-auto z-50 transform transition-transform duration-300 bg-gray-700 bg-opacity-80 rounded animate-slide-in-left`}
+    >
+      <ContactPanel />
     </div>
+  )}
+  {!isContactOpen && (
+    <div
+      ref={panelRef}
+      className={`absolute bottom-full mb-2 h-[600px] w-auto z-50 transform transition-transform duration-300 bg-gray-700 bg-opacity-80 rounded animate-slide-out-left`}
+    >
+      <div />
+    </div>
+  )}
+</div>
   );
 }

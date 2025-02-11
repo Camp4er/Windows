@@ -94,15 +94,7 @@ body {
   .animate-fade-in {
     animation: fadeIn 2s ease-in-out;
   }
-
-  .animate-slide-in {
-    animation: slide-in 0.1s ease-out forwards;
-  }
-
-  .animate-slide-out {
-    animation: slideOut 0.1s ease-out forwards;
-  }
-
+  
   .animate-slide-in-left {
     animation: slideInLeft 0.1s ease-out forwards;
   }
