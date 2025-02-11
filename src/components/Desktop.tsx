@@ -196,6 +196,12 @@ Check out the project here: https://clinquant-donut-3bfcbf.netlify.app/\n
 
   return (
     <>
+    <div
+    className="absolute inset-0 bg-cover bg-center"
+    style={{
+      backgroundImage: "url('/background/img10.jpg')",
+    }}
+  />
       {/* Desktop icons */}
       <div
         className="flex flex-row desktop-container"
