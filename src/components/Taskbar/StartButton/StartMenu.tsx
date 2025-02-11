@@ -27,7 +27,7 @@ const StartMenu = ({ closeMenu }: { closeMenu: () => void }) => {
     { name: "Calendar", icon: "/icons/calendar.png", action: () => openWindow("Calendar", "/icons/calendar.png")},
     { name: "Google Chrome", icon: "/icons/chrome.svg", action:() => openWindow("Google Chrome", "/icons/chrome.svg")},
     { name: "Visual Studio Code", icon: "/icons/vscode.svg", action: () => openWindow("VS Code", "/icons/vscode.svg")},
-    { name: "Administrator: Windows PowerShell", icon: "/icons/window.png", action: () => openWindow("Administrator: Windows PowerShell", "icons/window.png")},
+    {name: "Todo List", icon: "/icons/to-do-list.png", action: () => openWindow("Todo List", "/icons/to-do-list.png")  },
     { name: "Clock", icon: "/icons/clock.png", action: () => openWindow("Clock", "/icons/clock.png")},
     { name: "Sticky Notes", icon: "/icons/sticky-note.png", action: () => openWindow("Sticky Notes", "/icons/sticky-note.png")},
     { name: "Photos", icon: "/icons/gallery.png", action: () => console.log("Calculator")  },
@@ -75,7 +75,7 @@ const StartMenu = ({ closeMenu }: { closeMenu: () => void }) => {
     {name: "Weather", icon: "/icons/cloud.png", action: () => openWindow("Weather", "/icons/cloud.png")  },
     {name: "Time Tracker", icon: "/icons/time-tracking.png", action: () => openWindow("Time Tracker", "/icons/time-tracking.png")  },
     {name: "Sticky Notes", icon: "/icons/sticky-note.png", action: () => openWindow("Sticky Notes", "/icons/sticky-note.png")  },
-    {name: "Todo List", icon: "/icons/to-do-list.png", action: () => openWindow("Todo List", "/icons/checklist.png")  },
+    {name: "Todo List", icon: "/icons/to-do-list.png", action: () => openWindow("Todo List", "/icons/to-do-list.png")  },
   ].sort((a, b) => a.name.localeCompare(b.name)); // Sort alphabetically
 
   return (
