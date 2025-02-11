@@ -1,5 +1,21 @@
 import { FileItem } from "@/components/FileExplorer/FileExplorer";
 
+export const Screenshots = [
+  "/gallery/img1.png",
+  "/gallery/img2.png",
+  "/gallery/img3.png",
+  "/gallery/img4.png",
+  "/gallery/img5.png",
+  "/gallery/img6.png",
+  "/gallery/img7.png",
+  "/gallery/img8.png",
+  "/gallery/img9.png",
+  // "/gallery/img10.png",
+  "/gallery/img11.png",
+  "/gallery/img12.png",
+  "/gallery/img13.png",
+];
+
 export const ShopperImages = [
   "/projects/shopper/img1.png",
   "/projects/shopper/img2.png",
@@ -54,7 +70,6 @@ export const HeatMapImages = [
   "/projects/heatmap/img5.png",
 ];
 
-
 export const sectionOne = {
   Home: {
     name: "Home",
@@ -68,7 +83,112 @@ export const sectionOne = {
     type: "folder" as const,
     icons: "/icons/gallery.png",
     id: 2,
-    children: [] as FileItem[],
+    children: [
+      {
+        name: "Screenshot 11-02-2025 074849",
+        type: "PNG file",
+        icons: "/icons/image.png",
+        id: 2.1,
+        dateModified: "11-02-2025",
+        size: "805 KB",
+      },
+      {
+        name: "Screenshot 11-02-2025 074924",
+        type: "PNG file",
+        icons: "/icons/image.png",
+        id: 2.2,
+        dateModified: "11-02-2025",
+        size: "135 KB",
+      },
+      {
+        name: "Screenshot 11-02-2025 074956",
+        type: "PNG file",
+        icons: "/icons/image.png",
+        id: 2.3,
+        dateModified: "11-02-2025",
+        size: "196 KB",
+      },
+      {
+        name: "Screenshot 11-02-2025 075042",
+        type: "PNG file",
+        icons: "/icons/image.png",
+        id: 2.4,
+        dateModified: "11-02-2025",
+        size: "101 KB",
+      },
+      {
+        name: "Screenshot 11-02-2025 075051",
+        type: "PNG file",
+        icons: "/icons/image.png",
+        id: 2.5,
+        dateModified: "11-02-2025",
+        size: "95 KB",
+      },
+      {
+        name: "Screenshot 11-02-2025 075109",
+        type: "PNG file",
+        icons: "/icons/image.png",
+        id: 2.6,
+        dateModified: "11-02-2025",
+        size: "72 KB",
+      },
+      {
+        name: "Screenshot 11-02-2025 075118",
+        type: "PNG file",
+        icons: "/icons/image.png",
+        id: 2.7,
+        dateModified: "11-02-2025",
+        size: "69 KB",
+      },
+      {
+        name: "Screenshot 11-02-2025 075150",
+        type: "PNG file",
+        icons: "/icons/image.png",
+        id: 2.8,
+        dateModified: "11-02-2025",
+        size: "410 KB",
+      },
+      {
+        name: "Screenshot 11-02-2025 075211",
+        type: "PNG file",
+        icons: "/icons/image.png",
+        id: 2.9,
+        dateModified: "11-02-2025",
+        size: "277 KB",
+      },
+      // {
+      //   name: "Screenshot 11-02-2025 075241",
+      //   type: "PNG file",
+      //   icons: "/icons/image.png",
+      //   id: "2.10",
+      //   dateModified: "11-02-2025",
+      //   size: "127 KB",
+      // },
+      {
+        name: "Screenshot 11-02-2025 075258",
+        type: "PNG file",
+        icons: "/icons/image.png",
+        id: "2.11",
+        dateModified: "11-02-2025",
+        size: "54 KB",
+      },
+      {
+        name: "Screenshot 11-02-2025 075328",
+        type: "PNG file",
+        icons: "/icons/image.png",
+        id: "2.12",
+        dateModified: "11-02-2025",
+        size: "560 KB",
+      },
+      {
+        name: "Screenshot 11-02-2025 075531",
+        type: "PNG file",
+        icons: "/icons/image.png",
+        id: "2.13",
+        dateModified: "11-02-2025",
+        size: "190 KB",
+      },
+    ],
   },
 };
 
@@ -285,7 +405,10 @@ export const sectionTwo = {
             icons: "/icons/desktop.png",
             id: "5.4.3",
             onClick: () => {
-              window.open("https://main--legendary-cendol-69ad02.netlify.app/", "_blank");
+              window.open(
+                "https://main--legendary-cendol-69ad02.netlify.app/",
+                "_blank"
+              );
             },
           },
           {
@@ -333,7 +456,10 @@ export const sectionTwo = {
             icons: "/icons/desktop.png",
             id: "5.5.3",
             onClick: () => {
-              window.open("https://clinquant-donut-3bfcbf.netlify.app/", "_blank");
+              window.open(
+                "https://clinquant-donut-3bfcbf.netlify.app/",
+                "_blank"
+              );
             },
           },
           {
@@ -381,7 +507,10 @@ export const sectionTwo = {
             icons: "/icons/desktop.png",
             id: "5.6.3",
             onClick: () => {
-              window.open("https://gorgeous-pastelito-e4e467.netlify.app/", "_blank");
+              window.open(
+                "https://gorgeous-pastelito-e4e467.netlify.app/",
+                "_blank"
+              );
             },
           },
           {

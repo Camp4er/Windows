@@ -34,7 +34,7 @@ export default function GalleryViewer({ images }: GalleryViewerProps) {
   return (
     <div className="h-full w-full bg-gray-800 text-white p-4 flex flex-col">
       {/* Image Grid */}
-      <div className="grid grid-cols-3 gap-4">
+      <div className="grid grid-cols-3 gap-4 overflow-y-auto">
         {images.map((image, index) => (
           <div
             key={index}

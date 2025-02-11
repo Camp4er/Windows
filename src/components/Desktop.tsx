@@ -7,7 +7,16 @@ import Taskbar from "./Taskbar/Taskbar";
 import Terminal from "./Terminal";
 import FileExplorer from "./FileExplorer/FileExplorer";
 import Snakegame from "./Snakegame";
-import { BlogTextImages, GPTImages, HeatMapImages, ShopperImages, sidebarData, TodoListImages, ZappifyImages } from "@/constants/folderData";
+import {
+  BlogTextImages,
+  GPTImages,
+  HeatMapImages,
+  Screenshots,
+  ShopperImages,
+  sidebarData,
+  TodoListImages,
+  ZappifyImages,
+} from "@/constants/folderData";
 import Notepad from "./SeparateWindows/Notepad";
 import { useWindowManager } from "./NewWindow/WindowManagerContext";
 import PDFViewer from "./SeparateWindows/PdfViewer";
@@ -109,7 +118,7 @@ export default function Desktop() {
    Check out the project here: https://gorgeous-pastelito-e4e467.netlify.app/\n
 `;
 
-const zappifyProject = `
+  const zappifyProject = `
 Zappify – Zaap.ai Clone ⚡\n
 Project Type: First project of my second internship\n
 Tech Stack: React, CSS, Javascript
@@ -128,7 +137,7 @@ Experience Gained:\n
 Check out the project here: https://zappify.netlify.app/\n
 `;
 
-const blogTextProject = `
+  const blogTextProject = `
 BlogText – Video to Blog Converter 📝🎥\n
 Project Type: Full-Stack Web Application\n
 Tech Stack: Next.js, Tailwind CSS, TypeScript, NeonDB, Stripe, Clerk\n\n
@@ -149,7 +158,7 @@ Experience Gained:\n
 (⚠️ This project is currently not deployable due to unavailable production variables for Clerk.)\n
 `;
 
-const gpt3Project = `
+  const gpt3Project = `
 GPT-3 – Frontend Practice Website 🖥️🎨\n
 Project Type: Demo Website\n
 Tech Stack: React.js, CSS, JavaScript\n\n
@@ -167,7 +176,7 @@ Experience Gained:\n
 Check out the project here: https://main--legendary-cendol-69ad02.netlify.app/\n
 `;
 
-const heatMapProject = `
+  const heatMapProject = `
 Heat Map – Data Visualization Project 📊🔥\n
 Project Type: FreeCodeCamp Assignment\n
 Tech Stack: D3.js, HTML, CSS, JavaScript\n\n
@@ -184,7 +193,6 @@ Experience Gained:\n
 - Improved skills in handling and presenting structured datasets.\n\n
 Check out the project here: https://clinquant-donut-3bfcbf.netlify.app/\n
 `;
-
 
   return (
     <>
@@ -307,7 +315,9 @@ Check out the project here: https://clinquant-donut-3bfcbf.netlify.app/\n
               ></iframe>
             )}
             {window.name === "Snakeats" && <Snakegame />}
-            {window.name === "Administrator: Windows PowerShell" && <Terminal />}
+            {window.name === "Administrator: Windows PowerShell" && (
+              <Terminal />
+            )}
             {window.name === "File Explorer" && (
               <FileExplorer initialSidebarId={1} sidebarData={sidebarData} />
             )}
@@ -317,6 +327,9 @@ Check out the project here: https://clinquant-donut-3bfcbf.netlify.app/\n
             {window.name === "Resume" && <PDFViewer />}
             {window.name === "LRIT" && <Notepad content={LRIT} />}
             {window.name === "Frontend50" && <Notepad content={F50} />}
+            {window.name === "Screenshots" && (
+              <GalleryViewer images={Screenshots} />
+            )}
             {window.name === "Shopper" && <Notepad content={shopper} />}
             {window.name === "Shopper Gallery" && (
               <GalleryViewer images={ShopperImages} />
@@ -325,7 +338,9 @@ Check out the project here: https://clinquant-donut-3bfcbf.netlify.app/\n
             {window.name === "Zappify Gallery" && (
               <GalleryViewer images={ZappifyImages} />
             )}
-            {window.name === "BlogText" && <Notepad content={blogTextProject} />}
+            {window.name === "BlogText" && (
+              <Notepad content={blogTextProject} />
+            )}
             {window.name === "BlogText Gallery" && (
               <GalleryViewer images={BlogTextImages} />
             )}

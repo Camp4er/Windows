@@ -7,7 +7,7 @@ import { useWindowManager } from "../NewWindow/WindowManagerContext";
 
 type ContentAreaProps = {
   items: FileItem[];
-  activeFolder: FileItem[];  // Sidebar-clicked folder
+  activeFolder: FileItem[]; // Sidebar-clicked folder
   onFolderClick: (folder: FileItem, isSidebarClick: boolean) => void;
 };
 
@@ -16,16 +16,13 @@ const getDeepestChildren = (folder: FileItem): FileItem[] => {
   if (!folder.children || folder.children.length === 0) return [];
   let nextLevel = folder.children;
 
-  while (nextLevel.some(item => item.children && item.children.length > 0)) {
-    nextLevel = nextLevel.flatMap(item => item.children || []);
+  while (nextLevel.some((item) => item.children && item.children.length > 0)) {
+    nextLevel = nextLevel.flatMap((item) => item.children || []);
   }
   return nextLevel;
 };
 
-const ContentArea: React.FC<ContentAreaProps> = ({
-  items,
-  onFolderClick,
-}) => {
+const ContentArea: React.FC<ContentAreaProps> = ({ items, onFolderClick }) => {
   const { openWindow } = useWindowManager();
   const [selectedItem, setSelectedItem] = useState<FileItem | null>(null);
   const [currentItems, setCurrentItems] = useState<FileItem[]>(items);
@@ -40,15 +37,17 @@ const ContentArea: React.FC<ContentAreaProps> = ({
   const handleFolderClick = (item: FileItem) => {
     if (item.children && item.children.length > 0) {
       const nextLevelChildren = getDeepestChildren(item);
-      setCurrentItems(nextLevelChildren.length > 0 ? nextLevelChildren : item.children);
+      setCurrentItems(
+        nextLevelChildren.length > 0 ? nextLevelChildren : item.children
+      );
     } else {
       setCurrentItems([]);
     }
     setSelectedItem(item);
-  if (item.onClick) {
-    item.onClick();
-    return; // Prevent default behavior
-  }
+    if (item.onClick) {
+      item.onClick();
+      return; // Prevent default behavior
+    }
     onFolderClick(item, false);
   };
 
@@ -58,10 +57,18 @@ const ContentArea: React.FC<ContentAreaProps> = ({
         <table className="w-full rounded-md shadow-sm">
           <thead className="text-white text-sm border-b-8 border-gray-900">
             <tr>
-              <th className="px-5 text-left border-gray-500 border-r-2">Name</th>
-              <th className="px-5 text-left border-gray-500 border-r-2">Type</th>
-              <th className="px-5 text-left border-gray-500 border-r-2">Date Modified</th>
-              <th className="px-5 text-left border-gray-500 border-r-2">Size</th>
+              <th className="px-5 text-left border-gray-500 border-r-2">
+                Name
+              </th>
+              <th className="px-5 text-left border-gray-500 border-r-2">
+                Type
+              </th>
+              <th className="px-5 text-left border-gray-500 border-r-2">
+                Date Modified
+              </th>
+              <th className="px-5 text-left border-gray-500 border-r-2">
+                Size
+              </th>
             </tr>
           </thead>
           <tbody className="text-gray-100 rounded text-sm">
@@ -69,93 +76,58 @@ const ContentArea: React.FC<ContentAreaProps> = ({
               <tr
                 key={child.id}
                 onClick={() => {
-                  if (child.id === 3.1) {
-                    openWindow(
-                      "About",
-                      "/icons/notepad.png",
-                    );
+                  if (
+                    child.id === 2.1 ||
+                    2.2 ||
+                    2.3 ||
+                    2.4 ||
+                    2.5 ||
+                    2.6 ||
+                    2.7 ||
+                    2.8 ||
+                    2.9 ||
+                    "2.10" ||
+                    "2.11" ||
+                    "2.12" ||
+                    "2.13"
+                  ) {
+                    openWindow("Screenshots", "/icons/gallery.png");
+                  } else if (child.id === 3.1) {
+                    openWindow("About", "/icons/notepad.png");
                   } else if (child.id === 4.1) {
-                    openWindow(
-                      "Resume",
-                      "/icons/pdf.png",
-                    )
+                    openWindow("Resume", "/icons/pdf.png");
                   } else if (child.id === 7.1) {
-                    openWindow(
-                      "Frontend50",
-                      "/icons/suitcase.png",
-                    )
+                    openWindow("Frontend50", "/icons/suitcase.png");
                   } else if (child.id === 7.2) {
-                    openWindow(
-                      "LRIT",
-                      "/icons/suitcase.png",
-                    )
+                    openWindow("LRIT", "/icons/suitcase.png");
                   } else if (child.id === "10.1.1.1") {
-                    openWindow(
-                      "Snakeats",
-                      "/icons/snake.png",
-                    )
+                    openWindow("Snakeats", "/icons/snake.png");
                   } else if (child.id === "5.1.1") {
-                    openWindow(
-                      "Shopper",
-                      "/icons/notepad.png",
-                    )
+                    openWindow("Shopper", "/icons/notepad.png");
                   } else if (child.id === "5.1.4") {
-                    openWindow(
-                      "Shopper Gallery",
-                      "/icons/gallery.png",
-                    );
+                    openWindow("Shopper Gallery", "/icons/gallery.png");
                   } else if (child.id === "5.2.1") {
-                    openWindow(
-                      "Zappify",
-                      "/icons/notepad.png",
-                    )
+                    openWindow("Zappify", "/icons/notepad.png");
                   } else if (child.id === "5.2.4") {
-                    openWindow(
-                      "Zappify Gallery",
-                      "/icons/gallery.png",
-                    );
+                    openWindow("Zappify Gallery", "/icons/gallery.png");
                   } else if (child.id === "5.3.1") {
-                    openWindow(
-                      "BlogText",
-                      "/icons/notepad.png",
-                    )
+                    openWindow("BlogText", "/icons/notepad.png");
                   } else if (child.id === "5.3.4") {
-                    openWindow(
-                      "BlogText Gallery",
-                      "/icons/gallery.png",
-                    );
+                    openWindow("BlogText Gallery", "/icons/gallery.png");
                   } else if (child.id === "5.4.1") {
-                    openWindow(
-                      "GPT-3",
-                      "/icons/notepad.png",
-                    )
+                    openWindow("GPT-3", "/icons/notepad.png");
                   } else if (child.id === "5.4.4") {
-                    openWindow(
-                      "GPT-3 Gallery",
-                      "/icons/gallery.png",
-                    );
+                    openWindow("GPT-3 Gallery", "/icons/gallery.png");
                   } else if (child.id === "5.5.1") {
-                    openWindow(
-                      "Heat Map",
-                      "/icons/notepad.png",
-                    )
+                    openWindow("Heat Map", "/icons/notepad.png");
                   } else if (child.id === "5.5.4") {
-                    openWindow(
-                      "Heat Map Gallery",
-                      "/icons/gallery.png",
-                    );
+                    openWindow("Heat Map Gallery", "/icons/gallery.png");
                   } else if (child.id === "5.6.1") {
-                    openWindow(
-                      "To-do List",
-                      "/icons/notepad.png",
-                    )
+                    openWindow("To-do List", "/icons/notepad.png");
                   } else if (child.id === "5.6.4") {
-                    openWindow(
-                      "To-do List Gallery",
-                      "/icons/gallery.png",
-                    );
+                    openWindow("To-do List Gallery", "/icons/gallery.png");
                   }
-                  
+
                   if (child.type === "folder") {
                     handleFolderClick(child);
                   }
@@ -173,9 +145,15 @@ const ContentArea: React.FC<ContentAreaProps> = ({
                   />
                   {child.name}
                 </td>
-                <td className="px-5 py-1 overflow-hidden whitespace-nowrap">{child.type}</td>
-                <td className="px-5 py-1 overflow-hidden whitespace-nowrap">{child.dateModified || "-"}</td>
-                <td className="px-5 py-1 overflow-hidden whitespace-nowrap">{child.size || "-"}</td>
+                <td className="px-5 py-1 overflow-hidden whitespace-nowrap">
+                  {child.type}
+                </td>
+                <td className="px-5 py-1 overflow-hidden whitespace-nowrap">
+                  {child.dateModified || "-"}
+                </td>
+                <td className="px-5 py-1 overflow-hidden whitespace-nowrap">
+                  {child.size || "-"}
+                </td>
               </tr>
             ))}
           </tbody>
