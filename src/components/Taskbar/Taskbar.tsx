@@ -104,7 +104,7 @@ const Taskbar = ({ openWindows, toggleWindow, openWindow }: TaskbarProps) => {
   ];
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 bg-zinc-900 text-white flex items-center justify-between px-3 h-[54px]">
+    <div className="fixed z-50 bottom-0 left-0 right-0 bg-zinc-900 text-white flex items-center justify-between px-3 h-[54px]">
       {/* Contact Button */}
       <div
         className="flex items-center gap-2 px-1 hover:bg-zinc-800 cursor-pointer rounded"

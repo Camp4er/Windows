@@ -28,22 +28,8 @@ export default function ActionCenter() {
   const [brightness, setBrightness] = useState(50);
   const [volume, setVolume] = useState(50);
   const panelRef = useRef<HTMLDivElement | null>(null);
-  const [panelState, setPanelState] = useState('closed');
 
   useEffect(() => {
-
-    if (isPanelOpen) {
-      setPanelState('opening');
-      setTimeout(() => {
-        setPanelState('open');
-      }, 5000); // adjust the timeout to match the animation duration
-    } else {
-      setPanelState('closing');
-      setTimeout(() => {
-        setPanelState('closed');
-      }, 5000); // adjust the timeout to match the animation duration
-    }
-
     const handleClickOutside = (e: MouseEvent) => {
       if (panelRef.current && !panelRef.current.contains(e.target as Node)) {
         setIsPanelOpen(false);
@@ -51,7 +37,7 @@ export default function ActionCenter() {
     };
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, [isPanelOpen]);
+  }, []);
 
   const togglePanel = () => {
     setIsPanelOpen(!isPanelOpen);
@@ -62,6 +48,7 @@ export default function ActionCenter() {
       <button
         className="flex items-center hover:bg-zinc-800 gap-1 m-0 py-2 px-1 rounded"
         onClick={togglePanel}
+        aria-label="Open Action Center"
       >
         {systemTrayIcons.map((icon) => (
           <div key={icon.id} className="p-1 rounded" aria-label={icon.alt}>
@@ -69,84 +56,83 @@ export default function ActionCenter() {
           </div>
         ))}
       </button>
-      <div ref={panelRef}
-  className="panel"
-  style={{
-    transform: isPanelOpen ? 'translateY(0)' : 'translateY(100%)',
-    transition: 'transform 0.5s',
-  }}>
-        {isPanelOpen && (
-          <div
-          className="absolute bottom-full left-[-137] right-0 mb-2 w-80 bg-zinc-900 text-white rounded-lg shadow-lg p-4"
-          onClick={togglePanel}
+      {isPanelOpen && (
+        <div
+          ref={panelRef}
+          className="absolute bottom-full right-0 left-[-137] mb-2 w-80 rounded-lg shadow-lg overflow-hidden bg-zinc-900 text-white"
         >
-          {/* Top Actions */}
-          <div className="grid grid-cols-3 gap-2 mb-4">
-            <div className="flex flex-col items-center p-2 bg-zinc-600 rounded-lg">
-              <FaWifi size={24} />
-              <span className="text-xs mt-1">NARZO 70</span>
+          <div className="p-4">
+            {/* Top Actions */}
+            <div className="grid grid-cols-3 gap-2 mb-4">
+              <div className="flex flex-col items-center p-3 rounded-lg bg-zinc-700 hover:bg-zinc-600 cursor-pointer">
+                <FaWifi size={24} className="mb-1" />
+                <span className="text-xs">NARZO 70</span>
+              </div>
+              <div className="flex flex-col items-center p-3 rounded-lg bg-zinc-700 hover:bg-zinc-600 cursor-pointer">
+                <FaBluetooth size={24} className="mb-1" />
+                <span className="text-xs">Not connected</span>
+              </div>
+              <div className="flex flex-col items-center p-3 rounded-lg bg-zinc-700 hover:bg-zinc-600 cursor-pointer">
+                <FaPlane size={24} className="mb-1" />
+                <span className="text-xs">Airplane mode</span>
+              </div>
+              <div className="flex flex-col items-center p-3 rounded-lg bg-zinc-700 hover:bg-zinc-600 cursor-pointer">
+                <FaBatteryHalf size={24} className="mb-1" />
+                <span className="text-xs">Battery saver</span>
+              </div>
+              <div className="flex flex-col items-center p-3 rounded-lg bg-zinc-700 hover:bg-zinc-600 cursor-pointer">
+                <span className="text-xl">♿</span>
+                <span className="text-xs">Accessibility</span>
+              </div>
+              <div className="flex flex-col items-center p-3 rounded-lg bg-zinc-700 hover:bg-zinc-600 cursor-pointer">
+                <span className="text-xl">📁</span>
+                <span className="text-xs">Project</span>
+              </div>
             </div>
-            <div className="flex flex-col items-center p-2 bg-zinc-600 rounded-lg">
-              <FaBluetooth size={24} />
-              <span className="text-xs mt-1">Not connected</span>
+            {/* Sliders */}
+            <div className="mb-4">
+              {/* Brightness */}
+              <div className="flex items-center gap-2 mb-3">
+                <FaSun size={20} />
+                <input
+                  type="range"
+                  min="0"
+                  max="100"
+                  value={brightness}
+                  onChange={(e) => setBrightness(Number(e.target.value))}
+                  className="w-full bg-gray-700 rounded-full h-1 slider-thumb"
+                />
+              </div>
+              {/* Volume */}
+              <div className="flex items-center gap-2">
+                <FaVolumeUp size={20} />
+                <input
+                  type="range"
+                  min="0"
+                  max="100"
+                  value={volume}
+                  onChange={(e) => setVolume(Number(e.target.value))}
+                  className="w-full bg-gray-700 rounded-full h-1 slider-thumb"
+                />
+              </div>
             </div>
-            <div className="flex flex-col items-center p-2 bg-gray-600 rounded-lg">
-              <FaPlane size={24} />
-              <span className="text-xs mt-1">Airplane mode</span>
-            </div>
-            <div className="flex flex-col items-center p-2 bg-gray-700 rounded-lg">
-              <FaBatteryHalf size={24} />
-              <span className="text-xs mt-1">Battery saver</span>
-            </div>
-            <div className="flex flex-col items-center p-2 bg-gray-700 rounded-lg">
-              <span>🦽</span>
-              <span className="text-xs mt-1">Accessibility</span>
-            </div>
-            <div className="flex flex-col items-center p-2 bg-gray-700 rounded-lg">
-              <span>📁</span>
-              <span className="text-xs mt-1">Project</span>
-            </div>
-          </div>
-  
-          {/* Sliders */}
-          <div className="mb-4">
-            {/* Brightness */}
-            <div className="flex items-center gap-2 mb-3">
-              <FaSun size={20} />
-              <input
-                type="range"
-                min="0"
-                max="100"
-                value={brightness}
-                onChange={(e) => setBrightness(Number(e.target.value))}
-                className="w-full"
-              />
-            </div>
-            {/* Volume */}
-            <div className="flex items-center gap-2">
-              <FaVolumeUp size={20} />
-              <input
-                type="range"
-                min="0"
-                max="100"
-                value={volume}
-                onChange={(e) => setVolume(Number(e.target.value))}
-                className="w-full"
-              />
-            </div>
-          </div>
-  
-          {/* Bottom Actions */}
-          <div className="flex justify-between items-center">
-            <span className="text-sm">26%</span>
-            <div className="flex gap-4">
-              <FaCog size={20} />
-              <FaBatteryHalf size={20} />
+            {/* Bottom Actions */}
+            <div className="flex justify-between items-center">
+              <span className="text-sm">26%</span>
+              <div className="flex gap-4">
+                <FaCog
+                  size={20}
+                  className="cursor-pointer hover:text-gray-400"
+                />
+                <FaBatteryHalf
+                  size={20}
+                  className="cursor-pointer hover:text-gray-400"
+                />
+              </div>
             </div>
           </div>
         </div>
-        )}
-      </div>
+      )}
     </div>
   );
 }
