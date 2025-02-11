@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 export default function BootScreen({ onComplete }: { onComplete: () => void }) {
   const [isVisible, setIsVisible] = useState(true);
@@ -21,10 +22,10 @@ export default function BootScreen({ onComplete }: { onComplete: () => void }) {
       transition={{ duration: 1.5, delay: 1.5 }}
     >
       {/* Fake Windows Logo */}
-      <div className="text-white text-5xl font-bold">⊞</div>
+      <Image src="/background/windows.png" alt="windows icon" width={50} height={50}/>
 
       {/* Loading Text */}
-      <p className="text-white mt-4">Starting Up...</p>
+      <p className="text-white mt-8">Starting Up...</p>
     </motion.div>
   ) : null;
 }
