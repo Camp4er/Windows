@@ -76,23 +76,7 @@ const ContentArea: React.FC<ContentAreaProps> = ({ items, onFolderClick }) => {
               <tr
                 key={child.id}
                 onClick={() => {
-                  if (
-                    child.id === 2.1 ||
-                    2.2 ||
-                    2.3 ||
-                    2.4 ||
-                    2.5 ||
-                    2.6 ||
-                    2.7 ||
-                    2.8 ||
-                    2.9 ||
-                    "2.10" ||
-                    "2.11" ||
-                    "2.12" ||
-                    "2.13"
-                  ) {
-                    openWindow("Screenshots", "/icons/gallery.png");
-                  } else if (child.id === 3.1) {
+                  if (child.id === 3.1) {
                     openWindow("About", "/icons/notepad.png");
                   } else if (child.id === 4.1) {
                     openWindow("Resume", "/icons/pdf.png");
@@ -126,6 +110,30 @@ const ContentArea: React.FC<ContentAreaProps> = ({ items, onFolderClick }) => {
                     openWindow("To-do List", "/icons/notepad.png");
                   } else if (child.id === "5.6.4") {
                     openWindow("To-do List Gallery", "/icons/gallery.png");
+                  } else if (child.id === 2.1) {
+                    openWindow("Screenshots", "/icons/gallery.png");
+                  } else if (child.id === 2.2) {
+                    openWindow("Screenshots", "/icons/gallery.png");
+                  } else if (child.id === 2.3) {
+                    openWindow("Screenshots", "/icons/gallery.png");
+                  } else if (child.id === 2.4) {
+                    openWindow("Screenshots", "/icons/gallery.png");
+                  } else if (child.id === 2.5) {
+                    openWindow("Screenshots", "/icons/gallery.png");
+                  } else if (child.id === 2.6) {
+                    openWindow("Screenshots", "/icons/gallery.png");
+                  } else if (child.id === 2.7) {
+                    openWindow("Screenshots", "/icons/gallery.png");
+                  } else if (child.id === 2.8) {
+                    openWindow("Screenshots", "/icons/gallery.png");
+                  } else if (child.id === 2.9) {
+                    openWindow("Screenshots", "/icons/gallery.png");
+                  } else if (child.id === "2.11") {
+                    openWindow("Screenshots", "/icons/gallery.png");
+                  } else if (child.id === "2.12") {
+                    openWindow("Screenshots", "/icons/gallery.png");
+                  } else if (child.id === "2.13") {
+                    openWindow("Screenshots", "/icons/gallery.png");
                   }
 
                   if (child.type === "folder") {
