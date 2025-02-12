@@ -14,7 +14,7 @@ interface SidebarProps {
 const Sidebar: React.FC<SidebarProps> = ({ foldersOne, foldersTwo, foldersThree, onFolderClick }) => {
 
 	return (
-		<div className="w-52 h-full  bg-gray-900 border-r border-gray-500 p-4 transition-opacity duration-500 opacity-100">
+		<div className="w-52 h-full bg-gray-900 border-r border-gray-500 p-4 transition-opacity duration-500 opacity-100">
 			{/* First section */}
 
       <ul className="space-y-2 border-gray-500 border-b-2 mb-1 pb-3">
