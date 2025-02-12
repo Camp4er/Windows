@@ -8,12 +8,59 @@ import {
   FaCommentDots,
 } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
+import emailjs from "@emailjs/browser";
 
 const Feedback: React.FC = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [currentSection, setCurrentSection] = useState("home");
   const [homeInput, setHomeInput] = useState("");
   const [feedbackInput, setFeedbackInput] = useState("");
+  const [emailStatus, setEmailStatus] = useState<
+    "idle" | "sending" | "success" | "error"
+  >("idle");
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [detailedFeedback, setDetailedFeedback] = useState("");
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setEmailStatus("sending");
+    setErrorMessage(null);
+
+    // Setup EmailJS parameters
+    const templateParams = {
+      feedbackSummary: feedbackInput,
+      detailedFeedback: detailedFeedback,
+    };
+
+    try {
+      const response = await emailjs.send(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID ?? "",
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID ?? "",
+        templateParams,
+        process.env.NEXT_PUBLIC_EMAILJS_USERID
+      );
+
+      if (response.status === 200) {
+        console.log("Feedback email sent successfully!", response);
+        setEmailStatus("success");
+        setFeedbackInput("");
+        setDetailedFeedback("");
+      } else {
+        console.error(
+          "Failed to send feedback email, status code:",
+          response.status
+        );
+        setEmailStatus("error");
+        setErrorMessage(
+          `Failed to send email. Status code: ${response.status}`
+        );
+      }
+    } catch (error: any) {
+      console.error("Error sending feedback email:", error);
+      setEmailStatus("error");
+      setErrorMessage(error.message || "An unexpected error occurred.");
+    }
+  };
 
   const handleHomeSubmit = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter" && homeInput.trim()) {
@@ -32,14 +79,14 @@ const Feedback: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white flex">
+    <div className="bg-gray-900 text-white flex">
       {/* Sidebar */}
       <motion.aside
         variants={sidebarVariants}
         initial="closed"
         animate={sidebarOpen ? "open" : "closed"}
         transition={{ duration: 0.3, ease: "easeInOut" }}
-        className="h-screen flex-shrink-0 flex flex-col items-start pt-4 shadow-lg overflow-y-auto"
+        className="h-screen flex-shrink-0 flex flex-col items-start pt-4 shadow-lg overflow-hidden"
         style={{ width: sidebarOpen ? 240 : 60, position: "sticky", top: 0 }}
       >
         <button
@@ -74,7 +121,7 @@ const Feedback: React.FC = () => {
       </motion.aside>
 
       {/* Main Content */}
-      <main className="flex-1 p-6 overflow-x-hidden">
+      <main className="flex-1 p-6">
         <AnimatePresence mode="wait">
           {currentSection === "home" && (
             <motion.div
@@ -83,6 +130,7 @@ const Feedback: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.2 }}
+              className="scrollbar-thin scrollbar-thumb-zinc-600 scrollbar-track-zinc-900 scrollbar-thumb-rounded-md"
             >
               <h1 className="text-3xl font-semibold mb-2 text-gray-200">
                 Welcome
@@ -137,27 +185,38 @@ const Feedback: React.FC = () => {
                 Tell us more about your feedback.
               </p>
               {/* Feedback Form */}
-              <input
-                type="text"
-                placeholder="Summarize your feedback"
-                className="w-full p-3 mb-4 bg-gray-800 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                value={feedbackInput}
-                onChange={(e) => setFeedbackInput(e.target.value)}
-              />
-              <textarea
-                placeholder="Explain in more detail"
-                className="w-full p-3 mb-4 bg-gray-800 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
-              <button
-                className="px-6 py-3 text-black rounded-md bg-orange-400 hover:bg-orange-500 transition-colors duration-200"
-                onClick={() => {
-                  window.location.href = `mailto:saxenapoorva2004@gmail.com?subject=${encodeURIComponent(
-                    `Feedback: ${feedbackInput}`
-                  )}`;
-                }}
-              >
-                Submit Feedback
-              </button>
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <input
+                  type="text"
+                  placeholder="Summarize your feedback"
+                  className="w-full p-3 bg-gray-800 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-white"
+                  value={feedbackInput}
+                  onChange={(e) => setFeedbackInput(e.target.value)}
+                />
+                <textarea
+                  placeholder="Explain in more detail"
+                  className="w-full p-3 bg-gray-800 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-white"
+                  value={detailedFeedback}
+                  onChange={(e) => setDetailedFeedback(e.target.value)}
+                />
+                <button
+                  type="submit"
+                  className="px-6 py-3 text-black rounded-md bg-orange-400 hover:bg-orange-500 transition-colors duration-200"
+                  disabled={emailStatus === "sending"}
+                >
+                  {emailStatus === "sending" ? "Sending..." : "Submit Feedback"}
+                </button>
+              </form>
+
+              {/* Email Status Message */}
+              {emailStatus === "success" && (
+                <div className="text-green-500 mt-4">
+                  Feedback submitted successfully!
+                </div>
+              )}
+              {emailStatus === "error" && (
+                <div className="text-red-500 mt-4">{errorMessage}</div>
+              )}
             </motion.div>
           )}
         </AnimatePresence>
