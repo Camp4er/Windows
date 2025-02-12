@@ -258,7 +258,7 @@ Check out the project here: https://clinquant-donut-3bfcbf.netlify.app/\n
           <DesktopIcon
             title="Notepad"
             icon="/icons/notepad.png"
-            onClick={() => openWindow("Notepad", "/icons/app.png")}
+            onClick={() => openWindow("Notepad", "/icons/notepad.png")}
           />
           <DesktopIcon
             title="Recycle Bin"

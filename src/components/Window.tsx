@@ -37,7 +37,7 @@ export default function Window({
     <div className="w-full h-full relative h-[calc(100vh - 54px)]">
       {isVisible && (
         <div
-          className={`window bg-gray-900 border border-gray-600 shadow-lg transition-all duration-300 ${
+          className={`window bg-gray-900 border border-gray-600 shadow-lg overflow-scroll scrollbar-none transition-all duration-300 ${
             isMaximized
               ? "fixed top-0 left-0 right-0 m-0 " // full screen without margins
               : "fixed top-1/4 bottom-1/8 left-1/4 right-1/4 max-h-[60%] transform -translate-y-1/4" //center the window
@@ -50,7 +50,7 @@ export default function Window({
           }}
         >
           {/* Window header */}
-          <div className="flex justify-between items-center bg-gray-900 p-1 rounded-t-lg">
+          <div className="flex justify-between items-center bg-gray-900 p-1 rounded-t-lg sticky top-0 z-20">
             <div className="flex items-center">
               <img src={iconSrc} alt={title} className="w-6 h-6 ml-1 mr-2" />
               <span className="text-white font-bold">{title}</span>
@@ -81,7 +81,7 @@ export default function Window({
           </div>
 
           {/* Window content */}
-          <div className="rounded-b-lg" style={{height: "calc(100% - 48px)"}}>{children}</div>
+          <div className="rounded-b-lg overflow-y-auto" style={{height: "calc(100% - 54px)", overflow: "auto" }}>{children}</div>
         </div>
       )}
     </div>

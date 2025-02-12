@@ -173,6 +173,10 @@ body {
   background:rgba(73, 71, 71, 0.492);
 }
 
+.scrollbar-none {
+  scrollbar-width: none;
+}
+
 .btn {
   @apply bg-gray-700 text-white text-lg font-medium p-4 rounded-md transition duration-200;
 }
