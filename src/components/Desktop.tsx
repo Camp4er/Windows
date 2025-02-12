@@ -197,9 +197,9 @@ Check out the project here: https://clinquant-donut-3bfcbf.netlify.app/\n
   return (
     <>
     <div
-    className="absolute inset-0 bg-cover bg-center"
+    className="absolute inset-0 bg-cover bg-no-repeat bg-center"
     style={{
-      backgroundImage: "url('/background/img10.jpg')",
+      backgroundImage: "url('/background/img3.jpg')",
     }}
   />
       {/* Desktop icons */}
@@ -399,9 +399,9 @@ Check out the project here: https://clinquant-donut-3bfcbf.netlify.app/\n
         toggleWindow={toggleMinimizeWindow}
         openWindow={openWindow}
       />
-      <div className="w-screen h-screen bg-black">
-        <ContextMenu /> {/* Add right-click menu */}
-      </div>
+       {/* <div className="w-screen h-screen bg-black">
+        <ContextMenu />Add right-click menu 
+      </div>*/}
     </>
   );
 }

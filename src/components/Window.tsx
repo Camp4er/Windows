@@ -40,7 +40,7 @@ export default function Window({
           className={`window bg-gray-900 border border-gray-600 shadow-lg overflow-scroll scrollbar-none transition-all duration-300 ${
             isMaximized
               ? "fixed top-0 left-0 right-0 m-0 " // full screen without margins
-              : "fixed top-1/4 bottom-1/8 left-1/4 right-1/4 max-h-[60%] transform -translate-y-1/4" //center the window
+              : "fixed top-1/4 bottom-1/8 left-1/4 right-1/4 w-[578.8px] h-[437.75px] max-h-[60%] transform -translate-y-1/4" //center the window
           }`}
           style={{
             height: isMaximized ? "calc(100vh - 54px)" : "auto", // Adjusts for taskbar height (54px)
