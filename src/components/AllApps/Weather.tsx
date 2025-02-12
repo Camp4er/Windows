@@ -30,6 +30,7 @@ const Weather: React.FC = () => {
     const [isFactFavorite, setIsFactFavorite] = useState(false);
 
     const API_KEY = process.env.NEXT_PUBLIC_WEATHER_API_KEY;
+    
     const weatherFacts = [
         "The dew point is the temperature to which air must be cooled to become saturated with water vapor.",
         "Wind speed is measured with an anemometer.",

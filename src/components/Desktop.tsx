@@ -199,7 +199,7 @@ Check out the project here: https://clinquant-donut-3bfcbf.netlify.app/\n
     <div
     className="absolute inset-0 bg-cover bg-no-repeat bg-center"
     style={{
-      backgroundImage: "url('/background/img3.jpg')",
+      backgroundImage: "url('/background/img6.jpg')",
     }}
   />
       {/* Desktop icons */}
