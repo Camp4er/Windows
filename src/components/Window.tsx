@@ -34,7 +34,7 @@ export default function Window({
   };
 
   return (
-    <div className="w-full h-full relative h-[calc(100vh - 54px)]">
+    <div className="window w-full h-full relative h-[calc(100vh - 54px)]">
       {isVisible && (
         <div
           className={`window bg-gray-900 border border-gray-600 shadow-lg overflow-scroll scrollbar-none transition-all duration-300 ${

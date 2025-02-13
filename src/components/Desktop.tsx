@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import DesktopIcon from "./DesktopIcon";
 import Window from "./Window";
 import Taskbar from "./Taskbar/Taskbar";
@@ -45,6 +45,17 @@ type WindowInfo = {
 export default function Desktop() {
   const { openWindows, openWindow, closeWindow, toggleMinimizeWindow } =
     useWindowManager();
+    const [rightClickedIcon, setRightClickedIcon] = useState<string | null>(null);
+
+    const handleIconContextMenu = (event: React.MouseEvent, iconTitle: string) => {
+      event.preventDefault();
+      event.stopPropagation(); //Prevent desktop context menu
+      setRightClickedIcon(iconTitle);
+    }
+
+    const clearRightClickedIcon = () => {
+      setRightClickedIcon(null);
+      };
 
   //context for notepad's description
   const aboutMe =
@@ -201,6 +212,10 @@ Check out the project here: https://clinquant-donut-3bfcbf.netlify.app/\n
     style={{
       backgroundImage: "url('/background/img6.jpg')",
     }}
+    onContextMenu={(e) => {
+      e.preventDefault();
+      setRightClickedIcon(null); // Clear icon selection
+    }}
   />
       {/* Desktop icons */}
       <div
@@ -212,36 +227,43 @@ Check out the project here: https://clinquant-donut-3bfcbf.netlify.app/\n
             title="About Me"
             icon="/icons/user-folder.png"
             onClick={() => openWindow("About Me", "/icons/app.png")}
+            onContextMenu={(e) => handleIconContextMenu(e, "About Me")}
           />
           <DesktopIcon
             title="Projects"
             icon="/icons/blueprint.png"
             onClick={() => openWindow("Projects", "/icons/app.png")}
+            onContextMenu={(e) => handleIconContextMenu(e, "Projects")}
           />
           <DesktopIcon
             title="Portfolio"
             icon="/icons/curriculum-vitae.png"
             onClick={() => openWindow("Documents", "/icons/app.png")}
+            onContextMenu={(e) => handleIconContextMenu(e, "Portfolio")}
           />
           <DesktopIcon
             title="Experience"
             icon="/icons/suitcase.png"
             onClick={() => openWindow("Experience", "/icons/app.png")}
+            onContextMenu={(e) => handleIconContextMenu(e, "Experience")}
           />
           <DesktopIcon
             title="Skills"
             icon="/icons/skills.png"
             onClick={() => openWindow("Skills", "/icons/app.png")}
+            onContextMenu={(e) => handleIconContextMenu(e, "Skills")}
           />
           <DesktopIcon
             title="Contact"
             icon="/icons/phone-book.png"
             onClick={() => openWindow("Contact", "/icons/app.png")}
+            onContextMenu={(e) => handleIconContextMenu(e, "Contact")}
           />
           <DesktopIcon
             title="File Explorer"
             icon="/icons/app.png"
             onClick={() => openWindow("File Explorer", "/icons/app.png")}
+            onContextMenu={(e) => handleIconContextMenu(e, "File Explorer")}
           />
         </div>
         <div className="flex flex-col gap-3 justify-start items-start py-3 flex-wrap">
@@ -249,16 +271,19 @@ Check out the project here: https://clinquant-donut-3bfcbf.netlify.app/\n
             title="VS Code"
             icon="/icons/vscode.svg"
             onClick={() => openWindow("VS Code", "/icons/vscode.svg")}
+            onContextMenu={(e) => handleIconContextMenu(e, "VS Code")}
           />
           <DesktopIcon
             title="Feedback Hub"
             icon="/icons/review.png"
             onClick={() => openWindow("Feedback Hub", "/icons/review.png")}
+            onContextMenu={(e) => handleIconContextMenu(e, "Feedback Hub")}
           />
           <DesktopIcon
             title="Notepad"
             icon="/icons/notepad.png"
             onClick={() => openWindow("Notepad", "/icons/notepad.png")}
+            onContextMenu={(e) => handleIconContextMenu(e, "Notepad")}
           />
           <DesktopIcon
             title="Recycle Bin"
@@ -266,6 +291,7 @@ Check out the project here: https://clinquant-donut-3bfcbf.netlify.app/\n
             onClick={() =>
               openWindow("RecycleBin", "/icons/recycle-bin-empty.webp")
             }
+            onContextMenu={(e) => handleIconContextMenu(e, "Recycle Bin")}
           />
         </div>
       </div>
@@ -399,9 +425,7 @@ Check out the project here: https://clinquant-donut-3bfcbf.netlify.app/\n
         toggleWindow={toggleMinimizeWindow}
         openWindow={openWindow}
       />
-       {/* <div className="w-screen h-screen bg-black">
-        <ContextMenu />Add right-click menu 
-      </div>*/}
+       <ContextMenu rightClickedIcon = {rightClickedIcon} onClearRightClickedIcon={clearRightClickedIcon} />
     </>
   );
 }

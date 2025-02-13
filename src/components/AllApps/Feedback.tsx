@@ -121,7 +121,7 @@ const Feedback: React.FC = () => {
       </motion.aside>
 
       {/* Main Content */}
-      <main className="flex-1 p-6">
+      <main className="flex-1 p-6 overflow-hidden">
         <AnimatePresence mode="wait">
           {currentSection === "home" && (
             <motion.div
@@ -130,7 +130,6 @@ const Feedback: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.2 }}
-              className="scrollbar-thin scrollbar-thumb-zinc-600 scrollbar-track-zinc-900 scrollbar-thumb-rounded-md"
             >
               <h1 className="text-3xl font-semibold mb-2 text-gray-200">
                 Welcome
