@@ -18,88 +18,6 @@ const SearchButton = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState<App[]>([]);
 
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      const target = event.target as HTMLElement;
-      const isInsideMenu =
-        target.closest(".search-menu") || target.closest(".scrollable");
-      if (!isInsideMenu) {
-        setIsOpen(false);
-      }
-    };
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  },);
-
-  useEffect(() => {
-    if (searchTerm) {
-      const results = allApps.filter((app) =>
-        app.name.toLowerCase().includes(searchTerm.toLowerCase())
-      );
-      setSearchResults(results);
-    } else {
-      setSearchResults([]);
-    }
-  }, [searchTerm]);
-
-  const topApps: App[] = [
-    {
-      name: "Calculator",
-      icon: "/icons/calculator.png",
-      type: "file",
-      action: () => openWindow("Calculator", "/icons/calculator.png"),
-    },
-    {
-      name: "Administrator: Windows PowerShell",
-      icon: "/icons/window.png",
-      type: "file",
-      action: () => openWindow("Administrator: Windows PowerShell", "/icons/window.png"),
-    },
-    {
-      name: "File Explorer",
-      icon: "/icons/app.png",
-      type: "file",
-      action: () => openWindow("File Explorer", "/icons/app.png"),
-    },
-    {
-      name: "Google Chrome",
-      icon: "/icons/chrome.svg",
-      type: "file",
-      action: () => openWindow("Google Chrome", "/icons/chrome.svg"),
-    },
-  ];
-
-  const recommendedFiles = [
-    {
-      name: "Resume",
-      icon: "/icons/pdf.png",
-      time: "Yesterday at 12:44 PM",
-      action: () => openWindow("Resume", "/icons/pdf.png"),
-    },
-    {
-      name: "Notepad",
-      icon: "/icons/notepad.png",
-      time: "Friday at 11:56 AM",
-      action: () => openWindow("Notepad", "/icons/notepad.png"),
-    },
-    {
-      name: "LinkedIn",
-      icon: "/icons/linkedin.png",
-      time: "Thursday at 11:10 PM",
-      action: () =>
-        window.open(
-          "https://www.linkedin.com/in/poorva-saxena-983642256/",
-          "_blank"
-        ),
-    },
-    {
-      name: "Time Tracker",
-      icon: "/icons/time-tracking.png",
-      time: "Thursday at 11:09 PM",
-      action: () => openWindow("Time Tracker", "/icons/time-tracking.png"),
-    },
-  ];
-
   const allApps: App[] = [
     {
       name: "Minesweeper",
@@ -225,6 +143,88 @@ const SearchButton = () => {
     }
   ].sort((a, b) => a.name.localeCompare(b.name));
 
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as HTMLElement;
+      const isInsideMenu =
+        target.closest(".search-menu") || target.closest(".scrollable");
+      if (!isInsideMenu) {
+        setIsOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  },);
+
+  useEffect(() => {
+    if (searchTerm) {
+      const results = allApps.filter((app) =>
+        app.name.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+      setSearchResults(results);
+    } else {
+      setSearchResults([]);
+    }
+  }, [searchTerm, allApps]);
+
+  const topApps: App[] = [
+    {
+      name: "Calculator",
+      icon: "/icons/calculator.png",
+      type: "file",
+      action: () => openWindow("Calculator", "/icons/calculator.png"),
+    },
+    {
+      name: "Administrator: Windows PowerShell",
+      icon: "/icons/window.png",
+      type: "file",
+      action: () => openWindow("Administrator: Windows PowerShell", "/icons/window.png"),
+    },
+    {
+      name: "File Explorer",
+      icon: "/icons/app.png",
+      type: "file",
+      action: () => openWindow("File Explorer", "/icons/app.png"),
+    },
+    {
+      name: "Google Chrome",
+      icon: "/icons/chrome.svg",
+      type: "file",
+      action: () => openWindow("Google Chrome", "/icons/chrome.svg"),
+    },
+  ];
+
+  const recommendedFiles = [
+    {
+      name: "Resume",
+      icon: "/icons/pdf.png",
+      time: "Yesterday at 12:44 PM",
+      action: () => openWindow("Resume", "/icons/pdf.png"),
+    },
+    {
+      name: "Notepad",
+      icon: "/icons/notepad.png",
+      time: "Friday at 11:56 AM",
+      action: () => openWindow("Notepad", "/icons/notepad.png"),
+    },
+    {
+      name: "LinkedIn",
+      icon: "/icons/linkedin.png",
+      time: "Thursday at 11:10 PM",
+      action: () =>
+        window.open(
+          "https://www.linkedin.com/in/poorva-saxena-983642256/",
+          "_blank"
+        ),
+    },
+    {
+      name: "Time Tracker",
+      icon: "/icons/time-tracking.png",
+      time: "Thursday at 11:09 PM",
+      action: () => openWindow("Time Tracker", "/icons/time-tracking.png"),
+    },
+  ];
+
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(e.target.value);
   };
@@ -281,7 +281,7 @@ const SearchButton = () => {
                       handleAppButtonClicked();
                     }}
                   >
-                    <Image src={app.icon} alt={app.name} className="w-8 h-8" />
+                    <Image src={app.icon} alt={app.name} width={32} height={32}  />
                     <span className="text-sm">{app.name}</span>
                   </div>
                 ))

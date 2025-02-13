@@ -216,7 +216,14 @@ const FileExplorer = ({ initialSidebarId, sidebarData }: FileExplorerProps) => {
       />
       <div className="flex flex-row p-0 m-0 h-full">
         <Sidebar
-          foldersOne={Object.values(sectionOne).flat()}
+          foldersOne={Object.values(sectionOne).flat().map((folder) => ({
+            ...folder,
+            type: folder.type as FileType,
+            children: folder.children?.map((child) => ({
+              ...child,
+              type: child.type as FileType,
+            })),
+          }))}
           foldersTwo={Object.values(sectionTwo).flat()}
           foldersThree={Object.values(sectionThree).flat()}
           onFolderClick={handleFolderClick}

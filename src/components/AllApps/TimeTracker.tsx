@@ -17,7 +17,6 @@ const TimeTracker: React.FC = () => {
  const [startTime, setStartTime] = useState(0);
  const [currentTime, setCurrentTime] = useState(0);
  const [entries, setEntries] = useState<TimeEntry[]>([]);
- const [selectedEntryId, setSelectedEntryId] = useState<string | null>(null);
  const [editingTitleId, setEditingTitleId] = useState<string | null>(null);
  const [newTitle, setNewTitle] = useState('');
  const intervalRef = useRef<NodeJS.Timeout | null>(null);
@@ -54,7 +53,7 @@ const TimeTracker: React.FC = () => {
  clearInterval(intervalRef.current); // Cleanup interval on unmount
  }
  };
- }, [running]);
+ }, [running, currentTime, startTime]);
 
 
  const handleStart = () => {

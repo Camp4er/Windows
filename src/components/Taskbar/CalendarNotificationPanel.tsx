@@ -1,7 +1,6 @@
 "use client"
 
 import React, { useState } from "react";
-import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 import { CalendarMain } from "./Calendar";
 
@@ -10,7 +9,6 @@ interface PanelProps {
 }
 
 export default function CalendarNotificationPanel({ onClose }: PanelProps) {
-  const [selectedDate, setSelectedDate] = useState(new Date());
 
   return (
     <div className="absolute bottom-full right-0 mb-2 w-72 text-white shadow-lg rounded-md overflow-hidden z-50 animate-slide-in flex flex-col gap-2">

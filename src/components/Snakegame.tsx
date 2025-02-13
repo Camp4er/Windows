@@ -1,5 +1,4 @@
 import React from "react";
-import Snake from "./AllApps/Snake";
 
 const Snakegame = () => {
   return (
@@ -8,8 +7,6 @@ const Snakegame = () => {
       width="100%"
       height="100%"
      ></iframe>
-    // <>
-    // <Snake /></>
   );
 };
 

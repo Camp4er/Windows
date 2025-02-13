@@ -15,7 +15,7 @@ export default function ContextMenu({ rightClickedIcon }: ContextMenuProps) {
  } | null>(null);
  const [showViewOptions, setShowViewOptions] = useState(false);
  const [showSortOptions, setShowSortOptions] = useState(false);
- const menuRef = useRef(null);
+ const menuRef = useRef<HTMLUListElement>(null);
  const { openWindow } = useWindowManager(); // Access openWindow
 
 
@@ -33,12 +33,12 @@ export default function ContextMenu({ rightClickedIcon }: ContextMenuProps) {
 
 
  const handleClickAway = (event: MouseEvent) => {
- if (menuRef.current && !(menuRef.current as any).contains(event.target)) {
- setMenuPosition(null);
- setShowViewOptions(false);
- setShowSortOptions(false);
- }
- };
+  if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+    setMenuPosition(null);
+    setShowViewOptions(false);
+    setShowSortOptions(false);
+  }
+};
 
 
  document.addEventListener("contextmenu", handleRightClick);

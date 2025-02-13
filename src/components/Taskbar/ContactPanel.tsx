@@ -3,11 +3,8 @@ import React, { useState } from "react";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
 import emailjs from "@emailjs/browser";
 
-interface ContactPanelProps {
-  // onClose: () => void;
-}
 
-const ContactPanel: React.FC<ContactPanelProps> = () => {
+const ContactPanel: React.FC = () => {
   //for emailJS
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -50,11 +47,6 @@ const ContactPanel: React.FC<ContactPanelProps> = () => {
     }
   };
 
-  //EmailJs IDs
-  const serviceId = process.env.NEXT_PUBLIC_EMAIL_SERVICE_ID;
-  const templateId = process.env.NEXT_EMAIL_TEMPLATE_ID;
-  const publicKey = "6PacH0lYSvBcCCouj";
-
   //A new object that contain dynamic template process
   const templateParams = {
     from_name: name,
@@ -69,7 +61,7 @@ const ContactPanel: React.FC<ContactPanelProps> = () => {
         Reach out to me
       </h2>
       <p className="text-white text-xl mb-8">
-        Please provide your details in the form below, and I'll respond
+        Please provide your details in the form below, and I&apos;ll respond
         promptly.
       </p>
 

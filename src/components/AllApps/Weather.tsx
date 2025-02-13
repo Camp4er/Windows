@@ -97,7 +97,7 @@ const Weather: React.FC = () => {
                         forecast: forecastData,
                     });
                 })
-                .catch((err: any) => {
+                .catch((err: Error) => {
                     setError(err.message || "Could not fetch weather data.");
                 })
                 .finally(() => {
@@ -120,7 +120,7 @@ const Weather: React.FC = () => {
 
     useEffect(() => {
         setWeatherWisdom(weatherWisdoms[Math.floor(Math.random() * weatherWisdoms.length)]);
-    }, []);
+    }, [weatherWisdoms]);
 
     const handleNewWisdom = () => {
         setWeatherWisdom(weatherWisdoms[Math.floor(Math.random() * weatherWisdoms.length)]);

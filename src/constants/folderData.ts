@@ -86,14 +86,6 @@ export const sectionOne = {
         dateModified: "11-02-2025",
         size: "277 KB",
       },
-      // {
-      //   name: "Screenshot 11-02-2025 075241",
-      //   type: "PNG file",
-      //   icons: "/icons/image.png",
-      //   id: "2.10",
-      //   dateModified: "11-02-2025",
-      //   size: "127 KB",
-      // },
       {
         name: "Screenshot 11-02-2025 075258",
         type: "PNG file",
