@@ -89,7 +89,7 @@ const StartButton = () => {
         className="flex items-center justify-center rounded-lg"
         onClick={() => setIsOpen(!isOpen)}
       >
-        <img
+        <Image
           src="/icons/Windows.png"
           alt="Windows icon"
           width={30}
@@ -146,7 +146,7 @@ const StartButton = () => {
                           handleAppButtonClicked();
                         }}
                       >
-                        <img
+                        <Image
                           src={app.icon}
                           alt={app.name}
                           className="w-10 h-10 mb-1"
@@ -223,7 +223,7 @@ const StartButton = () => {
                               handleAppButtonClicked();
                             }}
                           >
-                            <img
+                            <Image
                               src={app.icon}
                               alt={app.name}
                               className="w-8 h-8"

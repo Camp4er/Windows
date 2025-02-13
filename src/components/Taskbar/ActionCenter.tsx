@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import React, { useEffect, useRef, useState } from "react";
 import {
   FaWifi,
@@ -52,7 +53,7 @@ export default function ActionCenter() {
       >
         {systemTrayIcons.map((icon) => (
           <div key={icon.id} className="p-1 rounded" aria-label={icon.alt}>
-            <img src={icon.src} alt={icon.alt} width={15} height={16} />
+            <Image src={icon.src} alt={icon.alt} width={15} height={16} />
           </div>
         ))}
       </button>

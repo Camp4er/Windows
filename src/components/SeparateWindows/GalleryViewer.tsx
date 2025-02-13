@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React, { useEffect, useState } from "react";
 
 interface GalleryViewerProps {
@@ -41,7 +42,7 @@ export default function GalleryViewer({ images }: GalleryViewerProps) {
             className="relative cursor-pointer overflow-hidden rounded"
             onClick={() => handleImageClick(index)}
           >
-            <img
+            <Image
               src={image}
               alt={`Gallery image ${index + 1}`}
               className="object-cover w-full h-32 hover:scale-105 transition-transform duration-200"
@@ -78,7 +79,7 @@ export default function GalleryViewer({ images }: GalleryViewerProps) {
             </svg>{" "}
           </button>
           {/* Current Image */}
-          <img
+          <Image
             src={images[currentImage]}
             alt={`Fullscreen image ${currentImage + 1}`}
             className="max-w-full max-h-full"

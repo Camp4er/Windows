@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { FaSearch } from "react-icons/fa";
 import { useWindowManager } from "@/components/NewWindow/WindowManagerContext";
+import Image from "next/image";
 
 interface App {
   name: string;
@@ -239,7 +240,7 @@ const SearchButton = () => {
         className="flex items-center justify-center rounded-lg"
         onClick={() => setIsOpen(!isOpen)}
       >
-        <img
+        <Image
           src="/icons/search-dark.svg"
           alt="Search icon"
           width={30}
@@ -280,7 +281,7 @@ const SearchButton = () => {
                       handleAppButtonClicked();
                     }}
                   >
-                    <img src={app.icon} alt={app.name} className="w-8 h-8" />
+                    <Image src={app.icon} alt={app.name} className="w-8 h-8" />
                     <span className="text-sm">{app.name}</span>
                   </div>
                 ))
@@ -302,7 +303,7 @@ const SearchButton = () => {
                         handleAppButtonClicked();
                       }}
                     >
-                      <img src={app.icon} alt={app.name} className="w-8 h-8" />
+                      <Image src={app.icon} alt={app.name} className="w-8 h-8" />
                       <span className="text-sm">{app.name}</span>
                     </li>
                   ))}
@@ -316,7 +317,7 @@ const SearchButton = () => {
             {searchTerm && searchResults.length > 0 ? (
               // Display details of the first search result
               <>
-                <img
+                <Image
                   src={searchResults[0].icon}
                   alt={searchResults[0].name}
                   className="w-20 h-20 mx-auto"
@@ -358,7 +359,7 @@ const SearchButton = () => {
                         handleAppButtonClicked();
                       }}
                     >
-                      <img
+                      <Image
                         src={file.icon}
                         alt={file.name}
                         width={30}

@@ -5,6 +5,7 @@ import TaskbarLeftSection from "./TaskbarLeftSection";
 import ActionCenter from "./ActionCenter";
 import StartButton from "./StartButton/StartButton";
 import SearchButton from "./SearchButton/SearchButton";
+import Image from "next/image";
 
 // Define the type for taskbar buttons
 interface TaskbarProps {
@@ -110,7 +111,7 @@ const Taskbar = ({ openWindows, toggleWindow, openWindow }: TaskbarProps) => {
         className="flex items-center gap-2 px-1 hover:bg-zinc-800 cursor-pointer rounded"
         aria-label="Contact Me"
       >
-        <img
+        <Image
           src="/icons/contact-us.png"
           alt="Contact Me icon"
           width={28}
@@ -146,7 +147,7 @@ const Taskbar = ({ openWindows, toggleWindow, openWindow }: TaskbarProps) => {
               className="flex items-center hover:bg-zinc-800 p-2 rounded"
               aria-label={button.alt}
             >
-              <img
+              <Image
                 src={button.src}
                 alt={button.alt}
                 width={button.size.width}
@@ -167,7 +168,7 @@ const Taskbar = ({ openWindows, toggleWindow, openWindow }: TaskbarProps) => {
               }`}
               aria-label={window.name}
             >
-              <img src={window.icon} alt={window.name} width={32} height={32} />
+              <Image src={window.icon} alt={window.name} width={32} height={32} />
             </button>
           ))}
         </div>
@@ -177,7 +178,7 @@ const Taskbar = ({ openWindows, toggleWindow, openWindow }: TaskbarProps) => {
       <div className="flex items-center">
         <div className="flex items-center hover:bg-zinc-800 gap-1 m-0 py-2 px-1 rounded">
           <button className="p-1 rounded">
-            <img
+            <Image
               src="/icons/arrowup-lightmode.png"
               alt="arrow-up"
               width={15}
@@ -187,7 +188,7 @@ const Taskbar = ({ openWindows, toggleWindow, openWindow }: TaskbarProps) => {
         </div>
         <div className="flex items-center hover:bg-zinc-800 gap-1 m-0 py-2 px-2 rounded">
           <button className="p-1 rounded">
-            <img
+            <Image
               src="/icons/onedrive.png"
               alt="arrow-up"
               width={18}

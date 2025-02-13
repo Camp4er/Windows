@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import React, { useState } from "react";
 
 interface WindowProps {
@@ -52,7 +53,7 @@ export default function Window({
           {/* Window header */}
           <div className="flex justify-between items-center bg-gray-900 p-1 rounded-t-lg sticky top-0 z-20">
             <div className="flex items-center">
-              <img src={iconSrc} alt={title} className="w-6 h-6 ml-1 mr-2" />
+              <Image src={iconSrc} alt={title} className="w-6 h-6 ml-1 mr-2" />
               <span className="text-white font-bold">{title}</span>
             </div>
             <div className="flex items-center gap-2">
