@@ -19,7 +19,7 @@ const Minesweeper: React.FC = () => {
 
   // Generate a fresh grid
   const generateGrid = (): Cell[][] => {
-    let newGrid: Cell[][] = Array(GRID_SIZE)
+    const newGrid: Cell[][] = Array(GRID_SIZE)
       .fill(null)
       .map(() =>
         Array(GRID_SIZE).fill({
@@ -47,8 +47,8 @@ const Minesweeper: React.FC = () => {
       for (let c = 0; c < GRID_SIZE; c++) {
         if (!newGrid[r][c].isMine) {
           let adjacentMines = 0;
-          for (let dr of [-1, 0, 1]) {
-            for (let dc of [-1, 0, 1]) {
+          for (const dr of [-1, 0, 1]) {
+            for (const dc of [-1, 0, 1]) {
               const nr = r + dr;
               const nc = c + dc;
               if (
@@ -79,7 +79,7 @@ const Minesweeper: React.FC = () => {
   const revealCell = (row: number, col: number) => {
     if (gameOver || gameWon || grid[row][col].isRevealed || grid[row][col].isFlagged) return;
 
-    let newGrid = [...grid];
+    const newGrid = [...grid];
     newGrid[row][col] = { ...newGrid[row][col], isRevealed: true };
 
     // If mine clicked, game over
@@ -90,8 +90,8 @@ const Minesweeper: React.FC = () => {
 
     // If no adjacent mines, recursively reveal neighbors
     if (newGrid[row][col].adjacentMines === 0) {
-      for (let dr of [-1, 0, 1]) {
-        for (let dc of [-1, 0, 1]) {
+      for (const dr of [-1, 0, 1]) {
+        for (const dc of [-1, 0, 1]) {
           const nr = row + dr;
           const nc = col + dc;
           if (
@@ -120,7 +120,7 @@ const Minesweeper: React.FC = () => {
     e.preventDefault();
     if (gameOver || gameWon || grid[row][col].isRevealed) return;
 
-    let newGrid = [...grid];
+    const newGrid = [...grid];
     newGrid[row][col] = { ...newGrid[row][col], isFlagged: !newGrid[row][col].isFlagged };
 
     setGrid(newGrid);
@@ -128,11 +128,11 @@ const Minesweeper: React.FC = () => {
 
   // Check if player won
   const checkWin = (grid: Cell[][]): boolean => {
-    for (let row of grid) {
-      for (let cell of row) {
+    grid.forEach((row) => {
+      row.forEach((cell) => {
         if (!cell.isMine && !cell.isRevealed) return false;
-      }
-    }
+      });
+    });
     return true;
   };
 
