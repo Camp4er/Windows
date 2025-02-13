@@ -18,7 +18,7 @@ export default function DesktopIcon({ title, icon, onClick, onContextMenu }: Des
  className="flex flex-col items-center cursor-pointer text-center py-[6px] px-4 rounded hover:bg-gray-800 max-w-18"
  >
  <div className="w-16 h-12 flex justify-center rounded-md">
- <Image src={icon} alt={`${title} icon`} className="w-10 h-10" />
+ <Image src={icon} alt={`${title} icon`} width={40} height={10}/>
  </div>
  <span className="mt-1 text-xs">{title}</span>
  </div>
