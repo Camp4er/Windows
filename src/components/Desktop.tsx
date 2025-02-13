@@ -141,14 +141,14 @@ export default function Desktop() {
             onClick={() => openWindow("Notepad", "/icons/notepad.png")}
             onContextMenu={(e) => handleIconContextMenu(e, "Notepad")}
           />
-          <DesktopIcon
+          {/* <DesktopIcon
             title="Recycle Bin"
             icon="/icons/recycle-bin-empty.webp"
             onClick={() =>
               openWindow("RecycleBin", "/icons/recycle-bin-empty.webp")
             }
             onContextMenu={(e) => handleIconContextMenu(e, "Recycle Bin")}
-          />
+          /> */}
         </div>
       </div>
 

@@ -15,7 +15,7 @@ export default function RootLayout({
       <head>
       <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" />
       </head>
-      <body className=" text-white flex flex-col min-h-screen overflow-hidden relative"
+      <body className=" text-white bg-slate-800 flex flex-col min-h-screen overflow-hidden relative"
         >
         {children}
       </body>
