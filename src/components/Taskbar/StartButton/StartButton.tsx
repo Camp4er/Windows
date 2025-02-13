@@ -149,7 +149,9 @@ const StartButton = () => {
                         <Image
                           src={app.icon}
                           alt={app.name}
-                          className="w-10 h-10 mb-1"
+                          className="mb-1"
+                          width={40}
+                          height={40}
                         />
                         <span className="text-xs">{app.name}</span>
                       </div>
@@ -226,7 +228,8 @@ const StartButton = () => {
                             <Image
                               src={app.icon}
                               alt={app.name}
-                              className="w-8 h-8"
+                              width={32}
+                              height={32}
                             />
                             <span className="text-sm">{app.name}</span>
                           </div>

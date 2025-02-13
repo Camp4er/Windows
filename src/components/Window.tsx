@@ -30,9 +30,9 @@ export default function Window({
     onMinimize();
   };
 
-  const handleRestore = () => {
-    setIsVisible(true);
-  };
+  // const handleRestore = () => {
+  //   setIsVisible(true);
+  // };
 
   return (
     <div className="window w-full h-full relative h-[calc(100vh - 54px)]">
@@ -53,7 +53,7 @@ export default function Window({
           {/* Window header */}
           <div className="flex justify-between items-center bg-gray-900 p-1 rounded-t-lg sticky top-0 z-20">
             <div className="flex items-center">
-              <Image src={iconSrc} alt={title} className="w-6 h-6 ml-1 mr-2" />
+              <Image src={iconSrc} alt={title} className="ml-1 mr-2" width={24} height={24}/>
               <span className="text-white font-bold">{title}</span>
             </div>
             <div className="flex items-center gap-2">

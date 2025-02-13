@@ -42,7 +42,7 @@ export default function GalleryViewer({ images }: GalleryViewerProps) {
             className="relative cursor-pointer overflow-hidden rounded"
             onClick={() => handleImageClick(index)}
           >
-            <Image
+            <img
               src={image}
               alt={`Gallery image ${index + 1}`}
               className="object-cover w-full h-32 hover:scale-105 transition-transform duration-200"
@@ -79,7 +79,7 @@ export default function GalleryViewer({ images }: GalleryViewerProps) {
             </svg>{" "}
           </button>
           {/* Current Image */}
-          <Image
+          <img
             src={images[currentImage]}
             alt={`Fullscreen image ${currentImage + 1}`}
             className="max-w-full max-h-full"

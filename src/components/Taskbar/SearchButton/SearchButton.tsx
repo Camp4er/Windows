@@ -165,7 +165,7 @@ const SearchButton = () => {
     } else {
       setSearchResults([]);
     }
-  }, [searchTerm, allApps]);
+  }, [searchTerm]);
 
   const topApps: App[] = [
     {
@@ -303,7 +303,7 @@ const SearchButton = () => {
                         handleAppButtonClicked();
                       }}
                     >
-                      <Image src={app.icon} alt={app.name} className="w-8 h-8" />
+                      <Image src={app.icon} alt={app.name} width={32} height={32} />
                       <span className="text-sm">{app.name}</span>
                     </li>
                   ))}
@@ -320,7 +320,9 @@ const SearchButton = () => {
                 <Image
                   src={searchResults[0].icon}
                   alt={searchResults[0].name}
-                  className="w-20 h-20 mx-auto"
+                  className="mx-auto"
+                  width={80}
+                  height={80}
                 />
                 <h3 className="text-xl font-semibold mt-4 text-center">
                   {searchResults[0].name}
