@@ -249,7 +249,7 @@ export default function Desktop() {
             {window.name === "Sticky Notes" && <StickyNotes />}
             {window.name === "Camera" && <Camera />}
             {window.name === "Clock" && <Clock />}
-            {window.name === "3D Chess Game" && <Chess />}
+            {/* {window.name === "3D Chess Game" && <Chess />} */}
             {window.name === "Weather" && <Weather />}
             {window.name === "Time Tracker" && <TimeTracker />}
             {window.name === "Feedback Hub" && <Feedback />}

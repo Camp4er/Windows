@@ -1,7 +1,6 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState} from 'react';
 import Image from 'next/image';
-import { FaCog, FaUserCircle } from 'react-icons/fa'; // Import settings icon
-import useSound from 'use-sound';
+import { FaUserCircle } from 'react-icons/fa'; // Import settings icon
 
 // Import piece images
 import whitePawn from '../../../public/games/wp.png';
@@ -71,7 +70,7 @@ const Chess: React.FC = () => {
         if (selectedSquare) {
             const selectedPiece = board[selectedSquare.row][selectedSquare.col];
             if (isValidMove(selectedPiece, selectedSquare.row, selectedSquare.col, row, col, board, isWhiteTurn, enPassantPossible)) {
-                let newBoard = board.map((rowArr) => [...rowArr]);
+                const newBoard = board.map((rowArr) => [...rowArr]);
 
                 // Handle capturing a piece
                 const capturedPiece = newBoard[row][col];

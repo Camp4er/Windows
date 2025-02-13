@@ -95,7 +95,7 @@ const Camera: React.FC = () => {
         <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 w-full max-w-xl">
           {images.map((image, index) => (
             <div key={index} className={`relative rounded-lg overflow-hidden ${image.favorite ? 'border border-yellow-400' : ''}`}>
-              <Image src={image.src} alt={`Captured ${index + 1}`} className="object-cover w-full h-full" onClick={() => setCurrentImageIndex(index)} />
+              <Image src={image.src} alt={`Captured ${index + 1}`} width={200} height={150} layout="responsive" onClick={() => setCurrentImageIndex(index)} />
               <div className="absolute top-0 right-0 p-2 flex space-x-2">
                 <button onClick={() => toggleFavorite(index)} className={`text-lg ${image.favorite ? 'text-red-500' : 'text-gray-600'} hover:text-red-400`}>
                   <FaHeart />
@@ -115,7 +115,7 @@ const Camera: React.FC = () => {
           <button onClick={() => setCurrentImageIndex(null)} className="absolute top-4 right-4 text-white bg-red-600 p-2 rounded">
             Close
           </button>
-          <Image src={images[currentImageIndex].src} alt={`Fullscreen image ${currentImageIndex + 1}`} className="max-w-full max-h-full" />
+          <Image src={images[currentImageIndex].src} alt={`Fullscreen image ${currentImageIndex + 1}`} width={800} height={600} layout="responsive" />
         </div>
       )}
     </div>

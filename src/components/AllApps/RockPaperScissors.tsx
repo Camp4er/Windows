@@ -1,9 +1,4 @@
- import React, { useState } from 'react';
- import { Inter } from 'next/font/google';
- 
-
- const inter = Inter({ subsets: ['latin'] });
- 
+ import React, { useState } from 'react'; 
 
  type Choice = 'rock' | 'paper' | 'scissors';
  

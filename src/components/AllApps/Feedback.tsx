@@ -55,10 +55,14 @@ const Feedback: React.FC = () => {
           `Failed to send email. Status code: ${response.status}`
         );
       }
-    } catch (error: any) {
-      console.error("Error sending feedback email:", error);
-      setEmailStatus("error");
-      setErrorMessage(error.message || "An unexpected error occurred.");
+    } catch (error: unknown) {
+      if (error instanceof Error) {
+        console.error("Error sending feedback email:", error);
+        setEmailStatus("error");
+        setErrorMessage(error.message || "An unexpected error occurred.");
+      } else {
+        console.error("Unknown error:", error);
+      }
     }
   };
 
@@ -70,6 +74,7 @@ const Feedback: React.FC = () => {
   };
 
   const handleHomeButtonClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
     setCurrentSection("feedback");
   };
 
