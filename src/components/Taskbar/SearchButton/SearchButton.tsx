@@ -249,7 +249,7 @@ const SearchButton = () => {
 
       {/* Search Menu Popup */}
       {isOpen && (
-        <div className="search-menu absolute bottom-12 left-4 w-[650px] h-[621.6px] text-white rounded-lg shadow-lg overflow-hidden start-button">
+        <div className="search-menu absolute bottom-12 left-4 w-[650px] h-[581.6px] text-white rounded-lg shadow-lg overflow-hidden start-button">
         {/* Search Bar */}
         <div className="pt-4 px-6 pb-3">
           <div className="relative py-2">

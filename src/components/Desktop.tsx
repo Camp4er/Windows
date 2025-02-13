@@ -281,7 +281,7 @@ export default function Desktop() {
         toggleWindow={toggleMinimizeWindow}
         openWindow={openWindow}
       />
-      <ContextMenu rightClickedIcon={rightClickedIcon} />
+      {/* <ContextMenu rightClickedIcon={rightClickedIcon} /> */}
     </>
   );
 }
