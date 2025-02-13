@@ -46,16 +46,13 @@ export default function Desktop() {
   const { openWindows, openWindow, closeWindow, toggleMinimizeWindow } =
     useWindowManager();
     const [rightClickedIcon, setRightClickedIcon] = useState<string | null>(null);
+    
 
     const handleIconContextMenu = (event: React.MouseEvent, iconTitle: string) => {
       event.preventDefault();
       event.stopPropagation(); //Prevent desktop context menu
       setRightClickedIcon(iconTitle);
     }
-
-    const clearRightClickedIcon = () => {
-      setRightClickedIcon(null);
-      };
 
   //context for notepad's description
   const aboutMe =
@@ -425,7 +422,7 @@ Check out the project here: https://clinquant-donut-3bfcbf.netlify.app/\n
         toggleWindow={toggleMinimizeWindow}
         openWindow={openWindow}
       />
-       <ContextMenu rightClickedIcon = {rightClickedIcon} onClearRightClickedIcon={clearRightClickedIcon} />
+       <ContextMenu rightClickedIcon = {rightClickedIcon} />
     </>
   );
 }
