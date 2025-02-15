@@ -13,6 +13,6 @@ export interface BreadcrumbProps {
 export interface ContentAreaProps {
   path: string[];
   // folderContents: { [key: string]: { name: string; type: 'file' | 'folder' }[] };
-  folderContents: any;
+  folderContents: { [key: string]: FileItem[] };
   onNavigate: (folderName: string) => void; // Add navigation handler for subfolders
 }

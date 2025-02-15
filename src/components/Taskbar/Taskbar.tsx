@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import TaskbarRightSection from "./TaskbarRightSection";
 import TaskbarLeftSection from "./TaskbarLeftSection";
 import ActionCenter from "./ActionCenter";

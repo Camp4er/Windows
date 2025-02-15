@@ -2,8 +2,6 @@ import Image from "next/image";
 import React, { useState } from "react";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
 import emailjs from "@emailjs/browser";
-import Error from "next/error";
-
 
 const ContactPanel: React.FC = () => {
   //for emailJS
@@ -41,10 +39,16 @@ const ContactPanel: React.FC = () => {
           `Failed to send email. Status code: ${response.status}`
         );
       }
-    } catch (error: Error | any) {
-      console.error("Error sending email:", error);
-      setEmailStatus("error"); // Set status to error
-      setErrorMessage(error.message || "An unexpected error occurred.");
+    } catch (error: unknown) {
+      if (error instanceof Error) {
+        console.error("Error sending email:", error);
+        setEmailStatus("error"); // Set status to error
+        setErrorMessage(error.message || "An unexpected error occurred.");
+      } else {
+        console.error("Unknown error:", error);
+        setEmailStatus("error"); // Set status to error
+        setErrorMessage("An unexpected error occurred.");
+      }
     }
   };
 

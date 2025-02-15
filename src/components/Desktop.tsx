@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import DesktopIcon from "./DesktopIcon";
 import Window from "./Window";
 import Taskbar from "./Taskbar/Taskbar";
@@ -56,6 +56,7 @@ export default function Desktop() {
     event: React.MouseEvent,
     iconTitle: string
   ) => {
+    console.log(iconTitle);
     event.preventDefault();
     event.stopPropagation(); //Prevent desktop context menu
     // setRightClickedIcon(iconTitle);

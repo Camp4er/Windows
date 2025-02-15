@@ -19,7 +19,7 @@ const initialFileSystem: FileSystem = {
 
 type Tab = {
   id: number;
-  output: any[];
+  output: React.ReactNode[];
   history: string[];
   historyIndex: number;
   path: string[];
@@ -82,7 +82,7 @@ const Terminal = () => {
   const [tabs, setTabs] = useState<TabsState>([
     {
       id: 1,
-      output: ["Welcome to PowerShell! Type 'HELP' to start."],
+      output: [<span>Welcome to PowerShell! Type 'HELP' to start.</span>], // Wrap initial output in a span
       history: [],
       historyIndex: -1,
       path: ["C:", "Users", "Poorva"],
