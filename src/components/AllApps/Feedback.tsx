@@ -73,8 +73,8 @@ const Feedback: React.FC = () => {
     }
   };
 
-  const handleHomeButtonClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault();
+  const handleHomeButtonClick = () => {
+    // e.preventDefault();
     setCurrentSection("feedback");
   };
 

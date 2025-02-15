@@ -5,7 +5,7 @@ import { FaHeart, FaTrash } from 'react-icons/fa';
 const Camera: React.FC = () => {
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
-  const [imageSrc, setImageSrc] = useState<string | null>(null);
+  // const [imageSrc, setImageSrc] = useState<string | null>(null);
   const [images, setImages] = useState<{ src: string; favorite: boolean }[]>([]);
   const [showGallery, setShowGallery] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState<number | null>(null);
@@ -43,7 +43,7 @@ const Camera: React.FC = () => {
       if (context) {
         context.drawImage(videoRef.current, 0, 0, canvasRef.current.width, canvasRef.current.height);
         const newImageSrc = canvasRef.current.toDataURL('image/png');
-        setImageSrc(newImageSrc);
+        // setImageSrc(newImageSrc);
         setImages((prevImages) => [...prevImages, { src: newImageSrc, favorite: false }]);
       }
     }

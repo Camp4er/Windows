@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useRef, useEffect } from 'react';
-import { FaPencilAlt, FaEraser, FaMousePointer, FaSearchPlus, FaSearchMinus, FaPaintBrush, FaFont, FaSquare, FaCircle, FaFillDrip, FaTextHeight } from 'react-icons/fa';
+import { FaPencilAlt, FaEraser, FaSearchPlus, FaSearchMinus, FaPaintBrush, FaFont, FaSquare, FaCircle, FaFillDrip } from 'react-icons/fa';
 
 const Paint: React.FC = () => {
     const [drawing, setDrawing] = useState(false);
