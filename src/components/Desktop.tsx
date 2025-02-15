@@ -50,7 +50,7 @@ import {
 export default function Desktop() {
   const { openWindows, openWindow, closeWindow, toggleMinimizeWindow } =
     useWindowManager();
-  const [rightClickedIcon, setRightClickedIcon] = useState<string | null>(null);
+  // const [rightClickedIcon, setRightClickedIcon] = useState<string | null>(null);
 
   const handleIconContextMenu = (
     event: React.MouseEvent,
@@ -58,7 +58,7 @@ export default function Desktop() {
   ) => {
     event.preventDefault();
     event.stopPropagation(); //Prevent desktop context menu
-    setRightClickedIcon(iconTitle);
+    // setRightClickedIcon(iconTitle);
   };
 
   return (
@@ -70,7 +70,7 @@ export default function Desktop() {
         }}
         onContextMenu={(e) => {
           e.preventDefault();
-          setRightClickedIcon(null); // Clear icon selection
+          // setRightClickedIcon(null); // Clear icon selection
         }}
       />
       {/* Desktop icons */}

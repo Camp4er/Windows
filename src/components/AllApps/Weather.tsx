@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, useMemo } from "react";
 import axios from "axios";
 import { FiSearch } from "react-icons/fi";
 import { FaWind, FaTint, FaCompress, FaThermometerHalf, FaHeart, FaArrowLeft } from "react-icons/fa";
@@ -18,6 +18,17 @@ interface WeatherData {
     location: string;
     forecast: { day: string; tempMax: number; tempMin: number; condition: string }[];
 }
+
+interface ForecastItem {
+    dt: number;
+    main: {
+      temp_max: number;
+      temp_min: number;
+    };
+    weather: {
+      main: string;
+    }[];
+  }
 
 const Weather: React.FC = () => {
     const [weatherData, setWeatherData] = useState<WeatherData | null>(null);
@@ -49,7 +60,7 @@ const Weather: React.FC = () => {
         "Tornadoes are among the most violent weather phenomena.",
     ];
 
-    const weatherWisdoms = [
+    const weatherWisdoms = useMemo(() => [
         "Red sky at night, sailors delight. Red sky in morning, sailors take warning.",
         "When clouds appear like rocks and towers, the earth's refreshed by frequent showers.",
         "A coming storm your shooting corns presage, and aches will throb, and hollow tooth will rage.",
@@ -60,7 +71,7 @@ const Weather: React.FC = () => {
         "Halo around the moon, rain comes soon.",
         "Rainbow in the morning, shepherds warning.",
         "Evening red and morning gray, is a token of a bonny day."
-    ];
+    ], []);
 
     // Debounce the fetchWeatherData function
     const debouncedFetchWeatherData = useCallback(
@@ -75,8 +86,8 @@ const Weather: React.FC = () => {
                 .then((response) => {
                     const current = response.data.list[0];
                     const forecastData = response.data.list
-                        .filter((item: any, index: number) => index % 8 === 0)
-                        .map((item: any) => ({
+                        .filter((item: ForecastItem, index: number) => index % 8 === 0)
+                        .map((item: ForecastItem) => ({
                             day: new Date(item.dt * 1000).toLocaleDateString("en-US", { weekday: "short" }),
                             tempMax: Math.round(item.main.temp_max),
                             tempMin: Math.round(item.main.temp_min),

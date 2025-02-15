@@ -28,7 +28,7 @@
 
   useEffect(() => {
   if (!winner) {
-  for (let combo of winningCombinations) {
+  for (const combo of winningCombinations) {
   if (board[combo[0]] && board[combo[0]] === board[combo[1]] && board[combo[0]] === board[combo[2]]) {
   setWinner({ name: board[combo[0]] === 'X' ? 'X' : 'O', symbol: board[combo[0]] as 'X' | 'O' });
   return;
@@ -109,7 +109,7 @@
   {winner ? (
   <p className="text-lg text-green-600 font-semibold">Winner: {winner.name}</p>
   ) : isDraw ? (
-  <p className="text-lg text-yellow-600 font-semibold">It's a Draw!</p>
+  <p className="text-lg text-yellow-600 font-semibold">It&apos;s a Draw!</p>
   ) : (
   <p className="text-lg text-blue-600 font-semibold">Current Player: {currentPlayer.name}</p>
   )}

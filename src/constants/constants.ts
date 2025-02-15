@@ -16,8 +16,3 @@ export interface ContentAreaProps {
   folderContents: any;
   onNavigate: (folderName: string) => void; // Add navigation handler for subfolders
 }
-
-const notepadContent = {
-  "3.1": "This is the About section description...",
-  "5.1.1": "Details about Project A's Description",
-};

@@ -22,35 +22,24 @@ interface ITaskbarButton {
   alt: string;
 }
 
-interface ISystemTrayIcon {
-  id: number;
-  src: string;
-  alt: string;
-}
-
-const systemTrayIcons: ISystemTrayIcon[] = [
-  { id: 1, src: "/icons/white-wifi.svg", alt: "Wi-Fi" },
-  { id: 2, src: "/icons/white-volume.svg", alt: "Volume" },
-  { id: 3, src: "/icons/white-battery.svg", alt: "Battery" },
-];
 
 const Taskbar = ({ openWindows, toggleWindow, openWindow }: TaskbarProps) => {
-  const [isPanelOpen, setIsPanelOpen] = useState(false);
+  // const [isPanelOpen, setIsPanelOpen] = useState(false);
   const panelRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
       if (panelRef.current && !panelRef.current.contains(e.target as Node)) {
-        setIsPanelOpen(false);
+        // setIsPanelOpen(false);
       }
     };
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  const togglePanel = () => {
-    setIsPanelOpen(!isPanelOpen);
-  };
+  // const togglePanel = () => {
+  //   setIsPanelOpen(!isPanelOpen);
+  // };
 
   const taskbarButtons: ITaskbarButton[] = [
     {

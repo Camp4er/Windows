@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { FaSearch, FaPowerOff } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
 import { useWindowManager } from "@/components/NewWindow/WindowManagerContext";

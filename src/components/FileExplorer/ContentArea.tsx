@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import FileExplorer, { FileItem } from "./FileExplorer";
+import { FileItem } from "./FileExplorer";
 import Banner from "./Banner";
 import Image from "next/image";
 import { useWindowManager } from "../NewWindow/WindowManagerContext";
@@ -24,12 +24,12 @@ const getDeepestChildren = (folder: FileItem): FileItem[] => {
 
 const ContentArea: React.FC<ContentAreaProps> = ({ items, onFolderClick }) => {
   const { openWindow } = useWindowManager();
-  const [selectedItem, setSelectedItem] = useState<FileItem | null>(null);
+  // const [selectedItem, setSelectedItem] = useState<FileItem | null>(null);
   const [currentItems, setCurrentItems] = useState<FileItem[]>(items);
 
   // Reset when sidebar folder is clicked
   useEffect(() => {
-    setSelectedItem(null);
+    // setSelectedItem(null);
     setCurrentItems(items);
   }, [items]);
 
@@ -43,7 +43,7 @@ const ContentArea: React.FC<ContentAreaProps> = ({ items, onFolderClick }) => {
     } else {
       setCurrentItems([]);
     }
-    setSelectedItem(item);
+    // setSelectedItem(item);
     if (item.onClick) {
       item.onClick();
       return; // Prevent default behavior

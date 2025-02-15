@@ -42,10 +42,10 @@ const FileExplorer = ({ initialSidebarId, sidebarData }: FileExplorerProps) => {
   // Track the current index in the history (for navigation)
   const [historyIndex, setHistoryIndex] = useState(0);
   //For search input
-  const [searchQuery, setSearchQuery] = useState('');
+  // const [searchQuery, setSearchQuery] = useState('');
   const [filteredItems, setFilteredItems] = useState<FileItem[] | null>(null);
 
-  const [items, setItems] = useState<FileItem[]>([]);
+  // const [items, setItems] = useState<FileItem[]>([]);
 
   useEffect(() => {
     const initialChildren = getChildrenById(initialSidebarId) as FileItem[];
@@ -56,7 +56,7 @@ const FileExplorer = ({ initialSidebarId, sidebarData }: FileExplorerProps) => {
     if (initialFolder) {
       setActiveFolder(initialChildren);
       // setActiveFolder(initialFolder.children || []);
-      setItems(initialFolder.children || []); // Update items prop to match activeFolder state
+      // setItems(initialFolder.children || []); // Update items prop to match activeFolder state
       setCurrentPath([{
         id: initialFolder.id,
         name: initialFolder.name,
@@ -95,7 +95,7 @@ const FileExplorer = ({ initialSidebarId, sidebarData }: FileExplorerProps) => {
       ]);
       setActiveFolder(folder.children || []);    // Show folder contents
       setFilteredItems(null);
-      setSearchQuery('');  // Clear input field
+      // setSearchQuery('');  // Clear input field
       updateHistory([
         {
           id: folder.id,
@@ -161,7 +161,7 @@ const FileExplorer = ({ initialSidebarId, sidebarData }: FileExplorerProps) => {
     const initialChildren = getChildrenById(1) as FileItem[];
     setActiveFolder(initialChildren);
     setFilteredItems(null);
-    setSearchQuery('');
+    // setSearchQuery('');
     setCurrentPath([{ id: 1, name: "Home", type: "folder", icons: "" }]);
     setHistory([[{ id: 1, name: "Home", type: "folder", icons: "" }]]);
     setHistoryIndex(0);
@@ -173,14 +173,14 @@ const FileExplorer = ({ initialSidebarId, sidebarData }: FileExplorerProps) => {
     const newChildren = (getChildrenById(10) as FileItem[]) || [];
     setActiveFolder(newChildren);
     setFilteredItems(null);
-    setSearchQuery('');
+    // setSearchQuery('');
     updateHistory([{ id: 10, name: "This PC", type: "folder", icons: "" }]);
   };
 
   //For search query
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const query = event.target.value;
-    setSearchQuery(query);
+    /// setSearchQuery(query);
   
     if (!query) {
       setFilteredItems(null);

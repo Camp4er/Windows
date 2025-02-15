@@ -8,9 +8,9 @@ const Paint: React.FC = () => {
     const [selectedTool, setSelectedTool] = useState('pencil');
     const [strokeColor, setStrokeColor] = useState('#000000');
     const [fillColor, setFillColor] = useState('#ffffff');
-    const [lineWidth, setLineWidth] = useState(2);
-    const [canvasWidth, setCanvasWidth] = useState(800);
-    const [canvasHeight, setCanvasHeight] = useState(600);
+    //const [lineWidth, setLineWidth] = useState(2);
+    //const [canvasWidth, setCanvasWidth] = useState(800);
+    //const [canvasHeight, setCanvasHeight] = useState(600);
     const [zoomLevel, setZoomLevel] = useState(1);
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const [context, setContext] = useState<CanvasRenderingContext2D | null>(null);
@@ -24,7 +24,11 @@ const Paint: React.FC = () => {
     const [textInput, setTextInput] = useState('');
     const [isTyping, setIsTyping] = useState(false);
     const [isInsideCanvas, setIsInsideCanvas] = useState(false);
-    const [shapeData, setShapeData] = useState<{ x: number; y: number; width: number; height: number }>({ x: 0, y: 0, width: 0, height: 0 });
+    //const [shapeData, setShapeData] = useState<{ x: number; y: number; width: number; height: number }>({ x: 0, y: 0, width: 0, height: 0 });
+
+    const lineWidth = 2;
+    const canvasWidth = 800;
+    const canvasHeight = 600;
 
     useEffect(() => {
         const canvas = canvasRef.current;
@@ -64,7 +68,7 @@ const Paint: React.FC = () => {
         const y = e.nativeEvent.offsetY;
         setStartX(x);
         setStartY(y);
-        setShapeData({ x, y, width: 0, height: 0 });
+        //setShapeData({ x, y, width: 0, height: 0 });
 
         if (selectedTool === 'text') {
             setIsTyping(true);

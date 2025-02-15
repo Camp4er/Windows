@@ -17,6 +17,16 @@ const initialFileSystem: FileSystem = {
   },
 };
 
+type Tab = {
+  id: number;
+  output: any[];
+  history: string[];
+  historyIndex: number;
+  path: string[];
+};
+
+type TabsState = Tab[];
+
 // Collection of jokes and riddles
 const jokes = [
   "Why do programmers prefer dark mode? Because light attracts bugs! 🪲😂",
@@ -69,7 +79,7 @@ const riddles = [
 ];
 
 const Terminal = () => {
-  const [tabs, setTabs] = useState([
+  const [tabs, setTabs] = useState<TabsState>([
     {
       id: 1,
       output: ["Welcome to PowerShell! Type 'HELP' to start."],
@@ -90,7 +100,7 @@ const Terminal = () => {
 
   const getCurrentTab = () => tabs.find((tab) => tab.id === activeTab);
 
-  const updateTab = (updatedTab: any) => {
+  const updateTab = (updatedTab: Tab) => {
     setTabs(tabs.map((tab) => (tab.id === activeTab ? updatedTab : tab)));
   };
 
@@ -106,7 +116,7 @@ const Terminal = () => {
         {`>`} <span className="text-yellow-400">{command}</span>
       </span>,
     ];
-    let newPath = [...currentTab.path];
+    const newPath = [...currentTab.path];
 
     const commandParts = command.split(" ");
     const mainCommand = commandParts[0].toLowerCase();
