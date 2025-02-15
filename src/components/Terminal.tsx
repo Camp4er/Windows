@@ -82,7 +82,7 @@ const Terminal = () => {
   const [tabs, setTabs] = useState<TabsState>([
     {
       id: 1,
-      output: [<span>Welcome to PowerShell! Type 'HELP' to start.</span>], // Wrap initial output in a span
+      output: [<span>Welcome to PowerShell! Type &apos;HELP&apos; to start.</span>], // Wrap initial output in a span
       history: [],
       historyIndex: -1,
       path: ["C:", "Users", "Poorva"],
@@ -111,7 +111,7 @@ const Terminal = () => {
 
     const newOutput = [
       ...currentTab.output,
-      <span>
+      <span key={Date.now()}>
         PS {currentTab.path.join("\\")}
         {`>`} <span className="text-yellow-400">{command}</span>
       </span>,
@@ -296,7 +296,7 @@ const Terminal = () => {
       ...tabs,
       {
         id: nextTabId,
-        output: ["Welcome to PowerShell! Type 'HELP' to start."],
+        output: [<span>Welcome to PowerShell! Type &apos;HELP&apos; to start.</span>], // Wrap initial output in a span
         history: [],
         historyIndex: -1,
         path: ["C:", "Users", "Poorva"],
