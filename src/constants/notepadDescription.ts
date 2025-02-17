@@ -13,11 +13,14 @@ export const LRIT = `
 ### Software Developer Intern 🚀\n
 **LeopardRuns Innovation and Technology**\n
 📍 Remote | February 2024 – April 2024\n\n
-- 🎨 Designed user experience flows for multiple features, enhancing usability and user navigation.\n
-- 🌐 Developed a blood donation website, contributing to an improved user experience through compelling visuals and design.\n
-- ⚡ Improved website performance by optimizing assets, reducing load time by 20%.\n
-- 🛠️ Conducted code reviews and debugging sessions, ensuring code quality and maintainability.\n
+- 🏆 Successfully passed an evaluation to transition from an unpaid to a paid internship, ranking among the top performers.\n  
+- 🏗️ Developed the frontend of a full-stack e-commerce website, implementing UI components, navigation, and responsive design. \n  
+- 🔄 Integrated backend APIs into the frontend, collaborating closely with a backend developer to ensure seamless data flow. \n  
+- 🚀 Gained hands-on experience in full-stack development, API integration, and cross-team collaboration. \n  
+- 📊 Attended daily training sessions focused on JavaScript fundamentals, enhancing problem-solving and coding efficiency. \n  
 - 🤝 Collaborated with a team of developers and designers to deliver user-centered solutions.\n
+- 🎖️ Received an official certification upon completion of the internship. \n  
+
 `;
 
 export const F50 = `
