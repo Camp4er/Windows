@@ -228,7 +228,7 @@ const Toolbar = ({
           </button>
           <button className="hover:bg-gray-700 opacity-50 p-2 rounded">
             <Image
-              src="/icons/more.png"
+              src="/icons/More.png"
               alt="more icon"
               width={18}
               height={18}
